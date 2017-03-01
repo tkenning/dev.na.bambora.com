@@ -1,23 +1,23 @@
 Getting Started With Customizing The Developer Portal
 ------------------------------
+
 Welcome to the bambora developer portal source site. Here you will find the source that builds up the portal as well as the documentation. We have also included instructions on how to build this site on your own and how to contribute changes.
 
-## Submit A Documentation Change
-If you want to make a change to the documentation on the developer portal, click on one of these following links to be taken to the markdown file that defines the page. Edit that file (in the browser if you wish) and submit a pull request. We will review it and if accepted, and automated build will deploy your change.
+## Build the Site 
 
-You can define and import sub-pages in the top-level topics. Just add the markdown file to the includes section at the top of the file:
-```
-includes:
-  - web/checkout
-  - web/hosted_fields
-  - web/my_new_topic
-```
-You will need to prefix the actual file name with an underscore, but make sure to leave that out when adding it in the includes section.
+The easiest way to get set up is to use the included Dockerfile (must install docker first).
 
-*Note* that in preview mode in GitHub it will look a bit wonky with the code samples. That is because we render the markdown using a tool called Slate and it is not built into GitHub.
+```shell
+docker build -t devbamboracom .
+docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom
+``` 
 
-## Build The Site
-If you want to build the site on your own machine to play around with the layout our CSS, follow the steps instructions here.
+You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
+
+*Note: if you're using the Docker setup on Windows or OSX, the docs will be
+available at the output of `docker-machine ip <machine-name>` (port: 4567) instead of `localhost:4567`.*
+
+Alternatively, you can build the site locally:
 
 ### Prerequisites
 
@@ -35,13 +35,6 @@ You're going to need:
  4. Install all dependencies: `bundle install`
  5. Start the test server: `EXECJS_RUNTIME=Node bundle exec middleman server`
 
-Or use the included Dockerfile! (must install Docker first)
-
-```shell
-sudo docker build -t devbamboracom .
-
-sudo docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom
-```
 
 If you want to build the static site files only then run:
 ```shell
@@ -53,10 +46,21 @@ If you want to run the site in a standalone simple web server run:
 bundle exec rake run
 ```
 
-You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 
-*Note: if you're using the Docker setup on Windows or OSX, the docs will be
-available at the output of `docker-machine ip <machine-name>` (port: 4567) instead of `localhost:4567`.*
+## Submit A Documentation Change
+
+If you want to make a change to the documentation on the developer portal, click on one of these following links to be taken to the markdown file that defines the page. Edit that file (in the browser if you wish) and submit a pull request. We will review it and if accepted, and automated build will deploy your change.
+
+You can define and import sub-pages in the top-level topics. Just add the markdown file to the includes section at the top of the file:
+```
+includes:
+  - web/checkout
+  - web/hosted_fields
+  - web/my_new_topic
+```
+You will need to prefix the actual file name with an underscore, but make sure to leave that out when adding it in the includes section.
+
+*Note* that in preview mode in GitHub it will look a bit wonky with the code samples. That is because we render the markdown using a tool called Slate and it is not built into GitHub.
 
 ### Editing The Site
 This site is built using two tools: [Slate](https://github.com/tripit/slate) and [Swagger UI](https://github.com/jensoleg/swagger-ui). Slate is the main framework that has all the text descriptions and code samples. Swagger displays the API spec in a readable and interactable way. We are using a custom fork of Swagger UI.
