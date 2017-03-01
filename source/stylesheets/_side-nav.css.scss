@@ -22,24 +22,30 @@
 
 .js-toc .toc-link.node-name--H2 {
   font-size: 14px;
-  margin-left: 20px;
+  padding-left: 30px;
 }
 
 .js-toc .toc-link.node-name--H3 {
   font-size: 12px;
-  margin-left: 30px;
+  padding-left: 40px;
 }  
 
 .js-toc .toc-link.node-name--H4 {
   color:$contrast !important;
   font-size: 12px;
-  margin-left: 40px;
+  padding-left: 50px;
 }
 
 .js-toc .toc-link.node-name--H5 {
   color: $contrast !important;
   font-size: 10px; 
-  margin-left: 50px;
+  padding-left: 60px;
+}
+
+.js-toc .toc-link.node-name--H6 {
+  color: $contrast !important;
+  font-size: 10px; 
+  padding-left:70px;
 }
 
 .js-toc .is-collapsible {
