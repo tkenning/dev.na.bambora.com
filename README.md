@@ -1,9 +1,11 @@
-Getting Started With Customizing The Developer Portal
-------------------------------
+Getting Started With The Developer Portal
+-----------------------------------------
 
 Welcome to the bambora developer portal source site. Here you will find the source that builds up the portal as well as the documentation. We have also included instructions on how to build this site on your own and how to contribute changes.
 
 ## Build the Site 
+
+### Docker 
 
 The easiest way to get set up is to use the included Dockerfile (must install docker first).
 
@@ -18,9 +20,11 @@ You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 *Note: if you're using the Docker setup on Windows or OSX, the docs will be
 available at the output of `docker-machine ip <machine-name>` (port: 4567) instead of `localhost:4567`.*
 
+### Run Locally
+
 Alternatively, you can build the site locally:
 
-### Prerequisites
+#### Prerequisites
 
 You're going to need:
 
@@ -29,7 +33,7 @@ You're going to need:
  - **Ruby, version 1.9.3 or newer**
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
-### Getting Set Up
+#### Getting Set Up
 
  1. Clone this repository. You can optionally fork the repo too.
  3. `cd dev.bambora.com`
@@ -46,7 +50,6 @@ If you want to run the site in a standalone simple web server run:
 ```shell
 bundle exec rake run
 ```
-
 
 ## Submit A Documentation Change
 
