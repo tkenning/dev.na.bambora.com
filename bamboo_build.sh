@@ -1,0 +1,67 @@
+#!/bin/bash
+
+APP_HOME=${bamboo.build.working.directory}
+
+mkdir -p build
+docker run -v $APP_HOME/build:/usr/src/app/build dev.bambora.com static
+
+docker build -t dev.bambora.com .
+
+mkdir -p artifact
+zip -r artifact/site.zip build/
+
+export AWS_ACCESS_KEY_ID=${bamboo_awsAccessKeyId}
+export AWS_SECRET_ACCESS_KEY=${bamboo_awsSecretAccessKeyPassword}
+
+APP_HOME=${bamboo.build.working.directory}
+
+planName=${bamboo.shortPlanName}
+
+echo "plan name: ${planName}"
+
+newBucket=False
+if [ -z "$planName" ]
+then 
+    echo "deploying master to production..."
+    bucket_name=dev.beanstream.com
+else
+    echo "deploying branch to test..."
+    bucket_name="dev.beanstream.com.${planName}"
+    
+    if aws s3 ls "s3://${bucket_name}" 2>&1 | grep -q 'NoSuchBucket'
+    then
+        echo "Bucket doesn't exist. Creating bucket..."
+        newBucket=true
+        aws s3 mb "s3://${bucket_name}"
+    fi
+fi
+
+
+echo "Syncing to bucket..."
+aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
+
+
+
+policy="{
+	\"Version\": \"2012-10-17\",
+	\"Statement\": [
+		{
+			\"Sid\": \"AddPerm\",
+			\"Effect\": \"Allow\",
+			\"Principal\": \"*\",
+			\"Action\": [
+			    \"s3:GetObject\",
+			    \"s3:PutObject\",
+			    \"s3:PutObjectAcl\"
+			],
+			\"Resource\": \"arn:aws:s3:::dev.beanstream.com.roboto/*\"
+		}
+	]
+}"
+
+if [ "$newBucket" = true ]
+then
+    echo "Enabling static website and adding bucket policy..."
+    aws s3 website "s3://${bucket_name}" --index-document index.html
+    aws s3api put-bucket-policy --bucket "${bucket_name}" --policy "${policy}"    
+fi
