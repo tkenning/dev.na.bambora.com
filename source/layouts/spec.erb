@@ -78,8 +78,22 @@ under the License.
     </div>
 
     <%= partial "layouts/footer" %>
-
     <%= javascript_include_tag "template/tocbot_init_script" %>
+
+    <script>
+      // spec template has different headingsOffset for tocbot
+      tocbot.init({
+        tocSelector: '.js-toc',
+        contentSelector: '.js-toc-content',
+        headingSelector: 'h2, h3, h4, h5',
+        ignoreSelector: '.js-toc-ignore',
+        collapseDepth: 1,
+        headingsOffset: 80,
+        smoothScrollOptions: {
+          offset: 100
+        }
+      });
+    </script>
 
   </body>
 </html>
