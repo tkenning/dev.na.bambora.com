@@ -27,7 +27,7 @@ Our Server SDKs wrap our Payments, Payment Profiles, and Reporting APIs. You can
 | PHP      | [Source][php-source]    | [Docs][php-docs]    | [Composer][php-pm] |
 | Ruby     | [Source][ruby-source]   |                     | [Gem][ruby-pm]     |
 | Python   | [Source][python-source] | [Docs][python-docs] | [PIP][python-pm]   |
-| Java     | [Source][java-source]   | [Docs][java-docs]   | [Maven][java-pm] |
+| Java     | [Source][java-source]   | [Docs][java-docs]   | [Maven][java-pm]   |
 | C#       | [Source][csharp-source] | [Docs][csharp-docs] | [Nuget][csharp-pm] |
 | Go       | [Source][go-source]     |                     |                    |
 
@@ -67,7 +67,7 @@ Our Mobile SDKs wraps our Tokenization API. You can read more about the function
 [android-docs]: #
 [android-pm]: https://beanstream.jfrog.io/beanstream/libs-release
 [ios-source]: https://github.com/Beanstream/beanstream-ios-payform
-[ios-docs]: 
+[ios-docs]: #
 [ios-pm]: https://beanstream.jfrog.io/beanstream/api/pods/beanstream-public
 
 ## Browser SDK
