@@ -1,0 +1,19 @@
+logo: 
+  link: /docs/
+  light: "beanstream_developer_white.svg"
+  dark: "beanstream_developer.png"
+links:
+  - file: /docs/guides/
+    title: Guides
+  - file: /docs/references/
+    title: References
+  - file: /docs/support/
+    title: Support
+
+buttons:
+  - file: /docs/forms/create_test_merchant_account/
+    title: Sign up
+    secondary: true
+  - file: https://www.beanstream.com/admin/sDefault.asp
+    title: Login
+    new_tab: True
