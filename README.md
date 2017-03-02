@@ -9,8 +9,9 @@ The easiest way to get set up is to use the included Dockerfile (must install do
 
 ```shell
 docker build -t devbamboracom .
-docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom
-``` 
+# /path/to/source is your local path to the source directory
+docker run -v /path/to/source:/usr/src/app/source -p 4567:4567 devbamboracom
+```
 
 You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 

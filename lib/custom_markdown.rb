@@ -11,6 +11,7 @@ class CustomMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
       :prettify => true,
       :with_toc_data => true,
     )
+    @anchors = []
   end
 
   # Add .table class to markdown tables for Bambora UI styling. 
@@ -22,6 +23,14 @@ class CustomMarkdown < Middleman::Renderers::MiddlemanRedcarpetHTML
       "<tbody>#{body}</tbody>" \
     "</table>" \
     "</div>"
+  end
+  
+  def header(text, level)
+    require 'securerandom'
+    num = SecureRandom.hex
+    anchor = text.downcase.gsub(' ', '-') + "-#{num}"
+
+    %(<h#{level} id="#{anchor}">#{text}</h#{level}>)
   end
 
 end
