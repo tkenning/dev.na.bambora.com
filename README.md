@@ -2,10 +2,10 @@
 
 ## Contents
 
-[Build the site]()
-[Branching and merging]()
-[Editing the docs]()
-[Making non-documentation changes to the site]()
+* [Build the site](#build-the-site)
+* [Branching and merging](#branching-and-merging)
+* [Editing the docs](#editing-the-docs)
+* [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
 
 ## Build the site 
 
@@ -76,7 +76,7 @@ Every page of the developer portal has an 'Edit this page' button in the top rig
 
 ### Through a git branch 
 
-Larger changes to the documentation should be made locally on a branch of the repository. See the [Branching and merging]() section for details on the branching strategy of the repository. The documentation lives in the `source/docs/` folder of the repository.
+Larger changes to the documentation should be made locally on a branch of the repository. See the [Branching and merging](#branching-and-merging) section for details on the branching strategy of the repository. The documentation lives in the `source/docs/` folder of the repository.
 
 
 ### Markdown and YAML
