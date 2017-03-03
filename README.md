@@ -17,8 +17,12 @@ The simplest way to get set up is to use the included Dockerfile (must install d
 git clone https://github.com/bambora/dev.na.bambora.com.git
 cd dev.na.bambora.com
 docker build -t devbamboracom .
-docker run -v /path/to/source:/usr/src/app/source -p 4567:4567 devbamboracom 
-# /path/to/source is your local path to the source directory in the repo
+
+# For windows: 
+docker run -v $pwd/source/:/usr/src/app/source -p 4567:4567 devbamboracom
+
+# For linux:  
+docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom 
 ```
 
 You can now see the docs at <http://localhost:4567>. 
