@@ -15,7 +15,7 @@ task :run_server do
 end
 
 task :dev_server do 
-  sh "EXECJS_RUNTIME=Node bundle exec middleman"
+  sh "EXECJS_RUNTIME=Node bundle exec middleman server --force-polling"
 end
 
 task :dev => [:dev_server]
