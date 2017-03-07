@@ -9,8 +9,8 @@ then
     echo "deploying master to production..."
     bucket_name=dev.beanstream.com
 else
-    echo "deploying branch to test..."
-    bucket_name="branch-dev.beanstream.com.${planName}"
+    echo "deploying branch at dev.beanstream.com.${branch}..."
+    bucket_name="dev.beanstream.com.${branch}"
     
     if aws s3 ls "s3://${bucket_name}" 2>&1 | grep -q 'NoSuchBucket'
     then
@@ -23,8 +23,6 @@ fi
 
 echo "Syncing to bucket..."
 aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
-
-
 
 policy="{
 	\"Version\": \"2012-10-17\",
