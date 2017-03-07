@@ -1,25 +1,33 @@
-#require 'middleman-gh-pages'
 require 'rake/clean'
+require 'fileutils'
 
 CLOBBER.include('build')
 
-
-task :build_slate do
-  puts "building slate"
-  sh "bundle exec middleman build --verbose"
+desc "Build the static site"
+task :build_site do
+  sh %{ bundle exec middleman build --verbose }
 end
 
-task :run_server do
-  sh "bundle install"
-  sh "ruby -run -ehttpd ./build -p4567"
+desc "Start a server for the built site"
+task :run_server do   
+  sh %{ ruby -run -ehttpd ./build -p4567 }
 end
 
-task :dev_server do 
-  sh "EXECJS_RUNTIME=Node bundle exec middleman"
+desc "Run the live updating development server"
+task :development_server do 
+  sh %{ EXECJS_RUNTIME=Node bundle exec middleman server } 
 end
+
+desc "Build the site with docker"
+task :docker_build do
+  sh "docker build -t dev.bambora.com ."
+  sh "mkdir -p build"
+  sh "docker run -v `pwd`/build:/usr/src/app/build dev.bambora.com static"
+end
+
 
 task :dev => [:dev_server]
 
-task :run => [:build_slate, :run_server]
+task :run => [:build_site, :run_server]
 
-task :static => [:build_slate]
+task :static => [:build_site]

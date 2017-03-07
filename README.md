@@ -1,82 +1,121 @@
-Getting Started With The Developer Portal
------------------------------------------
+# Developer Portal for North America 
 
-Welcome to the bambora developer portal source site. Here you will find the source that builds up the portal as well as the documentation. We have also included instructions on how to build this site on your own and how to contribute changes.
+## Contents
 
-## Build the Site 
+* [Build the site](#build-the-site)
+* [Branching and merging](#branching-and-merging)
+* [Editing the docs](#editing-the-docs)
+* [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
+
+## Build the site 
 
 ### Docker 
 
-The easiest way to get set up is to use the included Dockerfile (must install docker first).
+The simplest way to get set up is to use the included Dockerfile (must install docker first).
 
-```shell
+```shell 
+git clone https://github.com/bambora/dev.na.bambora.com.git
+cd dev.na.bambora.com
 docker build -t devbamboracom .
-# /path/to/source is your local path to the source directory
-docker run -v /path/to/source:/usr/src/app/source -p 4567:4567 devbamboracom
+
+# For windows: 
+docker run -v $pwd/source/:/usr/src/app/source -p 4567:4567 devbamboracom
+
+# For linux:  
+docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom 
 ```
 
-You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
+You can now see the docs at <http://localhost:4567>. 
 
 *Note: if you're using the Docker setup on Windows or OSX, the docs will be
 available at the output of `docker-machine ip <machine-name>` (port: 4567) instead of `localhost:4567`.*
 
-### Run Locally
+### Run locally 
 
-Alternatively, you can build the site locally:
-
-#### Prerequisites
-
-You're going to need:
+Alternatively, you can build and run the site locally. You're going to need: 
 
  - **Linux , OS X, windows**.
- - **A computer and a willingness to do great things**
  - **Ruby, version 1.9.3 or newer**
+ - **Node.js**
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
-#### Getting Set Up
 
- 1. Clone this repository. You can optionally fork the repo too.
- 3. `cd dev.bambora.com`
- 4. Install all dependencies: `bundle install`
- 5. Start the test server: `EXECJS_RUNTIME=Node bundle exec middleman server`
-
-
-If you want to build the static site files only then run:
 ```shell
-bundle exec rake static
+git clone https://github.com/bambora/dev.na.bambora.com.git
+cd dev.na.bambora.com
+bundle install 
 ```
 
-If you want to run the site in a standalone simple web server run:
-```shell
-bundle exec rake run
+To start the preview web server:
+
+```shell 
+EXECJS_RUNTIME=Node bundle exec middleman server
 ```
 
-## Submit A Documentation Change
+If you want to build the static site files only then run: 
 
-If you want to make a change to the documentation on the developer portal, click on one of these following links to be taken to the markdown file that defines the page. Edit that file (in the browser if you wish) and submit a pull request. We will review it and if accepted, and automated build will deploy your change.
+```shell
+bundle exec rake static 
+```
 
-You can define and import sub-pages in the top-level topics. Just add the markdown file to the includes section at the top of the file:
+If you want to run the static site in a standalone simple web server run: 
+
+```shell
+bundle exec rake run 
+```
+
+## Editing the docs
+ 
+There are two main ways to make changes to the documentation.
+
+
+### Through you web browser 
+
+Every page of the developer portal has an 'Edit this page' button in the top right corner. Clicking this will prompt you to create or sign in to a Github account and fork the developer portal repository. You will then be taken to the markdown version of the page you wish to edit. After making your changes, click propose file changes and then create a pull request against the master branch of the repository. Your changes will be reviewed and merged into the developer portal.  
+
+
+### Through a git branch 
+
+Larger changes to the documentation should be made locally on a branch of the repository. See the [Branching and merging](#branching-and-merging) section for details on the branching strategy of the repository. The documentation lives in the `source/docs/` folder of the repository.
+
+
+### Markdown and YAML
+
+The documentation pages on the site are written in [YAML](https://learnxinyminutes.com/docs/yaml/) and [Markdown](http://commonmark.org/help/). YAML is used to define frontmatter configuration for each page (e.g. specifying it's template) and Markdown is used to write the actual documentation. 
+
+You can define and import sub-pages in top level pages to separate content. Just add an `includes` key to the frontmatter of a page: 
+
 ```
 includes:
   - web/checkout
   - web/hosted_fields
   - web/my_new_topic
 ```
-You will need to prefix the actual file name with an underscore, but make sure to leave that out when adding it in the includes section.
+
+You will need to add the actual file to the `source/includes/` directory and prefix it with an underscore, but make sure to leave that our when adding it in the includes section. 
 
 *Note* that in preview mode in GitHub it will look a bit wonky with the code samples. That is because we render the markdown using a tool called Slate and it is not built into GitHub.
 
-### Editing The Site
-This site is built using two tools: [Slate](https://github.com/tripit/slate) and [Swagger UI](https://github.com/jensoleg/swagger-ui). Slate is the main framework that has all the text descriptions and code samples. Swagger displays the API spec in a readable and interactable way. We are using a custom fork of Swagger UI.
+The markdown parser also supports tables formatted like so: 
 
-With the dev portal is all set up your machine, you'll probably want to learn more about Slate. The first place is to learn about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
+```
+| header 1 | header 2 |
+| -------- | -------- |
+| cell 1   | cell 2   |
+| cell 3   | cell 4   |
+```
 
-The content is laid out like so:
-**Markdown files** located in _/source_ and in _/includes_ hold the content of the site. These are what are edited to change the documentation.
-**/layout/layout.erb** defines the layout of the site; it is the template.
-**/api** contains the swagger UI code. In _/api/index.html_ we define where the swagger definition file lives that we will use. The swagger file in this /api directory is not necessarily used as the base definition for this site.
+The spec template uses a tool called [Slate](https://github.com/tripit/slate) to render tabs on the right of the page to display code samples in different languages. You might want to learn about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
+
+## Branching and merging 
+
+The site is auto-deployed on pushes to the master branch that build successfully. Changes should first be made and tested on a dedicated development team branch, then pushed to the staging branch, and only staging should ever be pushed to master.
+
+Any branch pushed to the github repo will attempt to build and, if successful, will deploy to an internally accessible s3 bucket with the name dev.beanstream.com.#{branch_name}. These buckets will periodically be deleted but will be recreated if need be when the branch is pushed again (development team base branches will never be deleted).
+
+When development team branches are pushed, Bamboo will try and merge in the master branch before building them and, if successful, will commit the merge back to the development team branch. 
 
 
-### Publishing
+## Making non-documentation changes to the site 
 
-To submit a documentation change back to this site just send a pull request with the markdown files that you modified. We will review them and accept them if there are no changes needed, and an automated build will run and deploy the site within a few minutes.
+With a little more effort, larger changes (e.g. adding a new template, changing css styling) can be made to the developer portal. 
