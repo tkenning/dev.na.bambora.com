@@ -4,6 +4,7 @@ EXPOSE 4567
 RUN apt-get update && apt-get install -y git
 RUN apt-get install -y nodejs
 RUN gem install bundler
+RUN pip install awscli
 RUN bundle install
 
 ENTRYPOINT ["rake"]
