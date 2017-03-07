@@ -25,35 +25,25 @@ task :docker_build do
   sh "docker run -v `pwd`/build:/usr/src/app/build dev.bambora.com static"
 end
 
-desc "Zip the artifact for Bamboo"
-task :zip_artifact do 
-  puts "Zipping artifact"
-  sh "mkdir -p artifact"
-  sh "zip -r artifact/site.zip build/"
-end
-
 desc "Deploy build to s3"
 task :deploy do 
-  sh %{ git symbolic-ref --short HEAD } do |ok, res| 
-    if ok 
-      if res == "master"
-        puts "deploying master to production"
-        bucket_name = "dev.beanstream.com"
-      else
-        puts "Deploying branch #{res}"
-        bucket_name = "dev.beanstream.com.branch.#{res}"
+  branch = `git symbolic-ref --short HEAD` 
+  if branch == "master"
+    puts "deploying master to production"
+    bucket_name = "dev.beanstream.com"
+  else
+    puts "Deploying branch #{branch}"
+    bucket_name = "dev.beanstream.com.branch.#{branch}"
 
-        sh %{ aws s3 ls "s3://#{bucket_name}" } do |ok, res| 
-          if ok 
-            puts res
-          end
-        end
-      end
-
-      puts "syncing to bucket"
-      # sh %{ aws s3 sync --delete --exact-timestamps /build s3://#{bucket_name} }
-    end
+    # sh %{ aws s3 ls "s3://#{bucket_name}" } do |ok, res| 
+    #   if ok 
+    #     puts res
+    #   end
+    # end
   end
+
+  puts "syncing to bucket"
+  # sh %{ aws s3 sync --delete --exact-timestamps /build s3://#{bucket_name} }
 end
 
 desc "Cleanup buckets for deployed feature branches"
@@ -63,14 +53,9 @@ task :cleanup_deployed_buckets do
       puts "Cannot access aws s3api"
     else 
       puts "res"
-      # TODO: 
+      # TODO:
     end
   end
-end
-
-desc "a test task. Delete me."
-task :test_task do
-  puts "This is a test rake task"
 end
 
 task :dev => [:dev_server]
@@ -79,6 +64,4 @@ task :run => [:build_site, :run_server]
 
 task :static => [:build_site]
 
-task :bamboo => [:docker_build, :zip_artifact, :deploy]
-
-task :test => [:test_task]
+task :bamboo => [:build_site, :deploy]
