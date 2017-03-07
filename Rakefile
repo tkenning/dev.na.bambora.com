@@ -26,24 +26,34 @@ task :docker_build do
 end
 
 desc "Deploy build to s3"
-task :deploy do 
+task :deploy do
+  new_bucket = false 
   branch = `git symbolic-ref --short HEAD` 
   if branch == "master"
-    puts "deploying master to production"
+    puts "deploying master to production..."
     bucket_name = "dev.beanstream.com"
   else
-    puts "Deploying branch #{branch}"
+    puts "Deploying branch #{branch}..."
     bucket_name = "dev.beanstream.com.branch.#{branch}"
 
-    # sh %{ aws s3 ls "s3://#{bucket_name}" } do |ok, res| 
-    #   if ok 
-    #     puts res
-    #   end
-    # end
+    if `aws s3 ls "s3://#{bucket_name}" 2>&1 | grep -q 'NoSuchBucket'`
+      puts "Bucket doesn't exist, creating bucket...'"
+      new_bucket = true 
+      sh %{ aws s3 mb "s3://#{bucket_name}" }
+    end
   end
-
+  
   puts "syncing to bucket"
-  # sh %{ aws s3 sync --delete --exact-timestamps /build s3://#{bucket_name} }
+  sh %{ aws s3 sync --delete --exact-timestamps /build s3://#{bucket_name} }
+
+  if new_bucket
+    puts "Enabling static website and adding policy to new bucket..."
+    file = File.open("s3-bucket-policy.json", "rb")
+    policy = file.read
+    file.close
+    sh %{ aws s3 website "s3://#{bucket_name}" --index-document index.html }
+    sh %{ aws s3api put-bucket-policy --bucket "#{bucket_name}" --policy "#{policy}"}
+  end
 end
 
 desc "Cleanup buckets for deployed feature branches"
