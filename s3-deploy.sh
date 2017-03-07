@@ -13,13 +13,13 @@ else
     then
         echo "Bucket doesn't exist. Creating bucket..."
         newBucket=true
-        #aws s3 mb "s3://${bucket_name}"
+        aws s3 mb "s3://${bucket_name}"
     fi
 fi
 
 
 echo "Syncing to bucket..."
-#aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
+aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
 
 
 
@@ -42,6 +42,6 @@ policy="{
 if [ "$newBucket" = true ]
 then
     echo "Enabling static website and adding bucket policy..."
-    #aws s3 website "s3://${bucket_name}" --index-document index.html
-    #aws s3api put-bucket-policy --bucket "${bucket_name}" --policy "${policy}"    
+    aws s3 website "s3://${bucket_name}" --index-document index.html
+    aws s3api put-bucket-policy --bucket "${bucket_name}" --policy "${policy}"    
 fi
