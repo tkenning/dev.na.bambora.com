@@ -126,7 +126,6 @@ The spec template uses a tool called [Slate](https://github.com/tripit/slate) to
 
 #### FAQ layout
 
-
 ## Branching and merging
 
 The site is auto-deployed on pushes to the master branch that build successfully. Changes should first be made and tested on a dedicated development team branch, then pushed to the staging branch, and only staging should ever be pushed to master.
