@@ -44,11 +44,25 @@
 
       <% if definitions["#{schema_title}"].has_key? "type" %>
 
-        <% prop_desc = partial "layouts/_swagger_partials/property", 
-            :locals => {
-              :property => definitions["#{schema_title}"]
-            } %>
+        <% if definitions["#{schema_title}"].type == "object" %>
+        
+          <% prop_desc = partial "layouts/_swagger_partials/schema", 
+              :locals => {
+                :schema_title => schema_title, 
+                :definitions => definitions, 
+                :operation => operation, 
+                :path_name => path_name
+          } %>
+        
+        <% else %>
 
+          <% prop_desc = partial "layouts/_swagger_partials/property", 
+              :locals => {
+                :property => definitions["#{schema_title}"]
+              } %>
+
+        <% end %>
+        
       <% else %>
       
         <% prop_desc = partial "layouts/_swagger_partials/schema", 
