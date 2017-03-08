@@ -26,7 +26,7 @@ task :docker_build do
 end
 
 
-task :dev => [:dev_server]
+task :dev => [:development_server]
 
 task :run => [:build_site, :run_server]
 

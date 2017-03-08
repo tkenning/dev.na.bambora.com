@@ -27,6 +27,13 @@ cards:
             The Payments SDKs wrap the Payments API. They include server, mobile and browser SDKs.
         icon: list
         link: /docs/references/merchant_SDKs/
+    -
+        title: AVS – Address Verification System
+        description: >
+            The Address Verification System (AVS), is a free tool that compares customer-submitted order information against bank databases.
+        icon: creditcard-outline
+        link: /docs/references/AVS/
+
 
 
 ---
