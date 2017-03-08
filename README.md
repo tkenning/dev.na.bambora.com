@@ -84,6 +84,7 @@ The documentation pages on the site are written in [YAML](https://learnxinyminut
 Every page on the site has YAML frontmatter to configure the page. The yaml is defined between three dashes on either side. Some fields are required, some are optional, and some are [layout specific](#layouts). Order is not important. Here's some example frontmatter showing fields that apply to all layouts: 
 
 ```yaml
+---
 # Required Fields 
 title: Example Title      # Used for the browser page title and search results. 
 layout: tutorial          # The layout (see layout section) to use the render the page. 
@@ -92,7 +93,11 @@ navigation:               # An object specifying the header, footer, and table o
   footer: site_footer         # The footer config file 
   toc: example_toc            # The table of contents config file 
   header_active: Guides       # The link in the header to highlight as activated
-  
+
+summary: >                  # A summary of the page displayed in search results.  
+  An example page showing   # Typically the first sentence(s) of the page serve as a good summary.
+  frontmatter configuration. 
+
 # Optional fields 
 breadcrumbs: false
 
@@ -101,6 +106,7 @@ includes:                 # You can define and import sub-pages in top level pag
   - web/checkout          # You will need to add the actual file to the source/includes/ directory and  
   - web/hosted_fields     # prefix it with an underscore, but make sure to leave that out when adding 
   - web/my_new_topic      # it in the includes section. 
+---
 ```
 
 For the YAML fields specific to each layout, see the [layouts](#layouts) section. 
@@ -148,37 +154,24 @@ right_links:              # The links floated to the right of the footer
     title: Github                                           # The link value
 ```
 
-
 ##### Table of contents files
 
 The toc config file referenced in the navigation object defines the table of contents for the page. It's written in YAML. A toc config file looks like this (`data/example_toc.yaml`): 
 
 ```yaml
-...
+- file: '/docs/guides/merchant_quickstart'  # The link 
+  title: 'Quickstart: Merchant'
+- file: '/docs/guides/partner_quickstart'
+  title: 'Quickstart: Partner'
 ```
 
-#### Example YAML frontmatter
-
-```yaml 
----
-title: Page Title
-layout: tutorial 
-navigation:
-  header: site_header
-  footer: site_footer
-  toc: none
-  header_active: Guides
-  
-breacrumbs: false
-
-includes: 
-  - web/checkout
----
-```
+If a `title` value in the table of contents config matches a page's frontmatter `title`, the headings from the page will be appended to the table of contents below it's title. 
 
 ### Markdown
 
-The markdown parser ([Redcarpet](https://github.com/vmg/redcarpet)) also supports tables formatted like so:
+After the frontmatter configuration, the actual content of pages is defined (for the most part) in markdown. See (here)[http://commonmark.org/help/] for a good overview of the capabilities of markdown. 
+
+The markdown parser ([Redcarpet](https://github.com/vmg/redcarpet)) supports tables formatted like so:
 
 ```markdown
 | header 1 | header 2 |
@@ -187,17 +180,65 @@ The markdown parser ([Redcarpet](https://github.com/vmg/redcarpet)) also support
 | cell 3   | cell 4   |
 ```
 
-The spec template uses a tool called [Slate](https://github.com/tripit/slate) to render tabs on the right of the page to display code samples in different languages. You might want to learn about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
-
 ### Layouts
 
+Every page on the site needs to have a layout specified in order to render properly. There are several layouts that are suited to displaying different types of content. 
+
 #### Landing layout
+
+The landing layout serves as the main page of the site. There should only be one page using the landing layout. It consists of a header image, markdown content, and any number of "card sets" serving as quick links to other pages on the site. The landing layout has some additional frontmatter configuration. 
+
+```yaml
+---
+hero_unit:                                   # Defines the "hero unit" (image, title, tagline) of the page. 
+    hero_image: Dev_Portal.jpg                    # The image file to use as a background
+    big_heading: Developer Documentation.         # The main page heading 
+    tag_line: A tagline.                          # Sits below the big_heading
+    button:                                       # Optional. A button displayed under the tag_line. 
+        text: Get started                           # The button text. 
+        link: /docs/quickstart/                     # The button link.
+        
+card_sets:                                  # Groups of cards that link to other pages on the site. 
+    -
+        title: Guides                         # The group title to display
+        description: >                        # The description below the title. 
+            Learn how to get things done. 
+        cards:                                # The cards that make up the card set. Can specify as many as needed. 
+            -
+                title: Merchant Quickstart        # The cards title 
+                description: >
+                    Get up and running fast by    # The cards description.  
+                    opening a test account.
+                icon: flag                        # An icon to display in the top left of the card. 
+                link: /docs/setup/                # The href when the card is clicked.
+            -
+                title: Partner Quickstart
+                description: >
+                    Get up and running fast by 
+                    opening a test account.
+                icon: flag
+                link: /docs/guides/partner_quickstart/setup/
+    -
+        title: References                  # A second card set. 
+        description: >
+            Get an in-depth knowledge of our payment gateway.
+        cards:
+            -
+                title: Payments API
+                description: >
+                    Our Payments API supports online payments, card tokenization, payment profiles and reporting.
+                icon: flag
+                link: /docs/references/merchant_API/overview/
+---
+```
 
 #### Product layout
 
 #### Tutorial layout
 
 #### Spec layout
+
+The spec template uses a tool called [Slate](https://github.com/tripit/slate) to render tabs on the right of the page to display code samples in different languages. You might want to learn about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
 
 #### Swagger layout
 
