@@ -3,8 +3,27 @@
 ## Contents
 
 * [Build the site](#build-the-site)
-* [Branching and merging](#branching-and-merging)
+  * [Docker](#docker)
+  * [Run locally](#run-locally)
 * [Editing the docs](#editing-the-docs)
+  * [Ways to make changes](#ways-to-make-changes)
+    * [Through your web browser](#through-your-web-browser)
+    * [Through a git branch](#through-a-git-branch)
+  * [Formatting content](#formatting-content)
+  * [YAML](#yaml)
+    * [Navigation](#navigation)
+      * [Headerf files](#header-files)
+      * [Footer files](#footer-files)
+      * [Table of contents files](#table-of-contents-files)
+  * [Markdown](#markdown)
+  * [Layouts](#layouts)
+    * [Landing layout](#landing-layout)
+    * [Product layout](#product-layout)
+    * [Tutorial layout](#tutorial-layout)
+    * [Spec layout](#spec-layout)
+    * [Swagger layout](#swagger-layout)
+    * [FAQ layout](#faq-layout)
+* [Branching and merging](#branching-and-merging)
 * [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
 
 ## Build the site
@@ -67,7 +86,7 @@ bundle exec rake run
 
 There are two ways to make changes to the documentation:
 
-#### Through you web browser
+#### Through your web browser
 
 Every page of the developer portal has an 'Edit this page' button in the top right corner. Clicking this will prompt you to create or sign in to a Github account and fork the developer portal repository. You will then be taken to the markdown version of the page you wish to edit. After making your changes, click propose file changes and then create a pull request against the master branch of the repository. Your changes will be reviewed and merged into the developer portal.
 
