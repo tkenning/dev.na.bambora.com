@@ -101,7 +101,7 @@ You will need to add the actual file to the `source/includes/` directory and pre
 
 #### Markdown
 
-The markdown parser also supports tables formatted like so:
+The markdown parser ([Redcarpet](https://github.com/vmg/redcarpet)) also supports tables formatted like so:
 
 ```markdown
 | header 1 | header 2 |
