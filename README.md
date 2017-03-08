@@ -1,6 +1,5 @@
 # Developer Portal for North America 
 
-
 ## Contents
 
 * [Build the site](#build-the-site)
@@ -119,4 +118,4 @@ When development team branches are pushed, Bamboo will try and merge in the mast
 
 ## Making non-documentation changes to the site 
 
-With a little more effort, larger changes (e.g. adding a new template, changing css styling) can be made to the developer portal. 
+With a little more effort, larger changes (e.g. adding a new template, changing css styling) can be made to the developer portal.

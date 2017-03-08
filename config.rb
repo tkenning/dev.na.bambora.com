@@ -89,4 +89,4 @@ configure :build do
   activate :asset_hash, :ignore => 'stylesheets/fonts/'
   # activate :relative_assets
   # activate :gzip  
-end 
+end
