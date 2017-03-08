@@ -190,6 +190,10 @@ The landing layout serves as the main page of the site. There should only be one
 
 ```yaml
 ---
+
+# ... (include the required YAML fields defined above) 
+
+
 hero_unit:                                   # Defines the "hero unit" (image, title, tagline) of the page. 
     hero_image: Dev_Portal.jpg                    # The image file to use as a background
     big_heading: Developer Documentation.         # The main page heading 
@@ -226,23 +230,94 @@ card_sets:                                  # Groups of cards that link to other
             -
                 title: Payments API
                 description: >
-                    Our Payments API supports online payments, card tokenization, payment profiles and reporting.
+                    Our Payments API supports online payments, 
+                    card tokenization, payment profiles and reporting.
                 icon: flag
                 link: /docs/references/merchant_API/overview/
 ---
 ```
 
+Any markdown content included below the frontmatter will be rendered on the page above the cardsets. 
+
 #### Product layout
+
+In a site hierarchy, should be one level below the landing page. A page with the product layout serves as a summary page for a product or a group of related pages. A product page has a table of contents, markdown content, and a number of cards that link to related pages. The product layout has some additional frontmatter configuration.
+
+```yaml
+---
+
+# ... (include the required YAML fields defined above) 
+
+cards:
+    -                
+        title: Quickstart - Merchant
+        description: >
+            Create a test account and test our our Payment APIs
+        icon: notification-active
+        link: /docs/guides/merchant_quickstart/
+    -
+        title: Quickstart - Partner
+        description: >
+            Get a Partner API key and try our Onboarding API
+        icon: checkmark
+        link: /docs/guides/partner_quickstart/
+    -
+        title: Onboarding
+        description: >
+            Get up to speed on our Onboarding API in minutes
+        icon: list
+        link: /docs/guides/onboarding/
+    -
+        title: 3D Secure
+        description: >
+            Learn about implementing 3D Secure based payments
+        icon: list
+        link: /docs/guides/3D_secure
+---
+```
+
+Any markdown content included below the frontmatter will be rendered on the page above the cards. 
 
 #### Tutorial layout
 
+The tutorial layout is the the most basic layout. It consists of a table of contents and markdown content. It doesn't have any additoinal frontmatter configuration. 
+
 #### Spec layout
 
-The spec template uses a tool called [Slate](https://github.com/tripit/slate) to render tabs on the right of the page to display code samples in different languages. You might want to learn about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
+The spec layout displays a split view with markdown text content on the left and markdown code blocks on the right. The code blocks can be specified in multiple programming languages, and then the desired language can be selected in the top tabs. The spec layout has some additional frontmatter configuration to set which language tabs are displayed: 
+
+```yaml
+---
+
+# ... (include the required YAML fields defined above) 
+
+language_tabs: # declare as many languages as you wish to support. 
+  - shell
+  - python
+  - csharp
+```
+
+**Note**: The spec template uses a tool called [Slate](https://github.com/tripit/slate) to render tabs on the right of the page to display code samples in different languages. You might want to learn about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax).
 
 #### Swagger layout
 
+The swagger layout is used to render a (Swagger)[http://swagger.io/specification/] file. It has additional frontmatter configuration to set the swagger file used:
+
+```yaml
+---
+
+# ... (include the required YAML fields defined above) 
+
+swagger: API_spec.merchant.1_0_2
+```
+
+The referenced API spec must be in the `/data/` folder and referenced like the (navigation configuration)[].
+
+**Note**: If the swagger file can be accessed by a url endpoint it can be specified in the sites `config.rb` to be autodownloaded at build time. This way it will automatically stay up to date. If specified this way, the file be downloaded to the `data/autodownload/` folder. 
+
 #### FAQ layout
+
+The FAQ layout can be used for a faq-style page. It has no additional frontmatter. In the markdown, use h2's (`##`) for question headings, and any content that comes after the heading will be collapsable under the question. 
 
 ## Branching and merging
 
