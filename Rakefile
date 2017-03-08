@@ -25,8 +25,7 @@ task :docker_build do
   sh "docker run -v `pwd`/build:/usr/src/app/build dev.bambora.com static"
 end
 
-
-task :dev => [:dev_server]
+task :dev => [:development_server]
 
 task :run => [:build_site, :run_server]
 
