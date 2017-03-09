@@ -33,7 +33,7 @@ If you accept credit cards, you must be in compliance with PCI Security Council 
 
 You can further reduce the scope of your compliance by removing the need for your code to interact with card data by using our hosted Payfields library validate and tokenize all card data.
 
-```
+```shell
 curl https://www.beanstream.com/scripts/tokenization/tokens  \
   -H "Content-Type: application/json" \
   -d '{
@@ -47,7 +47,7 @@ curl https://www.beanstream.com/scripts/tokenization/tokens  \
 ## 2. Create a Payment Profile
 Now that you have a single use token you can either take a one-off payment or create a multi-use token to store the card data for future payments.
 
-```
+```shell
 curl https://www.beanstream.com/api/v1/profiles  \
   -H "Authorization: Passcode your_payment_profile_passcode"  \
   -H "Content-Type: application/json" \
@@ -68,7 +68,7 @@ If your transaction was not approved you can easily isolate the problem by cheki
 
 HTTP status codes 200 and 402 indicate your request reached the emulator. All other HTTP status codes indicate that your request did not reach the emulator. You can read a full list of response codes here.
 
-```
+```shell
 curl https://www.beanstream.com/api/v1/payments  \
   -H "Authorization: Passcode your_payment_passcode"  \
   -H "Content-Type: application/json" \
@@ -86,7 +86,7 @@ curl https://www.beanstream.com/api/v1/payments  \
 ## 4. Query the transaction
 The response body of a transaction request contains a transaction id. You can request a transaction at a later date using the same Payments API.
 
-```
+```shell
 curl -X GET https://www.beanstream.com/api/v1/payments/{your_transaction_id} \
   -H "Authorization: Passcode your_payment_passcode" \
   -H "Accept: application/json"
@@ -94,7 +94,7 @@ curl -X GET https://www.beanstream.com/api/v1/payments/{your_transaction_id} \
 
 You can also query transactions by date and any combination of the 24 other fields of a transaction record.
 
-```
+```shell
 curl https://www.beanstream.com/api/v1/reports \
 -H "Authorization: Passcode your_reporting_passcode"  \
 -H "Content-Type: application/json" \
