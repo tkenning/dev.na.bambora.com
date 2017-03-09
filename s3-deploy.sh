@@ -1,5 +1,7 @@
-# S3 bucket names can't have capital letters.
-planName=$(echo "$planName" | tr '[:upper:]' '[:lower:]')
+# This file is passed evironment variables AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, 
+# APP_HOME=bamboo.build.working.directory and planName=bamboo.shortPlanName by Bamboo.
+
+planName=$(echo "$planName" | tr '[:upper:]' '[:lower:]') # S3 bucket names can't have capital letters.
 
 echo "plan name: ${planName}"
 
