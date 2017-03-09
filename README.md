@@ -44,6 +44,8 @@ docker run -v $pwd/source/:/usr/src/app/source -p 4567:4567 devbamboracom
 docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom
 ```
 
+**Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to Docker Settings > Network and change the DNS server to fixed.
+
 You can now see the docs at <http://localhost:4567>. The site will update with changes you make when a page is reloaded.
 
 ### Run locally
