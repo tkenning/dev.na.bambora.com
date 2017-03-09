@@ -86,9 +86,9 @@ bundle exec rake run
 
 The site is auto-deployed on pushes to the master branch that build successfully. Changes should first be made and tested on a dedicated development team branch, then pushed to the staging branch, and only staging should ever be pushed to master.
 
-Any branch pushed to the github repo will attempt to build and, if successful, will deploy to an internally accessible s3 bucket with the name dev.beanstream.com.#{branch_name}. These buckets will periodically be deleted but will be recreated if need be when the branch is pushed again (development team base branches will never be deleted).
+Any branch that is pushed to the Github repo will build and deployed to an internally accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`. These buckets will be periodically deleted but will be recreated if need be when the branch is pushed again (development team base branches will never be deleted).
 
-When development team branches are pushed, Bamboo will try and merge in the master branch before building them and, if successful, will commit the merge back to the development team branch.
+When development team base branches are deployed, Bamboo will attempt to merge changes on the master branch into the team branch, in order to keep the branches up to date with master.
 
 ## Editing the docs
 
