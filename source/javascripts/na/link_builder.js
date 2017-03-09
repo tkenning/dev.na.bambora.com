@@ -168,7 +168,12 @@
     var stringToHash = '';
     for (var key in perams) {
       if (perams[key]) {
-        stringToHash += key + '=' + perams[key] + '&';
+
+        if(key !== "merchant_id") {
+          stringToHash += "&";
+        }
+
+        stringToHash += key + '=' + perams[key];
       }
     }
     return stringToHash;
@@ -191,7 +196,7 @@
     if(hashKey == '') {
       var link =  HPF_BASE_URL + '?' + stringToHash;
     } else {
-      var link =  HPF_BASE_URL + '?' + stringToHash + HPF_HASH_VALUE + '=' + hash;
+       var link =  HPF_BASE_URL + '?' + stringToHash + '&' + HPF_HASH_VALUE + '=' + hash;
     }
 
     this.message.classList.remove('hidden');
