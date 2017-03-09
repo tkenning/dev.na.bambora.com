@@ -1,5 +1,10 @@
 $(function() {
 
+    // Update the value for error_page_url and success_page_url 
+    var current_url = $(location).attr('href');
+    $("input[name='error_page_url']").val(current_url);
+    $("input[name='success_page_url']").val(current_url);
+
     // http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
     // get a parameter from the page url 
     var getUrlParameter = function getUrlParameter(sParam) {
