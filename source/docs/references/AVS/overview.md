@@ -16,11 +16,11 @@ navigation:
 # Address Verification System (AVS)
 The [Address Verification System (AVS)][wikipedia-avs] is a system used to verify the address of a person claiming to own a credit card. The system will check the billing address of the credit card provided by the user with the address on file at the credit card company.
 
-AVS is unable to verify all addresses as some cards may not have address information associated with them. AVS results are only returned after a transaction has completed processing. This means that a merchant must refund or void a high risk transaction, rather than blocking it before completing the initial purchase.
+AVS is unable to verify all addresses as some cards may not have address information associated with them. AVS results are only returned after a transaction has completed processing. This means that a merchant must refund or void a high-risk transaction, rather than blocking it before completing the initial purchase.
 
 You can configure your account in the [Back Office][back-office] to decline a transaction if either the street address or the postal codes do not match. Navigate to `Administration > Account Settings > Order Settings`.
 
-AVS response codes are returned my the Pyments API for purchases and pre-authorizations. You can read the payments api spec [here][beanstream-swagger]. They are also displayed in the transaction report in the [Back Office][back-office]. Navigate to `Reproting/Analysis > Transaction Report`. 
+AVS response codes are returned by the Payments API for purchases and pre-authorizations. You can read the payments API spec [here][beanstream-swagger]. They are also displayed in the transaction report in the [Back Office][back-office]. Navigate to `Reporting/Analysis > Transaction Report`. 
 
 ## AVS Response Codes
 

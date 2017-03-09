@@ -28,9 +28,9 @@ cards:
         icon: list
         link: /docs/references/merchant_SDKs/
     -
-        title: AVS – Address Verification System
+        title: Address Verification System (AVS)
         description: >
-            The Address Verification System (AVS), is a free tool that compares customer-submitted order information against bank databases.
+            The Address Verification System (AVS) is a system used to verify the address of a person claiming to own a credit card.
         icon: creditcard-outline
         link: /docs/references/AVS/
 

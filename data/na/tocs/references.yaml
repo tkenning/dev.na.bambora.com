@@ -5,5 +5,5 @@
 - file: '/docs/references/merchant_SDKs/'
   title: 'Payments SDKs'
 - file: '/docs/references/AVS/'
-  title: 'AVS – Address Verification System'
+  title: 'Address Verification System (AVS)'
 
