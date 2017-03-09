@@ -18,6 +18,7 @@ for bucket_name in `cat bucket_names.txt`; do
     done 
     
     if [ "$should_delete" = "true" ]; then
-        echo "Would be deleting bucket $bucket_name..."
+        echo "Deleting bucket $bucket_name..."
+        # aws s3 rb "s3://${bucket_name}" --force
     fi
 done
