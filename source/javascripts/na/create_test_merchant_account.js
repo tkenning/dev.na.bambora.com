@@ -86,8 +86,6 @@ $(function() {
             
             $("input[name='error_page_url']").val(current_url);
             $("input[name='success_page_url']").val(current_url);
-        } else {
-            $('#createTestAccount_form').submit();
         }
     });
 
