@@ -2,6 +2,7 @@ $(function() {
 
     // Update the value for error_page_url and success_page_url 
     var current_url = $(location).attr('href');
+    current_url = current_url.split("create_test_merchant_account")[0] + "create_test_merchant_account/";
     $("input[name='error_page_url']").val(current_url);
     $("input[name='success_page_url']").val(current_url);
 
@@ -65,6 +66,26 @@ $(function() {
                 $countryHiddenInput.val('SE');
                 $currencyHiddenInput.val('4');
                 break;
+        }
+    });
+
+    // form validation 
+    $('#createTestAccount_form').submit(function(event) {
+        if($('#country-currency-select .value').text() == "Your country and currency") {
+            event.preventDefault();
+            
+            var $currentForm = $('#createTestAccount_form');
+            var $statusDiv = $currentForm.next('.block-highlight');
+            var $statusParagraph = $statusDiv.find('p');              
+            
+            $statusParagraph.html("<strong>Account creation failed.</strong>");
+            var errorMessage  = "Please choose a country and currency";
+            $statusParagraph.append("<br> " + errorMessage); 
+            $statusDiv.removeClass('hidden success notice');
+            $statusDiv.addClass('error');
+            
+            $("input[name='error_page_url']").val(current_url);
+            $("input[name='success_page_url']").val(current_url);
         }
     });
 
