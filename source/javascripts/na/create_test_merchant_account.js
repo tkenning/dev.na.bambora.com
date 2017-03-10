@@ -5,7 +5,6 @@ $(function() {
     current_url = current_url.split("create_test_merchant_account")[0] + "create_test_merchant_account/";
     $("input[name='error_page_url']").val(current_url);
     $("input[name='success_page_url']").val(current_url);
-    console.log(current_url);
 
     // http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
     // get a parameter from the page url 
