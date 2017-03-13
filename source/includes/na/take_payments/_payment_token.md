@@ -154,7 +154,7 @@ Single-use tokens provide a secure method of taking payments that reduces your P
 
 To process a transaction using a token, you first need to have created a token. You can either do this from the browser/client using the [Tokenization API](/docs/references/merchant_API) or using the [Mobile or Browser SDKs](/docs/references/merchant_SDKs/collect_card_data).
 
-A single-use token is a 'single-use nonce'. It is distinct from a multi-use Payment Profile token. See [here](/docs/references/merchant_SDKs/save_card_data).
+A single-use token is a 'single-use nonce'. It is distinct from a multi-use Payment Profile token. See [here](/docs/references/merchant_SDKs/save_customer_data).
 
 
 #### Pre-Auth and Complete

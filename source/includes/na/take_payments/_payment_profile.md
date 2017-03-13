@@ -141,7 +141,7 @@ Payment Profiles provide a secure method of taking payments that reduces your PC
 
 Before processing a transaction using a 'Payment Profile', you need to have created a one. See [here](/docs/references/merchant_SDKs/save_customer_data).
 
-A multi-use payment profile token is distinct from a single-use card token. See [here](/docs/references/merchant_SDKs/save_card_data).
+A multi-use payment profile token is distinct from a single-use card token. See [here](/docs/references/merchant_SDKs/save_customer_data).
 
 ### Pre-Auth and Complete
 
