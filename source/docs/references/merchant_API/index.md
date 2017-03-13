@@ -8,7 +8,7 @@ summary: >
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
-  toc: false
+  toc: in-page
   header_active: References
 
 ---
