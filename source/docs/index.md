@@ -19,8 +19,8 @@ hero_unit:
     button:
         text: Get started
         link: /docs/guides/merchant_quickstart/
-card_sets:
 
+card_sets:
     -  
         title: Guides
         description: >
@@ -38,8 +38,6 @@ card_sets:
                     Get up and running fast by opening a test account and hitting a few of our API endpoints.
                 icon: flag
                 link: /docs/guides/partner_quickstart/
-
-
     -
         title: References
         description: >
