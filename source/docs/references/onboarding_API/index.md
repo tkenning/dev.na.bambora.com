@@ -1,9 +1,9 @@
 ---
-title: Merchant API Overview
+title: Onboarding API Overview
 layout: tutorial
 
 summary: >
-    The Onboarding API allows you to build your own custom UI.
+  The Onboarding API allows you to build your own custom UI through which a sub-merchants sign up for a Beanstream account or to reuse the information already collected to create a lightweight integration.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -12,7 +12,7 @@ navigation:
   header_active: References
 ---
 
-# Partner API
+# Onboarding API
 
 The Onboarding API allows you to build your own custom UI through which a sub-merchants sign up for a Beanstream account or to reuse the information already collected to create a lightweight integration.
 

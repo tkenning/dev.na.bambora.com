@@ -60,5 +60,5 @@ card_sets:
                 description: >
                     Our Onboarding API allows partners to submit applications on behalf of new sub-merchants.
                 icon: comment
-                link: /docs/references/partner_API/
+                link: /docs/references/onboarding_API/
 ---
