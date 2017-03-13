@@ -2,7 +2,7 @@
 title: Guides
 layout: product
 
-summary: Functional descriptions of gettings things done with our payment gateway.
+summary: Functional descriptions of getting things done with our payment gateway.
 
 navigation:
   header: na.tocs.na_nav_header

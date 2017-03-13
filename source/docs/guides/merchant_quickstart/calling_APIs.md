@@ -20,13 +20,13 @@ Each of these API calls will require a distinct authentication passcode. We desc
 
 ## cURL
 
-All the examples in this guide use cURL, a lightweight, command-line tool for making HTTP requests. cURL lets you try out various API requests in a command-line interface such as the command prompt in Windows or Terminal on the Mac. You don't need to build a working web application just to try out the APIs. If you are unfamiliar with cURL you can read Zendesk's excellent guide <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL" target="_blank">here</a>.
+All the examples in this guide use cURL, a lightweight, command-line tool for making HTTP requests. cURL lets you try out various API requests in a command-line interface such as the command prompt in Windows or Terminal on the Mac. You don't need to build a working web application just to try out the APIs. If you are unfamiliar with cURL you can read Zendesk's excellent guide <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL">here</a>.
 
 ## Postman
 
-We also provide a Postman collection for those who prefer the readability of a user friendly interface. Postman is a popular HTTP client that runs as a Chrome app. You can download Postman <a href="https://www.getpostman.com/" target="_blank">here</a>.
+We also provide a Postman collection for those who prefer the readability of a user friendly interface. Postman is a popular HTTP client that runs as a Chrome app. You can download Postman <a href="https://www.getpostman.com/">here</a>.
 
-You can download our collection and an environment [here](/resources/postman-collection.zip). You will need to update the environment with your merchant ID and pass codes before you can run any queries. Most queries contain variables that are set from the response of a related (e.g. 'Get Token' sets the returned token in the environment, 'Make Token Payment' sets the token from the environment in its request body).
+You can download our collection and an environment <a href="/resources/postman-collection.zip">here</a>. You will need to update the environment with your merchant ID and pass codes before you can run any queries. Most queries contain variables that are set from the response of a related (e.g. 'Get Token' sets the returned token in the environment, 'Make Token Payment' sets the token from the environment in its request body).
 
 ## 1. Tokenize a credit card
 If you accept credit cards, you must be in compliance with PCI Security Council standards. You can reduce the scope of your compliance by minimizing your application's contact with the card data. You can remove the need to pass credit card details to your server by tokenization the card data in the browser. You can create a single use token from the browser/mobile app through our Tokenization API.
