@@ -2,7 +2,7 @@
 title: Collect Card Data
 layout: spec
 
-summary: Collect Card Data
+summary: Details on collecting credit card data.
 
 navigation:
   header: na.tocs.na_nav_header

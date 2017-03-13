@@ -2,6 +2,8 @@
 title: References
 layout: product
 
+summary: In-depth information on our payment gateway.
+
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer

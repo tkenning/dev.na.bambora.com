@@ -22,8 +22,8 @@ The API allows the partner to specify which services the new merchant account sh
 
 ## v2016-08-18
 
-* [Onboarding API Spec](../v2016-08-18)
-* [Terms API Spec](../tac_v2016-08-18)
+* [Onboarding API Spec](./v2016-08-18)
+* [Terms API Spec](./tac_v2016-08-18)
 
 ### Change logs - 28 Nov 2016
 #### GW-USA
