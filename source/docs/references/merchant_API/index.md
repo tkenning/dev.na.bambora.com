@@ -8,7 +8,7 @@ summary: >
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
-  toc: false
+  toc: in-page
   header_active: References
 
 ---
@@ -22,7 +22,7 @@ Note: this doc is limited to the Payment, Reporting, Payment Profile, and Tokeni
 
 ## v1.0.2
 
-* [Merchant API Spec](../v1-0-2)
+* [Merchant API Spec](/docs/references/merchant_API/v1-0-2)
 
 ### Change logs
 No change log available.

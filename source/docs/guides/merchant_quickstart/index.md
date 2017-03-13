@@ -41,4 +41,4 @@ You can generate five keys for our five APIs in our Back Office.
 ## 3. Encode API Passcode
 Now that you have your Merchant ID and API keys, you can combine them to create API passcodes required passed in the Authorization header. The format for an API passcode is the Merchant ID followed by the API key, separated with a colon (`merchant_id:api_key`).
 
-You can create encode the passcodes in the form [here](/docs/forms/encode_api_passcode).
+You can combine and encode the passcodes in the form [here](/docs/forms/encode_api_passcode).
