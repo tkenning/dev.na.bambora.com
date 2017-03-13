@@ -18,7 +18,7 @@ Welcome to our partner setup guide. Learn how to request your partner account, a
 
 This guide will show you how to create and configure a test account.
 
-This guide builds on the [Merchant Quickstart Guide](../../merchant_quickstart/setup)
+This guide builds on the [Merchant Quickstart Guide](../../merchant_quickstart/setup).
 
 ## 1. Request a partner account
 

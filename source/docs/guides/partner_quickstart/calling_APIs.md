@@ -22,7 +22,7 @@ The Onboarding API endpoints are divided by account type, or 'flow'. This guide 
 
 
 ## 1. Create a partial application
-```
+```shell
 curl https://uat-onboarding-api.beanstream.com/v1/workflows/psp-cad/applications  \
   -H "Authorization: Passcode your_onboarding_passcode"  \
   -H "Content-Type: application/json" \
