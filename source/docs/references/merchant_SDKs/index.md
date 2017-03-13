@@ -17,7 +17,7 @@ Our SDKs wrap our RESTful APIs. Our server and mobile SDKs make it easy for you 
 
 
 ## Server SDK
-Our Server SDKs wrap our Payments, Payment Profiles, and Reporting APIs. You can read more about the functionality [here](../take_payments).
+Our Server SDKs wrap our Payments, Payment Profiles, and Reporting APIs. You can read more about the functionality [here](./take_payments).
 
 ### Source
 
@@ -55,7 +55,7 @@ Our Server SDKs wrap our Payments, Payment Profiles, and Reporting APIs. You can
 [go-pm]: #
 
 ## Mobile SDK
-Our Mobile SDKs wraps our Tokenization API. You can read more about the functionality [here](../collect_card_data#mobile-sdks-payform).
+Our Mobile SDKs wraps our Tokenization API. You can read more about the functionality [here](./collect_card_data#mobile-sdks-payform).
 
 ### Source
 | Platform | Source                   |  Packet Repository         |
@@ -71,7 +71,7 @@ Our Mobile SDKs wraps our Tokenization API. You can read more about the function
 [ios-pm]: https://beanstream.jfrog.io/beanstream/api/pods/beanstream-public
 
 ## Browser SDK
-Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](../collect_card_data#browser-sdk-payfields).
+Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](./collect_card_data#browser-sdk-payfields).
 
 ### Source
 | Language | Source                    |  Packet Repository  |
