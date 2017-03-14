@@ -24,7 +24,7 @@ fi
 
 
 echo "Syncing to bucket..."
-aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
+aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name} --region ca-central-1
 
 # S3 Bucket Policy 
 policy="{
