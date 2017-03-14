@@ -10,6 +10,9 @@ if [ -z "$planName" ] || [ "$planName" = "dev portal" ]
 then 
     echo "deploying master to production..."
     bucket_name=developer.na.bambora.com
+
+    echo "Syncing to bucket..."
+    aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name} --region ca-central-1
 else
     echo "deploying branch to test..."
     bucket_name="dev.beanstream.com.${planName}"
@@ -20,11 +23,13 @@ else
         newBucket=true
         aws s3 mb "s3://${bucket_name}"
     fi
+
+    echo "Syncing to bucket..."
+    aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
 fi
 
 
-echo "Syncing to bucket..."
-aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name} --region ca-central-1
+
 
 # S3 Bucket Policy 
 policy="{
