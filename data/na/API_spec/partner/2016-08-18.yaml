@@ -4012,8 +4012,8 @@ definitions:
     properties:
       state:
         type: string
-        description: 'The state of the application. Possible values are "in_progress", "in_review", "rejected", "approved"'
-        enum: ["in_progress","in_review","rejected","approved"]
+        description: 'The state of the application. Possible values are "in_progress", "in_review", "on_hold", "rejected", "approved"'
+        enum: ["in_progress","in_review","on_hold","rejected","approved"]
       created_on:
         type: string
         format: date-time
