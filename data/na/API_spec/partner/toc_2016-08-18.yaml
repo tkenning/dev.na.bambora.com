@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 2016-08-18
+  version: "2016-08-18"
   title: Onboarding API TAC
   description: Onboarding API Terms and Conditions Specifications
 host: onboardingapi.beanstream.com
