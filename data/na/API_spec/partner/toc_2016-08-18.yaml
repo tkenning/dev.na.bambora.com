@@ -31,7 +31,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -46,7 +46,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -74,7 +74,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -94,7 +94,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -121,7 +121,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -136,7 +136,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -164,7 +164,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -184,7 +184,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -211,7 +211,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -226,7 +226,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -254,7 +254,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -274,7 +274,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -301,7 +301,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -316,7 +316,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -345,7 +345,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -365,7 +365,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -392,7 +392,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -407,7 +407,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -435,7 +435,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -455,7 +455,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -482,7 +482,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -497,7 +497,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -525,7 +525,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -545,7 +545,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -572,7 +572,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -587,7 +587,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -615,7 +615,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -635,7 +635,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -662,7 +662,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -677,7 +677,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -705,7 +705,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -725,7 +725,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -752,7 +752,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
       responses:
@@ -767,7 +767,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type/date:time
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
@@ -795,7 +795,7 @@ paths:
         - name: file_type
           in: path
           required: true
-          description: 'The format of the T&Cs document to be returned.'
+          description: 'The format of the T&Cs document to be returned.  Either "html" or "pdf".'
           type: string
           enum: ["html", "pdf"]
         - name: version
@@ -815,7 +815,7 @@ paths:
                 description: 'Defines the version of the document returned.'
               X-Name:
                 type: string
-                format: flow/partner_date:time
+                format: flow/partner/file_type
                 description: 'Defines the name of the document returned.'
         404:
           description: 'Document not found'
