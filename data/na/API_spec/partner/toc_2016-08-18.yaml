@@ -10,6 +10,12 @@ consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+    description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
 paths:
 # SEPA EUR TAC
   '/v1/workflows/sepa-eur/terms/{partner}/{file_type}/version':
