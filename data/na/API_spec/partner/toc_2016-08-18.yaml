@@ -4,16 +4,21 @@ info:
   title: Onboarding API TAC
   description: Onboarding API Terms and Conditions Specifications
 host: onboardingapi.beanstream.com
-basePath: /v1
 schemes:
   - https
 consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+    description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
 paths:
 # SEPA EUR TAC
-  '/workflows/sepa-eur/terms/{partner}/{file_type}/version':
+  '/v1/workflows/sepa-eur/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (SEPA EUR)
@@ -23,6 +28,8 @@ paths:
         - application/json
       produces:
         - application/json
+      security:
+        - api_key: []
       parameters:
         - name: partner
           in: path
@@ -47,14 +54,25 @@ paths:
                 description: 'Defines the version of the document returned.'
               name:
                 type: string
-                format: flow/partner/type/date:time
+                format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
+
+        400:
+          description: 'Invalid request'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/Error'
+        500:
+          description: 'Unexpected error'
+          schema:
+            $ref: '#/definitions/Error'
 
-  '/workflows/sepa-eur/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/sepa-eur/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (SEPA EUR)
@@ -66,6 +84,8 @@ paths:
         - text/html
         - application/pdf
         - application/json
+      security:
+        - api_key: []
       parameters:
         - name: partner
           in: path
@@ -97,13 +117,24 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
+
+        400:
+          description: 'Invalid request'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/Error'
+        500:
+          description: 'Unexpected error'
+          schema:
+            $ref: '#/definitions/Error'
 
 #BACS GBP WORKFLOW
-  '/workflows/bacs-gbp/terms/{partner}/{file_type}/version':
+  '/v1/workflows/bacs-gbp/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (BACS GBP)
@@ -157,7 +188,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/bacs-gbp/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/bacs-gbp/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (BACS GBP)
@@ -219,7 +250,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # ACH USD WORKFLO TAC
-  '/workflows/ach-usd/terms/{partner}/{file_type}/version':
+  '/v1/workflows/ach-usd/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (ACH USD)
@@ -273,7 +304,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/ach-usd/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/ach-usd/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (ACH USD)
@@ -335,7 +366,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # EFT CAD WORKFLOW TAC
-  '/workflows/eft-cad/terms/{partner}/{file_type}/version':
+  '/v1/workflows/eft-cad/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (EFT CAD)
@@ -390,7 +421,7 @@ paths:
             $ref: '#/definitions/Error'
 
 
-  '/workflows/eft-cad/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/eft-cad/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (EFT CAD)
@@ -452,7 +483,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # PSP CAD WORKFLOW TAC
-  '/workflows/psp-cad/terms/{partner}/{file_type}/version':
+  '/v1/workflows/psp-cad/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (PSP CAD)
@@ -506,7 +537,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-cad/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/psp-cad/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (PSP CAD)
@@ -568,7 +599,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # PSP USD WORKFLOW TAC
-  '/workflows/psp-usd/terms/{partner}/{file_type}/version':
+  '/v1/workflows/psp-usd/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (PSP USD)
@@ -622,7 +653,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-usd/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/psp-usd/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (PSP USD)
@@ -684,7 +715,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # GW CDN WORKFLOW TAC
-  '/workflows/gw-cdn/terms/{partner}/{file_type}/version':
+  '/v1/workflows/gw-cdn/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (GW CDN)
@@ -738,7 +769,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/gw-cdn/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/gw-cdn/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (GW CDN)
@@ -800,7 +831,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # GW USA WORKFLOW TAC
-  '/workflows/gw-usa/terms/{partner}/{file_type}/version':
+  '/v1/workflows/gw-usa/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (GW USA)
@@ -854,7 +885,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/gw-usa/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/gw-usa/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (GW USA)
@@ -916,7 +947,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # PSP NZD WORKFLOW TAC
-  '/workflows/psp-nzd/terms/{partner}/{file_type}/version':
+  '/v1/workflows/psp-nzd/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (PSP NZD)
@@ -970,7 +1001,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-nzd/terms/{partner}/{file_type}/version/{version}':
+  '/v1/workflows/psp-nzd/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (PSP NZD)
