@@ -48,19 +48,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -107,19 +96,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -160,19 +138,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -219,19 +186,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -272,19 +228,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -331,19 +276,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -384,19 +318,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -444,19 +367,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -497,19 +409,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -556,19 +457,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -609,19 +499,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -668,19 +547,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -721,19 +589,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -780,19 +637,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -833,19 +679,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -892,19 +727,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -945,19 +769,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
@@ -1004,19 +817,8 @@ paths:
                 type: string
                 format: flow/partner_date:time
                 description: 'Defines the name of the document returned.'
-
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
         404:
           description: 'Document not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
 
