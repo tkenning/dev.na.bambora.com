@@ -1,10 +1,9 @@
 swagger: '2.0'
 info:
-  version: 2016-08-18
+  version: "2016-08-18"
   title: Onboarding API TAC
   description: Onboarding API Terms and Conditions Specifications
-host: onboardingapi.beanstream.com
-basePath: /v1
+host: api.na.bambora.com
 schemes:
   - https
 consumes:
@@ -19,7 +18,7 @@ securityDefinitions:
     description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
 paths:
 # SEPA EUR TAC
-  '/workflows/sepa-eur/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/sepa-eur/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (SEPA EUR)
@@ -73,7 +72,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/sepa-eur/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/sepa-eur/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (SEPA EUR)
@@ -135,7 +134,7 @@ paths:
             $ref: '#/definitions/Error'
 
 #BACS GBP WORKFLOW
-  '/workflows/bacs-gbp/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/bacs-gbp/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (BACS GBP)
@@ -189,7 +188,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/bacs-gbp/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/bacs-gbp/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (BACS GBP)
@@ -251,7 +250,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # ACH USD WORKFLO TAC
-  '/workflows/ach-usd/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/ach-usd/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (ACH USD)
@@ -305,7 +304,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/ach-usd/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/ach-usd/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (ACH USD)
@@ -367,7 +366,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # EFT CAD WORKFLOW TAC
-  '/workflows/eft-cad/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/eft-cad/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (EFT CAD)
@@ -422,7 +421,7 @@ paths:
             $ref: '#/definitions/Error'
 
 
-  '/workflows/eft-cad/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/eft-cad/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (EFT CAD)
@@ -484,7 +483,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # PSP CAD WORKFLOW TAC
-  '/workflows/psp-cad/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/psp-cad/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (PSP CAD)
@@ -538,7 +537,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-cad/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/psp-cad/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (PSP CAD)
@@ -600,7 +599,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # PSP USD WORKFLOW TAC
-  '/workflows/psp-usd/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/psp-usd/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (PSP USD)
@@ -654,7 +653,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-usd/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/psp-usd/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (PSP USD)
@@ -716,7 +715,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # GW CDN WORKFLOW TAC
-  '/workflows/gw-cdn/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/gw-cdn/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (GW CDN)
@@ -770,7 +769,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/gw-cdn/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/gw-cdn/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (GW CDN)
@@ -832,7 +831,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # GW USA WORKFLOW TAC
-  '/workflows/gw-usa/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/gw-usa/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (GW USA)
@@ -886,7 +885,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/gw-usa/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/gw-usa/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (GW USA)
@@ -948,7 +947,7 @@ paths:
             $ref: '#/definitions/Error'
 
 # PSP NZD WORKFLOW TAC
-  '/workflows/psp-nzd/terms/{partner}/{file_type}/version':
+  '/v1/boarding/workflows/psp-nzd/terms/{partner}/{file_type}/version':
     get:
       tags:
         - Terms and Conditions (PSP NZD)
@@ -1002,7 +1001,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-nzd/terms/{partner}/{file_type}/version/{version}':
+  '/v1/boarding/workflows/psp-nzd/terms/{partner}/{file_type}/version/{version}':
     get:
       tags:
         - Terms and Conditions (PSP NZD)
