@@ -247,6 +247,7 @@ paths:
         200:
           description: 'Document retrieved successfully'
           schema:
+            title: 'File'
             type: file
         403:
           description: 'Unauthorized'
