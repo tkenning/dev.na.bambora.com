@@ -175,7 +175,7 @@ paths:
       tags:
         - Funds Transfer (SEPA EUR)
       operationId: createSepaEurApplicationDocuments
-      description: 'Creates a European SEPA application document for the referenced applicationId. Returns the status of the application.'
+      description: 'Creates a European SEPA application document for the referenced applicationId.'
       produces:
         - application/json
       security:
@@ -201,10 +201,63 @@ paths:
           description: 'Invalid request data or invalid api version'
           schema:
             $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
+
+  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentId}.{documentType}':
+    get:
+      tags:
+        - Funds Transfer (SEPA EUR)
+      operationId: getSepaEurApplicationDocuments
+      description: 'Get a European SEPA application document for the referenced applicationId, documentId and documentType.'
+      produces:
+        - image/png
+        - image/jpeg
+        - application/pdf
+        - application/msword
+        - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        - application/json
+      security:
+        - api_key: []
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          description: 'The id of the application to get the document from'
+          type: integer
+        - name: documentId
+          in: path
+          required: true
+          description: 'The name of the document to get'
+          type: string
+          enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members", "mandate"]
+        - name: documentType
+          in: path
+          required: true
+          description: 'The type of the document to get'
+          type: string
+          enum: ["jpg", "jpeg", "doc", "docx", "pdf", "png"]
+      responses:
+        200:
+          description: 'Document retrieved successfully'
+          schema:
+            type: file
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        404:
+          description: 'Document not found'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: 'Unexpected error or application not found'
 
   '/workflows/sepa-eur/applications/{applicationId}/documents/{documentId}':
     delete:
@@ -235,6 +288,10 @@ paths:
           description: 'Invalid document id or invalid api version'
           schema:
             $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Document not found'
           schema:
