@@ -175,7 +175,7 @@ paths:
       tags:
         - Funds Transfer (SEPA EUR)
       operationId: createSepaEurApplicationDocuments
-      description: 'Creates a European SEPA application document for the referenced applicationId.'
+      description: 'Creates a European SEPA application document for the referenced applicationId. Returns the status of the application.'
       produces:
         - application/json
       security:
@@ -215,7 +215,7 @@ paths:
       tags:
         - Funds Transfer (SEPA EUR)
       operationId: getSepaEurApplicationDocuments
-      description: 'Get a European SEPA application document for the referenced applicationId, documentId and documentType.'
+      description: 'Get a European SEPA application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
       produces:
         - image/png
         - image/jpeg
@@ -247,7 +247,6 @@ paths:
         200:
           description: 'Document retrieved successfully'
           schema:
-            title: 'File'
             type: file
         403:
           description: 'Unauthorized'
@@ -520,21 +519,68 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationStatus'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request data or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+
+  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentId}.{documentType}':
+    get:
+      tags:
+        - Funds Transfer (BACS GBP)
+      operationId: getBacsGbpApplicationDocuments
+      description: 'Get a United Kingdom BACS application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      produces:
+        - image/png
+        - image/jpeg
+        - application/pdf
+        - application/msword
+        - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        - application/json
+      security:
+        - api_key: []
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          description: 'The id of the application to get the document from'
+          type: integer
+        - name: documentId
+          in: path
+          required: true
+          description: 'The name of the document to get'
+          type: string
+          enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members", "direct_debit"]
+        - name: documentType
+          in: path
+          required: true
+          description: 'The type of the document to get'
+          type: string
+          enum: ["jpg", "jpeg", "doc", "docx", "pdf", "png"]
+      responses:
+        200:
+          description: 'Document retrieved successfully'
           schema:
-            $ref: '#/definitions/Error'
+            type: file
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        404:
+          description: 'Document not found'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: 'Unexpected error or application not found'
 
   '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentId}':
     delete:
@@ -560,23 +606,21 @@ paths:
           enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members", "direct_debit"]
       responses:
         204:
-          description: 'Documents Updated'
-          schema:
-            $ref: '#/definitions/Status'
+          description: 'Document deleted successfully'
         400:
-          description: 'Invalid request'
+          description: 'Invalid document id or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
-          description: 'Application or Document not found'
+          description: 'Document not found'
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+          description: 'Unexpected error or application not found'
 
   '/workflows/bacs-gbp/applications/{applicationId}/status':
     put:
@@ -798,21 +842,68 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationStatus'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request data or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+
+  '/workflows/ach-usd/applications/{applicationId}/documents/{documentId}.{documentType}':
+    get:
+      tags:
+        - Funds Transfer (ACH USD)
+      operationId: getAchUsdApplicationDocuments
+      description: 'Get a United States ACH application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      produces:
+        - image/png
+        - image/jpeg
+        - application/pdf
+        - application/msword
+        - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        - application/json
+      security:
+        - api_key: []
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          description: 'The id of the application to get the document from'
+          type: integer
+        - name: documentId
+          in: path
+          required: true
+          description: 'The name of the document to get'
+          type: string
+          enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members"]
+        - name: documentType
+          in: path
+          required: true
+          description: 'The type of the document to get'
+          type: string
+          enum: ["jpg", "jpeg", "doc", "docx", "pdf", "png"]
+      responses:
+        200:
+          description: 'Document retrieved successfully'
           schema:
-            $ref: '#/definitions/Error'
+            type: file
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        404:
+          description: 'Document not found'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: 'Unexpected error or application not found'
 
   '/workflows/ach-usd/applications/{applicationId}/documents/{documentId}':
     delete:
@@ -838,23 +929,21 @@ paths:
           enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members"]
       responses:
         204:
-          description: 'Document deleted'
-          schema:
-            $ref: '#/definitions/Status'
+          description: 'Document deleted successfully'
         400:
-          description: 'Invalid request'
+          description: 'Invalid document id or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
-          description: 'Application or Document not found'
+          description: 'Document not found'
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+          description: 'Unexpected error or application not found'
 
   '/workflows/ach-usd/applications/{applicationId}/status':
     put:
@@ -1076,21 +1165,68 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationStatus'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request data or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+
+  '/workflows/eft-cad/applications/{applicationId}/documents/{documentId}.{documentType}':
+    get:
+      tags:
+        - Funds Transfer (EFT CAD)
+      operationId: getEftCadApplicationDocuments
+      description: 'Get a Canada EFT application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      produces:
+        - image/png
+        - image/jpeg
+        - application/pdf
+        - application/msword
+        - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        - application/json
+      security:
+        - api_key: []
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          description: 'The id of the application to get the document from'
+          type: integer
+        - name: documentId
+          in: path
+          required: true
+          description: 'The name of the document to get'
+          type: string
+          enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members"]
+        - name: documentType
+          in: path
+          required: true
+          description: 'The type of the document to get'
+          type: string
+          enum: ["jpg", "jpeg", "doc", "docx", "pdf", "png"]
+      responses:
+        200:
+          description: 'Document retrieved successfully'
           schema:
-            $ref: '#/definitions/Error'
+            type: file
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        404:
+          description: 'Document not found'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: 'Unexpected error or application not found'
 
   '/workflows/eft-cad/applications/{applicationId}/documents/{documentId}':
     delete:
@@ -1116,23 +1252,21 @@ paths:
           enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members"]
       responses:
         204:
-          description: 'Document deleted'
-          schema:
-            $ref: '#/definitions/Status'
+          description: 'Document deleted successfully'
         400:
-          description: 'Invalid request'
+          description: 'Invalid document id or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
-          description: 'Application or Document not found'
+          description: 'Document not found'
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+          description: 'Unexpected error or application not found'
 
   '/workflows/eft-cad/applications/{applicationId}/status':
     put:
@@ -1548,21 +1682,68 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationStatus'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request data or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+
+  '/workflows/psp-usd/applications/{applicationId}/documents/{documentId}.{documentType}':
+    get:
+      tags:
+        - Credit Card Payments (PSP USD)
+      operationId: getPspUsdApplicationDocuments
+      description: 'Get a United States PSP application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      produces:
+        - image/png
+        - image/jpeg
+        - application/pdf
+        - application/msword
+        - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        - application/json
+      security:
+        - api_key: []
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          description: 'The id of the application to get the document from'
+          type: integer
+        - name: documentId
+          in: path
+          required: true
+          description: 'The name of the document to get'
+          type: string
+          enum: ["id_applicant", "bank_statement", "pci_saq_document"]
+        - name: documentType
+          in: path
+          required: true
+          description: 'The type of the document to get'
+          type: string
+          enum: ["jpg", "jpeg", "doc", "docx", "pdf", "png"]
+      responses:
+        200:
+          description: 'Document retrieved successfully'
           schema:
-            $ref: '#/definitions/Error'
+            type: file
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        404:
+          description: 'Document not found'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: 'Unexpected error or application not found'
 
   '/workflows/psp-usd/applications/{applicationId}/documents/{documentId}':
     delete:
@@ -1588,23 +1769,21 @@ paths:
           enum: ["id_applicant", "bank_statement", "pci_saq_document"]
       responses:
         204:
-          description: 'Document deleted'
-          schema:
-            $ref: '#/definitions/Status'
+          description: 'Document deleted successfully'
         400:
-          description: 'Invalid request'
+          description: 'Invalid document id or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
-          description: 'Application or Document not found'
+          description: 'Document not found'
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+          description: 'Unexpected error or application not found'
 
   '/workflows/psp-usd/applications/{applicationId}/status':
     put:
