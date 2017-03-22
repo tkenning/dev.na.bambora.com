@@ -196,21 +196,15 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationStatus'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request data or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
 
   '/workflows/sepa-eur/applications/{applicationId}/documents/{documentId}':
     delete:
@@ -236,23 +230,17 @@ paths:
           enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members", "mandate"]
       responses:
         204:
-          description: 'Documents Updated'
-          schema:
-            $ref: '#/definitions/Status'
+          description: 'Document deleted successfully'
         400:
-          description: 'Invalid request'
+          description: 'Invalid document id or invalid api version'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/CombinedErrorResponse'
         404:
-          description: 'Application or Document not found'
+          description: 'Document not found'
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+          description: 'Unexpected error or application not found'
 
   '/workflows/sepa-eur/applications/{applicationId}/status':
     put:
@@ -4027,6 +4015,34 @@ definitions:
         items:
           $ref: '#/definitions/Error'
 
+  ApplicationStatus:
+    description: 'Defines information about the application. [ReadOnly]'
+    additionalProperties: false
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The id of the application'
+      state:
+        type: string
+        description: 'The state of the application. Possible values are "in_progress", "in_review", "on_hold", "rejected", "approved"'
+        enum: ["in_progress","in_review","on_hold","rejected","approved"]
+      created_on:
+        type: string
+        format: date-time
+        description: 'Defines the date when the application was created in ISO 8601 format with a timezone [ReadOnly]'
+      updated_on:
+        type: string
+        format: date-time
+        description: 'Defines the date when the application was modified in  ISO 8601 format with a timezone [ReadOnly]'
+      pending_issues:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+      api_version:
+        type: string
+        description: 'The api version this request was made with'
+
   Agreement:
     description: 'Defines an terms and conditions agreement between a merchant and Beanstream'
     additionalProperties: false
@@ -4049,6 +4065,39 @@ definitions:
         type: string
         format: date-time
         description: 'Defines the date of the application terms and conditions agreeent in ISO 8601 format with a timezone [ReadOnly]'
+
+  CombinedErrorResponse:
+    description: 'Defines an document endpoint error'
+    additionalProperties: false
+    type: object
+    properties:
+      status:
+        type: boolean
+        description: 'Whether or not the request succeeded.  If this is returned, response_status and errors will not be'
+      message:
+        type: string
+        description: 'A human readable message about the error.  If this is returned, response_status and errors will not be'
+      response_status:
+        type: integer
+        description: 'The http response code returned. If this is returned, status and message will not be'
+      errors:
+        type: array
+        description: 'The list of errors.  If this is returned, status and message will not be'
+        items:
+          $ref: '#/definitions/Error'
+
+  ErrorResponse:
+    description: 'Defines an error'
+    additionalProperties: false
+    type: object
+    properties:
+      response_status:
+        type: integer
+        description: 'The http response code returned'
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
 
   Error:
     description: 'Defines an error'
