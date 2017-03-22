@@ -22,23 +22,27 @@ Welcome to our setup and configuration guide. Here you will learn how to  create
 
 You can create a test merchant account [here](/docs/forms/create_test_merchant_account).
 
-## 2. Generate API keys
+## 2. Generate Passcodes
 
-You will need a Merchant ID (MID) and an API key per API that you wish to test. Your MID can be found in the top-right corner of the screen after logging in to the <a href="https://www.beanstream.com/admin/" target="_blank">Back Office</a>.
+You will need a Merchant ID (MID) and a passcode per API that you wish to test. Your MID can be found in the top-right corner of the screen after logging in to the <a href="https://www.beanstream.com/admin/" target="_blank">Back Office</a>.
 
-You can generate five keys for our five APIs in our Back Office.
+There are different passcodes for each of our five APIs found in our Back Office. 
 
-* **Payments API Key:** Navigate to `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Payment Gateway > Security/Authentication`. If the 'API Access Passcode' field is empty, you can generate a new key by clicking the 'Generate New Code' button, scrolling to the bottom of the screen and clicking the 'Update' button.
+If the 'API Access Passcode' field is empty, you can generate a new passcode by clicking the 'Generate New Code' button beneath the passcode, and then scrolling to the bottom of the screen and clicking the 'Update' button.
 
-* **Recurring Billing API Key:** Navigate to `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Recurring Billing`. If the 'API Access Passcode' field is empty, you can generate a new key by clicking the 'Generate New Code' button, scrolling to the bottom of the screen and clicking the 'Update' button.
+| Passcode                              | Navigate To |
+| ------------------------------------- | ------------- |
+| Payments                              | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Payment Gateway > Security/Authentication` |
+| Recurring Billing                     | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Recurring Billing` |
+| Reporting                             | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Reporting` |
+| Batch File Upload (ACH/EFT Payments)  | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Batch File Upload` |
+| Payment Profile                       | `Configuration > Payment Profile Configuration` in the sidebar, then scroll to `Security Settings` |
 
-* **Reporting API Key:** Navigate to `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Reporting`. If the 'API Access Passcode' field is empty, you can generate a new key by clicking the 'Generate New Code' button, scrolling to the bottom of the screen and clicking the 'Update' button.
+## 3. Authentication
+Now that you have your Merchant ID and passcodes, you can combine them to create your required Authorization header. The format for a passcode Authorization header is as follows:
 
-* **Batch File Upload (ACH/EFT Payments) API Key:** Navigate to `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Batch File Upload`. If the 'API Access Passcode' field is empty, you can generate a new key by clicking the 'Generate New Code' button, scrolling to the bottom of the screen and clicking the 'Update' button.
-
-* **Payment Profile API Key:** Navigate to `Configuration > Payment Profile Configuration` in the sidebar, then scroll to `Security Settings`. If the 'API Access Passcode' field is empty, you can generate a new key by clicking the 'Generate New Code' button, scrolling to the bottom of the screen and clicking the 'Update' button.
-
-## 3. Encode API Passcode
-Now that you have your Merchant ID and API keys, you can combine them to create API passcodes required passed in the Authorization header. The format for an API passcode is the Merchant ID followed by the API key, separated with a colon (`merchant_id:api_key`).
+```
+Authorization: Passcode Base64Encoded(merchant_id:passcode)
+```
 
 You can combine and encode the passcodes in the form [here](/docs/forms/encode_api_passcode).
