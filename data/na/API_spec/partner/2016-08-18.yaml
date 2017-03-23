@@ -210,12 +210,12 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 
-  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentId}.{documentType}':
+  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (SEPA EUR)
       operationId: getSepaEurApplicationDocuments
-      description: 'Get a European SEPA application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: 'Get a European SEPA application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
       produces:
         - image/png
         - image/jpeg
@@ -231,7 +231,7 @@ paths:
           required: true
           description: 'The id of the application to get the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to get'
@@ -259,12 +259,12 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentId}':
+  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (SEPA EUR)
       operationId: deleteSepaEurApplicationDocuments
-      description: 'Deletes a European SEPA application document for the referenced applicationId and documentId. Returns the status of the application.'
+      description: 'Deletes a European SEPA application document for the referenced applicationId and documentName. Returns the status of the application.'
       produces:
         - application/json
       security:
@@ -275,7 +275,7 @@ paths:
           required: true
           description: 'The id of the application to delete the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to delete'
@@ -533,12 +533,12 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 
-  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentId}.{documentType}':
+  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (BACS GBP)
       operationId: getBacsGbpApplicationDocuments
-      description: 'Get a United Kingdom BACS application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: 'Get a United Kingdom BACS application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
       produces:
         - image/png
         - image/jpeg
@@ -554,7 +554,7 @@ paths:
           required: true
           description: 'The id of the application to get the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to get'
@@ -582,12 +582,12 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentId}':
+  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (BACS GBP)
       operationId: deleteBacsGbpApplicationDocuments
-      description: 'Deletes a United Kingdom BACS application document for the referenced applicationId and documentId. Returns the status of the application.'
+      description: 'Deletes a United Kingdom BACS application document for the referenced applicationId and documentName. Returns the status of the application.'
       produces:
         - application/json
       security:
@@ -598,7 +598,7 @@ paths:
           required: true
           description: 'The id of the application to delete the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to delete'
@@ -856,12 +856,12 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 
-  '/workflows/ach-usd/applications/{applicationId}/documents/{documentId}.{documentType}':
+  '/workflows/ach-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (ACH USD)
       operationId: getAchUsdApplicationDocuments
-      description: 'Get a United States ACH application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: 'Get a United States ACH application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
       produces:
         - image/png
         - image/jpeg
@@ -877,7 +877,7 @@ paths:
           required: true
           description: 'The id of the application to get the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to get'
@@ -905,12 +905,12 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/ach-usd/applications/{applicationId}/documents/{documentId}':
+  '/workflows/ach-usd/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (ACH USD)
       operationId: deleteAchUsdApplicationDocuments
-      description: 'Deletes a United States ACH application document for the referenced applicationId and documentId. Returns the status of the application.'
+      description: 'Deletes a United States ACH application document for the referenced applicationId and documentName. Returns the status of the application.'
       produces:
         - application/json
       security:
@@ -921,7 +921,7 @@ paths:
           required: true
           description: 'The id of the application to delete the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to delete'
@@ -1179,12 +1179,12 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 
-  '/workflows/eft-cad/applications/{applicationId}/documents/{documentId}.{documentType}':
+  '/workflows/eft-cad/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (EFT CAD)
       operationId: getEftCadApplicationDocuments
-      description: 'Get a Canada EFT application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: 'Get a Canada EFT application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
       produces:
         - image/png
         - image/jpeg
@@ -1200,7 +1200,7 @@ paths:
           required: true
           description: 'The id of the application to get the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to get'
@@ -1228,12 +1228,12 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/eft-cad/applications/{applicationId}/documents/{documentId}':
+  '/workflows/eft-cad/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (EFT CAD)
       operationId: deleteEftCadApplicationDocuments
-      description: 'Deletes a Canada EFT application document for the referenced applicationId and documentId. Returns the status of the application.'
+      description: 'Deletes a Canada EFT application document for the referenced applicationId and documentName. Returns the status of the application.'
       produces:
         - application/json
       security:
@@ -1244,7 +1244,7 @@ paths:
           required: true
           description: 'The id of the application to delete the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to delete'
@@ -1696,12 +1696,12 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 
-  '/workflows/psp-usd/applications/{applicationId}/documents/{documentId}.{documentType}':
+  '/workflows/psp-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Credit Card Payments (PSP USD)
       operationId: getPspUsdApplicationDocuments
-      description: 'Get a United States PSP application document for the referenced applicationId, documentId and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: 'Get a United States PSP application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
       produces:
         - image/png
         - image/jpeg
@@ -1717,7 +1717,7 @@ paths:
           required: true
           description: 'The id of the application to get the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to get'
@@ -1745,12 +1745,12 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/psp-usd/applications/{applicationId}/documents/{documentId}':
+  '/workflows/psp-usd/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Credit Card Payments (PSP USD)
       operationId: deletePspUsdApplicationDocuments
-      description: 'Deletes a United States PSP application document for the referenced applicationId and documentId. Returns the status of the application.'
+      description: 'Deletes a United States PSP application document for the referenced applicationId and documentName. Returns the status of the application.'
       produces:
         - application/json
       security:
@@ -1761,7 +1761,7 @@ paths:
           required: true
           description: 'The id of the application to delete the document from'
           type: integer
-        - name: documentId
+        - name: documentName
           in: path
           required: true
           description: 'The name of the document to delete'
