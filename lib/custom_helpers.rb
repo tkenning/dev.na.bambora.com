@@ -67,44 +67,39 @@ module CustomHelpers
     "/" + current_page.path.split('.').first + "/"
   end
 
-
-  # Uses the swagger endpoint to get a list of specs
-  # Can then refer to the destination file name in a
-  # swagger template to render the spec.
-  def get_all_swagger_specs(url)
+  # Gets a list of specs and downloads them
+  def get_all_swagger_specs(swagger_url, output_dir)
     require "json"
     require "net/http"
 
-    swaggerUrl = "#{url}/swagger"
-
-    uri = URI(swaggerUrl)
+    uri = URI(swagger_url)
     response = Net::HTTP.get uri
 
     result = JSON.parse response
     if result.is_a?(Array)
       result.each do |spec|
+        format = spec["format"]
         id = spec["id"]
         href = spec["href"]
-        get_swagger_spec "#{url}/#{href}", "na/API_spec/merchant/#{id}.yaml"
+        get_swagger_spec "#{href}", output_dir, "#{id}.#{format}"
       end
     else
       # do it the old way
-      get_swagger_spec "#{swaggerUrl}", "na/API_spec/merchant/1-0-2.json"
+      default_payments_spec = "1-0-2.json"
+      get_swagger_spec "#{swagger_url}", output_dir, default_payments_spec
     end
   end
 
   # Downloads the specified swagger file at build time
   # Can then refer to the destination file name in a
   # swagger template to render the spec.
-  def get_swagger_spec(url, destination)
+  def get_swagger_spec(url, output_dir, file_name)
     require 'open-uri'
     require 'fileutils'
     root = Middleman::Application.root
-    name = url.split('/').last
-    name, extension = name.split('.')
     download = open(url)
-    FileUtils.mkdir_p(File.dirname("#{root}/data/autodownload/#{destination}"))
-    IO.copy_stream(download, "#{root}/data/autodownload/#{destination}")
+    FileUtils.mkdir_p("#{root}/#{output_dir}")
+    IO.copy_stream(download, "#{root}/#{output_dir}/#{file_name}")
   end
 
   # Get the data file referenced using dot notation
