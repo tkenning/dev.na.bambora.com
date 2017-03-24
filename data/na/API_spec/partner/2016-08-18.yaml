@@ -55,7 +55,7 @@ paths:
         - Funds Transfer (SEPA-EUR)
       operationId: getSepaEurApplications
       description: |
-        Retrieves all European SEPA applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -316,7 +316,7 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: getBacsGbpApplications
       description: |
-        Retrieves all United Kingdom BACS applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -416,7 +416,7 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: createBacsGbpApplicationDocuments
       description: |
-        Creates a United Kingdom BACS application document for the referenced applicationId. Returns the status of the application.
+        Creates a BACS-GBP application document for the referenced applicationId. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -456,7 +456,7 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: getBacsGbpApplicationDocuments
       description: |
-        Get a United Kingdom BACS application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.
+        Get a BACS-GBP application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.
       produces:
         - image/png
         - image/jpeg
@@ -505,7 +505,7 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: deleteBacsGbpApplicationDocuments
       description: |
-        Deletes a United Kingdom BACS application document for the referenced applicationId and documentName. Returns the status of the application.
+        Deletes a BACS-GBP application document for the referenced applicationId and documentName. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -577,7 +577,7 @@ paths:
         - Funds Transfer (ACH-USD)
       operationId: getAchUsdApplications
       description: |
-        Retrieves all ACH-USD applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -842,7 +842,7 @@ paths:
         - Funds Transfer (EFT-CAD)
       operationId: getEftCadApplications
       description: |
-        Retrieves all EFT-CAD applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -1111,7 +1111,7 @@ paths:
         - Credit Card Payments (PSP-CAD)
       operationId: getPspCadApplications
       description: |
-        Retrieves all PSP-CAD applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -1242,7 +1242,7 @@ paths:
         - Credit Card Payments (PSP-USD)
       operationId: getPspUsdApplications
       description: |
-        Retrieves all PSP-USD applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -1292,7 +1292,7 @@ paths:
             $ref: '#/definitions/PspUsdApplicationRequest'
       responses:
         200:
-          description: 'Application Updated.'
+          description: 'Application updated'
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
@@ -1430,7 +1430,8 @@ paths:
       tags:
         - Credit Card Payments (PSP-USD)
       operationId: deletePspUsdApplicationDocuments
-      description: 'Deletes a PSP-USD application document for the referenced applicationId and documentName. Returns the status of the application.'
+      description: |
+        Deletes a PSP-USD application document for the referenced applicationId and documentName. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -1469,9 +1470,10 @@ paths:
   '/workflows/gw-cdn/applications':
     post:
       tags:
-        - Gateway application (GW CDN)
+        - Gateway application (GW-CDN)
       operationId: createGwCdnApplication
-      description: 'Creates a new Canadian Gateway application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: |
+        Creates a new GW-CDN application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1479,10 +1481,10 @@ paths:
       parameters:
         - name: application
           in: body
-          description: 'Application details'
+          description: 'GW-CDN application details'
           required: true
           schema:
-            $ref: '#/definitions/GwCdnApplication'
+            $ref: '#/definitions/GwCdnApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -1491,20 +1493,17 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Gateway application (GW CDN)
+        - Gateway application (GW-CDN)
       operationId: getGwCdnApplications
       description: |
-        Retrieves all Canadian Gateway applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -1524,27 +1523,18 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/GwCdnApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/GwCdnApplicationRequest'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Applications not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/gw-cdn/applications/{applicationId}':
     put:
       tags:
-        - Gateway application (GW CDN)
+        - Gateway application (GW-CDN)
       operationId: updateGwCdnApplication
-      description: 'Updates a Canadian Gateway application referenced by the given applicationId.'
+      description: |
+        Updates a GW-CDN application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -1560,32 +1550,30 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/GwCdnApplication'
+            $ref: '#/definitions/GwCdnApplicationRequest'
       responses:
         200:
-          description: 'Application Updated.'
+          description: 'Application updated'
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Gateway application (GW CDN)
+        - Gateway application (GW-CDN)
       operationId: getGwCdnApplication
-      description: 'Retrieves a Canadian Gateway application referenced by the given applicationId.'
+      description: |
+        Retrieves a GW-CDN application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -1600,29 +1588,23 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/GwCdnApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/GwCdnApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
 # GW USA WORKFLOW
   '/workflows/gw-usa/applications':
     post:
       tags:
-        - Gateway application (GW USA)
+        - Gateway application (GW-USA)
       operationId: createGwUsaApplication
-      description: 'Creates a new US Gateway application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: |
+        Creates a new GW-USA application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1630,10 +1612,10 @@ paths:
       parameters:
         - name: application
           in: body
-          description: 'Application details'
+          description: 'GW-USA application details'
           required: true
           schema:
-            $ref: '#/definitions/GwUsaApplication'
+            $ref: '#/definitions/GwUsaApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -1642,20 +1624,17 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Gateway application (GW USA)
+        - Gateway application (GW-USA)
       operationId: getGwUsaApplications
       description: |
-        Retrieves all US Gateway applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -1675,27 +1654,18 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/GwUsaApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/GwUsaApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Applications not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/gw-usa/applications/{applicationId}':
     put:
       tags:
-        - Gateway application (GW USA)
+        - Gateway application (GW-USA)
       operationId: updateGwUsaApplication
-      description: 'Updates a US Gateway application referenced by the given applicationId.'
+      description: |
+        Updates a GW-USA application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -1708,35 +1678,33 @@ paths:
           type: integer
         - name: document
           in: body
-          description: 'Application details'
+          description: 'GW-USA application details'
           required: true
           schema:
-            $ref: '#/definitions/GwUsaApplication'
+            $ref: '#/definitions/GwUsaApplicationRequest'
       responses:
         200:
-          description: 'Application Updated.'
+          description: 'Application updated'
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Gateway application (GW USA)
+        - Gateway application (GW-USA)
       operationId: getGwUsaApplication
-      description: 'Retrieves a US Gateway application referenced by the given applicationId.'
+      description: |
+        Retrieves a GW-USA application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -1751,22 +1719,15 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/GwUsaApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/GwUsaApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
 # PSP NZD WORKFLOW
   '/workflows/psp-nz/applications':
     post:
@@ -2235,8 +2196,8 @@ definitions:
       business:
         $ref: '#/definitions/PspUsdBusiness'
 
-  GwCdnApplication:
-    description: 'Defines a Canada Gateway application'
+  GwCdnApplicationRequest:
+    description: 'Defines a GW-CDN application request'
     additionalProperties: false
     type: object
     required:
@@ -2244,25 +2205,56 @@ definitions:
       - business
       - pricing_id
     properties:
-      id:
-        type: integer
-        format: int32
-        description: 'This application identifier is used to identify an application. [ReadOnly]'
-      status:
-        $ref: '#/definitions/ApplicationResponse'
+      pricing_id:
+        type: string
+        maxLength: 32
+        description: 'The identifier for the pricing package associated with an application'
       applicant:
         $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/GwCdnBusiness'
       terminal:
         $ref: '#/definitions/GwCdnTerminal'
+
+  GwCdnApplicationResponse:
+    description: 'Defines a GW-USA application'
+    additionalProperties: false
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The identifier for the application'
+      url:
+        type: string
+        description: 'The URL of the application'
+      type:
+        type: string
+        description: 'The workflow that the application is associated with'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      merchant_id:
+        type: integer
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
       pricing_id:
         type: string
-        maxLength: 32
-        description: 'This is the reference number for the pricing package associated with an application'
+        description: 'The identifier for the pricing package associated with an application'
+      pricing_package:
+        $ref: '#/definitions/PricingPackage'
+      partner_username:
+        type: string
+        description: 'The username of the partner the application is associated with'
+      status:
+        $ref: '#/definitions/ApplicationStatus'
+      applicant:
+        $ref: '#/definitions/Applicant'
+      business:
+        $ref: '#/definitions/GwCdnBusiness'
+      terminal:
+        $ref: '#/definitions/GwCdnTerminal'
 
-  GwUsaApplication:
-    description: 'Defines a US Gateway application'
+  GwUsaApplicationRequest:
+    description: 'Defines a GW-USA application request'
     additionalProperties: false
     type: object
     required:
@@ -2270,22 +2262,53 @@ definitions:
       - business
       - pricing_id
     properties:
-      id:
-        type: integer
-        format: int32
-        description: 'This application identifier is used to identify an application. [ReadOnly]'
-      status:
-        $ref: '#/definitions/ApplicationResponse'
+      pricing_id:
+        type: string
+        maxLength: 32
+        description: 'The identifier for the pricing package associated with an application'
       applicant:
         $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/GwUsaBusiness'
       terminal:
         $ref: '#/definitions/GwUsaTerminal'
+
+  GwUsaApplicationResponse:
+    description: 'Defines a GW-USA application'
+    additionalProperties: false
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The identifier for the application'
+      url:
+        type: string
+        description: 'The URL of the application'
+      type:
+        type: string
+        description: 'The workflow that the application is associated with'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      merchant_id:
+        type: integer
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
       pricing_id:
         type: string
-        maxLength: 32
-        description: 'This is the reference number for the pricing package associated with an application'
+        description: 'The identifier for the pricing package associated with an application'
+      pricing_package:
+        $ref: '#/definitions/PricingPackage'
+      partner_username:
+        type: string
+        description: 'The username of the partner the application is associated with'
+      status:
+        $ref: '#/definitions/ApplicationStatus'
+      applicant:
+        $ref: '#/definitions/Applicant'
+      business:
+        $ref: '#/definitions/GwUsaBusiness'
+      terminal:
+        $ref: '#/definitions/GwUsaTerminal'
 
   PspNzdApplication:
     description: 'Defines a PSP New Zealander application'
