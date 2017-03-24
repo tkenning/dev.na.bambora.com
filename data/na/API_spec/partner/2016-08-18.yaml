@@ -22,9 +22,10 @@ paths:
   '/workflows/sepa-eur/applications':
     post:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: createSepaEurApplication
-      description: 'Creates a new European SEPA application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: |
+        Creates a new SEPA-EUR application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.'
       produces:
         - application/json
       security:
@@ -32,29 +33,22 @@ paths:
       parameters:
         - name: application
           in: body
-          description: 'Application details'
+          description: 'SEPA-EUR application details'
           required: true
           schema:
-            $ref: '#/definitions/SepaEurApplication'
+            $ref: '#/definitions/SepaEurApplicationRequest'
       responses:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: getSepaEurApplications
       description: |
         Retrieves all European SEPA applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
@@ -77,7 +71,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/SepaEurApplication'
+              $ref: '#/definitions/SepaEurApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -114,12 +108,12 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/SepaEurApplication'
+            $ref: '#/definitions/SepaEurApplicationRequest'
       responses:
         200:
           description: 'Application Updated.'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -154,7 +148,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/SepaEurApplication'
+            $ref: '#/definitions/SepaEurApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -320,12 +314,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -363,7 +357,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -442,7 +436,7 @@ paths:
         200:
           description: 'Application updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -643,12 +637,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -686,7 +680,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -765,7 +759,7 @@ paths:
         200:
           description: 'Application updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -966,12 +960,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1009,7 +1003,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1088,7 +1082,7 @@ paths:
         200:
           description: 'Application updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1289,12 +1283,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1332,7 +1326,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1411,7 +1405,7 @@ paths:
         200:
           description: 'Application Updated.'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1483,12 +1477,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1526,7 +1520,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1605,7 +1599,7 @@ paths:
         200:
           description: 'Application Updated.'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1806,12 +1800,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1849,7 +1843,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1928,7 +1922,7 @@ paths:
         200:
           description: 'Application Updated.'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2000,12 +1994,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2043,7 +2037,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2122,7 +2116,7 @@ paths:
         200:
           description: 'Application Updated.'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2194,12 +2188,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2238,7 +2232,7 @@ paths:
         201:
           description: 'Application created'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2317,7 +2311,7 @@ paths:
         200:
           description: 'Application Updated.'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2389,12 +2383,12 @@ paths:
           description: 'The status details'
           required: true
           schema:
-              $ref: '#/definitions/Status'
+              $ref: '#/definitions/ApplicationResponse'
       responses:
         200:
           description: 'Status Updated'
           schema:
-            $ref: '#/definitions/Status'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2431,7 +2425,7 @@ definitions:
         maxLength: 32
         description: 'This is the reference number for the pricing package associated with an application'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
         $ref: '#/definitions/EftCadApplicant'
       business:
@@ -2457,14 +2451,14 @@ definitions:
         maxLength: 32
         description: 'This is the reference number for the pricing package associated with an application'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
-        $ref: '#/definitions/EftApplicant'
+        $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/AchUsdBusiness'
 
-  SepaEurApplication:
-    description: 'Defines a SEPA European application'
+  SepaEurApplicationRequest:
+    description: 'Defines a SEPA-EUR application request'
     additionalProperties: false
     type: object
     required:
@@ -2472,20 +2466,46 @@ definitions:
       - business
       - pricing_id
     properties:
-      id:
-        type: integer
-        description: 'This application identifier is used to identify an application. [ReadOnly]'
-      merchant_id:
-        type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. [ReadOnly]'
       pricing_id:
         type: string
         maxLength: 32
         description: 'This is the reference number for the pricing package associated with an application'
-      status:
-        $ref: '#/definitions/Status'
       applicant:
-        $ref: '#/definitions/EftApplicant'
+        $ref: '#/definitions/Applicant'
+      business:
+        $ref: '#/definitions/SepaEurBusiness'
+
+  SepaEurApplicationResponse:
+    description: 'Defines a SEPA-EUR application response'
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'This application identifier is used to identify an application.'
+      url:
+        type: string
+        description: 'The URL of the application'
+      type:
+        type: string
+        description: 'The workflow that the application is associated with'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      merchant_id:
+        type: integer
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+      pricing_id:
+        type: string
+        description: 'The identifier for the pricing package associated with an application'
+      partner_username:
+        type: string
+        description: 'The username of the partner the application is associated with'
+      pricing_package:
+        $ref: '#/definitions/PricingPackage'
+      status:
+        $ref: '#/definitions/ApplicationStatus'
+      applicant:
+        $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/SepaEurBusiness'
 
@@ -2509,9 +2529,9 @@ definitions:
         maxLength: 32
         description: 'This is the reference number for the pricing package associated with an application'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
-        $ref: '#/definitions/EftApplicant'
+        $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/BacsGbpBusiness'
 
@@ -2536,7 +2556,7 @@ definitions:
         maxLength: 32
         description: 'This is the reference number for the pricing package associated with an application'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
         $ref: '#/definitions/PspCadApplicant'
       business:
@@ -2563,7 +2583,7 @@ definitions:
         maxLength: 32
         description: 'This is the reference number for the pricing package associated with an application'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
         $ref: '#/definitions/PspUsdApplicant'
       business:
@@ -2583,9 +2603,9 @@ definitions:
         format: int32
         description: 'This application identifier is used to identify an application. [ReadOnly]'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
-        $ref: '#/definitions/GwApplicant'
+        $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/GwCdnBusiness'
       terminal:
@@ -2609,9 +2629,9 @@ definitions:
         format: int32
         description: 'This application identifier is used to identify an application. [ReadOnly]'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
-        $ref: '#/definitions/GwApplicant'
+        $ref: '#/definitions/Applicant'
       business:
         $ref: '#/definitions/GwUsaBusiness'
       terminal:
@@ -2637,37 +2657,11 @@ definitions:
         type: integer
         description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. [ReadOnly]'
       status:
-        $ref: '#/definitions/Status'
+        $ref: '#/definitions/ApplicationResponse'
       applicant:
         $ref: '#/definitions/PspNzdApplicant'
       business:
         $ref: '#/definitions/PspNzdBusiness'
-
-  GwApplicant:
-    description: 'The individual completing the application'
-    additionalProperties: false
-    type: object
-    required:
-      - first_name
-      - last_name
-      - phone_number
-      - agreement
-      - email
-    properties:
-      first_name:
-        type: string
-        maxLength: 64
-      last_name:
-        type: string
-        maxLength: 64
-      phone_number:
-        type: string
-        maxLength: 15
-      agreement:
-        $ref: '#/definitions/Agreement'
-      email:
-        type: string
-        maxLength: 500
 
   GwCdnBusiness:
     description: 'The details of an Gateway Canadian business'
@@ -2943,7 +2937,7 @@ definitions:
     description: 'Moneris terminal'
     additionalProperties: false
 
-  EftApplicant:
+  Applicant:
     description: 'The individual completing the application'
     additionalProperties: false
     type: object
@@ -4086,7 +4080,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrival of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
 
   AchUsdFile:
     description: 'Defines a document that is required for application approval.'
@@ -4113,7 +4107,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrival of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
 
   SepaEurFile:
     description: 'Defines a document that is required for application approval.'
@@ -4140,7 +4134,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrival of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
 
   BacsGbpFile:
     description: 'Defines a document that is required for application approval.'
@@ -4167,7 +4161,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrival of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
 
   PspUsdFile:
     description: 'Defines a document that is required for application approval.'
@@ -4194,7 +4188,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrival of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
 
   PspNzdFile:
     description: 'Defines a document that is required for application approval.'
@@ -4228,38 +4222,40 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrival of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
 
-  Status:
-    description: 'Defines information about the application. [ReadOnly]'
-    additionalProperties: false
-    type: object
-    properties:
-      state:
-        type: string
-        description: 'The state of the application. Possible values are "in_progress", "in_review", "on_hold", "rejected", "approved"'
-        enum: ["in_progress","in_review","on_hold","rejected","approved"]
-      created_on:
-        type: string
-        format: date-time
-        description: 'Defines the date when the application was created in ISO 8601 format with a timezone [ReadOnly]'
-      updated_on:
-        type: string
-        format: date-time
-        description: 'Defines the date when the application was modified in  ISO 8601 format with a timezone [ReadOnly]'
-      pending_issues:
-        type: array
-        items:
-          $ref: '#/definitions/Error'
-
-  ApplicationStatus:
-    description: 'Defines information about the application. [ReadOnly]'
+  ApplicationResponse:
+    description: 'Defines information about the application'
     additionalProperties: false
     type: object
     properties:
       id:
         type: integer
         description: 'The id of the application'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      state:
+        type: string
+        description: 'The state of the application. Possible values are "in_progress", "in_review", "on_hold", "rejected", "approved"'
+        enum: ["in_progress","in_review","on_hold","rejected","approved"]
+      created_on:
+        type: string
+        format: date-time
+        description: 'The date when the application was created in ISO 8601 format with a timezone'
+      updated_on:
+        type: string
+        format: date-time
+        description: 'The date when the application was modified in  ISO 8601 format with a timezone'
+      pending_issues:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+
+  ApplicationStatus:
+    description: 'Defines information about the application status.'
+    type: object
+    properties:
       state:
         type: string
         description: 'The state of the application. Possible values are "in_progress", "in_review", "on_hold", "rejected", "approved"'
@@ -4276,9 +4272,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Error'
-      api_version:
-        type: string
-        description: 'The api version this request was made with'
 
   Agreement:
     description: 'Defines an terms and conditions agreement between a merchant and Beanstream'
@@ -4346,7 +4339,77 @@ definitions:
         description: 'A field associated with the error'
       reason:
         type: string
-        description: 'A code associated with the error'
+        description: 'A human readable reason for the error'
       message:
         type: string
-        description: 'A human readable message about the error'
+        description: 'A message code for the error'
+
+  PricingPackage:
+    description: 'The full pricing package associated with an application'
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The id of the pricing package'
+      sales_person_name:
+        type: string
+        description: 'The sales person associated with the pricing package'
+      description:
+        type: string
+        description: 'The description of the pricing package'
+      billing_items:
+        type: array
+        description: 'The billing fees that will be associated with the application once approved'
+        items:
+          $ref: '#/definitions/BillingItem'
+      channel_partner_id:
+        type: integer
+        description: 'The BIC channel partner ID associated with the pricing packge'
+      enabled:
+        type: boolean
+        description: 'Whether the pricing package is enabled or disabled'
+      name:
+        type: string
+        description: 'The name of the pricing package'
+      channel_partner_name:
+        type: string
+        description: 'The name of the channel partner associated with the pricing package'
+      onboarding_link:
+        type: string
+        description: 'The URL of the onboarding screens for the pricing package'
+      pricing_id:
+        type: string
+        description: 'The identifier for the pricing package associated with an application'
+      application_type:
+        type: string
+        description: 'The workflow that the pricing package is associated with'
+      created_on:
+        type: string
+        format: date-time
+        description: 'The date the pricing package was created'
+      updated_on:
+        type: string
+        format: date-time
+        description: 'The date the pricing package was last updated'
+      message:
+        type: string
+        description: 'An explanation of why the pricing package was not included (will only be available if pricing package retrieval is unsuccessful)'
+      status_code:
+        type: integer
+        description: 'http code for the pricing package (will only be available if pricing package retrieval is unsuccessful)'
+
+  BillingItem:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The id of the billing item'
+      amount:
+        type: string
+        description: 'The amount that the billing item will be billed at'
+      prefix:
+        type: string
+        description: 'The visual representation of the unit of the amount'
+      service:
+        type: string
+        description: 'Human readable description of the billing item'
