@@ -46,6 +46,10 @@ paths:
           description: 'Invalid request'
           schema:
             $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
         - Funds Transfer (SEPA-EUR)
@@ -71,28 +75,19 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/SepaEurApplicationResponse'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/SepaEurApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Applications not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
 
   '/workflows/sepa-eur/applications/{applicationId}':
     put:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: updateSepaEurApplication
-      description: 'Updates a European SEPA application referenced by the given applicationId.'
+      description: |
+        Updates a SEPA-EUR application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -103,7 +98,7 @@ paths:
           required: true
           description: 'The id of the application to update'
           type: integer
-        - name: document
+        - name: application
           in: body
           description: 'Application details'
           required: true
@@ -111,29 +106,27 @@ paths:
             $ref: '#/definitions/SepaEurApplicationRequest'
       responses:
         200:
-          description: 'Application Updated.'
+          description: 'Application updated'
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: getSepaEurApplication
-      description: 'Retrieves a European SEPA application referenced by the given applicationId.'
+      description: |
+        Retrieves a SEPA-EUR application referenced by the given applicationId
       produces:
         - application/json
       security:
@@ -149,27 +142,22 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/SepaEurApplicationResponse'
-        400:
-          description: 'Invalid request'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
 
   '/workflows/sepa-eur/applications/{applicationId}/documents':
     post:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: createSepaEurApplicationDocuments
-      description: 'Creates a European SEPA application document for the referenced applicationId. Returns the status of the application.'
+      description: |
+        Creates a SEPA-EUR application document for the referenced applicationId. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -207,9 +195,10 @@ paths:
   '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: getSepaEurApplicationDocuments
-      description: 'Get a European SEPA application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: |
+       Retrieve a SEPA-EUR application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.
       produces:
         - image/png
         - image/jpeg
@@ -256,9 +245,10 @@ paths:
   '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
-        - Funds Transfer (SEPA EUR)
+        - Funds Transfer (SEPA-EUR)
       operationId: deleteSepaEurApplicationDocuments
-      description: 'Deletes a European SEPA application document for the referenced applicationId and documentName. Returns the status of the application.'
+      description: |
+        Deletes a SEPA-EUR application document for the referenced applicationId and documentName. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -292,48 +282,6 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
-  '/workflows/sepa-eur/applications/{applicationId}/status':
-    put:
-      tags:
-        - Funds Transfer (SEPA EUR)
-      operationId: updateSepaEurApplicationStatus
-      description: 'NOTE: This is for internal use only. If you are integrating to the onboarding API you will not have access to set the status. Our system will do that. Updates a European SEPA application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
 
 #BACS GBP WORKFLOW
   '/workflows/bacs-gbp/applications':
