@@ -18,14 +18,14 @@ securityDefinitions:
     in: header
     description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
 paths:
-# SEPA EUR WORKFLOW
+# SEPA-EUR WORKFLOW
   '/workflows/sepa-eur/applications':
     post:
       tags:
         - Funds Transfer (SEPA-EUR)
       operationId: createSepaEurApplication
       description: |
-        Creates a new SEPA-EUR application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.'
+        Creates a new SEPA-EUR application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -80,7 +80,6 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/sepa-eur/applications/{applicationId}':
     put:
       tags:
@@ -100,7 +99,7 @@ paths:
           type: integer
         - name: application
           in: body
-          description: 'Application details'
+          description: 'SEPA-EUR Application details'
           required: true
           schema:
             $ref: '#/definitions/SepaEurApplicationRequest'
@@ -126,7 +125,7 @@ paths:
         - Funds Transfer (SEPA-EUR)
       operationId: getSepaEurApplication
       description: |
-        Retrieves a SEPA-EUR application referenced by the given applicationId
+        Retrieves a SEPA-EUR application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -150,7 +149,6 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/sepa-eur/applications/{applicationId}/documents':
     post:
       tags:
@@ -178,7 +176,7 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/ApplicationStatus'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request data or invalid api version'
           schema:
@@ -191,7 +189,6 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
@@ -241,7 +238,6 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
   '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
@@ -287,9 +283,10 @@ paths:
   '/workflows/bacs-gbp/applications':
     post:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: createBacsGbpApplication
-      description: 'Creates a new United Kingdom BACS application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: |
+        Creates a new BACS-GBP application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -297,10 +294,10 @@ paths:
       parameters:
         - name: application
           in: body
-          description: 'Applicaiton details'
+          description: 'BACS-GBP Application details'
           required: true
           schema:
-            $ref: '#/definitions/BacsGbpApplication'
+            $ref: '#/definitions/BacsGbpApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -309,17 +306,14 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: getBacsGbpApplications
       description: |
         Retrieves all United Kingdom BACS applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
@@ -342,28 +336,18 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/BacsGbpApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/BacsGbpApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Applications not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/bacs-gbp/applications/{applicationId}':
     put:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: updateBacsGbpApplication
-      description: 'Updates a United Kingdom BACS application referenced by the given applicationId.'
+      description: |
+        Updates a BACS-GBP application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -376,10 +360,10 @@ paths:
           type: integer
         - name: application
           in: body
-          description: 'Applicaiton details'
+          description: 'BACS-GBP Application details'
           required: true
           schema:
-            $ref: '#/definitions/BacsGbpApplication'
+            $ref: '#/definitions/BacsGbpApplicationRequest'
       responses:
         200:
           description: 'Application updated'
@@ -388,23 +372,21 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: getBacsGbpApplication
-      description: 'Retrieves a United Kingdom BACS application referenced by the given applicationId.'
+      description: |
+        Retrieves a BACS-GBP application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -419,28 +401,22 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/BacsGbpApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/BacsGbpApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/bacs-gbp/applications/{applicationId}/documents':
     post:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: createBacsGbpApplicationDocuments
-      description: 'Creates a United Kingdom BACS application document for the referenced applicationId. Returns the status of the application.'
+      description: |
+        Creates a United Kingdom BACS application document for the referenced applicationId. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -461,7 +437,7 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/ApplicationStatus'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request data or invalid api version'
           schema:
@@ -474,13 +450,13 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: getBacsGbpApplicationDocuments
-      description: 'Get a United Kingdom BACS application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: |
+        Get a United Kingdom BACS application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.
       produces:
         - image/png
         - image/jpeg
@@ -523,13 +499,13 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
   '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
-        - Funds Transfer (BACS GBP)
+        - Funds Transfer (BACS-GBP)
       operationId: deleteBacsGbpApplicationDocuments
-      description: 'Deletes a United Kingdom BACS application document for the referenced applicationId and documentName. Returns the status of the application.'
+      description: |
+        Deletes a United Kingdom BACS application document for the referenced applicationId and documentName. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -564,55 +540,14 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/bacs-gbp/applications/{applicationId}/status':
-    put:
-      tags:
-        - Funds Transfer (BACS GBP)
-      operationId: updateBacsGbpApplicationStatus
-      description: 'Updates a United Kingdom BACS application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
 # ACH USD WORKFLOW
   '/workflows/ach-usd/applications':
     post:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: createAchUsdApplication
-      description: 'Creates a new United States ACH application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: |
+        Creates a new ACH-USD application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -620,10 +555,10 @@ paths:
       parameters:
         - name: application
           in: body
-          description: 'Application details'
+          description: 'ACH-USD Application details'
           required: true
           schema:
-            $ref: '#/definitions/AchUsdApplication'
+            $ref: '#/definitions/AchUsdApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -632,20 +567,17 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: getAchUsdApplications
       description: |
-        Retrieves all United States ACH applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all ACH-USD applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -665,28 +597,18 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/AchUsdApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/AchUsdApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Applications not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/ach-usd/applications/{applicationId}':
     put:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: updateAchUsdApplication
-      description: 'Updates a United States ACH application referenced by the given applicationId.'
+      description: |
+        Updates an ACH-USD application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -699,10 +621,10 @@ paths:
           type: integer
         - name: application
           in: body
-          description: 'Applicaiton details'
+          description: 'ACD-USD Application details'
           required: true
           schema:
-            $ref: '#/definitions/AchUsdApplication'
+            $ref: '#/definitions/AchUsdApplicationRequest'
       responses:
         200:
           description: 'Application updated'
@@ -711,23 +633,21 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: getAchUsdApplication
-      description: 'Retrieves a United States ACH application referenced by the given applicationId.'
+      description: |
+        Retrieves an ACH-USD application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -742,28 +662,26 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/AchUsdApplication'
+            $ref: '#/definitions/AchUsdApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/ach-usd/applications/{applicationId}/documents':
     post:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: createAchUsdApplicationDocuments
-      description: 'Creates a United States ACH application document for the referenced applicationId. Returns the status of the application.'
+      description: |
+        Creates an ACH-USD application document for the referenced applicationId. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -784,7 +702,7 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/ApplicationStatus'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request data or invalid api version'
           schema:
@@ -797,13 +715,13 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/ach-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: getAchUsdApplicationDocuments
-      description: 'Get a United States ACH application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: |
+        Get an ACH-USD application document for the referenced applicationId, documentName and documentType. The content type of the response returned will depend on the documentType passed into the path.
       produces:
         - image/png
         - image/jpeg
@@ -846,13 +764,13 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
   '/workflows/ach-usd/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
-        - Funds Transfer (ACH USD)
+        - Funds Transfer (ACH-USD)
       operationId: deleteAchUsdApplicationDocuments
-      description: 'Deletes a United States ACH application document for the referenced applicationId and documentName. Returns the status of the application.'
+      description: |
+        Deletes an ACH-USD application document for the referenced applicationId and documentName. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -887,55 +805,14 @@ paths:
         500:
           description: 'Unexpected error or application not found'
 
-  '/workflows/ach-usd/applications/{applicationId}/status':
-    put:
-      tags:
-        - Funds Transfer (ACH USD)
-      operationId: updateAchUsdApplicationStatus
-      description: 'Updates a United States ACH application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
 # EFT CAD WORKFLOW
   '/workflows/eft-cad/applications':
     post:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: createEftCadApplication
-      description: 'Creates a new Canada EFT application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: |
+        Creates a new EFT-CAD application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -943,10 +820,10 @@ paths:
       parameters:
         - name: application
           in: body
-          description: 'Applicaiton details'
+          description: 'EFT-CAD Application details'
           required: true
           schema:
-            $ref: '#/definitions/EftCadApplication'
+            $ref: '#/definitions/EftCadApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -955,20 +832,17 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: getEftCadApplications
       description: |
-        Retrieves all Canada EFT applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all EFT-CAD applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
 
            - state={state}
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
@@ -988,28 +862,26 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/EftCadApplication'
+            $ref: '#/definitions/EftCadApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Applications not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/eft-cad/applications/{applicationId}':
     put:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: updateEftCadApplication
-      description: 'Updates a Canada EFT application referenced by the given applicationId.'
+      description: |
+        Updates a EFT-CAD application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -1022,10 +894,10 @@ paths:
           type: integer
         - name: application
           in: body
-          description: 'Applicaiton details'
+          description: 'EFT-CAD application details'
           required: true
           schema:
-            $ref: '#/definitions/EftCadApplication'
+            $ref: '#/definitions/EftCadApplicationRequest'
       responses:
         200:
           description: 'Application updated'
@@ -1034,23 +906,21 @@ paths:
         400:
           description: 'Invalid request'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
+        403:
+          description: 'Unauthorized'
+          schema:
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
     get:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: getEftCadApplication
-      description: 'Retrieves a Canada EFT application referenced by the given applicationId.'
+      description: |
+        Retrieves an EFT-CAD application referenced by the given applicationId.
       produces:
         - application/json
       security:
@@ -1065,28 +935,22 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/EftCadApplication'
-        400:
-          description: 'Invalid request'
+            $ref: '#/definitions/EftCadApplicationResponse'
+        403:
+          description: 'Unauthorized'
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorResponse'
         404:
           description: 'Application not found'
           schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
+            $ref: '#/definitions/ErrorResponse'
   '/workflows/eft-cad/applications/{applicationId}/documents':
     post:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: createEftCadApplicationDocuments
-      description: 'Creates a Canada EFT application document for the referenced applicationId. Returns the status of the application.'
+      description: |
+        Creates an EFT-CAD application document for the referenced applicationId. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -1107,7 +971,7 @@ paths:
         200:
           description: 'Document created'
           schema:
-            $ref: '#/definitions/ApplicationStatus'
+            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request data or invalid api version'
           schema:
@@ -1120,13 +984,13 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/eft-cad/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: getEftCadApplicationDocuments
-      description: 'Get a Canada EFT application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.'
+      description: |
+        Get an EFT-CAD application document for the referenced applicationId, documentName and documentType.  The content type of the response returned will depend on the documentType passed into the path.
       produces:
         - image/png
         - image/jpeg
@@ -1169,13 +1033,13 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
   '/workflows/eft-cad/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
-        - Funds Transfer (EFT CAD)
+        - Funds Transfer (EFT-CAD)
       operationId: deleteEftCadApplicationDocuments
-      description: 'Deletes a Canada EFT application document for the referenced applicationId and documentName. Returns the status of the application.'
+      description: |
+        Deletes an EFT-CAD application document for the referenced applicationId and documentName. Returns the status of the application.
       produces:
         - application/json
       security:
@@ -1209,48 +1073,6 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
-  '/workflows/eft-cad/applications/{applicationId}/status':
-    put:
-      tags:
-        - Funds Transfer (EFT CAD)
-      operationId: updateEftCadApplicationStatus
-      description: 'Updates a Canada EFT application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
 
 # PSP CAD WORKFLOW
   '/workflows/psp-cad/applications':
@@ -1326,7 +1148,6 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-
   '/workflows/psp-cad/applications/{applicationId}':
     put:
       tags:
@@ -1389,48 +1210,6 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/PspCadApplication'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
-  '/workflows/psp-cad/applications/{applicationId}/status':
-    put:
-      tags:
-        - Credit Card Payments (PSP CAD)
-      operationId: updatePspCadApplicationStatus
-      description: 'Updates Canada PSP application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -1520,7 +1299,6 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-
   '/workflows/psp-usd/applications/{applicationId}':
     put:
       tags:
@@ -1597,7 +1375,6 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-
   '/workflows/psp-usd/applications/{applicationId}/documents':
     post:
       tags:
@@ -1637,7 +1414,6 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-
   '/workflows/psp-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
@@ -1686,7 +1462,6 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
   '/workflows/psp-usd/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
@@ -1726,48 +1501,6 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-
-  '/workflows/psp-usd/applications/{applicationId}/status':
-    put:
-      tags:
-        - Credit Card Payments (PSP USD)
-      operationId: updatePspUsdApplicationStatus
-      description: 'Updates US PSP application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
 
 # GW CDN WORKFLOW
   '/workflows/gw-cdn/applications':
@@ -1843,7 +1576,6 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-
   '/workflows/gw-cdn/applications/{applicationId}':
     put:
       tags:
@@ -1906,48 +1638,6 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/GwCdnApplication'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
-  '/workflows/gw-cdn/applications/{applicationId}/status':
-    put:
-      tags:
-        - Gateway application (GW CDN)
-      operationId: updateGwCdnApplicationStatus
-      description: 'Updates Canadian Gateway application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
         400:
           description: 'Invalid request'
           schema:
@@ -2037,7 +1727,6 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-
   '/workflows/gw-usa/applications/{applicationId}':
     put:
       tags:
@@ -2115,49 +1804,6 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/gw-usa/applications/{applicationId}/status':
-    put:
-      tags:
-        - Gateway application (GW USA)
-      operationId: updateGwUsaApplicationStatus
-      description: 'Updates US Gateway application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
-
 # PSP NZD WORKFLOW
   '/workflows/psp-nz/applications':
     post:
@@ -2232,7 +1878,6 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-
   '/workflows/psp-nz/applications/{applicationId}':
     put:
       tags:
@@ -2310,51 +1955,9 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  '/workflows/psp-nz/applications/{applicationId}/status':
-    put:
-      tags:
-        - Credit Card Payments (PSP NZD)
-      operationId: updatePspNzdApplicationStatus
-      description: 'Updates New Zealand PSP application status for the referenced applicationId. Returns the status of the application.'
-      produces:
-        - application/json
-      security:
-        - api_key: []
-      parameters:
-        - name: applicationId
-          in: path
-          required: true
-          description: 'The id of the application to update status for'
-          type: integer
-        - name: status
-          in: body
-          description: 'The status details'
-          required: true
-          schema:
-              $ref: '#/definitions/ApplicationResponse'
-      responses:
-        200:
-          description: 'Status Updated'
-          schema:
-            $ref: '#/definitions/ApplicationResponse'
-        400:
-          description: 'Invalid request'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Error'
-        404:
-          description: 'Application not found'
-          schema:
-            $ref: '#/definitions/Error'
-        500:
-          description: 'Unexpected error'
-          schema:
-            $ref: '#/definitions/Error'
-
 definitions:
-  EftCadApplication:
-    description: 'Defines an EFT Canadian application'
+  EftCadApplicationRequest:
+    description: 'Defines an EFT-CAD application request'
     additionalProperties: false
     type: object
     required:
@@ -2362,25 +1965,52 @@ definitions:
       - business
       - pricing_id
     properties:
-      id:
-        type: integer
-        description: 'This application identifier is used to identify an application. [ReadOnly]'
-      merchant_id:
-        type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. [ReadOnly]'
       pricing_id:
         type: string
         maxLength: 32
-        description: 'This is the reference number for the pricing package associated with an application'
-      status:
-        $ref: '#/definitions/ApplicationResponse'
+        description: 'The identifier for the pricing package associated with an application'
       applicant:
         $ref: '#/definitions/EftCadApplicant'
       business:
         $ref: '#/definitions/EftCadBusiness'
 
-  AchUsdApplication:
-    description: 'Defines an ACH American application'
+  EftCadApplicationResponse:
+    description: 'Defines an EFT-CAD application response'
+    additionalProperties: false
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The identifier for the application'
+      url:
+        type: string
+        description: 'The URL of the application'
+      type:
+        type: string
+        description: 'The workflow that the application is associated with'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      merchant_id:
+        type: integer
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+      pricing_id:
+        type: string
+        description: 'The identifier for the pricing package associated with an application'
+      partner_username:
+        type: string
+        description: 'The username of the partner the application is associated with'
+      pricing_package:
+        $ref: '#/definitions/PricingPackage'
+      status:
+        $ref: '#/definitions/ApplicationStatus'
+      applicant:
+        $ref: '#/definitions/EftCadApplicant'
+      business:
+        $ref: '#/definitions/EftCadBusiness'
+
+  AchUsdApplicationRequest:
+    description: 'Defines an ACH-USD application request'
     additionalProperties: false
     type: object
     required:
@@ -2388,18 +2018,45 @@ definitions:
       - business
       - pricing_id
     properties:
-      id:
-        type: integer
-        description: 'This application identifier is used to identify an application. [ReadOnly]'
-      merchant_id:
-        type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. [ReadOnly]'
       pricing_id:
         type: string
         maxLength: 32
-        description: 'This is the reference number for the pricing package associated with an application'
+        description: 'The identifier for the pricing package associated with an application'
+      applicant:
+        $ref: '#/definitions/Applicant'
+      business:
+        $ref: '#/definitions/AchUsdBusiness'
+
+  AchUsdApplicationResponse:
+    description: 'Defines an ACH-USD application response'
+    additionalProperties: false
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The identifier for the application'
+      url:
+        type: string
+        description: 'The URL of the application'
+      type:
+        type: string
+        description: 'The workflow that the application is associated with'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      merchant_id:
+        type: integer
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+      pricing_id:
+        type: string
+        description: 'The identifier for the pricing package associated with an application'
+      partner_username:
+        type: string
+        description: 'The username of the partner the application is associated with'
+      pricing_package:
+        $ref: '#/definitions/PricingPackage'
       status:
-        $ref: '#/definitions/ApplicationResponse'
+        $ref: '#/definitions/ApplicationStatus'
       applicant:
         $ref: '#/definitions/Applicant'
       business:
@@ -2417,7 +2074,7 @@ definitions:
       pricing_id:
         type: string
         maxLength: 32
-        description: 'This is the reference number for the pricing package associated with an application'
+        description: 'The reference number for the pricing package associated with an application'
       applicant:
         $ref: '#/definitions/Applicant'
       business:
@@ -2429,7 +2086,7 @@ definitions:
     properties:
       id:
         type: integer
-        description: 'This application identifier is used to identify an application.'
+        description: 'The identifier for the application'
       url:
         type: string
         description: 'The URL of the application'
@@ -2457,8 +2114,8 @@ definitions:
       business:
         $ref: '#/definitions/SepaEurBusiness'
 
-  BacsGbpApplication:
-    description: 'Defines a BACS United Kingdom application'
+  BacsGbpApplicationRequest:
+    description: 'Defines a BACS-GBP application request'
     additionalProperties: false
     type: object
     required:
@@ -2466,18 +2123,44 @@ definitions:
       - business
       - pricing_id
     properties:
-      id:
-        type: integer
-        description: 'This application identifier is used to identify an application.  [ReadOnly]'
-      merchant_id:
-        type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. [ReadOnly]'
       pricing_id:
         type: string
         maxLength: 32
-        description: 'This is the reference number for the pricing package associated with an application'
+        description: 'The identifier for the pricing package associated with an application'
+      applicant:
+        $ref: '#/definitions/Applicant'
+      business:
+        $ref: '#/definitions/BacsGbpBusiness'
+
+  BacsGbpApplicationResponse:
+    description: 'Defines a BACS-GBP application response'
+    type: object
+    properties:
+      id:
+        type: integer
+        description: 'The identifier for the application'
+      url:
+        type: string
+        description: 'The URL of the application'
+      type:
+        type: string
+        description: 'The workflow that the application is associated with'
+      api_version:
+        type: string
+        description: 'The API version that the application was created with'
+      merchant_id:
+        type: integer
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+      pricing_id:
+        type: string
+        description: 'The identifier for the pricing package associated with an application'
+      pricing_package:
+        $ref: '#/definitions/PricingPackage'
+      partner_username:
+        type: string
+        description: 'The username of the partner the application is associated with'
       status:
-        $ref: '#/definitions/ApplicationResponse'
+        $ref: '#/definitions/ApplicationStatus'
       applicant:
         $ref: '#/definitions/Applicant'
       business:
@@ -3068,7 +2751,7 @@ definitions:
         $ref: '#/definitions/PspNzdFile'
 
   EftCadBusiness:
-    description: 'The details of an EFT Canadian business'
+    description: 'The details of an EFT-CAD business'
     additionalProperties: false
     type: object
     required:
