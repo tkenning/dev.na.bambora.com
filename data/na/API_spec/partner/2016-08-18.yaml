@@ -2760,8 +2760,6 @@ definitions:
     required:
       - first_name
       - last_name
-      - date_of_birth
-      - address
       - email
     properties:
       title:
@@ -2785,8 +2783,6 @@ definitions:
       email:
         type: string
         maxLength: 500
-      document:
-        $ref: '#/definitions/PspNzdFile'
 
   EftCadBusiness:
     description: 'The details of an EFT-CAD business'
@@ -3266,6 +3262,13 @@ definitions:
         maxLength: 15
       address:
         $ref: '#/definitions/Address'
+      documents:
+        type: array
+        description: 'A maximum of three documents is allowed'
+        minItems: 0
+        maxItems: 3
+        items:
+          $ref: '#/definitions/PspNzdFile'
       owners:
         type: array
         maxItems: 5
@@ -3374,6 +3377,10 @@ definitions:
       drivers_license_version:
         type: string
         maxLength: 64
+      ev-token:
+        type: string
+        maxLength: 64
+        description: 'Green verification ID'
 
   EftCadDirector:
     description: 'Defines an EFT Canadian business owner or director'
@@ -3597,13 +3604,6 @@ definitions:
         maxLength: 15
       address:
         $ref: '#/definitions/Address'
-      documents:
-        type: array
-        description: 'A maximum of three documents is allowed'
-        minItems: 0
-        maxItems: 3
-        items:
-          $ref: '#/definitions/PspNzdFile'
       identity:
             $ref: '#/definitions/PspNzIdentity'
 
