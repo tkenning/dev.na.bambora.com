@@ -36,7 +36,6 @@
         <!-- Swagger object fields -->
         <% swagger      = get_data_from_frontmatter current_page.data.swagger %>
         <% info         = swagger.info %>
-        <% security_defs= swagger.securityDefinitions %>
         <% definitions  = swagger.definitions %>
         <% paths        = swagger.paths %>
         <% operations   = get_swagger_operations_by_tag paths %>
@@ -71,40 +70,43 @@
         </div>
 
 
-        <!-- Security --> 
-        <div class="security">
-          <h2 class="open"><a href="#">Security</a></h2>
-          <div class="expandable security-body">
-            <% security_defs.each do |definition| %> 
-              <% def_name = definition[0] %>
-              <% def_body = definition[1] %>
+        <!-- Security -->
+        <% if swagger.securityDefinitions %>
+          <% security_defs= swagger.securityDefinitions %>
+          <div class="security">
+            <h2 class="open"><a href="#">Security</a></h2>
+            <div class="expandable security-body">
+              <% security_defs.each do |definition| %>
+                <% def_name = definition[0] %>
+                <% def_body = definition[1] %>
               
-              <div class="security-definition">
-              <div class="title">
-                <h3><%= def_name %></h3> 
-                <span>(<%= def_body.type.underscore.humanize.downcase %>)</span>
-              </div>
+                <div class="security-definition">
+                  <div class="title">
+                    <h3><%= def_name %></h3>
+                    <span>(<%= def_body.type.underscore.humanize.downcase %>)</span>
+                  </div>
 
-              <p><%= def_body.description %></p>
+                  <p><%= def_body.description %></p>
 
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>In</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><%= def_name %></td>
-                    <td><%= def_body.in %></td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
-            <% end %> 
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>In</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><%= def_name %></td>
+                        <td><%= def_body.in %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <!-- Tags --> 
         <div class="operations">
