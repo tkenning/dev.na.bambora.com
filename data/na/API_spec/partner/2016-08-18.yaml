@@ -4078,7 +4078,7 @@ definitions:
         description: 'The amount that the billing item will be billed at'
       prefix:
         type: string
-        description: 'Either a currency symbol or percentage'
+        description: 'The symbol for the unit (%, $ or other currency symbol)'
       service:
         type: string
         description: 'Human readable description of the billing item'
