@@ -25,7 +25,7 @@ paths:
         - Funds Transfer (SEPA-EUR)
       operationId: createSepaEurApplication
       description: |
-        Creates a new SEPA-EUR application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new SEPA-EUR application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -164,7 +164,7 @@ paths:
         - name: applicationId
           in: path
           required: true
-          description: 'The id of the application to create a document in.'
+          description: 'The id of the application to create a document in'
           type: integer
         - name: document
           in: body
@@ -286,7 +286,7 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: createBacsGbpApplication
       description: |
-        Creates a new BACS-GBP application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new BACS-GBP application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -425,7 +425,7 @@ paths:
         - name: applicationId
           in: path
           required: true
-          description: 'The id of the application to create a document in.'
+          description: 'The id of the application to create a document in'
           type: integer
         - name: document
           in: body
@@ -547,7 +547,7 @@ paths:
         - Funds Transfer (ACH-USD)
       operationId: createAchUsdApplication
       description: |
-        Creates a new ACH-USD application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new ACH-USD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -690,7 +690,7 @@ paths:
         - name: applicationId
           in: path
           required: true
-          description: 'The id of the application to create a document in.'
+          description: 'The id of the application to create a document in'
           type: integer
         - name: document
           in: body
@@ -812,7 +812,7 @@ paths:
         - Funds Transfer (EFT-CAD)
       operationId: createEftCadApplication
       description: |
-        Creates a new EFT-CAD application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new EFT-CAD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -959,7 +959,7 @@ paths:
         - name: applicationId
           in: path
           required: true
-          description: 'The id of the application to create a document in.'
+          description: 'The id of the application to create a document in'
           type: integer
         - name: document
           in: body
@@ -1081,7 +1081,7 @@ paths:
         - Credit Card Payments (PSP-CAD)
       operationId: createPspCadPspApplication
       description: |
-        Creates a new PSP-CAD application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new PSP-CAD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1212,7 +1212,7 @@ paths:
         - Credit Card Payments (PSP-USD)
       operationId: createPspUsdPspApplication
       description: |
-        Creates a new PSP-USD application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new PSP-USD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1351,7 +1351,7 @@ paths:
         - name: applicationId
           in: path
           required: true
-          description: 'The id of the application to create a document in.'
+          description: 'The id of the application to create a document in'
           type: integer
         - name: document
           in: body
@@ -1473,7 +1473,7 @@ paths:
         - Gateway application (GW-CDN)
       operationId: createGwCdnApplication
       description: |
-        Creates a new GW-CDN application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new GW-CDN application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1604,7 +1604,7 @@ paths:
         - Gateway application (GW-USA)
       operationId: createGwUsaApplication
       description: |
-        Creates a new GW-USA application. The state of the application will be returned in a succesful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new GW-USA application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -4078,7 +4078,7 @@ definitions:
         description: 'The amount that the billing item will be billed at'
       prefix:
         type: string
-        description: 'The visual representation of the unit of the amount'
+        description: 'Either a currency symbol or percentage'
       service:
         type: string
         description: 'Human readable description of the billing item'
