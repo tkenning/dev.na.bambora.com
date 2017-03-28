@@ -25,7 +25,7 @@ paths:
         - Funds Transfer (SEPA-EUR)
       operationId: createSepaEurApplication
       description: |
-        Creates a new SEPA-EUR application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new SEPA-EUR application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -286,7 +286,7 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: createBacsGbpApplication
       description: |
-        Creates a new BACS-GBP application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new BACS-GBP application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -547,7 +547,7 @@ paths:
         - Funds Transfer (ACH-USD)
       operationId: createAchUsdApplication
       description: |
-        Creates a new ACH-USD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new ACH-USD application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -812,7 +812,7 @@ paths:
         - Funds Transfer (EFT-CAD)
       operationId: createEftCadApplication
       description: |
-        Creates a new EFT-CAD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new EFT-CAD application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1081,7 +1081,7 @@ paths:
         - Credit Card Payments (PSP-CAD)
       operationId: createPspCadPspApplication
       description: |
-        Creates a new PSP-CAD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new PSP-CAD application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1212,7 +1212,7 @@ paths:
         - Credit Card Payments (PSP-USD)
       operationId: createPspUsdPspApplication
       description: |
-        Creates a new PSP-USD application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new PSP-USD application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1473,7 +1473,7 @@ paths:
         - Gateway application (GW-CDN)
       operationId: createGwCdnApplication
       description: |
-        Creates a new GW-CDN application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new GW-CDN application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1604,7 +1604,7 @@ paths:
         - Gateway application (GW-USA)
       operationId: createGwUsaApplication
       description: |
-        Creates a new GW-USA application. The state of the application will be returned in a successful request. The response will include an application ID that should be used for all future requests to that application.
+        Creates a new GW-USA application. The state of the application will be returned in a successful request. The response will include an application id that should be used for all future requests to that application.
       produces:
         - application/json
       security:
@@ -1734,7 +1734,7 @@ paths:
       tags:
         - Credit Card Payments (PSP NZD)
       operationId: createPspNzdPspApplication
-      description: 'Creates a new New Zealand PSP application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application ID that should be used for all future requests to that application.'
+      description: 'Creates a new New Zealand PSP application. The status of the application will be returned in the status object. A Location header that points to the URL of the new resource will be available in the response. The Location header has an application id that should be used for all future requests to that application.'
       produces:
         - application/json
       security:
@@ -3735,7 +3735,7 @@ definitions:
     properties:
       name:
         type: string
-        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy ID (Owner and/or Principal) - govt issued photo ID", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)" and "List of Board Members (public and NFP companies)"'
+        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy id (Owner and/or Principal) - govt issued photo id", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)" and "List of Board Members (public and NFP companies)"'
         enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members"]
       type:
         type: string
@@ -3749,7 +3749,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /applications/{id}/documents/{name}. [ReadOnly]'
 
   AchUsdFile:
     description: 'Defines a document that is required for application approval.'
@@ -3762,7 +3762,7 @@ definitions:
     properties:
       name:
         type: string
-        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy ID (Owner and/or Principal) - govt issued photo ID", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)" and "List of Board Members (public and NFP companies)"'
+        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy id (Owner and/or Principal) - govt issued photo id", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)" and "List of Board Members (public and NFP companies)"'
         enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members"]
       type:
         type: string
@@ -3776,7 +3776,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /applications/{id}/documents/{name}. [ReadOnly]'
 
   SepaEurFile:
     description: 'Defines a document that is required for application approval.'
@@ -3789,7 +3789,7 @@ definitions:
     properties:
       name:
         type: string
-        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy ID (Owner and/or Principal) - govt issued photo ID", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)", "List of Board Members (public and NFP companies)" and "Mandate"'
+        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy id (Owner and/or Principal) - govt issued photo id", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)", "List of Board Members (public and NFP companies)" and "Mandate"'
         enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members", "mandate"]
       type:
         type: string
@@ -3803,7 +3803,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /applications/{id}/documents/{name}. [ReadOnly]'
 
   BacsGbpFile:
     description: 'Defines a document that is required for application approval.'
@@ -3816,7 +3816,7 @@ definitions:
     properties:
       name:
         type: string
-        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy ID (Owner and/or Principal) - govt issued photo ID", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)", "List of Board Members (public and NFP companies)" and "Direct Debit Instructions"'
+        description: 'Name of the document. This will match to one of the list of possible files. This is a read-only attribute. The options are "Copy id (Owner and/or Principal) - govt issued photo id", "Void Check or Bank Statement", "Certificate of Incorporation (if applicable)", "Non-Profit Registration Documents (if applicable)", "List of Board Members (public and NFP companies)" and "Direct Debit Instructions"'
         enum: ["copy_id", "void_cheque", "bank_statement", "certificate", "registration", "board_members", "direct_debit"]
       type:
         type: string
@@ -3830,7 +3830,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /applications/{id}/documents/{name}. [ReadOnly]'
 
   PspUsdFile:
     description: 'Defines a document that is required for application approval.'
@@ -3857,7 +3857,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /applications/{id}/documents/{name}. [ReadOnly]'
 
   PspNzdFile:
     description: 'Defines a document that is required for application approval.'
@@ -3891,7 +3891,7 @@ definitions:
         description: 'The document data, submitted as a base64 encoded string..'
       uri:
         type: string
-        description: 'The URI that allows retrieval of the documents using the GET /appplicatins/{id}/documents/{name}. [ReadOnly]'
+        description: 'The URI that allows retrieval of the documents using the GET /applications/{id}/documents/{name}. [ReadOnly]'
 
   ApplicationResponse:
     description: 'Defines information about the application'
@@ -4033,7 +4033,7 @@ definitions:
           $ref: '#/definitions/BillingItem'
       channel_partner_id:
         type: integer
-        description: 'The BIC channel partner ID associated with the pricing packge'
+        description: 'The BIC channel partner id associated with the pricing packge'
       enabled:
         type: boolean
         description: 'Whether the pricing package is enabled or disabled'
