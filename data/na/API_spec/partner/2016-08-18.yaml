@@ -3,7 +3,7 @@ info:
   version: "2016-08-18"
   title: Onboarding API
   description: Onboarding API Specifications
-host: onboarding.beanstream.com
+host: onboardingapi.beanstream.com
 basePath: /v1
 schemes:
   - https
