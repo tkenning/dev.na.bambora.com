@@ -4,8 +4,9 @@ document.getElementById("encodeIdAndKey_form").addEventListener("submit", functi
   var merchantId = document.getElementById("merchantId").value;
   var apiKey = document.getElementById("apiKey").value;
 
-  var $div = $('#encodeIdAndKey_result');
-  $div.text(btoa(merchantId + ':' + apiKey));
-  $div.removeClass('hidden');
-  $div.addClass('success');
+    var $div = $('#encodeIdAndKey_result');
+    $div.text("Authorization: Passcode " + btoa(merchantId + ':' + apiKey));
+    $div.removeClass('hidden');
+    $div.addClass('success');
 });
+
