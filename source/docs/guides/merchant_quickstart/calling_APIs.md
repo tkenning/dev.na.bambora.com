@@ -26,7 +26,7 @@ All the examples in this guide use cURL, a lightweight, command-line tool for ma
 
 We also provide a Postman collection for those who prefer the readability of a user friendly interface. Postman is a popular HTTP client that runs as a Chrome app. You can download Postman <a href="https://www.getpostman.com/">here</a>.
 
-You can download our collection and an environment <a href="/resources/postman-collection.zip">here</a>. You will need to update the environment with your merchant ID and pass codes before you can run any queries. Most queries contain variables that are set from the response of a related (e.g. 'Get Token' sets the returned token in the environment, 'Make Token Payment' sets the token from the environment in its request body).
+You can download our collection and an environment <a href="/resources/postman-collection.zip">here</a>. You will need to update the environment with your merchant ID and passcodes before you can run any queries. Most queries contain variables that are set from the response of a related (e.g. 'Get Token' sets the returned token in the environment, 'Make Token Payment' sets the token from the environment in its request body).
 
 ## 1. Tokenize a credit card
 If you accept credit cards, you must be in compliance with PCI Security Council standards. You can reduce the scope of your compliance by minimizing your application's contact with the card data. You can remove the need to pass credit card details to your server by tokenization the card data in the browser. You can create a single use token from the browser/mobile app through our Tokenization API.
@@ -49,7 +49,7 @@ Now that you have a single use token you can either take a one-off payment or cr
 
 ```shell
 curl https://www.beanstream.com/api/v1/profiles  \
-  -H "Authorization: Passcode your_payment_profile_passcode"  \
+  -H "Authorization: Passcode your_encoded_payment_profile_passcode"  \
   -H "Content-Type: application/json" \
   -d '{
       "token":{  
@@ -70,7 +70,7 @@ HTTP status codes 200 and 402 indicate your request reached the emulator. All ot
 
 ```shell
 curl https://www.beanstream.com/api/v1/payments  \
-  -H "Authorization: Passcode your_payment_passcode"  \
+  -H "Authorization: Passcode your_encoded_payment_passcode"  \
   -H "Content-Type: application/json" \
   -d '{
      "amount":100.00,
@@ -88,7 +88,7 @@ The response body of a transaction request contains a transaction id. You can re
 
 ```shell
 curl -X GET https://www.beanstream.com/api/v1/payments/{your_transaction_id} \
-  -H "Authorization: Passcode your_payment_passcode" \
+  -H "Authorization: Passcode your_encoded_payment_passcode" \
   -H "Accept: application/json"
 ```
 
@@ -96,7 +96,7 @@ You can also query transactions by date and any combination of the 24 other fiel
 
 ```shell
 curl https://www.beanstream.com/api/v1/reports \
--H "Authorization: Passcode your_reporting_passcode"  \
+-H "Authorization: Passcode your_encoded_reporting_passcode"  \
 -H "Content-Type: application/json" \
 -d "{
      "name": "Search",

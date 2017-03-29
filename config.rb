@@ -11,7 +11,7 @@ set :markdown,
     prettify: true,
     tables: true,
     with_toc_data: true,
-    no_intra_emphasis: true 
+    no_intra_emphasis: true
 
 # Assets
 set :css_dir,   'stylesheets'
@@ -20,9 +20,9 @@ set :images_dir,'images'
 set :fonts_dir, 'fonts'
 
 # Activate the syntax highlighter
-activate :syntax 
+activate :syntax
 
-# Activate directory style pretty urls 
+# Activate directory style pretty urls
 activate :directory_indexes
 
 activate :autoprefixer do |config|
@@ -46,12 +46,12 @@ activate :search do |search|
   # customize content to be indexed and stored per resource
   search.before_index = Proc.new do |to_index, to_store, resource|
 
-    # Add the breadcrumb trail for each resource to the index. 
+    # Add the breadcrumb trail for each resource to the index.
     # (To display in search results)
     breadcrumbs = get_breadcrumbs(resource.path)
     to_store[:breadcrumbs] = format_breadcrumb_trail(breadcrumbs, div_class: 'search-breadcrumbs')
 
-    # Add 'includes' for each page to the index. 
+    # Add 'includes' for each page to the index.
     if resource.data.includes
       resource.data.includes.each do |include|
         partial_html = partial("/includes/#{include}")
@@ -68,19 +68,19 @@ end
 #   asset_hash.exts << '.json'
 # end
 
-# Edit on Github variables 
+# Edit on Github variables
 set :github_repo_url, "https://github.com/bambora/dev.na.bambora.com"
 set :github_branch, "staging"
 
-# Helpers 
+# Helpers
 helpers CustomHelpers
 
 # Github pages require relative links
 activate :relative_assets
 set :relative_links, true
 
-# Download swagger files from url: 
-get_swagger_doc "http://www.beanstream.com/api/v1/swagger", "na/API_spec/merchant/1_0_2.json"
+# Download swagger files from url:
+get_all_swagger_specs "https://www.beanstream.com/api/v1/swagger", "/data/autodownload/na/API_spec/merchant"
 
 # Build Configuration
 configure :build do
@@ -88,5 +88,5 @@ configure :build do
   # activate :minify_javascript # TODO: Tocbot breaks when js minimized. fix.
   activate :asset_hash, :ignore => 'stylesheets/fonts/'
   # activate :relative_assets
-  # activate :gzip  
-end 
+  # activate :gzip
+end
