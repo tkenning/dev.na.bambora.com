@@ -16,7 +16,7 @@ navigation:
 
 This will guide you through quickly hitting one of our Onboarding API endpoints.
 
-This API requires an authentication passcode form a partner account that you requested in the setup stage of this Quickstart Guide.
+This API requires an authentication passcode from a partner account that you requested in the setup stage of this Quickstart Guide.
 
 The Onboarding API endpoints are divided by account type, or 'flow'. This guide will focus on 'psp-cad'.
 
