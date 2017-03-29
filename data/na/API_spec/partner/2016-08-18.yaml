@@ -3,8 +3,7 @@ info:
   version: "2016-08-18"
   title: Onboarding API
   description: Onboarding API Specifications
-host: onboardingapi.beanstream.com
-basePath: /v1
+host: api.na.bambora.com
 schemes:
   - https
 consumes:
@@ -16,10 +15,10 @@ securityDefinitions:
     type: apiKey
     name: api_key
     in: header
-    description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
+    description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Bambora to get an API Key generated for you if you don''t have one.'
 paths:
 # SEPA-EUR WORKFLOW
-  '/workflows/sepa-eur/applications':
+  '/v1/boarding/workflows/sepa-eur/applications':
     post:
       tags:
         - Funds Transfer (SEPA-EUR)
@@ -80,7 +79,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/sepa-eur/applications/{applicationId}':
+  '/v1/boarding/workflows/sepa-eur/applications/{applicationId}':
     put:
       tags:
         - Funds Transfer (SEPA-EUR)
@@ -149,7 +148,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/sepa-eur/applications/{applicationId}/documents':
+  '/v1/boarding/workflows/sepa-eur/applications/{applicationId}/documents':
     post:
       tags:
         - Funds Transfer (SEPA-EUR)
@@ -189,7 +188,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}.{documentType}':
+  '/v1/boarding/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (SEPA-EUR)
@@ -238,7 +237,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-  '/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}':
+  '/v1/boarding/workflows/sepa-eur/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (SEPA-EUR)
@@ -280,7 +279,7 @@ paths:
           description: 'Unexpected error or application not found'
 
 #BACS GBP WORKFLOW
-  '/workflows/bacs-gbp/applications':
+  '/v1/boarding/workflows/bacs-gbp/applications':
     post:
       tags:
         - Funds Transfer (BACS-GBP)
@@ -341,7 +340,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/bacs-gbp/applications/{applicationId}':
+  '/v1/boarding/workflows/bacs-gbp/applications/{applicationId}':
     put:
       tags:
         - Funds Transfer (BACS-GBP)
@@ -410,7 +409,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/bacs-gbp/applications/{applicationId}/documents':
+  '/v1/boarding/workflows/bacs-gbp/applications/{applicationId}/documents':
     post:
       tags:
         - Funds Transfer (BACS-GBP)
@@ -450,7 +449,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}.{documentType}':
+  '/v1/boarding/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (BACS-GBP)
@@ -499,7 +498,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-  '/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}':
+  '/v1/boarding/workflows/bacs-gbp/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (BACS-GBP)
@@ -541,7 +540,7 @@ paths:
           description: 'Unexpected error or application not found'
 
 # ACH USD WORKFLOW
-  '/workflows/ach-usd/applications':
+  '/v1/boarding/workflows/ach-usd/applications':
     post:
       tags:
         - Funds Transfer (ACH-USD)
@@ -602,7 +601,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/ach-usd/applications/{applicationId}':
+  '/v1/boarding/workflows/ach-usd/applications/{applicationId}':
     put:
       tags:
         - Funds Transfer (ACH-USD)
@@ -675,7 +674,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/ach-usd/applications/{applicationId}/documents':
+  '/v1/boarding/workflows/ach-usd/applications/{applicationId}/documents':
     post:
       tags:
         - Funds Transfer (ACH-USD)
@@ -715,7 +714,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/ach-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
+  '/v1/boarding/workflows/ach-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (ACH-USD)
@@ -764,7 +763,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-  '/workflows/ach-usd/applications/{applicationId}/documents/{documentName}':
+  '/v1/boarding/workflows/ach-usd/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (ACH-USD)
@@ -806,7 +805,7 @@ paths:
           description: 'Unexpected error or application not found'
 
 # EFT CAD WORKFLOW
-  '/workflows/eft-cad/applications':
+  '/v1/boarding/workflows/eft-cad/applications':
     post:
       tags:
         - Funds Transfer (EFT-CAD)
@@ -875,7 +874,7 @@ paths:
           description: 'Applications not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/eft-cad/applications/{applicationId}':
+  '/v1/boarding/workflows/eft-cad/applications/{applicationId}':
     put:
       tags:
         - Funds Transfer (EFT-CAD)
@@ -944,7 +943,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/eft-cad/applications/{applicationId}/documents':
+  '/v1/boarding/workflows/eft-cad/applications/{applicationId}/documents':
     post:
       tags:
         - Funds Transfer (EFT-CAD)
@@ -984,7 +983,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/eft-cad/applications/{applicationId}/documents/{documentName}.{documentType}':
+  '/v1/boarding/workflows/eft-cad/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Funds Transfer (EFT-CAD)
@@ -1033,7 +1032,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-  '/workflows/eft-cad/applications/{applicationId}/documents/{documentName}':
+  '/v1/boarding/workflows/eft-cad/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Funds Transfer (EFT-CAD)
@@ -1075,7 +1074,7 @@ paths:
           description: 'Unexpected error or application not found'
 
 # PSP CAD WORKFLOW
-  '/workflows/psp-cad/applications':
+  '/v1/boarding/workflows/psp-cad/applications':
     post:
       tags:
         - Credit Card Payments (PSP-CAD)
@@ -1136,7 +1135,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/psp-cad/applications/{applicationId}':
+  '/v1/boarding/workflows/psp-cad/applications/{applicationId}':
     put:
       tags:
         - Credit Card Payments (PSP-CAD)
@@ -1206,7 +1205,7 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 # PSP USD WORKFLOW
-  '/workflows/psp-usd/applications':
+  '/v1/boarding/workflows/psp-usd/applications':
     post:
       tags:
         - Credit Card Payments (PSP-USD)
@@ -1267,7 +1266,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/psp-usd/applications/{applicationId}':
+  '/v1/boarding/workflows/psp-usd/applications/{applicationId}':
     put:
       tags:
         - Credit Card Payments (PSP-USD)
@@ -1336,7 +1335,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/psp-usd/applications/{applicationId}/documents':
+  '/v1/boarding/workflows/psp-usd/applications/{applicationId}/documents':
     post:
       tags:
         - Credit Card Payments (PSP-USD)
@@ -1376,7 +1375,7 @@ paths:
           description: 'Application not found'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/psp-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
+  '/v1/boarding/workflows/psp-usd/applications/{applicationId}/documents/{documentName}.{documentType}':
     get:
       tags:
         - Credit Card Payments (PSP-USD)
@@ -1425,7 +1424,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
         500:
           description: 'Unexpected error or application not found'
-  '/workflows/psp-usd/applications/{applicationId}/documents/{documentName}':
+  '/v1/boarding/workflows/psp-usd/applications/{applicationId}/documents/{documentName}':
     delete:
       tags:
         - Credit Card Payments (PSP-USD)
@@ -1467,7 +1466,7 @@ paths:
           description: 'Unexpected error or application not found'
 
 # GW CDN WORKFLOW
-  '/workflows/gw-cdn/applications':
+  '/v1/boarding/workflows/gw-cdn/applications':
     post:
       tags:
         - Gateway application (GW-CDN)
@@ -1528,7 +1527,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/gw-cdn/applications/{applicationId}':
+  '/v1/boarding/workflows/gw-cdn/applications/{applicationId}':
     put:
       tags:
         - Gateway application (GW-CDN)
@@ -1598,7 +1597,7 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 # GW USA WORKFLOW
-  '/workflows/gw-usa/applications':
+  '/v1/boarding/workflows/gw-usa/applications':
     post:
       tags:
         - Gateway application (GW-USA)
@@ -1659,7 +1658,7 @@ paths:
           description: 'Unauthorized'
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/workflows/gw-usa/applications/{applicationId}':
+  '/v1/boarding/workflows/gw-usa/applications/{applicationId}':
     put:
       tags:
         - Gateway application (GW-USA)
@@ -1729,7 +1728,7 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 # PSP NZD WORKFLOW
-  '/workflows/psp-nz/applications':
+  '/v1/boarding/workflows/psp-nz/applications':
     post:
       tags:
         - Credit Card Payments (PSP NZD)
@@ -1802,7 +1801,7 @@ paths:
           description: 'Unexpected error'
           schema:
             $ref: '#/definitions/Error'
-  '/workflows/psp-nz/applications/{applicationId}':
+  '/v1/boarding/workflows/psp-nz/applications/{applicationId}':
     put:
       tags:
         - Credit Card Payments (PSP NZD)
@@ -3943,7 +3942,7 @@ definitions:
           $ref: '#/definitions/Error'
 
   Agreement:
-    description: 'Defines an terms and conditions agreement between a merchant and Beanstream'
+    description: 'Defines an terms and conditions agreement between a merchant and Bambora'
     additionalProperties: false
     type: object
     required:
