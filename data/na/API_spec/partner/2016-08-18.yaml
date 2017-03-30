@@ -55,20 +55,22 @@ paths:
         - Funds Transfer (SEPA-EUR)
       operationId: getSepaEurApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -316,20 +318,22 @@ paths:
         - Funds Transfer (BACS-GBP)
       operationId: getBacsGbpApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -577,20 +581,22 @@ paths:
         - Funds Transfer (ACH-USD)
       operationId: getAchUsdApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -842,20 +848,22 @@ paths:
         - Funds Transfer (EFT-CAD)
       operationId: getEftCadApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -1111,20 +1119,22 @@ paths:
         - Credit Card Payments (PSP-CAD)
       operationId: getPspCadApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -1242,20 +1252,22 @@ paths:
         - Credit Card Payments (PSP-USD)
       operationId: getPspUsdApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -1503,20 +1515,22 @@ paths:
         - Gateway application (GW-CDN)
       operationId: getGwCdnApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
@@ -1634,20 +1648,22 @@ paths:
         - Gateway application (GW-USA)
       operationId: getGwUsaApplications
       description: |
-        Retrieves all applications referenced by the given criteria in the url. A search criteria can be a combination of the following:
+        Retrieves all applications referenced by the given criteria in the url.
 
-           - state={state}
+           - Applications can be filtered by state by including a query string parameter of state={state} in the URL.
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-           - created_before={date}
-           - created_after={date}
-           - updated_before={date}
-           - updated_after={date}
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
         - application/json
       security:
         - api_key: []
+      parameters:
+        - name: state
+          in: query
+          description: 'Application state to search for'
+          required: false
+          type: string
       responses:
         200:
           description: 'Application(s) retrieved'
