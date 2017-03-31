@@ -59,11 +59,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -352,11 +352,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -645,11 +645,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -942,11 +942,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -1243,11 +1243,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -1406,11 +1406,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -1699,11 +1699,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -1862,11 +1862,11 @@ paths:
 
           - state
             - *Accepted values are "in\_progress", "in\_review", "on\_hold", "approved" and "rejected"*
-          - pricing_id
-          - company_name_contains
-          - applicant_first_name_contains
-          - business_country
-          - applicant_first_name
+          - pricing\_id
+          - company\_name\_contains
+          - applicant\_first\_name\_contains
+          - business\_country
+          - applicant\_first\_name
 
         Documents file data will be excluded to limit the amount of data on the wire.
       produces:
@@ -2398,6 +2398,8 @@ definitions:
         $ref: '#/definitions/PspCadApplicant'
       business:
         $ref: '#/definitions/PspCadBusiness'
+      merchant_creation_status:
+        $ref: '#/definitions/MerchantCreationStatus'
 
   PspUsdApplicationRequest:
     description: 'Defines a PSP-USD application request'
@@ -2451,6 +2453,8 @@ definitions:
         $ref: '#/definitions/PspUsdApplicant'
       business:
         $ref: '#/definitions/PspUsdBusiness'
+      merchant_creation_status:
+        $ref: '#/definitions/MerchantCreationStatus'
 
   GwCdnApplicationRequest:
     description: 'Defines a GW-CDN application request'
@@ -2508,6 +2512,8 @@ definitions:
         $ref: '#/definitions/GwCdnBusiness'
       terminal:
         $ref: '#/definitions/GwCdnTerminal'
+      merchant_creation_status:
+        $ref: '#/definitions/MerchantCreationStatus'
 
   GwUsaApplicationRequest:
     description: 'Defines a GW-USA application request'
@@ -2565,6 +2571,8 @@ definitions:
         $ref: '#/definitions/GwUsaBusiness'
       terminal:
         $ref: '#/definitions/GwUsaTerminal'
+      merchant_creation_status:
+        $ref: '#/definitions/MerchantCreationStatus'
 
   PspNzdApplication:
     description: 'Defines a PSP New Zealander application'
@@ -4338,3 +4346,25 @@ definitions:
       service:
         type: string
         description: 'Human readable description of the billing item'
+
+  MerchantCreationStatus:
+    type: object
+    properties:
+      state:
+        type: string
+        description: 'The current state of the merchant account (either failed or created)'
+      issues:
+        type: array
+        description: 'A list of issues from attempting to create a merchant account'
+        items:
+          type: object
+          properties:
+            message:
+              type: string
+              description: 'Human readable message of the failure'
+            reason:
+              type: string
+              description: 'Human readable reason for the failure'
+            name:
+              type: string
+              description: 'Location of the failure'
