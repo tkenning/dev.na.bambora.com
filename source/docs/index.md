@@ -3,7 +3,7 @@ title: Developer Portal
 layout: landing
 
 summary: >
-    Welcome to our Developer Documentation Portal. This single source of truth for our payment gateway.
+    Welcome to our Developer Documentation Portal. The single source of truth for our payment gateway.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -13,9 +13,9 @@ navigation:
 
 hero_unit:
     hero_image: Dev_Portal_background3.jpg
-    big_heading: Developer Documentation.
+    big_heading: Developer Documentation
     tag_line:  >
-        This single source of truth for our payment gateway.
+        The single source of truth for our payment gateway.
     button:
         text: Get started
         link: /docs/guides/merchant_quickstart/
