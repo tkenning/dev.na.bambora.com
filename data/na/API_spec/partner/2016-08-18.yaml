@@ -42,9 +42,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -107,6 +107,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/SepaEurApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -140,9 +144,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -172,6 +176,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/SepaEurApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -335,9 +343,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -400,6 +408,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/BacsGbpApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -433,9 +445,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -465,6 +477,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/BacsGbpApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -628,9 +644,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -726,9 +742,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -759,9 +775,9 @@ paths:
           schema:
             $ref: '#/definitions/AchUsdApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -925,9 +941,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -991,9 +1007,9 @@ paths:
            items:
             $ref: '#/definitions/EftCadApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1031,9 +1047,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1063,6 +1079,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/EftCadApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1226,9 +1246,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1291,6 +1311,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/PspCadApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1324,9 +1348,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1356,6 +1380,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/PspCadApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1389,9 +1417,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1454,6 +1482,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/PspUsdApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1487,9 +1519,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1519,6 +1551,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/PspUsdApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1682,9 +1718,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1747,6 +1783,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/GwCdnApplicationRequest'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1780,9 +1820,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1812,6 +1852,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/GwCdnApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1845,9 +1889,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1910,6 +1954,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/GwUsaApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1943,9 +1991,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1975,6 +2023,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/GwUsaApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
