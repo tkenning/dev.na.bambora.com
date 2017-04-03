@@ -2224,7 +2224,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2277,7 +2277,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2329,7 +2329,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2381,7 +2381,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2434,7 +2434,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2489,7 +2489,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2546,7 +2546,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2605,7 +2605,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
