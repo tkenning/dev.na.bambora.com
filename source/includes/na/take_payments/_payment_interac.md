@@ -1,17 +1,17 @@
 ## Interac Online  
 Interac Online is a transaction method available to Canadian merchants only. It allows customers to authenticate direct debits without sharing their debit card details with the merchant. An Interac payment flow is similar to the 3D Secure payment flow. It has three steps:
 
-1. Submit an initial Interac payment request to Beanstream. <br/>You will receive an Interac response with redirect code.
+1. Submit an initial Interac payment request to us. <br/>You will receive an Interac response with redirect code.
 2. Redirect the customer to the bank portal using redirect code received from initial request. <br/>Customer logs in to approve the payment and the bank redirects the customer back to your site with success/failure information.
-3. Submit final payment request to Beanstream.
+3. Submit final payment request to us.
 
 #### APIs
 
-* Initial request: POST https://www.beanstream.com/api/v1/payments
-* Final request: POST https://www.beanstream.com/api/v1/payments/{id}/continue
+* Initial request: POST https://api.na.bambora.com/v1/payments
+* Final request: POST https://api.na.bambora.com/v1/payments/{id}/continue
 
 ### Step 1: Submit initial payment request
-Send a request to Beanstream’s Payment API to initiate the Interac process. The response from this request will provide you with the redirect HTML code that you render to the customer in order to redirect them to the banking portal.
+Send a request to our Payment API to initiate the Interac process. The response from this request will provide you with the redirect HTML code that you render to the customer in order to redirect them to the banking portal.
 
 ```
 // Request object (JSON)
@@ -43,7 +43,7 @@ PaymentRequest {
 
 ### Step 2: Redirect Request
 ```shell
-POST https://www.beanstream.com/api/v1/payments/834387f7-d249-45f9-b191aedba6d67750/continue HTTP/1.1
+POST https://api.na.bambora.com/v1/payments/834387f7-d249-45f9-b191aedba6d67750/continue HTTP/1.1
 Content-Type: application/json
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
@@ -69,7 +69,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```php
 <?php
 
-$req = curl_init('https://www.beanstream.com/api/v1/payments/2f86d946-5531-4495-9d82d7e6d83ba93/continue');
+$req = curl_init('https://api.na.bambora.com/v1/payments/2f86d946-5531-4495-9d82d7e6d83ba93/continue');
 
 $headers = array(
 	'Content-Type:application/json',
@@ -112,7 +112,7 @@ require 'open-uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.beanstream.com/api/v1/payments/2f86d946-5531-4495-9d82d7e6d83ba93/continue')
+uri = URI('https://api.na.bambora.com/v1/payments/2f86d946-5531-4495-9d82d7e6d83ba93/continue')
 req = Net::HTTP::Post.new(uri.path) # Ruby 2.0: use .new(uri) instead
 req['Content-Type'] = 'application/json'
 req['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
@@ -159,7 +159,7 @@ req_body = json.dumps({
 })
 
 req = Request(
-    'https://www.beanstream.com/api/v1/payments/2f86d946-5531-4495-9d82d7e6d83ba93/continue',
+    'https://api.na.bambora.com/v1/payments/2f86d946-5531-4495-9d82d7e6d83ba93/continue',
     data=req_body,
     headers={
         'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ In the response you will receive a chunk of HTML. Display this to the customer t
 
 Example response HTML you use to redirect the user:
 
-If the transaction is cancelled or declined at any point, the bank forwards a response to the merchant’s NON_FUNDED URL. Otherwise, the bank response is forwarded to the merchant’s FUNDED URL. The funded and non-funded URLs are values the merchant must provide to Beanstream before account activation. These values are stored internally by Beanstream. Contact our customer support team to set these URLs.
+If the transaction is cancelled or declined at any point, the bank forwards a response to the merchant’s NON_FUNDED URL. Otherwise, the bank response is forwarded to the merchant’s FUNDED URL. The funded and non-funded URLs are values the merchant must provide to us before account activation. These values are stored internally by us. Contact our customer support team to set these URLs.
 
 #### Schema
 ```
@@ -230,7 +230,7 @@ InteracResponse {
 }
 ```
 
-POST https://www.beanstream.com/api/v1/payments/{id}/continue
+POST https://api.na.bambora.com/v1/payments/{id}/continue
 
 #### Redirect Response
 ```
@@ -248,7 +248,7 @@ You will receive a redirect back from the bank site. A successful payment will r
 
 You must gather the idebit_ variables they pass in the querystring parameters. This is what a sample response from the bank portal looks like:
 
-You will pass these idebit_ values onto the Beanstream API for one final request.
+You will pass these idebit_ values onto our API for one final request.
 
 ### Step 3: Submit final payment request
 
@@ -256,7 +256,7 @@ You will pass these idebit_ values onto the Beanstream API for one final request
 
 Note: `idebit_amount` is in cents.
 
-POST https://www.beanstream.com/api/v1/payments/{id}/continue
+POST https://api.na.bambora.com/v1/payments/{id}/continue
 
 ```
 PaymentRequest {
@@ -298,7 +298,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments \
+curl https://api.na.bambora.com/v1/payments \
 -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=" \
 -H "Content-Type: application/json" \
 -d '{
@@ -322,7 +322,7 @@ require 'open-uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.beanstream.com/api/v1/payments')
+uri = URI('https://api.na.bambora.com/v1/payments')
 req = Net::HTTP::Post.new(uri)
 req["Authorization"] = "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
 req["Content-Type"] = 'application/json'
@@ -355,7 +355,7 @@ req_body = json.dumps({
 })
 
 req = Request(
-    'https://www.beanstream.com/api/v1/payments',
+    'https://api.na.bambora.com/v1/payments',
     data=req_body,
     headers={
         'Content-Type': 'application/json',

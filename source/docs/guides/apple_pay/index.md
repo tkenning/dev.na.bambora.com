@@ -14,20 +14,20 @@ navigation:
 
 # Apple Pay
 
-**Apple with Beanstream is currently in a close Beta trial period. Contact your account manager if you would like early access.**
+**Apple with us is currently in a close Beta trial period. Contact your account manager if you would like early access.**
 
 The Payments API now exposes our new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
 
-Various resources exist to let you find out more about the Payments API in general. Learn how to [Take Payments](/docs/references/payments_SDKs/take_payments/) and for our REST API refer to the [Swagger doc](/docs/references/merchant_API/v1-0-2). Also, we highly recommend you understand how to deal with our [API Passcode Authentication protocol](/docs/guides/merchant_quickstart/) as it is used in the demo server app that is mentioned later in this document.
+Various resources exist to let you find out more about the Payments API in general. Learn how to [Take Payments](/docs/references/payments_SDKs/take_payments/) and for our REST API refer to the [Swagger doc](/docs/references/merchant_API/v1-0-3). Also, we highly recommend you understand how to deal with our [API Passcode Authentication protocol](/docs/guides/merchant_quickstart/) as it is used in the demo server app that is mentioned later in this document.
 
 
 ## Example Request
 
-An example Payments API request is shown below with a JSON formatted parameter to pass to the https://api.beanstream.com/api/v1/payments RESTful interface.
+An example Payments API request is shown below with a JSON formatted parameter to pass to the https://api.na.bambora.com/v1/payments RESTful interface.
 
 
 ```shell
-  curl https://api.beanstream.com/api/v1/payments \
+  curl https://api.na.bambora.com/v1/payments \
     -H "Authorization: Passcode XXX1XXx11Xxx1xX1XxxxXxXXXXx1XXX1XxX1XXXxXXXxXxxxX11XXXxX1" \
     -H "Content-Type: application/json" \
     -d '{
@@ -49,11 +49,11 @@ Sample code on Github has been provided to help mobile app and backend server-si
 
 Click to view code samples on the [Mobile Payments Demo Github](https://github.com/Beanstream/mobilepayments-demo) repository.
 
-To enable Apple Pay on your Beanstream Merchant account you need to know your Beanstream Merchant ID and use, or create, a Passcode for your account. When you log in to your Beanstream account, you will know if you can enable Apple Pay transactions if you see a mobile payments menu item, as shown below. If the mobile payments menu item does not appear, your Beanstream account is not enabled for Apple Pay.
+To enable Apple Pay on your Merchant account you need to know your Merchant ID and use, or create, a Passcode for your account. When you log in to your account, you will know if you can enable Apple Pay transactions if you see a mobile payments menu item, as shown below. If the mobile payments menu item does not appear, your account is not enabled for Apple Pay.
 
 <img src="/docs/guides/apple_pay/mobile-payments-screenshot.png" alt="mobile-payments-screenshot">
 
-In your Beanstream account, click **configuration**, then **mobile payments**. This is where you can tell us about your app’s Apple Pay Merchant Id, and also upload your Apple Pay signing certificate from the **.p12** formatted file.
+In your account, click **configuration**, then **mobile payments**. This is where you can tell us about your app’s Apple Pay Merchant Id, and also upload your Apple Pay signing certificate from the **.p12** formatted file.
 
 You also need to enable Apple Pay in your iOS apps. To do that you can follow Apple’s superb documentation!
 
@@ -65,7 +65,7 @@ You also need to enable Apple Pay in your iOS apps. To do that you can follow Ap
 
 ### Payment Button Action
 
-This is an example payment button action for iOS in Swift. Note that Beanstream allows payments that use **.capability3DS** (3D Secure), with Visa, MasterCard, and American Express as the currently supported card types.
+This is an example payment button action for iOS in Swift. Note that we allow payments that use **.capability3DS** (3D Secure), with Visa, MasterCard, and American Express as the currently supported card types.
 
 ```swift
 func paymentButtonAction() {
@@ -76,7 +76,7 @@ func paymentButtonAction() {
     request.supportedNetworks = [.visa, .masterCard, .amex]
     request.merchantCapabilities = .capability3DS
     
-    // Use a currency set to match your Beanstream Merchant Account
+    // Use a currency set to match your Merchant Account
     request.countryCode = "CA" // "US"
     request.currencyCode = "CAD" // "USD"
     

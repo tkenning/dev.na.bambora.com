@@ -3,6 +3,8 @@ require 'fileutils'
 
 CLOBBER.include('build')
 
+host = ARGV[-1]
+
 desc "Build the static site"
 task :build_site do
   sh %{ bundle exec middleman build --verbose }
@@ -15,7 +17,14 @@ end
 
 desc "Run the live updating development server"
 task :development_server do 
+	command = "EXECJS_RUNTIME=Node HOST=" + host + "bundle exec middleman server"
   sh %{ EXECJS_RUNTIME=Node bundle exec middleman server } 
+end
+
+desc "Run the live updating development server (windows)"
+task :development_server_windows do 
+	command  = "EXECJS_RUNTIME=Node HOST=" +  host + " bundle exec middleman server --force-polling --latency=1"
+  sh command
 end
 
 desc "Build the site with docker"

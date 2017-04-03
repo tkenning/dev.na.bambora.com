@@ -50,7 +50,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments \
+curl https://api.na.bambora.com/v1/payments \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -72,7 +72,7 @@ Response (HTTP status code 302 redirect)
   "links": [ 
     {
       "rel": "continue",
-      "href":"https://www.beanstream.com/api/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue","method":"POST"
+      "href":"https://api.na.bambora.com/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue","method":"POST"
     }
   ]
 }
@@ -114,7 +114,7 @@ Upon success the term_url callback is called with following form encoded name/va
 ```shell
 Request
 
-https://www.beanstream.com/api/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue
+https://api.na.bambora.com/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue
 
 {
   "payment_method": "credit_card", 
@@ -154,7 +154,7 @@ Response
   "links": [
     {
       "rel": "complete",
-      "href": "https://www.beanstream.com/api/v1/payments/10000026/completions",
+      "href": "https://api.na.bambora.com/v1/payments/10000026/completions",
       "method": "POST"
     }
   ]
@@ -165,10 +165,10 @@ Response
 
 Some large merchants complete the Verified by Visa (VbV), MasterCard SecureCode, or AMEX SafeKey certification to handle 
 authentication on their own side. These merchants can use their existing VbV, SecureCode, or SafeKey authentication 
-process, and send the results of the bank authentication to Beanstream with their standard transaction request. To do 
+process, and send the results of the bank authentication to us with their standard transaction request. To do 
 this, the merchant must integrate using a server-to-server type connection.
 
-Note: This option must be enabled by Beanstream. Contact support if you want to use this method.
+Note: This option must be enabled by us. Contact support if you want to use this method.
 
 The VbV, SecureCode, or SafeKey bank authentication results must be sent with the transaction request using these three 
 system variables:

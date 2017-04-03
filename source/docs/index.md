@@ -12,13 +12,14 @@ navigation:
   header_active:
 
 hero_unit:
-    hero_image: Dev_Portal_background3.jpg
+    hero_image: Dev_Portal_bambora_background.jpg
     big_heading: Developer Documentation.
     tag_line:  >
         This single source of truth for our payment gateway.
     button:
         text: Get started
         link: /docs/guides/merchant_quickstart/
+    gradient: true
 
 card_sets:
     -  

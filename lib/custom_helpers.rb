@@ -85,7 +85,7 @@ module CustomHelpers
       end
     else
       # do it the old way
-      default_payments_spec = "1-0-2.json"
+      default_payments_spec = "1-0-3.json"
       get_swagger_spec "#{swagger_url}", output_dir, default_payments_spec
     end
   end
