@@ -6,7 +6,7 @@ info:
     Onboarding API Specification
 
     - Fields marked with a red asterix are required to complete an application and change the status to 'in\_review'
-    - An 'X-API-Version' header, with the API version is required to be sent as a header for all API calls.
+    - An 'X-API-Version: API_VERSION' header, with the API version is required to be sent for all API calls.
 host: onboardingapi.beanstream.com
 basePath: /v1
 schemes:
@@ -20,7 +20,8 @@ securityDefinitions:
     type: apiKey
     name: api_key
     in: header
-    description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
+    description: |
+      Pass the Authorization header in your request as 'Authorization: Token INSERT_KEY_HERE'.
 paths:
 # SEPA-EUR WORKFLOW
   '/workflows/sepa-eur/applications':
