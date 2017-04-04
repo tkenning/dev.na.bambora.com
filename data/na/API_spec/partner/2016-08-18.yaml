@@ -2,7 +2,11 @@ swagger: '2.0'
 info:
   version: "2016-08-18"
   title: Onboarding API
-  description: Onboarding API Specifications
+  description: |
+    Onboarding API Specification
+
+    - Fields marked with a red asterix are required to complete an application and change the status to 'in\_review'
+    - An 'X-API-Version: API_VERSION' header, with the API version is required to be sent for all API calls.
 host: onboardingapi.beanstream.com
 basePath: /v1
 schemes:
@@ -16,7 +20,8 @@ securityDefinitions:
     type: apiKey
     name: api_key
     in: header
-    description: 'Pass the Authorization header in your request as "Authorization: Token INSERT_KEY_HERE. Contact Beanstream to get an API Key generated for you if you don''t have one.'
+    description: |
+      Pass the Authorization header in your request as 'Authorization: Token INSERT_KEY_HERE'.
 paths:
 # SEPA-EUR WORKFLOW
   '/workflows/sepa-eur/applications':
@@ -43,9 +48,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -108,6 +113,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/SepaEurApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -141,9 +150,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -173,6 +182,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/SepaEurApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -336,9 +349,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -401,6 +414,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/BacsGbpApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -434,9 +451,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -466,6 +483,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/BacsGbpApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -629,9 +650,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -727,9 +748,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -760,9 +781,9 @@ paths:
           schema:
             $ref: '#/definitions/AchUsdApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -926,9 +947,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -992,9 +1013,9 @@ paths:
            items:
             $ref: '#/definitions/EftCadApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1032,9 +1053,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1064,6 +1085,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/EftCadApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1227,9 +1252,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1292,6 +1317,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/PspCadApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1325,9 +1354,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1357,6 +1386,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/PspCadApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1390,9 +1423,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1455,6 +1488,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/PspUsdApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1488,9 +1525,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1520,6 +1557,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/PspUsdApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1683,9 +1724,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1748,6 +1789,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/GwCdnApplicationRequest'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1781,9 +1826,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1813,6 +1858,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/GwCdnApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1846,9 +1895,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1911,6 +1960,10 @@ paths:
            type: array
            items:
             $ref: '#/definitions/GwUsaApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1944,9 +1997,9 @@ paths:
           schema:
             $ref: '#/definitions/ApplicationResponse'
         400:
-          description: 'Invalid request'
+          description: 'Invalid request or invalid api version'
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -1976,6 +2029,10 @@ paths:
           description: 'Application retrieved'
           schema:
             $ref: '#/definitions/GwUsaApplicationResponse'
+        400:
+          description: 'Invalid api version'
+          schema:
+            $ref: '#/definitions/CombinedErrorResponse'
         403:
           description: 'Unauthorized'
           schema:
@@ -2173,7 +2230,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2226,7 +2283,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2278,7 +2335,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2330,7 +2387,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2383,7 +2440,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2438,7 +2495,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2495,7 +2552,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
@@ -2554,7 +2611,7 @@ definitions:
         description: 'The API version that the application was created with'
       merchant_id:
         type: integer
-        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated.'
+        description: 'This merchant identifier is populated when the application is approved and a merchant account has been associated. This field will not be present if a merchant id has not been created.'
       pricing_id:
         type: string
         description: 'The identifier for the pricing package associated with an application'
