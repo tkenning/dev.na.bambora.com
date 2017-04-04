@@ -2,7 +2,11 @@ swagger: '2.0'
 info:
   version: "2016-08-18"
   title: Onboarding API
-  description: Onboarding API Specifications
+  description: |
+    Onboarding API Specification
+
+    - Fields marked with a red asterix are required to complete an application and change the status to 'in\_review'
+    - An 'X-API-Version' header, with the API version is required to be sent as a header for all API calls.
 host: onboardingapi.beanstream.com
 basePath: /v1
 schemes:
