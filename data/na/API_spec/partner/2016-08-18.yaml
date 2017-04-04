@@ -2528,7 +2528,7 @@ definitions:
         $ref: '#/definitions/GwCdnTerminal'
 
   GwCdnApplicationResponse:
-    description: 'Defines a GW-USA application'
+    description: 'Defines a GW-CDN application'
     additionalProperties: false
     type: object
     properties:
