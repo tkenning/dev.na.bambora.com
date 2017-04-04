@@ -1788,7 +1788,7 @@ paths:
           schema:
            type: array
            items:
-            $ref: '#/definitions/GwCdnApplicationRequest'
+            $ref: '#/definitions/GwCdnApplicationResponse'
         400:
           description: 'Invalid api version'
           schema:
