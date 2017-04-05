@@ -35,7 +35,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/SepaEurApplication'
+            $ref: '#/definitions/SepaEurApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -76,7 +76,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/SepaEurApplication'
+              $ref: '#/definitions/SepaEurApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -113,7 +113,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/SepaEurApplication'
+            $ref: '#/definitions/SepaEurApplicationRequest'
       responses:
         200:
           description: 'Application Updated.'
@@ -153,7 +153,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/SepaEurApplication'
+            $ref: '#/definitions/SepaEurApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -427,7 +427,7 @@ paths:
           description: 'Applicaiton details'
           required: true
           schema:
-            $ref: '#/definitions/BacsGbpApplication'
+            $ref: '#/definitions/BacsGbpApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -468,7 +468,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/BacsGbpApplication'
+              $ref: '#/definitions/BacsGbpApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -505,7 +505,7 @@ paths:
           description: 'Applicaiton details'
           required: true
           schema:
-            $ref: '#/definitions/BacsGbpApplication'
+            $ref: '#/definitions/BacsGbpApplicationRequest'
       responses:
         200:
           description: 'Application updated'
@@ -545,7 +545,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/BacsGbpApplication'
+            $ref: '#/definitions/BacsGbpApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -819,7 +819,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/AchUsdApplication'
+            $ref: '#/definitions/AchUsdApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -860,7 +860,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/AchUsdApplication'
+              $ref: '#/definitions/AchUsdApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -897,7 +897,7 @@ paths:
           description: 'Applicaiton details'
           required: true
           schema:
-            $ref: '#/definitions/AchUsdApplication'
+            $ref: '#/definitions/AchUsdApplicationRequest'
       responses:
         200:
           description: 'Application updated'
@@ -937,7 +937,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/AchUsdApplication'
+            $ref: '#/definitions/AchUsdApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -1211,7 +1211,7 @@ paths:
           description: 'Applicaiton details'
           required: true
           schema:
-            $ref: '#/definitions/EftCadApplication'
+            $ref: '#/definitions/EftCadApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -1252,7 +1252,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/EftCadApplication'
+              $ref: '#/definitions/EftCadApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -1289,7 +1289,7 @@ paths:
           description: 'Applicaiton details'
           required: true
           schema:
-            $ref: '#/definitions/EftCadApplication'
+            $ref: '#/definitions/EftCadApplicationRequest'
       responses:
         200:
           description: 'Application updated'
@@ -1329,7 +1329,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/EftCadApplication'
+            $ref: '#/definitions/EftCadApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -1604,7 +1604,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/PspCadApplication'
+            $ref: '#/definitions/PspCadApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -1645,7 +1645,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/PspCadApplication'
+              $ref: '#/definitions/PspCadApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -1682,7 +1682,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/PspCadApplication'
+            $ref: '#/definitions/PspCadApplicationRequest'
       responses:
         200:
           description: 'Application Updated.'
@@ -1722,7 +1722,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/PspCadApplication'
+            $ref: '#/definitions/PspCadApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -1912,7 +1912,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/PspUsdApplication'
+            $ref: '#/definitions/PspUsdApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -1953,7 +1953,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/PspUsdApplication'
+              $ref: '#/definitions/PspUsdApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -1990,7 +1990,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/PspUsdApplication'
+            $ref: '#/definitions/PspUsdApplicationRequest'
       responses:
         200:
           description: 'Application Updated.'
@@ -2030,7 +2030,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/PspUsdApplication'
+            $ref: '#/definitions/PspUsdApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -2189,7 +2189,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/GwCdnApplication'
+            $ref: '#/definitions/GwCdnApplicationRequest'
       responses:
         201:
           description: 'Application created'
@@ -2230,7 +2230,7 @@ paths:
           schema:
            type: array
            items:
-              $ref: '#/definitions/GwCdnApplication'
+              $ref: '#/definitions/GwCdnApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -2267,7 +2267,7 @@ paths:
           description: 'Application details'
           required: true
           schema:
-            $ref: '#/definitions/GwCdnApplication'
+            $ref: '#/definitions/GwCdnApplicationRequest'
       responses:
         200:
           description: 'Application Updated.'
@@ -2307,7 +2307,7 @@ paths:
         200:
           description: 'Application retrieved'
           schema:
-            $ref: '#/definitions/GwCdnApplication'
+            $ref: '#/definitions/GwCdnApplicationRequest'
         400:
           description: 'Invalid request'
           schema:
@@ -2481,7 +2481,7 @@ paths:
             $ref: '#/definitions/Error'
 
 definitions:
-  EftCadApplication:
+  EftCadApplicationRequest:
     description: 'Defines an EFT Canadian application'
     additionalProperties: false
     type: object
@@ -2507,7 +2507,7 @@ definitions:
       business:
         $ref: '#/definitions/EftCadBusiness'
 
-  AchUsdApplication:
+  AchUsdApplicationRequest:
     description: 'Defines an ACH American application'
     additionalProperties: false
     type: object
@@ -2533,7 +2533,7 @@ definitions:
       business:
         $ref: '#/definitions/AchUsdBusiness'
 
-  SepaEurApplication:
+  SepaEurApplicationRequest:
     description: 'Defines a SEPA European application'
     additionalProperties: false
     type: object
@@ -2559,7 +2559,7 @@ definitions:
       business:
         $ref: '#/definitions/SepaEurBusiness'
 
-  BacsGbpApplication:
+  BacsGbpApplicationRequest:
     description: 'Defines a BACS United Kingdom application'
     additionalProperties: false
     type: object
@@ -2585,7 +2585,7 @@ definitions:
       business:
         $ref: '#/definitions/BacsGbpBusiness'
 
-  PspCadApplication:
+  PspCadApplicationRequest:
     description: 'Defines a PSP Canadian application'
     additionalProperties: false
     type: object
@@ -2612,7 +2612,7 @@ definitions:
       business:
         $ref: '#/definitions/PspCadBusiness'
 
-  PspUsdApplication:
+  PspUsdApplicationRequest:
     description: 'Defines a PSP US application'
     additionalProperties: false
     type: object
@@ -2639,7 +2639,7 @@ definitions:
       business:
         $ref: '#/definitions/PspUsdBusiness'
 
-  GwCdnApplication:
+  GwCdnApplicationRequest:
     description: 'Defines a Canada Gateway application'
     additionalProperties: false
     type: object
