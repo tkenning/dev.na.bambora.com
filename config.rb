@@ -80,12 +80,8 @@ activate :relative_assets
 set :relative_links, true
 
 # Download swagger files from url:
-set :host, ENV['HOST'] || 'www.beanstream.com'
-get_all_swagger_specs "https://" + (host) +"/api/v1/swagger", "/data/autodownload/na/API_spec/merchant"
+get_all_swagger_specs "https://" + ENV['HOST'] +"/api/v1/swagger", "/data/autodownload/na/API_spec/merchant"
 
-ARGV.each do|a|
-  puts "Argument: #{a}"
-end
 
 # Build Configuration
 configure :build do
