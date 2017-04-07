@@ -83,6 +83,7 @@ module CustomHelpers
         href = spec["href"]
         get_swagger_spec "#{href}", output_dir, "#{id}.#{format}"
       end
+    end
   end
 
   # Downloads the specified swagger file at build time

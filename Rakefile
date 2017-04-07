@@ -7,7 +7,7 @@ swaggerHost =  ENV['HOST'] || 'www.beanstream.com'
 
 desc "Build the static site"
 task :build_site do
-  command "HOST=" + swaggerHost + " bundle exec middleman build --verbose" 
+  command = "HOST=" + swaggerHost + " bundle exec middleman build --verbose" 
   sh command
 end
 
