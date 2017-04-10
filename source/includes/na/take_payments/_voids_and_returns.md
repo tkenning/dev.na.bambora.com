@@ -5,7 +5,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments/{transId}/void \
+curl https://api.na.bambora.com/v1/payments/{transId}/void \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -62,7 +62,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments/{transId}/returns \
+curl https://api.na.bambora.com/v1/payments/{transId}/returns \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -110,7 +110,7 @@ res, err := gateway.Payments().ReturnPayment(transactionId, 12.99)
 Definition
 POST /v1/payments/0/returns HTTP/1.1
 
-curl https://www.beanstream.com/api/v1/payments/0/returns\
+curl https://api.na.bambora.com/v1/payments/0/returns\
 -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=" \
 -d '{
    "merchant_id":280001000,
@@ -134,7 +134,7 @@ curl https://www.beanstream.com/api/v1/payments/0/returns\
 ```php
 <?php
 
-$req = curl_init('https://www.beanstream.com/api/v1/payments/0/returns');
+$req = curl_init('https://api.na.bambora.com/v1/payments/0/returns');
 
 $headers = array(
 	'Content-Type:application/json',
@@ -177,7 +177,7 @@ require 'open-uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.beanstream.com/api/v1/payments/0/returns')
+uri = URI('https://api.na.bambora.com/v1/payments/0/returns')
 req = Net::HTTP::Post.new(uri.path) # Ruby 2.0: use .new(uri) instead
 req['Content-Type'] = 'application/json'
 req['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
@@ -224,7 +224,7 @@ req_body = json.dumps({
 })
 
 req = Request(
-    'https://www.beanstream.com/api/v1/payments/0/returns',
+    'https://api.na.bambora.com/v1/payments/0/returns',
     data=req_body,
     headers={
         'Content-Type': 'application/json',

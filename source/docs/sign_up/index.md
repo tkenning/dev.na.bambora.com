@@ -27,7 +27,7 @@ cards:
         icon: checkmark
         link: http://www.beanstream.com/pricing/
     -
-        title: Partner with Beanstream
+        title: Partner with Us
         description: >
             Join our community of 500+ partners
         icon: checkmark

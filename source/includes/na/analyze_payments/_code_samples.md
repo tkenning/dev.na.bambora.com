@@ -5,7 +5,7 @@ Definition
 GET /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments/{transactionId} \
+curl https://api.na.bambora.com/v1/payments/{transactionId} \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 ```
 
@@ -64,7 +64,7 @@ Definition
 POST /v1/reports HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/reports \
+curl https://api.na.bambora.com/v1/reports \
 -u "284000000:30c9dbd6505a4c8e960451feba6f036a" \
 -d "{
      "name": "Search",
