@@ -54,11 +54,6 @@ table {
 pre {
   padding: 20px 25px; 
   border-radius: 6px; 
-  text-overflow: ellipsis;
-  overflow-x: auto;
-  word-wrap: break-word;
-  word-break: break-all;
-  white-space: pre-wrap; 
 }
 
 // TODO: Fix li so it doesn't underline in dropdowns, other places. 
@@ -453,4 +448,12 @@ footer {
       padding-left: 0;
     }
   }
+}
+
+p > code, li > code {
+  color: $primary;
+  background: rgba(240, 240, 240, 1);
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-family: "Inconsolata", monospace;
 }

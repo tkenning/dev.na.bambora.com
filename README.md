@@ -13,7 +13,7 @@
   * [Formatting content](#formatting-content)
   * [YAML](#yaml)
     * [Navigation](#navigation)
-      * [Headerf files](#header-files)
+      * [Header files](#header-files)
       * [Footer files](#footer-files)
       * [Table of contents files](#table-of-contents-files)
   * [Markdown](#markdown)
