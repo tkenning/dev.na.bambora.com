@@ -2,13 +2,13 @@
 title: Hosted Payment Form
 layout: tutorial
 
-summary: The Payment Form provides you with an easy-to-use method to integrate payment processing onto your site.
+summary: The Payment Form provides you with an easy-to-use method to integrate payment processing into your site.
 
 
 navigation: 
     header: na.tocs.na_nav_header
     footer: na.tocs.na_nav_footer
-    toc: false
+    toc: in-page
     header_active: guides 
 ---
 
@@ -36,11 +36,11 @@ You can also configure section titles and the HTML for the page Header and Foote
 
 ### To configure the Payment Form 
 
-1. Log in to the [Online Member Area](https://www.beanstream.com/admin/sDefault.asp) and click **configuration** > **payment form**. <br><br>
-2. Modify the section titles. Leave blank if you don't want a title.<br><br>
-3. Configure the Payment Form sections. The fields in the table below show the different sections of the Payment Form that you can include or omit, to capture different types of information. It also shows the option to control the transaction type that you will process by default.<br><br>
-4. Configure the Form Style options. You can use [CheckoutTheme] or the legacy styling features. <br><br>
-5. Before making any changes permanent, always click **View Preview**. If you don't like your changes, you can click **Cancel Changes** to go back to the last saved change.<br><br>
+1. Log in to the [Online Member Area](https://www.beanstream.com/admin/sDefault.asp) and click **configuration** > **payment form**. 
+2. Modify the section titles (leave blank if you don't want a title).
+3. Configure the Payment Form sections. The fields in the table below show the different sections of the Payment Form that you can include or omit, to capture different types of information. It also shows the option to control the transaction type that you will process by default.
+4. Configure the Form Style options. You can use CheckoutTheme or the legacy styling features. 
+5. Before making any changes permanent, always click **View Preview**. If you don't like your changes, you can click **Cancel Changes** to go back to the last saved change.
 6. When you are ready, click **Update Live**. 
 
 
@@ -49,17 +49,17 @@ You can also configure section titles and the HTML for the page Header and Foote
 | Payment Form Sections | Description |
 |---------|----------------|
 | Transaction Type | Select the default type of transaction processing: **Purchase** or **Pre-Authorization**. Regardless of this setting, you can also control the transaction type when building the payment form link |
-| Include Billing Address | Select **Yes** so the customer can enter a billing address. This option only appear if the **Billing Address Optional** setting is selected in the Order Settings on your account. Regardless of this setting, you can also include billing address information when building the payment form link. If this is done when the **No** option is selected, the billing address does not appear on the form itself, but is included in the transaction reporting. |
-| Include Shipping Address | Select **Yes** so the customer can enter a separate shipping address. Regardless of this setting, you can also include shipping address information when building the payment form link. If this is done when the **No** option is selected, the shipping address does not appear on the form itself, but is included in the transaction reporting. |
+| Include Billing Address | Select **Yes** so the customer can enter a billing address. This option only appears if the **Billing Address Optional** setting is selected in the Order Settings on your account. Regardless of this setting, you can also include billing address information when building the payment form link. If this is done when the **No** option is selected, the billing address does not appear on the form itself but is included in the transaction reporting. |
+| Include Shipping Address | Select **Yes** so the customer can enter a separate shipping address. Regardless of this setting, you can also include shipping address information when building the payment form link. If this is done when the **No** option is selected, the shipping address does not appear on the form itself but is included in the transaction reporting. |
 | Allow Price Modification | Select **Yes** so customers can enter or change transaction totals (this works well for donations). When you select **No**, the merchant (you) must pre-populate the amount when building the payment form link. |
 | Include Invoice Order # | Select **Yes** so customers can enter specific invoice/order numbers. When you select **No**, the merchant (you) must pre-populate the order number when building the payment form link. |
-| Include Card Owner | 	Select **Yes** so the customer can enter a Card Owner Name. This option will only appear if the **Card owner name optional** setting is selected in the Order Settings on your account. Regardless of this setting, you can also include the Card Owner Name when building the payment form link. If this is done when the **No** option is selected, the Card Owner Name does not appear on the form itself, but is included in the transaction reporting. | 
+| Include Card Owner | 	Select **Yes** so the customer can enter a Card Owner Name. This option will only appear if the **Card owner name optional** setting is selected in the Order Settings on your account. Regardless of this setting, you can also include the Card Owner Name when building the payment form link. If this is done when the **No** option is selected, the Card Owner Name does not appear on the form itself but is included in the transaction reporting. | 
 | Include Card Selection | Select **Yes** to display a drop-down menu for available credit cards. **Note:** If **No** is selected, this will not cause any problems, as our system uses the card number itself, and not this field, to determine the card type. | 
-| Include Comments | Select **No** to remove the customer comments box from your Payment Form. Regardless of this setting, you can also include **Comments** information when building the payment form link. If this is done when the **No** option is selected, the **Comments** box does not appear on the form itself, but is included in the transaction reporting. |
+| Include Comments | Select **No** to remove the customer comments box from your Payment Form. Regardless of this setting, you can also include **Comments** information when building the payment form link. If this is done when the **No** option is selected, the **Comments** box does not appear on the form itself but is included in the transaction reporting. |
 
 ## CheckoutTheme 
 
-CheckoutTheme styles the Hosted Payment Form to have a modern, responsive, and accessible UI. You can include CheckoutTheme on your current Hosted Payment Form to take advantage of the updated design and accessiblilty features.
+CheckoutTheme styles the Hosted Payment Form to have a modern, responsive, and accessible UI. You can Add CheckoutTheme to Payment Form to take advantage of the updated design and accessibility features.
 
 ### Add to Payment Form
 
@@ -96,7 +96,7 @@ Now click **View Preview** and you'll see the payment form with the updated styl
 
 ### Changing the colors 
 
-By default, checkoutTheme styles the form with purple accents. You can easily change this to any other color by including some CSS in the **Page Header** text area. 
+By default, CheckoutTheme styles the form with purple accents. You can change this to match your own website by including some CSS styles in the **Page Header** text area. 
 
 Add the following inside the `<head>` tag in the **Page Header**: 
 
@@ -143,7 +143,7 @@ div.checkbox input[type=checkbox]:checked + label:before {
 
 You can update the hex colors above to choose the primary color of the Payment Form. Make sure to keep the `!important` rule after the color definitions. 
 
-Typically the first six styles should the same, primary color you desire for the form and the last one should be a darker version that is used when hovering or clicking on buttons. 
+The first six styles should use the primary color you desire for the form and the last one should be a darker version that is used when hovering or clicking on buttons. 
 
 You can add additional styling information if you wish inside the style tags.
 
@@ -155,7 +155,7 @@ If you wish, you can style the form using the older **Form Style Options** in th
 
 Customers can access your payment form using a Querystring API request link. The link has two important parts: the **Web Service URL** and a number of **Variable/Value pairs**.
 
-For the Hosted Payment Form, the URL is: [https://www.beanstream.com/scripts/payment/payment.asp](https://www.beanstream.com/scripts/payment/payment.asp). The variable/value pairs are how all customer card and order data is transmitted to our system. An example pair is `trnOrderNumber=12345TEST`. Seperate multiple variable/value pairs with ampersands (`&`). A full Hosted Payment Form link looks like: 
+For the Hosted Payment Form, the URL is: [https://www.beanstream.com/scripts/payment/payment.asp](https://www.beanstream.com/scripts/payment/payment.asp). The variables are how all customer card and order data is transmitted to our system. An example variable is `trnOrderNumber=12345TEST`. Separate multiple variables with ampersands (`&`). A full Hosted Payment Form link looks like: 
 
 ```
 https://www.beanstream.com/scripts/payment/payment.asp?merchant_id=123456789&trnAmount=19.99&trnOrderNumber=12345TEST
@@ -165,7 +165,7 @@ To create the payment form link, you can build it manually or use our [Hosted Pa
 
 ### Payment Link Variables 
 
-The only required variable/value pair is your merchant ID in this format: `merchant_id=[your merchant ID]`. You can add additional variable/value pairs to pre-populate other fields in the form and secure the information form data. 
+The only required variable/value pair is your merchant ID in this format: `merchant_id=[your merchant ID]`. You can add additional variables to pre-populate other fields in the form and secure the information form data. 
 
 #### Card Information Variables 
 
@@ -176,7 +176,7 @@ The only required variable/value pair is your merchant ID in this format: `merch
 | trnType | 2 alpha characters | Indicates the Transaction Type. **P - Purchase**, **PA - Pre-Auth**. If not supplied, the default is the Transaction Type set on the **Payment Settings** screen (under **configuration** > **payment form**). |
 | trnCardOwner | 4-64 alphanumeric characters (\*\*Spaces are allowed) | Name of the card owner exactly as it shows on the credit card. | 
 
-<small>**When creating link information, the space must represented/replaced with the + character. For example, Sam+Shopper</small>
+<small>**When creating link information, the space must be replaced with the + character. For example, Sam+Shopper</small>
 
 #### Billing Information Variables 
 
@@ -191,7 +191,7 @@ The only required variable/value pair is your merchant ID in this format: `merch
 | ordPostalCode | 1-16 alphanumeric characters (\*\*Spaces are allowed) | Postal/Zip code associated with the billing address for the credit card. This code **is** used for AVS if the card issuer participates in the AVS program. | 
 | ordCountry | 2 character code based on the ISO Country Codes Chart | Country associated with the billing address for the credit card. AVS does not validate this information. | 
 
-<small>** When creating link information, the space must represented/replaced with the + character. For example, Main+Street</small>
+<small>** When creating link information, the space must be replaced with the + character. For example, Main+Street</small>
 
 #### Shipping Information Variables 
 
@@ -207,22 +207,22 @@ The only required variable/value pair is your merchant ID in this format: `merch
 | shipPostalCode | 1-16 alphanumeric characters (\*\*Spaces are allowed) | Shipping address postal/zip code. | 
 | shipCountry | 2 character code based on the ISO Country Codes Chart | Shipping address country ID. | 
 
-<small>** When creating link information, the space must represented/replaced with the + character. For example, Main+Street</small>
+<small>** When creating link information, the space must be replaced with the + character. For example, Main+Street</small>
 
 #### Additional Custom Variables 
 
 | Variable name | Requirements | Description |
 |---------------|--------------|-------------|
-| approvedPage | Up to 128 alphanumeric characters. Special characters must be URL Encoded. | *Optional*. Enter a URL for the **Transaction Approved** page. We send a customer to this URL if their transaction request is processed without problems. If no value is passed, We use the URL from the **Order settings**. | 
-| declinedPage | Up to 128 alphanumeric characters. Special characters must be URL Encoded. | Optional. Enter a URL for the **Transaction Declined** page. We send a customer to this URL if their transaction request is denied. If no value is passed, We use the URL from the **Order settings**. | 
+| approvedPage | Up to 128 alphanumeric characters. Special characters must be URL Encoded. | *Optional*. Enter a URL for the **Transaction Approved** page. We send a customer to this URL if their transaction request is processed without problems. If no value is passed, we use the URL from the **Order settings**. | 
+| declinedPage | Up to 128 alphanumeric characters. Special characters must be URL Encoded. | Optional. Enter a URL for the **Transaction Declined** page. We send a customer to this URL if their transaction request is denied. If no value is passed, we use the URL from the **Order settings**. | 
 | refn | Up to 256 alphanumeric characters | Up to 5 reference fields can be passed with the order, to contain any site-specific information you need to maintain during the order process, for example, shopper IDs, account numbers, order numbers. Number these fields from 1 to 5 in this format: ref1, ref2, ref3, ref4, and ref5. Maximum 256 alphanumeric characters. When this information is sent to the processing script, it is stored in our database with transaction details, and returned back to your site unmodified. |
-hashValue | Any | Mandatory if you activated the hash validation option located in **Order Settings**. The hashValue is used as a security measure to ensure the transaction post to the API was not modified. The value is generated by appending the hash key to the payment form request query string, and using a hash algorithm (either MD5 or SHA-1) on the resulting string. **See below for more information.** |
-| hashExpiry | 12 numeric characters. Format: YYYYMMDDHHMM (PST 24-hour clock) | Optional field to indicate the HASHed request has an expiry. This parameter is only active if used with hash validation. The system validates that the request was received earlier than the date and time value stored in this field. If the session has expired the request is rejected. This value must be passed as the current system time in the Pacific time zone. Format: YYYYMMDDHHMM. For example June 18, 2015 2:34 PM would be submitted as 201506181434 | 
-| trnLanguage | 3 alpha characters | **eng** – English, **fre** – French. Payment form Language. Defaults to English if variable not entered. Only English and French are available. | 
+hashValue | Any | Mandatory if you activated the hash validation option located in **Order Settings**. The hashValue is used as a security measure to ensure the transaction post to the API was not modified. The value is generated by appending the hash key to the payment form request query string and using a hash algorithm (either MD5 or SHA-1) on the resulting string. **See below for more information.** |
+| hashExpiry | 12 numeric characters. Format: YYYYMMDDHHMM (PST 24-hour clock) | Optional field to indicate the hashed request has an expiry. This parameter is only active if used with hash validation. The system validates that the request was received earlier than the date and time value stored in this field. If the session has expired the request is rejected. This value must be passed as the current system time in the Pacific time zone. Format: YYYYMMDDHHMM. For example June 18, 2015 2:34 PM would be submitted as 201506181434 | 
+| trnLanguage | 3 alpha characters | **eng** – English, **fre** – French. Payment form language. Defaults to English if variable is not entered. Only English and French are available. |
 
 ### Hash Validation
 
-The hash value is a number generated from a string of text that is smaller than the text itself. Hash Values are used to make sure the transmitted message is not tampered with.
+The hash value is a number generated from a string of text that is smaller than the text itself. Hash values are used to make sure the transmitted message is not tampered with.
 
 There are two benefits to using hash validation with your payment form: preventing someone from modifying the data in your payment form link and preventing unauthorized transaction attempts against your merchant account.
 
@@ -233,15 +233,13 @@ There are two benefits to using hash validation with your payment form: preventi
 1. Log into your account.
 2. On the menu, click **administration** > **account settings** > **order settings**.
 3. Scroll down, and in the Payment Gateway section, under Security/Authentication, select the check box **Require hash validation on all Payment Gateway transaction requests**.
-4. Enter a **Hash Key**. It must be at least 8 characters, it doesn't matter what those characters are.
+4. Enter a **Hash Key**. It must be at least 8 characters, it doesn't matter what those characters are. **Note**: If you are using a programming language like PHP to create your redirect link, it may already have a hash function built into it—use this to Hash the input variables instead of the manual Hash generator. You can then skip this step. 
 5. Select (and make a note of) the type of **Hash algorithm** you are using (MD5 or SHA-1).
 6. At the bottom of the page, click **Update**.
 7. A confirmation box opens at the top of the browser window. Click **OK**.
 
 ##### Encrypt the Payment Form link
 
-After Hash Validation is enabled, you need to include a Hash Value in your Hosted Payment form redirect link. If you don't, you will get a Transaction Declined error when someone uses your Hosted Payment form.
-
-If you are using a programming language (like PHP) to create your redirect link, it may already have a hash function built into it—use this to Hash the input variables instead of the manual Hash generator. You can skip Step 4 above, but you should complete the remaining steps.
+After Hash Validation is enabled, you need to include a hash value in your Hosted Payment form redirect link. If you don't, you will get a Transaction Declined error when someone uses your Hosted Payment form.
 
 You can use our [Hosted Payment Form Link Builder](/docs/forms/link_builder/) to encrypt the payment form link. Just input the **Hash Key** you configured and choose the same type of **Hash algorithm** as you have configured.
