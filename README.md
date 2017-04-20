@@ -13,7 +13,7 @@
   * [Formatting content](#formatting-content)
   * [YAML](#yaml)
     * [Navigation](#navigation)
-      * [Headerf files](#header-files)
+      * [Header files](#header-files)
       * [Footer files](#footer-files)
       * [Table of contents files](#table-of-contents-files)
   * [Markdown](#markdown)
@@ -38,10 +38,10 @@ cd dev.na.bambora.com
 docker build -t devbamboracom .
 
 # For Windows:
-docker run -v $pwd/source/:/usr/src/app/source -p 4567:4567 devbamboracom
+docker run -v $pwd/:/usr/src/app/ -p 4567:4567 devbamboracom
 
 # For Mac and Linux:
-docker run -v `pwd`/source:/usr/src/app/source -p 4567:4567 devbamboracom
+docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 devbamboracom
 ```
 
 **Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to Docker Settings > Network and change the DNS server to fixed.

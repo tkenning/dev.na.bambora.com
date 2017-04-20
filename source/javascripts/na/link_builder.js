@@ -1,3 +1,14 @@
+// Checkbox to hide additional fields
+$('.optional-fields').hide();
+$("#show-optional-fields input[type=checkbox]").change(function() {
+    if(this.checked) {
+        $('.optional-fields').slideDown();
+    } else {
+        $('.optional-fields').slideUp();
+    }
+});
+
+// Form fields
 (function() {
   'use strict';
 

@@ -41,3 +41,5 @@ cards:
 # Guides
 
 ### Functional descriptions of getting things done with our payment gateway.
+
+See a selection of popular guides below. The full list of guides is on the right. 

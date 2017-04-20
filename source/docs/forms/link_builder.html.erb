@@ -19,7 +19,7 @@ breadcrumbs: false
 <p>This form will help you to create secure links to your Beanstream Hosted Payment Form.
     <strong>It will not validate your input.</strong>
     You can view the documentation for the Hosted Payment Form, including the field requirements,
-    <a href="http://support.beanstream.com/bic/w/#docs/customized-payment-form-data-variables.htm">here</a>.
+    <a href="/docs/guides/hosted_payment_form/">here</a>.
 </p>
 
 <form id="form">
@@ -58,6 +58,16 @@ breadcrumbs: false
     </div>
     </div>
 
+    <br>
+    <div class="checkbox" id="show-optional-fields">
+        <input type="checkbox" id="checkbox-1">
+        <label for="checkbox-1">
+            Show optional form fields
+        </label>
+    </div>
+    <br>
+
+    <div class="optional-fields">
     <h4>Order Info (optional)</h4>
     <div class="row">
     <div class="col-md-6">
@@ -301,6 +311,8 @@ breadcrumbs: false
         </div>
     </div>
     </div>
+
+    </div> <!-- ./optional-fields -->
 
     <input type="submit" class="btn btn-default" value="Create link">
     <input type="reset" class="btn btn-secondary" value="Clear form">
