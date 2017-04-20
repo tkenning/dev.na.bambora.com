@@ -17,13 +17,13 @@ cards:
         description: >
             Didn't find the docs you were looking for? Try our legacy documentation.
         icon: checkmark
-        link: http://support.beanstream.com/
+        link: https://support.na.bambora.com
     -
         title: Contact Support
         description: >
             Need help? Call, instant message or email us.
         icon: list
-        link: http://www.beanstream.com/contact/support/
+        link: http://www.bambora.com/en/ca/contact/support
 ---
 
 # Support

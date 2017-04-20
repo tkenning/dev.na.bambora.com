@@ -185,7 +185,7 @@ res, err := gateway.Payments().MakePayment(request)
 ```
 
 **Test Cards**<br/>
-If you are using a test account, or a production account that is still in its initial 'test' mode, you’ll need to use test card numbers. You’ll be able to view the transaction process from beginning to end without sending real information to the banking network. See [here](http://support.beanstream.com/olm/w/docs/using-test-card-numbers.htm) for a list of test card numbers.
+If you are using a test account, or a production account that is still in its initial 'test' mode, you’ll need to use test card numbers. You’ll be able to view the transaction process from beginning to end without sending real information to the banking network. See [here](https://support.na.bambora.com/bic/w/index.html#docs/using-test-card-numbers.htm) for a list of test card numbers.
 
 **Required Parameters**<br/>
 Please refer to the [API Spec](/docs/references/merchant_API) for full details on parameters.

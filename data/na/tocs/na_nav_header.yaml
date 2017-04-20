@@ -14,5 +14,5 @@ buttons:
   - file: /docs/sign_up/
     title: Sign up
     secondary: true
-  - file: https://www.beanstream.com/admin/sDefault.asp
+  - file: https://www.web.na.bambora.com/admin/sDefault.asp
     title: Login
