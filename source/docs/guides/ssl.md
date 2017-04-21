@@ -19,9 +19,14 @@ To be able to create an SSL connection between our servers and your client we us
 
 ## OpenSSL
 
-Some merchants use [OpenSSL](https://www.openssl.org) to verify our SSL certificates. Since a server can have more than one certificate you will need to specify the host of the certificate you are checking by using the _-servername_ argument.
+Some merchants use [OpenSSL](https://www.openssl.org) to verify our SSL certificates. 
 
-#### Example:
+Since a server can have more than one certificate you will need to use the _-servername_ argument to specify the host that you are checking.
+
+#### Examples:
+```shell
+openssl s_client -servername api.na.bambora.com -connect api.na.bambora.com:443
+```
 ```shell
 openssl s_client -servername www.beanstream.com -connect www.beanstream.com:443
 ```
@@ -39,8 +44,10 @@ verify return:0
 You can resolve this by doing the following:
  1. Download *GeoTrust_Global_CA.pem* from [GeoTrust](https://www.geotrust.com/resources/root-certificates/index.html)
  2. Run OpenSSL with the _-CAfile_ argument pointing to the downloaded file
-#### Example:
+#### Examples:
+  ```shell
+  openssl s_client -servername api.na.bambora.com -connect api.na.bambora.com:443 -CAfile "FILEPATH/GeoTrust_Global_CA.pem"
+  ```
  ```shell
  openssl s_client -servername www.beanstream.com -connect www.beanstream.com:443 -CAfile "FILEPATH/GeoTrust_Global_CA.pem"
  ```
- 
