@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const HPF_BASE_URL = 'https://na.bambora.com/scripts/payment/payment.asp';
+  const HPF_BASE_URL = 'https://web.na.bambora.com/scripts/payment/payment.asp';
 
   // required
   const HPF_MERCHANT_ID = 'merchant_id';
