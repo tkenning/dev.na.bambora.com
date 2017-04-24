@@ -48,5 +48,5 @@ AVS response codes are returned by the Payments API for purchases and pre-author
 | Z   	  | 0        | 1		 | 0			 | 1			         | Postal/ZIP matches, street address does not match. 			   |
 
 [wikipedia-avs]: https://en.wikipedia.org/wiki/Address_Verification_System
-[back-office]: https://www.beanstream.com/admin/
-[beanstream-swagger]: http://support.beanstream.com/restapi/
+[back-office]: https://web.na.bambora.com
+[beanstream-swagger]: /docs/references/merchant_API/
