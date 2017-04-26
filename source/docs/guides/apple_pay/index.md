@@ -3,7 +3,7 @@ title: Apple Pay
 layout: tutorial
 
 summary: >
-    The Payments API now exposes our new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
+    Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -14,16 +14,17 @@ navigation:
 
 # Apple Pay
 
-**Our Apple Pay is currently in a close Beta trial period. Contact your account manager if you would like early access.**
+**Our Apple Pay is currently in a close Beta trial period. 
+Contact your account manager if you would like early access.**
 
-The Payments API now exposes our new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
+Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a Base64 encoded Apple Pay Payment Token.
 
-Various resources exist to let you find out more about the Payments API in general. Learn how to [Take Payments](/docs/references/payments_SDKs/take_payments/) and for our REST API refer to the [Swagger doc](/docs/references/merchant_API/v1-0-3). Also, we highly recommend you understand how to deal with our [API Passcode Authentication protocol](/docs/guides/merchant_quickstart/) as it is used in the demo server app that is mentioned later in this document.
+Various resources exist to let you find out more about the Merchant API in general. Learn how to [Take Payments](/docs/references/payments_SDKs/take_payments/) and for our Merchant API refer to the [Swagger doc](/docs/references/merchant_API/v1-0-3). Also, we highly recommend you understand how to deal with our [API Passcode Authentication protocol](/docs/guides/merchant_quickstart/) as it is used in the demo server app that is mentioned later in this document.
 
 
 ## Example Request
 
-An example Payments API request is shown below with a JSON formatted parameter to pass to the https://api.na.bambora.com/v1/payments RESTful interface.
+An example Merchant API request is shown below with a JSON formatted parameter to pass to the https://api.na.bambora.com/v1/payments RESTful interface.
 
 
 ```shell
@@ -47,7 +48,7 @@ An example Payments API request is shown below with a JSON formatted parameter t
 
 Sample code on Github has been provided to help mobile app and backend server-side developers with your production level apps. We have simple demo client & server apps for you to inspect and follow (as a starting example), with the hope that these samples help bootstrap your implementations.
 
-Click to view code samples on the [Mobile Payments Demo Github](https://github.com/Beanstream/mobilepayments-demo) repository.
+Click to view code samples on the [Mobile Payments Demo Github](https://github.com/bambora/na-mobilepayments-demo) repository.
 
 To enable Apple Pay on your Merchant account you need to know your Merchant ID and use, or create, a Passcode for your account. When you log in to your account, you will know if you can enable Apple Pay transactions if you see a mobile payments menu item, as shown below. If the mobile payments menu item does not appear, your account is not enabled for Apple Pay.
 

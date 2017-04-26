@@ -45,15 +45,15 @@ card_sets:
             Get an in-depth knowledge of our payment gateway. See all the references <a href="/docs/references">here.</a>
         cards:
             -
-                title: Payments API
+                title: Merchant API
                 description: >
-                    Our Payments API supports online payments, card tokenization, payment profiles and reporting.
+                    Our Merchant API supports online payments, card tokenization, payment profiles and reporting.
                 icon: flag
                 link: /docs/references/merchant_API/
             -
                 title: Payments SDKs
                 description: >
-                    Our Payments SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, Payfields.
+                    Our Payments SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, CheckoutFields.
                 icon: more
                 link: /docs/references/payments_SDKs/
             -

@@ -10,7 +10,7 @@ Our RESTful APIs allow you to take payments, analyze payments, create payment pr
 npm install beanstream-node
 
 // Step 2) Import module into your project
-var beanstream = require('beanstream-node')('merchantId', 'Payments API key', 'Profiles API key', 'Reporting API key');
+var beanstream = require('beanstream-node')('merchantId', 'Payments API passcode', 'Profiles API passcode', 'Reporting API passcode');
 ```
 
 ```php

@@ -23,7 +23,7 @@ This can be generated in the [Back Office](https://web.na.bambora.com). Navigate
 npm install beanstream-node
 
 // Step 2) Import module into your project
-var beanstream = require('beanstream-node')('merchantId', 'Payments API key', 'Profiles API key', 'Reporting API key');
+var beanstream = require('beanstream-node')('merchantId', 'Payments API passcode', 'Profiles API passcode', 'Reporting API passcode');
 ```
 
 ```php
@@ -312,9 +312,9 @@ res, err := gateway.Payments().MakePayment(request)
 
 ##4. Fill in your Merchant ID and API Passcode
 
-Look in the code example where it says YOUR_MERCHANT_ID and YOUR_PAYMENTS_API_PASSCODE and replace them with your actual merchant ID and your Payments API Passcode.
+Look in the code example where it says YOUR_MERCHANT_ID and YOUR_PAYMENTS_API_PASSCODE and replace them with your actual merchant ID and your Payments API passcode.
 
-If you are using REST directly then you will need to combine your Merchant ID and API key, separated with a colon (`merchant_id:api_key`), and add them in the Authorization header.
+If you are using REST directly then you will need to combine your Merchant ID and API passcode, separated with a colon (`merchant_id:passcode`), and add them in the Authorization header.
 
 <% form_tag '#', :id => "encodeIdAndKey_form", :class => "form-group" do %>
 
