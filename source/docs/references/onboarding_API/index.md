@@ -48,7 +48,7 @@ The following workflows are currently supported:
     * on_hold is a new state an application can be in while being processed.
 * Changes to GW-USA and GW-CDN
     * discover_merchant_id is a new field for first data terminals.
-    * amex_merchant_id is a new field for first data terminals.
+    * amex_merchant_id is a new field for first data terminals. 
 
 #### November 28th, 2016
 * New Gateway USA workflow added.
