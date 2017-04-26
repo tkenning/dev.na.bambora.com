@@ -1,5 +1,5 @@
 - file: '/docs/references/merchant_API/'
-  title: 'Payments API'
+  title: 'Merchant API'
 - file: '/docs/references/onboarding_API/'
   title: 'Onboarding API'
 - file: '/docs/references/payments_SDKs/'

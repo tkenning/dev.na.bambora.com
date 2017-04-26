@@ -6,4 +6,4 @@ When you save a payment profile you will be given a customer code ID in return. 
 
 Payment Profiles can be created with a plain credit card number, however we recommend that you first tokenize the card data in the client-side application and then use that token to create the profile.
 
-Creating and modifying Secure Payment Profiles requires you use your Profiles API Key. If you get an authentication error you might be using your Payments API Key, so double check!
+Creating and modifying Secure Payment Profiles requires you use your Profiles API passcode. If you get an authentication error you might be using your Payments API passcode, so double check!

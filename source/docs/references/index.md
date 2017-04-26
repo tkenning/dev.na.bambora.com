@@ -12,9 +12,9 @@ navigation:
 
 cards:
     -                
-        title: Payments API
+        title: Merchant API
         description: >
-            The Payments API allows you to tokenize cards, take payments, store customer data and query transactions.
+            The Merchant API allows you to tokenize cards, take payments, store customer data and query transactions.
         icon: notification-active
         link: /docs/references/merchant_API/
     -
@@ -26,7 +26,7 @@ cards:
     -
         title: Payments SDKs
         description: >
-            The Payments SDKs wrap the Payments API. They include server, mobile and browser SDKs.
+            The Payments SDKs wrap the Merchant API. They include server, mobile and browser SDKs.
         icon: list
         link: /docs/references/payments_SDKs/
     -

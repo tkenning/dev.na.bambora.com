@@ -3,7 +3,7 @@ title: Merchant Quickstart
 layout: tutorial
 
 summary: >
-    This will guide you through quickly hitting each of our Payments APIs and verifying the success of the operation in the Back Office.
+    This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
     
 navigation:
   header: na.tocs.na_nav_header
@@ -12,9 +12,9 @@ navigation:
   header_active: Guides
 ---
 
-# Calling the Payment APIs
+# Calling the Merchant APIs
 
-This will guide you through quickly hitting each of our Payments APIs and verifying the success of the operation in the Back Office.
+This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
 
 Each of these API calls will require a distinct authentication passcode. We described how to generate these in the Merchant Setup section.
 
@@ -31,7 +31,7 @@ You can download our collection and an environment <a href="/resources/postman-c
 ## 1. Tokenize a credit card
 If you accept credit cards, you must be in compliance with PCI Security Council standards. You can reduce the scope of your compliance by minimizing your application's contact with the card data. You can remove the need to pass credit card details to your server by tokenization the card data in the browser. You can create a single use token from the browser/mobile app through our Tokenization API.
 
-You can further reduce the scope of your compliance by removing the need for your code to interact with card data by using our hosted Payfields library validate and tokenize all card data.
+You can further reduce the scope of your compliance by removing the need for your code to interact with card data by using our hosted CheckoutFields library validate and tokenize all card data.
 
 ```shell
 curl https://api.na.bambora.com/scripts/tokenization/tokens  \
@@ -84,7 +84,7 @@ curl https://api.na.bambora.com/v1/payments  \
 ```
 
 ## 4. Query the transaction
-The response body of a transaction request contains a transaction id. You can request a transaction at a later date using the same Payments API.
+The response body of a transaction request contains a transaction id. You can request a transaction at a later date using the same Merchant API.
 
 ```shell
 curl -X GET https://api.na.bambora.com/v1/payments/{your_transaction_id} \
