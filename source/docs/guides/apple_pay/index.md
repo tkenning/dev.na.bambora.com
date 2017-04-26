@@ -17,7 +17,7 @@ navigation:
 **Our Apple Pay is currently in a close Beta trial period. 
 Contact your account manager if you would like early access.**
 
-Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
+Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a Base64 encoded Apple Pay Payment Token.
 
 Various resources exist to let you find out more about the Merchant API in general. Learn how to [Take Payments](/docs/references/payments_SDKs/take_payments/) and for our Merchant API refer to the [Swagger doc](/docs/references/merchant_API/v1-0-3). Also, we highly recommend you understand how to deal with our [API Passcode Authentication protocol](/docs/guides/merchant_quickstart/) as it is used in the demo server app that is mentioned later in this document.
 
