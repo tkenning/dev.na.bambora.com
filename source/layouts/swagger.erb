@@ -113,26 +113,26 @@
           <h2 class="open"><a href="#">Operations</a></h2>
           <div class="expandable operations-body">
             <% operations.keys.each do |tag| %>
-              <div class="tag-group">
-                <h3><a href="#"><%= tag %></a></h3>
+              <% if not current_page.data.ignored_tags or not
+                current_page.data.ignored_tags.include? tag  %>
+                <div class="tag-group">
+                  <h3><a href="#"><%= tag %></a></h3>
 
-                <div class="expandable tag-operations">
-                  <% operations[tag].each do |operation| %>
-
-                    <% if not current_page.data.ignored_paths or not 
-                      current_page.data.ignored_paths.include? operation["path_name"]  %>
-
-                      <%= partial "layouts/_swagger_partials/operation", :locals => {
-                            :operation_name => operation["operation_name"],
-                            :path_name      => operation["path_name"],
-                            :operation_body => operation["operation_body"],
-                            :definitions    => definitions
-                      } %>
+                  <div class="expandable tag-operations">
+                    <% operations[tag].each do |operation| %>
+                      <% if not current_page.data.ignored_paths or not
+                       current_page.data.ignored_paths.include? operation["path_name"]  %>
+                        <%= partial "layouts/_swagger_partials/operation", :locals => {
+                          :operation_name => operation["operation_name"],
+                          :path_name      => operation["path_name"],
+                          :operation_body => operation["operation_body"],
+                          :definitions    => definitions
+                        } %>
+                      <% end %>
                     <% end %>
-                  
-                  <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             <% end %>  
           </div>
         </div>     
