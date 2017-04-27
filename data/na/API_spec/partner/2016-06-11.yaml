@@ -3784,6 +3784,8 @@ definitions:
         type: string
         maxLength: 34
         description: 'Must be valid IBAN. To verify an IBAN and get example IBANS, see http://formvalidation.io/validators/iban/.'
+      bank_account_contact:
+        $ref: '#/definitions/BankAccountContact'
 
   UnitedKingdomBankAccount:
     description: 'Defines a United Kingdom bank account'
@@ -3807,6 +3809,30 @@ definitions:
       account_number:
         type: string
         pattern: '^\d{8}$'
+      bank_account_contact:
+        $ref: '#/definitions/BankAccountContact'
+
+  BankAccountContact:
+    description: 'Defines the primary contact for the bank account'
+    additionalProperties: false
+    type: object
+    properties:
+      first_name:
+        type: string
+        description: 'First name of the primary contact for the bank account.'
+        maxLength: 64
+      last_name:
+        type: string
+        description: 'Last name of the primary contact for the bank account.'
+        maxLength: 64
+      email:
+        type: string
+        description: 'Email of the primary contact for the bank account.'
+        maxLength: 500
+      phone_number:
+        type: string
+        description: 'Phone number of the primary contact for the bank account.'
+        maxLength: 15
 
   EftCadFile:
     description: 'Defines a document that is required for application approval.'
