@@ -84,7 +84,7 @@ set :relative_links, true
 # Download swagger files from url:
 get_all_swagger_specs "https://www.beanstream.com/api/v1/swagger", "/data/autodownload/na/API_spec/merchant"
 
-ONBOARDING_HOST = ENV['ONBOARDING_HOST'] || 'api'
+ONBOARDING_HOST = ENV['ONBOARDING_HOST'] || 'onboardingapi'
 
 # Download onboarding swagger specs
 get_swagger_spec "https://" + ONBOARDING_HOST + ".na.bambora.com/v1/boarding/swagger/2016-08-18", "/data/autodownload/na/API_spec/onboarding", "2016-08-18.yaml"
