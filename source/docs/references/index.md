@@ -35,6 +35,12 @@ cards:
             The Address Verification System (AVS) is a system used to verify the address of a person claiming to own a credit card.
         icon: creditcard-outline
         link: /docs/references/AVS/
+    -
+        title: Risk Thresholds
+        description: >
+            Risk Thresholds can be used by merchants to block certain high risk transactions.
+        icon: creditcard-outline
+        link: /docs/references/risk_thresholds/
 
 
 
