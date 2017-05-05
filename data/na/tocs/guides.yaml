@@ -6,5 +6,5 @@
   title: 'Onboarding'
 - file: '/docs/guides/3D_secure'
   title: '3D Secure'
-- file: '/docs/guides/hosted_payment_form'
-  title: 'Hosted Payment Form'
+- file: '/docs/guides/SSL'
+  title: 'SSL'

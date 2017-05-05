@@ -28,7 +28,7 @@ cards:
         description: >
             The Payments SDKs wrap the Merchant API. They include server, mobile and browser SDKs.
         icon: list
-        link: /docs/references/payments_SDKs/
+        link: /docs/references/merchant_SDKs/
     -
         title: Address Verification System (AVS)
         description: >
