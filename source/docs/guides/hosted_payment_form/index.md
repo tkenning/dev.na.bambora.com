@@ -76,12 +76,12 @@ Change the HTML code in the **Page Header** text area to the following:
 
 <title> { Merchant Name } - Payment Form </title> 
 
-<link rel="stylesheet" type="text/css" href="libs.na.bambora.com/checkoutTheme/v0.0.1/ui.bambora/ui.bambora.1.1.0.css">
-<link rel="stylesheet" type="text/css" href="libs.na.bambora.com/checkoutTheme/v0.0.1/style.css">
+<link rel="stylesheet" type="text/css" href="libs.na.bambora.com/checkouttheme/0.1.0/ui.bambora/ui.bambora.1.1.0.css">
+<link rel="stylesheet" type="text/css" href="libs.na.bambora.com/checkouttheme/0.1.0/style.css">
 </head>
 
 <body>
-<script src="libs.na.bambora.com/checkoutTheme/v0.0.1/checkoutTheme.min.js"></script>  	
+<script src="libs.na.bambora.com/checkouttheme/0.1.0/checkouttheme.min.js"></script>  	
 <script> CheckoutTheme.init(); </script>
 ```
 
