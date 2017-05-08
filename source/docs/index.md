@@ -51,11 +51,11 @@ card_sets:
                 icon: flag
                 link: /docs/references/merchant_API/
             -
-                title: Payments SDKs
+                title: Merchant SDKs
                 description: >
-                    Our Payments SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, CheckoutFields.
+                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, CheckoutFields.
                 icon: more
-                link: /docs/references/payments_SDKs/
+                link: /docs/references/merchant_SDKs/
             -
                 title: Onboarding API
                 description: >

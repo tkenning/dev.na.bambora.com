@@ -24,7 +24,7 @@ cards:
         icon: checkmark
         link: /docs/references/onboarding_API/
     -
-        title: Payments SDKs
+        title: Merchant SDKs
         description: >
             The Payments SDKs wrap the Merchant API. They include server, mobile and browser SDKs.
         icon: list
