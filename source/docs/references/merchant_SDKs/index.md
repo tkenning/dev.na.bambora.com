@@ -1,5 +1,5 @@
 ---
-title: Merchant SDKs Overview
+title: Payments SDKs Overview
 layout: tutorial
 
 summary: >
@@ -13,7 +13,7 @@ navigation:
 ---
 
 # Overview
-Our SDKs wrap our RESTful APIs. Our server and mobile SDKs make it easy for you to use our RESTful APIs in a range of languages: C#, Go, Java, Javascript (Node), PHP, Python, and Ruby. Our browser SDK limits the scope of your PCI compliance to PCI SAQ-A.
+Our SDKs wrap our RESTful APIs. Our server and mobile SDKs make it easy for you to use our RESTful APIs in a range of languages: C#, Go, Java, Javascript (Node), PHP, Python, and Ruby. Our browser SDK, CheckoutFields, limits the scope of your PCI compliance to PCI SAQ-A.
 
 
 ## Server SDK
@@ -31,19 +31,19 @@ Our Server SDKs wrap our Payments, Payment Profiles, and Reporting APIs. You can
 | C#       | [Source][csharp-source] | [Docs][csharp-docs] | [Nuget][csharp-pm] |
 | Go       | [Source][go-source]     |                     |                    |
 
-[node-source]: https://github.com/Beanstream/beanstream-nodejs
+[node-source]: https://github.com/beanstream/beanstream-nodejs
 [node-docs]: #
-[php-source]: https://github.com/Beanstream/beanstream-php
-[php-docs]: https://github.com/Beanstream/beanstream-php/wiki
-[ruby-source]: https://github.com/Beanstream/beanstream-ruby
+[php-source]: https://github.com/beanstream/beanstream-php
+[php-docs]: https://github.com/beanstream/beanstream-php/wiki
+[ruby-source]: https://github.com/beanstream/beanstream-ruby
 [ruby-docs]: #
-[python-source]: https://github.com/Beanstream/beanstream-python
-[python-docs]: https://github.com/Beanstream/beanstream-python/blob/master/README.markdown
-[java-source]: https://github.com/Beanstream/beanstream-java
-[java-docs]: https://github.com/Beanstream/beanstream-java/wiki
-[csharp-source]: https://github.com/Beanstream/beanstream-dotnet
-[csharp-docs]: https://github.com/Beanstream/beanstream-dotnet/wiki
-[go-source]: https://github.com/Beanstream/beanstream-go
+[python-source]: https://github.com/beanstream/beanstream-python
+[python-docs]: https://github.com/beanstream/beanstream-python/blob/master/README.markdown
+[java-source]: https://github.com/beanstream/beanstream-java
+[java-docs]: https://github.com/beanstream/beanstream-java/wiki
+[csharp-source]: https://github.com/beanstream/beanstream-dotnet
+[csharp-docs]: https://github.com/beanstream/beanstream-dotnet/wiki
+[go-source]: https://github.com/beanstream/beanstream-go
 [go-docs]: #
 
 [node-pm]: https://www.npmjs.com/package/beanstream-node
@@ -55,18 +55,18 @@ Our Server SDKs wrap our Payments, Payment Profiles, and Reporting APIs. You can
 [go-pm]: #
 
 ## Mobile SDK
-Our Mobile SDKs wraps our Tokenization API. You can read more about the functionality [here](./collect_card_data#mobile-sdks-payform).
+Our Mobile SDKs wraps our Tokenization API. You can read more about the functionality [here](./collect_card_data#mobile-sdks).
 
 ### Source
-| Platform | Source                   |  Packet Repository         |
-| -------- | ------------------------ | -------------------------- |
-| Android  | [Source][android-source] | [Artifactory][android-pm]  |
-| iOS      | [Source][ios-source]     | [Artifactory][ios-pm]      |
+| Platform | Source                   |
+| -------- | ------------------------ |
+| Android  | [Source][android-source] |
+| iOS      | [Source][ios-source]     |
 
-[android-source]: https://github.com/Beanstream/beanstream-android-payform
+[android-source]: https://github.com/bambora/na-android-checkout
 [android-docs]: #
 [android-pm]: https://beanstream.jfrog.io/beanstream/libs-release
-[ios-source]: https://github.com/Beanstream/beanstream-ios-payform
+[ios-source]: https://github.com/bambora/na-ios-checkout
 [ios-docs]: #
 [ios-pm]: https://beanstream.jfrog.io/beanstream/api/pods/beanstream-public
 
@@ -74,10 +74,10 @@ Our Mobile SDKs wraps our Tokenization API. You can read more about the function
 Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](./collect_card_data#browser-sdk-payfields).
 
 ### Source
-| Language | Source                    |  Packet Repository  |
-| -------- | ------------------------- | ------------------- |
-| JS (ES5) | [Source][browser-source]  |                     |
+| Language | Source                    |
+| -------- | ------------------------- |
+| JS (ES5) | [Source][browser-source]  |
 
-[browser-source]: https://github.com/Beanstream/beanstream-payform
+[browser-source]: https://github.com/bambora/na-checkoutfields
 [browser-docs]: #
 [browser-pm]: #

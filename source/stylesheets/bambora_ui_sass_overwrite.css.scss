@@ -1,8 +1,7 @@
 /* 
     Overwrite compiled Bambora UI colors with their Sass
     variables from _bambora_ui_variables.scss so that they
-    can be easily changed for Beanstream (or whitelabel) 
-    branding. 
+    can be easily changed for white-label branding. 
     
     A better way to do this would probably be to just include an 
     uncompiled Sass version of Bambora UI instead of the css 

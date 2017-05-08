@@ -142,7 +142,7 @@ curl https://uat-onboarding-api.beanstream.com/v1/workflows/psp-cad/applications
 ## Processing payments and sending money on behalf of a sub-merchant
 When an application is approved, your sub account will be activated. You can now process payments and send money on their behalf.
 
-To do this you can log into your merchant Backoffice and view the newly registered sub account’s security configuration settings. You will have to take the Payments API key and use that to process the transaction, as well as their merchant ID.
+To do this you can log into your merchant Backoffice and view the newly registered sub account’s security configuration settings. You will have to take the Payment API passcode and use that to process the transaction, as well as their merchant ID.
 
 ## Application state
 Applications will go through several states until they are finally approved and the merchant account is live.
