@@ -36,7 +36,7 @@ You can also configure section titles and the HTML for the page Header and Foote
 
 ### To configure the Payment Form 
 
-1. Log in to the [Online Member Area](https://www.beanstream.com/admin/sDefault.asp) and click **configuration** > **payment form**. 
+1. Log in to the [Online Member Area](web.na.bambora.com/admin/sDefault.asp) and click **configuration** > **payment form**. 
 2. Modify the section titles (leave blank if you don't want a title).
 3. Configure the Payment Form sections. The fields in the table below show the different sections of the Payment Form that you can include or omit, to capture different types of information. It also shows the option to control the transaction type that you will process by default.
 4. Configure the Form Style options. You can use CheckoutTheme or the legacy styling features. 
@@ -63,7 +63,7 @@ CheckoutTheme styles the Hosted Payment Form to have a modern, responsive, and a
 
 ### Add to Payment Form
 
-To add checkout theme to the payment form navigate to the Payment Form settings by logging into to the [Member Area](https://www.beanstream.com/admin/sDefault.asp) and then clicking **configuration** > **payment form**, in the left hand menu.
+To add checkout theme to the payment form navigate to the Payment Form settings by logging into to the [Member Area](web.na.bambora.com/admin/sDefault.asp) and then clicking **configuration** > **payment form**, in the left hand menu.
 
 Change the HTML code in the **Page Header** text area to the following:
 
@@ -155,10 +155,10 @@ If you wish, you can style the form using the older **Form Style Options** in th
 
 Customers can access your payment form using a Querystring API request link. The link has two important parts: the **Web Service URL** and a number of **Variable/Value pairs**.
 
-For the Hosted Payment Form, the URL is: [https://www.beanstream.com/scripts/payment/payment.asp](https://www.beanstream.com/scripts/payment/payment.asp). The variables are how all customer card and order data is transmitted to our system. An example variable is `trnOrderNumber=12345TEST`. Separate multiple variables with ampersands (`&`). A full Hosted Payment Form link looks like: 
+For the Hosted Payment Form, the URL is: [https://web.na.bambora.com/scripts/payment/payment.asp](https://web.na.bambora.com/scripts/payment/payment.asp). The variables are how all customer card and order data is transmitted to our system. An example variable is `trnOrderNumber=12345TEST`. Separate multiple variables with ampersands (`&`). A full Hosted Payment Form link looks like: 
 
 ```
-https://www.beanstream.com/scripts/payment/payment.asp?merchant_id=123456789&trnAmount=19.99&trnOrderNumber=12345TEST
+https://web.na.bambora.com/scripts/payment/payment.asp?merchant_id=123456789&trnAmount=19.99&trnOrderNumber=12345TEST
 ```
 
 To create the payment form link, you can build it manually or use our [Hosted Payment Form Link Builder](/docs/forms/link_builder/).
