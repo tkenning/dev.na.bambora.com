@@ -39,12 +39,16 @@ The following workflows are currently supported:
 
 [Terms API Spec](./tac_v2016-08-18)
 
+#### May 9th, 2017
+* Update and rewrite [Onboarding API Guide](../../guides/onboarding)
+* Updated all Onboarding documentation to now use the 'Bambora' name
+
 #### March 6th, 2017
 * Changes to all workflows:
     * on_hold is a new state an application can be in while being processed.
 * Changes to GW-USA and GW-CDN
     * discover_merchant_id is a new field for first data terminals.
-    * amex_merchant_id is a new field for first data terminals.
+    * amex_merchant_id is a new field for first data terminals. 
 
 #### November 28th, 2016
 * New Gateway USA workflow added.

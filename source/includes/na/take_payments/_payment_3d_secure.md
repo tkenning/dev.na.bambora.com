@@ -55,4 +55,4 @@ Verified by Visa (VbV), MasterCard SecureCode, and AMEX SafeKey are security fea
 [//]: # (* Use our API based 2-Step process.)
 [//]: # (* Or use your own authentication process and pass the secure token data to our API.)
 
-See [here](/docs/guides/3D_Secure) for more information on how to implement 3D Secure.
+See [here](/docs/guides/3D_secure) for more information on how to implement 3D Secure.
