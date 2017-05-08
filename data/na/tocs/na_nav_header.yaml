@@ -1,7 +1,7 @@
 logo: 
   link: /docs/
-  light: "beanstream_developer_white.svg"
-  dark: "beanstream_developer.png"
+  light: svg/zebraffe-dev-white.svg
+  dark: svg/zebraffe-dark-dev.svg
 links:
   - file: /docs/guides/
     title: Guides
@@ -14,5 +14,5 @@ buttons:
   - file: /docs/sign_up/
     title: Sign up
     secondary: true
-  - file: https://www.beanstream.com/admin/sDefault.asp
+  - file: https://web.na.bambora.com
     title: Login

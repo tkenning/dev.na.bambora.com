@@ -287,7 +287,6 @@ This example includes all of the fields required to submit a PSP-CAD application
 force an application to the `approved` state. Take special note of the `agreement` attributes, which will be set from 
 data gathered in the first step, **_Terms and Conditions_**:
 
-
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications \
 -H "Authorization: Bearer YOUR_TOKEN_HERE" \

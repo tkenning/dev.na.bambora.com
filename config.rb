@@ -81,8 +81,12 @@ helpers CustomHelpers
 activate :relative_assets
 set :relative_links, true
 
-# Download swagger files from url:
-get_all_swagger_specs "https://www.beanstream.com/api/v1/swagger", "/data/autodownload/na/API_spec/merchant"
+
+MERCHANT_HOST = ENV['MERCHANT_HOST'] || 'api.na.bambora.com'
+
+# Download merchant swagger specs:
+get_all_swagger_specs "https://" + MERCHANT_HOST + "/v1/swagger", "/data/autodownload/na/API_spec/merchant"
+
 
 ONBOARDING_HOST = ENV['ONBOARDING_HOST'] || 'onboardingapi'
 

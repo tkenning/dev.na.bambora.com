@@ -10,7 +10,7 @@ Set the Credit Card object’s “complete” value to true to complete a paymen
 # Definition
 # POST /v1/payments HTTP/1.1
 
-curl https://www.beanstream.com/api/v1/payments \
+curl https://api.na.bambora.com/v1/payments \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -185,7 +185,7 @@ res, err := gateway.Payments().MakePayment(request)
 ```
 
 **Test Cards**<br/>
-If you are using a test account, or a production account that is still in its initial 'test' mode, you’ll need to use test card numbers. You’ll be able to view the transaction process from beginning to end without sending real information to the banking network. See [here](http://support.beanstream.com/olm/w/docs/using-test-card-numbers.htm) for a list of test card numbers.
+If you are using a test account, or a production account that is still in its initial 'test' mode, you’ll need to use test card numbers. You’ll be able to view the transaction process from beginning to end without sending real information to the banking network. See [here](https://support.na.bambora.com/bic/w/index.html#docs/using-test-card-numbers.htm) for a list of test card numbers.
 
 **Required Parameters**<br/>
 Please refer to the [API Spec](/docs/references/merchant_API) for full details on parameters.
@@ -210,7 +210,7 @@ The response objects will contain all of the relevant payment information as wel
 # Definition
 # POST /v1/payments HTTP/1.1
 
-curl https://www.beanstream.com/api/v1/payments \
+curl https://api.na.bambora.com/v1/payments \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -235,7 +235,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments/{transId}/completions \
+curl https://api.na.bambora.com/v1/payments/{transId}/completions \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
