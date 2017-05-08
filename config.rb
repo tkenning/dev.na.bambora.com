@@ -80,10 +80,10 @@ activate :relative_assets
 set :relative_links, true
 
 
-MERCHANT_HOST = ENV['HOST'] || 'www.beanstream.com'
+MERCHANT_HOST = ENV['MERCHANT_HOST'] || 'api.na.bambora.com'
 
 # Download merchant swagger specs:
-get_all_swagger_specs "https://" + MERCHANT_HOST + "/api/v1/swagger", "/data/autodownload/na/API_spec/merchant"
+get_all_swagger_specs "https://" + MERCHANT_HOST + "/v1/swagger", "/data/autodownload/na/API_spec/merchant"
 
 
 # Build Configuration
