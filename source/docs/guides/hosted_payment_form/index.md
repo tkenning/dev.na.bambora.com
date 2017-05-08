@@ -63,7 +63,7 @@ CheckoutTheme styles the Hosted Payment Form to have a modern, responsive, and a
 
 ### Add to Payment Form
 
-To add checkout theme to the payment form navigate to the Payment Form settings by logging into to the [Member Area](web.na.bambora.com/admin/sDefault.asp) and then clicking **configuration** > **payment form**, in the left hand menu.
+To add checkout theme to the payment form navigate to the Payment Form settings by logging into the [Member Area](web.na.bambora.com/admin/sDefault.asp) and then clicking **configuration** > **payment form**, in the left hand menu.
 
 Change the HTML code in the **Page Header** text area to the following:
 

@@ -86,7 +86,7 @@ bundle exec rake run
 
 Changes should first be made and tested on a dedicated development team branch, then pushed to the staging branch, and only staging should ever be pushed to master.
 
-Any team branch that is pushed to the Github repo will build and deployed to an internally accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`. When development team base branches are deployed, Bamboo will attempt to merge changes on the master branch into the team branch, in order to keep the branches up to date with master.
+Any team branch that is pushed to the Github repo will be built and deployed to an internally accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`. When development team base branches are deployed, Bamboo will attempt to merge changes on the master branch into the team branch, in order to keep the branches up to date with master.
 
 ## Editing the docs
 
