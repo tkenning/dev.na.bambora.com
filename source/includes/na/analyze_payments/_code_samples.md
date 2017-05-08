@@ -5,7 +5,7 @@ Definition
 GET /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments/{transactionId} \
+curl https://api.na.bambora.com/v1/payments/{transactionId} \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 ```
 
@@ -55,7 +55,7 @@ transaction, err := gateway.Payments().GetTransaction(transactionId)
 
 You can retrieve a previous transaction using this method. All you need the the transaction ID.
 
-You must use the Payments API key for this method.
+You must use the correct Merchant API key for this method.
 
 ## Search by Specific Criteria
 
@@ -64,7 +64,7 @@ Definition
 POST /v1/reports HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/reports \
+curl https://api.na.bambora.com/v1/reports \
 -u "284000000:30c9dbd6505a4c8e960451feba6f036a" \
 -d "{
      "name": "Search",

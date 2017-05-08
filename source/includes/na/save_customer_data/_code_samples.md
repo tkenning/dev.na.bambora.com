@@ -5,7 +5,7 @@ Definition
 POST /v1/profiles HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/profiles \
+curl https://api.na.bambora.com/v1/profiles \
 -H "Content-Type: application/json" \
 -H "Authorization: Passcode MzAwMjAwNTc4OkQ5N0QzQkUxRUU5NjRBNjE5M0QxN0E1NzFEOUZCQzgw" \
 -d '{
@@ -203,7 +203,7 @@ Definition
 POST /v1/profiles HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/profiles \
+curl https://api.na.bambora.com/v1/profiles \
 -H "Content-Type: application/json" \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -d '{
@@ -373,7 +373,7 @@ Definition
 GET /v1/profiles/{id} HTTP/1.1
 
 Request
-curl -X GET https://www.beanstream.com/api/v1/profiles/{id}\
+curl -X GET https://api.na.bambora.com/v1/profiles/{id}\
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 ```
 
@@ -423,7 +423,7 @@ Definition
 PUT /v1/profiles/{id} HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/profiles/{id} \
+curl https://api.na.bambora.com/v1/profiles/{id} \
 -H "Content-Type: application/json" \
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 -d '{
@@ -535,7 +535,7 @@ Definition
 DELETE /v1/profiles/{id} HTTP/1.1
 
 Request
-curl -X DELETE https://www.beanstream.com/api/v1/profiles/{id}\
+curl -X DELETE https://api.na.bambora.com/v1/profiles/{id}\
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 ```
 
@@ -585,7 +585,7 @@ Definition
 POST /v1/profiles/{id}/cards HTTP/1.1
 
 Request
-curl -X POST https://www.beanstream.com/api/v1/profiles/{id}/cards \
+curl -X POST https://api.na.bambora.com/v1/profiles/{id}/cards \
 -H "Content-Type: application/json" \
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 -d '{
@@ -688,7 +688,7 @@ Definition
 GET /v1/profiles{id}/cards HTTP/1.1
 
 Request
-curl -X GET https://www.beanstream.com/api/v1/profiles/{id}/cards \
+curl -X GET https://api.na.bambora.comv1/profiles/{id}/cards \
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 ```
 
@@ -738,7 +738,7 @@ Definition
 PUT /v1/profiles/{id}/cards/{card_id} HTTP/1.1
 
 Request
-curl -X PUT https://www.beanstream.com/api/v1/profiles/{id}/cards/{card_id} \
+curl -X PUT https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id} \
 -H "Content-Type: application/json" \
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 -d '{
@@ -832,7 +832,7 @@ Definition
 DELETE /v1/profiles/{id}/cards/{card_id} HTTP/1.1
 
 Request
-curl -X DELETE https://www.beanstream.com.com/api/v1/profiles/{id}/cards/{card_id} \
+curl -X DELETE https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id} \
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU=" \
 ```
 

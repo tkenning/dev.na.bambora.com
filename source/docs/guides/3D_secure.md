@@ -32,12 +32,12 @@ our API for a transaction to complete.
 
 ## 1. Use our 2-Step process
 
-Use our RESTful Payments API to initiate the Payment and to complete the transaction request. In this standard 
+Use our RESTful Merchant API to initiate the Payment and to complete the transaction request. In this standard 
 integration, the VbV, SecureCode, and SafeKey process requires two transaction requests.
 
-In addition to this guide feel free to check out our REST API Demo implementation on GitHub here:
+In addition to this guide feel free to check out our Merchant API Demo implementation on GitHub here:
 
-https://github.com/Beanstream/rest-api-demo
+https://github.com/bambora/na-merchant-api-demo
 
 **Step 1:** Submit a payment request and process the first result.
 
@@ -50,7 +50,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments \
+curl https://api.na.bambora.com/v1/payments \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -68,11 +68,11 @@ Response (HTTP status code 302 redirect)
 
 {
   "merchant_data": "2ccd7715-9e97-4f11-9fff36e6584e3200",
-  "contents": "%3cHTML%3e%3cHEAD%3e%3c%2fHEAD%3e%3cBODY%3e%3cFORM+action%3d%22https%3a%2f%2fdevweb-sven.beanstream.com%2factiveMerchantEmulator%2fgateway.asp%22+method%3d%22POST%22+id%3d%22form1%22+name%3d%22form1%22%3e%3cINPUT+type%3d%22hidden%22+name%3d%22PaReq%22+value%3d%22TEST_paRaq%22%3e%3cinput+type%3d%22hidden%22+name%3d%22merchant_name%22+value%3d%22Seven+Sparrow+Inc.%22%3e%3cinput+type%3d%22hidden%22+name%3d%22trnDatetime%22+value%3d%222%2f23%2f2017+5%3a05%3a42+PM%22%3e%3cinput+type%3d%22hidden%22+name%3d%22trnAmount%22+value%3d%22100.00%22%3e%3cinput+type%3d%22hidden%22+name%3d%22trnEncCardNumber%22+value%3d%22XXXX+XXXX+XXXX+3312%22%3e%3cINPUT+type%3d%22hidden%22+name%3d%22MD%22+value%3d%222CCD7715-9E97-4F11-9FFF36E6584E3200%22%3e%3cINPUT+type%3d%22hidden%22+name%3d%22TermUrl%22+value%3d%22http%3a%2f%2f10.240.9.64%3a5000%2fpayment%2fenhanced%2fredirect%2f3d-secure%22%3e%3c%2fFORM%3e%3cSCRIPT+language%3d%22JavaScript%22%3edocument.form1.submit()%3b%3c%2fSCRIPT%3e%3c%2fBODY%3e%3c%2fHTML%3e",
+  "contents": "%3cHTML%3e%3cHEAD%3e%3c%2fHEAD%3e%3cBODY%3e%3cFORM+action%3d%22https%3a%2f%2fapi.na.bambora.com%2factiveMerchantEmulator%2fgateway.asp%22+method%3d%22POST%22+id%3d%22form1%22+name%3d%22form1%22%3e%3cINPUT+type%3d%22hidden%22+name%3d%22PaReq%22+value%3d%22TEST_paRaq%22%3e%3cinput+type%3d%22hidden%22+name%3d%22merchant_name%22+value%3d%22Seven+Sparrow+Inc.%22%3e%3cinput+type%3d%22hidden%22+name%3d%22trnDatetime%22+value%3d%222%2f23%2f2017+5%3a05%3a42+PM%22%3e%3cinput+type%3d%22hidden%22+name%3d%22trnAmount%22+value%3d%22100.00%22%3e%3cinput+type%3d%22hidden%22+name%3d%22trnEncCardNumber%22+value%3d%22XXXX+XXXX+XXXX+3312%22%3e%3cINPUT+type%3d%22hidden%22+name%3d%22MD%22+value%3d%222CCD7715-9E97-4F11-9FFF36E6584E3200%22%3e%3cINPUT+type%3d%22hidden%22+name%3d%22TermUrl%22+value%3d%22http%3a%2f%2f10.240.9.64%3a5000%2fpayment%2fenhanced%2fredirect%2f3d-secure%22%3e%3c%2fFORM%3e%3cSCRIPT+language%3d%22JavaScript%22%3edocument.form1.submit()%3b%3c%2fSCRIPT%3e%3c%2fBODY%3e%3c%2fHTML%3e",
   "links": [ 
     {
       "rel": "continue",
-      "href":"https://www.beanstream.com/api/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue","method":"POST"
+      "href":"https://api.na.bambora.com/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue","method":"POST"
     }
   ]
 }
@@ -90,8 +90,7 @@ The bank forwards a response to the merchant’s TERM URL including the followin
 
 **Step 2:**  Process Transaction Auth Request
 
-The merchant takes the data posted to the TERM URL and posts the PaRes and MD (merchant_data) values to our REST 
-Payments API on its 'continue' endpoint.
+The merchant takes the data posted to the TERM URL and posts the PaRes and MD (merchant_data) values to our RESTful Merchant API on its 'continue' endpoint.
 
 If the transaction fails VbV or SC, or SafeKey it is declined immediately with messageId=311 (3D Secure Failed). If the 
 transaction passes, it is forwarded to the banks for processing. On completion, an approved or declined message is sent 
@@ -114,7 +113,7 @@ Upon success the term_url callback is called with following form encoded name/va
 ```shell
 Request
 
-https://www.beanstream.com/api/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue
+https://api.na.bambora.com/v1/payments/2ccd7715-9e97-4f11-9fff36e6584e3200/continue
 
 {
   "payment_method": "credit_card", 
@@ -154,7 +153,7 @@ Response
   "links": [
     {
       "rel": "complete",
-      "href": "https://www.beanstream.com/api/v1/payments/10000026/completions",
+      "href": "https://api.na.bambora.com/v1/payments/10000026/completions",
       "method": "POST"
     }
   ]
@@ -165,10 +164,10 @@ Response
 
 Some large merchants complete the Verified by Visa (VbV), MasterCard SecureCode, or AMEX SafeKey certification to handle 
 authentication on their own side. These merchants can use their existing VbV, SecureCode, or SafeKey authentication 
-process, and send the results of the bank authentication to Beanstream with their standard transaction request. To do 
+process, and send the results of the bank authentication to us with their standard transaction request. To do 
 this, the merchant must integrate using a server-to-server type connection.
 
-Note: This option must be enabled by Beanstream. Contact support if you want to use this method.
+Note: This option must be enabled by us. Contact support if you want to use this method.
 
 The VbV, SecureCode, or SafeKey bank authentication results must be sent with the transaction request using these three 
 system variables:

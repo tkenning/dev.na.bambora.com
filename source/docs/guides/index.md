@@ -14,7 +14,7 @@ cards:
     -                
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our our Payment APIs
+            Create a test account and test our our Merchant APIs
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -

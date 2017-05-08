@@ -38,10 +38,10 @@ cd dev.na.bambora.com
 docker build -t devbamboracom .
 
 # For Windows:
-docker run -v $pwd/:/usr/src/app/ -p 4567:4567 devbamboracom
+docker run -v $pwd/:/usr/src/app/ -p 4567:4567 devbamboracom development_server_windows
 
 # For Mac and Linux:
-docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 devbamboracom
+docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 devbamboracom development_server
 ```
 
 **Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to Docker Settings > Network and change the DNS server to fixed.
@@ -173,14 +173,14 @@ The footer config file referenced in the navigation object defines the footer fo
 
 ```yaml
 copyright:                # The copyright info for the footer
-  title: 2017 Beanstream  # The text to display for copyright
-  link: http://www.beanstream.com/home/ # The destination of the copyright link
+  title: 2017 Bambora     # The text to display for copyright
+  link: http://www.bambora.com/en/en/payment-solutions/     # The destination of the copyright link
 left_links:               # The links floated to the left of the footer
-  - link: http://www.beanstream.com/terms-conditions/       # The link path
-    title: 'Terms & Conditions'                             # The link value
+  - link: http://www.bambora.com/en/en/payment-solutions/customer-service/faq/terms-and-conditions/  # The link path
+    title: 'Terms & Conditions'                                                                      # The link value
 right_links:              # The links floated to the right of the footer
-  - link: https://github.com/beanstream/                    # The link path
-    title: Github                                           # The link value
+  - link: https://github.com/bambora/                    # The link path
+    title: Github                                        # The link value
 ```
 
 ##### Table of contents files
@@ -257,9 +257,9 @@ card_sets:                                  # Groups of cards that link to other
             Get an in-depth knowledge of our payment gateway.
         cards:
             -
-                title: Payments API
+                title: Merchant API
                 description: >
-                    Our Payments API supports online payments,
+                    Our Merchant API supports online payments,
                     card tokenization, payment profiles and reporting.
                 icon: flag
                 link: /docs/references/merchant_API/overview/
@@ -281,7 +281,7 @@ cards:
     -
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our Payment APIs
+            Create a test account and test our Merchant APIs
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -
@@ -337,7 +337,7 @@ The swagger layout is used to render a (Swagger)[http://swagger.io/specification
 
 # ... (include the required YAML fields defined above)
 
-swagger: API_spec.merchant.1-0-2
+swagger: API_spec.merchant.1-0-3
 ```
 
 The referenced API spec must be in the `/data/` folder and referenced like the (navigation configuration)[].
