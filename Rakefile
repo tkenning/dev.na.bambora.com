@@ -3,11 +3,9 @@ require 'fileutils'
 
 CLOBBER.include('build')
 
-swaggerHost =  ENV['HOST'] || 'www.beanstream.com'
-
 desc "Build the static site"
 task :build_site do
-  command = "HOST=" + swaggerHost + " bundle exec middleman build --verbose" 
+  command = "bundle exec middleman build --verbose" 
   sh command
 end
 
@@ -18,13 +16,13 @@ end
 
 desc "Run the live updating development server"
 task :development_server do 
-	command = "EXECJS_RUNTIME=Node HOST=" + swaggerHost + " bundle exec middleman server"
+	command = "EXECJS_RUNTIME=Node bundle exec middleman server"
   sh command 
 end
 
 desc "Run the live updating development server (windows)"
 task :development_server_windows do 
-	command  = "EXECJS_RUNTIME=Node HOST=" + swaggerHost + " bundle exec middleman server --force-polling --latency=1"
+	command  = "EXECJS_RUNTIME=Node bundle exec middleman server --force-polling --latency=1"
   sh command
 end
 
