@@ -24,7 +24,7 @@ cards:
         icon: checkmark
         link: /docs/guides/partner_quickstart/
     -
-        title: Onboarding
+        title: Quickstart - Onboarding API
         description: >
             Get up to speed on our Onboarding API in minutes
         icon: list
