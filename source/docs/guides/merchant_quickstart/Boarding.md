@@ -16,7 +16,7 @@ navigation:
 # Boarding
 If you have signed up for a Merchant Account or Gateway account, there are a number of steps to get your account “live” so you can process payments.
 
-**We lead you through the process** – our Applications Team will guide you through each pertinent step. Please refer to the emails we send you, and if you have questions, contact [applications.northamerica@bambora.com](applications.northamerica@bambora.com)
+**We lead you through the process** – our Applications Team will guide you through each pertinent step. Please refer to the emails we send you, and if you have questions, contact [applications.northamerica@bambora.com](mailto:applications.northamerica@bambora.com)
 
 ### Haven't applied yet?
 Please contact our Sales department at 1.888.472.2072 or [request a call back](http://www.bambora.com/en/ca/contact/sales/).
