@@ -19,7 +19,7 @@ If you have signed up for a Merchant Account or Gateway account, there are a num
 **We lead you through the process** – our Applications Team will guide you through each pertinent step. Please refer to the emails we send you, and if you have questions, contact [applications.northamerica@bambora.com](applications.northamerica@bambora.com)
 
 ### Haven't applied yet?
-Please contact our Sales department at 1.888.472.2072 or [request a call back](http://www.bambora.com/en/ca/home/contact-us/contact-sales/).
+Please contact our Sales department at 1.888.472.2072 or [request a call back](http://www.bambora.com/en/ca/contact/sales/).
 
 
 # Steps to go live
@@ -46,17 +46,17 @@ Before we can process your online credit or debit payments, Bambora and our bank
  5. Displays the Card Brand Mark in full color to indicate Card acceptance including the terms, conditions and method of payment.
 
 ##### **Logos and Trademarks**
-   [Visa Merchant Services](https://www.visa.ca/en_CA/run-your-business/commercial-solutions/merchant-processing.html)  
-   [MasterCard Brand Center](https://brand.mastercard.com/brandcenter/mastercard-brand-mark.html)  
-   [Discover Signage and Logos](https://www.discovernetwork.com/en-us/business-resources/free-signage-logos)  
-   [American Express Signs & Supplies](http://merchant-supplies.americanexpress.com/?locale=en_US#/)  
+   [Visa Merchant Services](https://www.visa.ca/en_CA/run-your-business/commercial-solutions/merchant-processing.html)
+   [MasterCard Brand Center](https://brand.mastercard.com/brandcenter/mastercard-brand-mark.html)
+   [Discover Signage and Logos](https://www.discovernetwork.com/en-us/business-resources/free-signage-logos)
+   [American Express Signs & Supplies](http://merchant-supplies.americanexpress.com/?locale=en_US#/)
     
  6. Displays return, exchange, and refund policies.
  7. Displays country and transaction currency, for example, by indicating that prices are payable in Canadian or US dollars.
  8. Display terms and conditions
  9. Display a privacy policy.
 
-After this information is posted on your website, we can begin issuing your merchant accounts. For more information on these requirements and other details about setting up your site for online processing contact our [Technical Support team](http://www.bambora.com/en/ca/home/contact-us/FAQ/).
+After this information is posted on your website, we can begin issuing your merchant accounts. For more information on these requirements and other details about setting up your site for online processing contact our [Technical Support team](http://www.bambora.com/en/ca/contact/support/).
 
 <a name="terminal-setup"></a>
 
@@ -94,13 +94,13 @@ If you have set up your merchant accounts with another provider, we need specifi
 
 The following providers are compatible with Bambora. Please click the provider you use below to access the complete listing of terminal setup information required.
 
-[Chase Paymentech](#chase-paymentech)  
-[Elavon](#elavon)  
-[First Data](#first-data)  
-[Global Payments](#global-payments)   
-[Royal Bank, Scotiabank, Moneris, Desjardins and other Canadian credit unions](#royscomondesoth)  
-[TSYS](#tsys)  
-[(TD) Toronto Dominion](#td)  
+[Chase Paymentech](#chase-paymentech)
+[Elavon](#elavon)
+[First Data](#first-data)
+[Global Payments](#global-payments)
+[Royal Bank, Scotiabank, Moneris, Desjardins and other Canadian credit unions](#royscomondesoth)
+[TSYS](#tsys)
+[(TD) Toronto Dominion](#td)
 
 <a name="chase-paymentech"></a>
 
@@ -187,12 +187,12 @@ Your setup information sheet will contain the following information:
 
 ### Setting up to take INTERAC Online
 #### Step 1: Your application for INTERAC Online
-The first thing you need to determine is how you are going to integrate INTERAC Online into your website. You are asked to define this on the INTERAC Online section of the Bambora application form. Use this page of the [INTERAC Online definitions](http://support.na.bambora.com/bic/w/Properties/External_PDFs/IOC_Required_Data_Field_Definitions.pdf) to help understand the terminology used to fill out the form’s data fields. However, if you are unsure of any step, please leave the section blank on your application and our Application team will be happy to contact you to go over these required fields.
+The first thing you need to determine is how you are going to integrate INTERAC Online into your website. You are asked to define this on the INTERAC Online section of the Bambora application form. Use this page of the [INTERAC Online definitions](https://support.na.bambora.com/bic/w/properties/external_pdfs/IOC_Required_Data_Field_Definitions.pdf) to help understand the terminology used to fill out the form’s data fields. However, if you are unsure of any step, please leave the section blank on your application and our Application team will be happy to contact you to go over these required fields.
 
 #### STEP 2: Setting up your website to accept INTERAC Online
-Once we have processed your application, we will forward you a [Merchant INTERAC Online Certification Testing checklist](http://support.na.bambora.com/bic/w/Properties/External_PDFs/IO_Guidelines_Checklist.pdf). By checking off each item on this list you are ensuring your website meets the [standards required by INTERAC Online](http://support.na.bambora.com/bic/w/Properties/External_PDFs/EMER_IO_Guidelines.pdf).
+Once we have processed your application, we will forward you a [Merchant INTERAC Online Certification Testing checklist](http://support.na.bambora.com/bic/w/Properties/External_PDFs/IO_Guidelines_Checklist.pdf). By checking off each item on this list you are ensuring your website meets the [standards required by INTERAC Online](https://support.na.bambora.com/bic/w/properties/external_pdfs/EMER_IO_Guidelines.pdf).
 
-To help you complete each step we have created clear instructions in our [INTERAC Online integration guide](http://support.na.bambora.com/bic/w/Properties/External_PDFs/BEAN_Interac_Integration.pdf). This contains information on using the INTERAC Online logo, the INTERAC Online process flow, requirements for setting up the INTERAC Online processing pages.
+To help you complete each step we have created clear instructions in our [INTERAC Online integration guide](https://support.na.bambora.com/bic/w/Properties/External_PDFs/bambora-interac-integration.pdf). This contains information on using the INTERAC Online logo, the INTERAC Online process flow, requirements for setting up the INTERAC Online processing pages.
 
 #### STEP 3: INTERAC Online certification
 We will perform a full test transaction. When the integration tests successfully, we will contact our INTERAC Online partners to complete the setup of the account.
@@ -215,11 +215,11 @@ You will also need to register with Rapid Comply to fill out First Data’s Self
 After you are live, please follow the instructions in the [Quick Start Guide](http://support.na.bambora.com/bic/w/index.html#docs/online-help-area-quickstart-information.htm) to set up and customize your payment processing system.
 
 ## Security and best practices
-Please review our [Security and best practices guide](http://support.na.bambora.com/bic/w/#docs/security-risk-management.htm) before launching your site.
+Please review our [Security and best practices guide](https://support.na.bambora.com/bic/w/index.html#docs/security-risk-management.htm) before launching your site.
 
 Be aware that if you are integrating by API and plan on processing voids, returns or pre-auth completions through your custom integration (and not just through our simple member area interface), you must implement specific settings. This is applicable for all integrations including most commercially available shopping carts, mobile solutions, as well as customized setups.
 
-If you need help with implementing any of these settings please contact our Support Team at 1-888-472-0811 or contact us [online](http://www.bambora.com/en/ca/home/contact-us/FAQ/).
+If you need help with implementing any of these settings please contact our Support Team at 1-888-472-0811 or contact us [online](http://www.bambora.com/en/ca/contact/support/).
 
 
 
