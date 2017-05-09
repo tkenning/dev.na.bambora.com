@@ -47,8 +47,11 @@ Before we can process your online credit or debit payments, Bambora and our bank
 
 ##### **Logos and Trademarks**
    [Visa Merchant Services](https://www.visa.ca/en_CA/run-your-business/commercial-solutions/merchant-processing.html)
+
    [MasterCard Brand Center](https://brand.mastercard.com/brandcenter/mastercard-brand-mark.html)
+
    [Discover Signage and Logos](https://www.discovernetwork.com/en-us/business-resources/free-signage-logos)
+
    [American Express Signs & Supplies](http://merchant-supplies.americanexpress.com/?locale=en_US#/)
     
  6. Displays return, exchange, and refund policies.
@@ -95,11 +98,17 @@ If you have set up your merchant accounts with another provider, we need specifi
 The following providers are compatible with Bambora. Please click the provider you use below to access the complete listing of terminal setup information required.
 
 [Chase Paymentech](#chase-paymentech)
+
 [Elavon](#elavon)
+
 [First Data](#first-data)
+
 [Global Payments](#global-payments)
+
 [Royal Bank, Scotiabank, Moneris, Desjardins and other Canadian credit unions](#royscomondesoth)
+
 [TSYS](#tsys)
+
 [(TD) Toronto Dominion](#td)
 
 <a name="chase-paymentech"></a>
