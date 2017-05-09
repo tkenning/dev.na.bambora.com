@@ -58,7 +58,7 @@ Before we can process your online credit or debit payments, Bambora and our bank
 
 After this information is posted on your website, we can begin issuing your merchant accounts. For more information on these requirements and other details about setting up your site for online processing contact our [Technical Support team](http://www.bambora.com/en/ca/home/contact-us/FAQ/).
 
-<a name="terminal-setup"/>
+<a name="terminal-setup"></a>
 
 ## STEP 2: Terminal setup
 You will need to fill out a Self-Assessment Questionnaire to indicate your ability to meet PCI (Payment Credit Industry) standards. [See PCI Compliance](#pci-quest). We will direct you to the appropriate questionnaire.
@@ -71,7 +71,7 @@ You will need to fill out a Self-Assessment Questionnaire to indicate your abili
 
 **If you are integrating by API** (Application Programming Interface – needs developer expertise) you must also have a 40 or 128-bit SSL certificate. For those with detailed integrations, we also have a we also have [detailed guides.](/docs/guides/).
 
-<a name="pci-quest"/>
+<a name="pci-quest"></a>
 
 ### PCI Questionnaires
 PCI Compliance is an issue all merchants have to address no matter where they choose to process. It will be up to your merchant account service provider to help you through this process. There are two versions of PCI Self-Assessment Questionnaires that merchants may be asked to complete. Both questionnaires are issued by the Payment Card Industry.
@@ -79,14 +79,14 @@ PCI Compliance is an issue all merchants have to address no matter where they ch
 #### Self-assessment questionnaire A
 This short-form questionnaire is designed for merchants that are using a solution that has all payment pages hosted on a fully compliant service provider. If you are using a Bambora hosted cart or a Bambora hosted payment form or the Bambora Registration service, this is your questionnaire. If you are using a third party shopping cart that is PCI Certified you may also complete this questionnaire.
 
-[View Questionnaire A](https://www.pcisecuritystandards.org/documents/pci_saq_a_v2.pdf)
+[View Questionnaire A](https://cdn.na.bambora.com/downloads/SAQs/SAQ_A_v3_prefill.pdf)
 
 #### Self-assessment questionnaire D
 Any merchant that has chosen to integrate by API will be asked to complete this more comprehensive questionnaire. If you are creating your own payment form or shopping cart, using our Application Programming Interface (API), doing a Simple Object Access Protocol (SOAP) integration – you, your developer, and/or your web host will need to complete the PCI DSS Self Assessment Questionnaire D.
 
-[View Questionnaire D](https://www.pcisecuritystandards.org/documents/pci_saq_d_v2.pdf)
+[View Questionnaire D](https://cdn.na.bambora.com/downloads/SAQs/SAQ_D_v3_Merchant.pdf)
 
-<a name="terminal-info"/>
+<a name="terminal-info"></a>
 
 ### Setting up your terminal
 #### For customers bringing merchant accounts set up with another provider
@@ -102,7 +102,7 @@ The following providers are compatible with Bambora. Please click the provider y
 [TSYS](#tsys)  
 [(TD) Toronto Dominion](#td)  
 
-<a name="chase-paymentech"/>
+<a name="chase-paymentech"></a>
 
 #### Chase Paymentech
 If you are using Chase Paymentech merchant accounts, please ensure that your merchant accounts have been set up on the Netconnect platform. Request a VARS setup sheet from your Chase Paymentech account representative if one has not already been provided to you. The VARS setup sheet will contain the following information:
@@ -114,7 +114,7 @@ If you are using Chase Paymentech merchant accounts, please ensure that your mer
  - NETCONNECT password
  - Merchant numbers for each of the card types you will accept
 
-<a name="elavon"/>
+<a name="elavon"></a>
 
 #### Elavon
 If you are using Elavon merchant accounts, please request a terminal setup sheet if one has not already been provided to you. The setup sheet will contain the following information:
@@ -125,7 +125,7 @@ If you are using Elavon merchant accounts, please request a terminal setup sheet
 
 If you are processing a high volume of transactions, your setup sheet may also include additional information such as FTP usernames and passwords.
 
-<a name="first-data"/>
+<a name="first-data"></a>
 
 #### First Data
 If you are working with First Data, ensure that your merchant accounts have been set up on the “Nashville South” platform for Canadian accounts and the “Nashville North” platform for USA accounts. Request a terminal setup sheet from your First Data account representative if one has not already been provided to you. The setup sheet will contain the following information:
@@ -137,7 +137,7 @@ If you are working with First Data, ensure that your merchant accounts have been
 - Dedicated customer service phone number
 - Website URL Merchant numbers for each of the card types you will accept
 
-<a name="global-payments"/>
+<a name="global-payments"></a>
 
 #### Global Payments
 If you have merchant accounts from Global Payments, please ensure that your merchant accounts have been set up on the “Global: Atlanta East” platform. Request a terminal setup sheet from your ban representative if one has not already been provided to you. The setup sheet will contain the following information.
@@ -147,12 +147,12 @@ If you have merchant accounts from Global Payments, please ensure that your merc
 - Software Provider: Bambora (If Bambora is not listed as the software provider then you can experience some issues with settlement)
 - Merchant numbers for each of the card types you will accept (11 or 12 digits per merchant number)
 
-<a name="royscomondesoth"/>
+<a name="royscomondesoth"></a>
 
 #### Royal Bank, Scotia Bank, Moneris, Desjardins, and other Canadian credit unions
 If you have merchant accounts from any of the above named banks, please provide us with your merchant ID numbers (5 to 12 digits). Please confirm with your provider that your these ID numbers have been set up for a third party provider.
 
-<a name="tsys"/>
+<a name="tsys"></a>
 
 #### TSYS 
 If you have chosen TSYS as your provider, please request a terminal setup sheet from your TSYS account representative if one has not already been provided to you. The setup sheet will contain the following information:
@@ -174,7 +174,7 @@ If you have chosen TSYS as your provider, please request a terminal setup sheet 
 - Merchant numbers for each of the card types you will accept (11 or 12 digits per merchant number)
 - Merchant name, location details and time zone
 
-<a name="td"/>
+<a name="td"></a>
 
 #### TD (Toronto Dominion)
 If you chose TD as your provider, please request a terminal setup sheet/information from your TD account representative if one has not already been provided to you. Your merchant accounts will need to be set up with a Bambora (BN) terminal with TD.
@@ -183,7 +183,7 @@ Your setup information sheet will contain the following information:
 - Merchant numbers for each of the card types you will accept
 
 
-<a name="interac-integration"/>
+<a name="interac-integration"></a>
 
 ### Setting up to take INTERAC Online
 #### Step 1: Your application for INTERAC Online
