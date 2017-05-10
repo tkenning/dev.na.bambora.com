@@ -14,7 +14,7 @@ cards:
     -                
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our our Payment APIs
+            Create a test account and test our our Merchant APIs
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -
@@ -24,7 +24,7 @@ cards:
         icon: checkmark
         link: /docs/guides/partner_quickstart/
     -
-        title: Onboarding
+        title: Quickstart - Onboarding API
         description: >
             Get up to speed on our Onboarding API in minutes
         icon: list
@@ -41,3 +41,5 @@ cards:
 # Guides
 
 ### Functional descriptions of getting things done with our payment gateway.
+
+See a selection of popular guides below. The full list of guides is on the right. 

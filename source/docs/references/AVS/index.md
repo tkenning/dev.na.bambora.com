@@ -20,7 +20,7 @@ AVS is unable to verify all addresses as some cards may not have address informa
 
 You can configure your account in the [Back Office][back-office] to decline a transaction if either the street address or the postal codes do not match. Navigate to `Administration > Account Settings > Order Settings`.
 
-AVS response codes are returned by the Payments API for purchases and pre-authorizations. You can read the payments API spec [here][beanstream-swagger]. They are also displayed in the transaction report in the [Back Office][back-office]. Navigate to `Reporting/Analysis > Transaction Report`. 
+AVS response codes are returned by the Merchant API for purchases and pre-authorizations. You can read the Merchant API spec [here][bambora-swagger]. They are also displayed in the transaction report in the [Back Office][back-office]. Navigate to `Reporting/Analysis > Transaction Report`. 
 
 ## AVS Response Codes
 
@@ -48,5 +48,5 @@ AVS response codes are returned by the Payments API for purchases and pre-author
 | Z   	  | 0        | 1		 | 0			 | 1			         | Postal/ZIP matches, street address does not match. 			   |
 
 [wikipedia-avs]: https://en.wikipedia.org/wiki/Address_Verification_System
-[back-office]: https://www.beanstream.com/admin/
-[beanstream-swagger]: http://support.beanstream.com/restapi/
+[back-office]: https://web.na.bambora.com
+[bambora-swagger]: /docs/references/merchant_API/

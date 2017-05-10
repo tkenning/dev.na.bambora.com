@@ -12,9 +12,9 @@ navigation:
 
 cards:
     -                
-        title: Payments API
+        title: Merchant API
         description: >
-            The Payments API allows you to tokenize cards, take payments, store customer data and query transactions.
+            The Merchant API allows you to tokenize cards, take payments, store customer data and query transactions.
         icon: notification-active
         link: /docs/references/merchant_API/
     -
@@ -24,9 +24,9 @@ cards:
         icon: checkmark
         link: /docs/references/onboarding_API/
     -
-        title: Payments SDKs
+        title: Merchant SDKs
         description: >
-            The Payments SDKs wrap the Payments API. They include server, mobile and browser SDKs.
+            The Payments SDKs wrap the Merchant API. They include server, mobile and browser SDKs.
         icon: list
         link: /docs/references/merchant_SDKs/
     -
@@ -35,6 +35,12 @@ cards:
             The Address Verification System (AVS) is a system used to verify the address of a person claiming to own a credit card.
         icon: creditcard-outline
         link: /docs/references/AVS/
+    -
+        title: Risk Thresholds
+        description: >
+            Risk Thresholds can be used by merchants to block certain high risk transactions.
+        icon: creditcard-outline
+        link: /docs/references/risk_thresholds/
 
 
 

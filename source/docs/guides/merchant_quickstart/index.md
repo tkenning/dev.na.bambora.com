@@ -3,7 +3,7 @@ title: Merchant Quickstart
 layout: tutorial
 
 summary: >
-  Learn how to create, configure, and test your merchant account with our Payment APIs. 
+  Learn how to create, configure, and test your merchant account with our Merchant APIs. 
 
 navigation:
   header: na.tocs.na_nav_header
@@ -15,7 +15,7 @@ navigation:
 
 # Merchant Quickstart
 
-Welcome to our setup and configuration guide. Here you will learn how to  create, configure, and test your merchant account with our Payment APIs. 
+Welcome to our setup and configuration guide. Here you will learn how to  create, configure, and test your merchant account with our Merchant APIs. 
 
 
 ## 1. Create a test account
@@ -24,7 +24,7 @@ You can create a test merchant account [here](/docs/forms/create_test_merchant_a
 
 ## 2. Generate Passcodes
 
-You will need a Merchant ID (MID) and a passcode per API that you wish to test. Your MID can be found in the top-right corner of the screen after logging in to the <a href="https://www.beanstream.com/admin/" target="_blank">Back Office</a>.
+You will need a Merchant ID (MID) and a passcode per API that you wish to test. Your MID can be found in the top-right corner of the screen after logging in to the <a href="https://web.na.bambora.com" target="_blank">Back Office</a>.
 
 There are different passcodes for each of our five APIs found in our Back Office. 
 

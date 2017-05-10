@@ -83,10 +83,6 @@ module CustomHelpers
         href = spec["href"]
         get_swagger_spec "#{href}", output_dir, "#{id}.#{format}"
       end
-    else
-      # do it the old way
-      default_payments_spec = "1-0-2.json"
-      get_swagger_spec "#{swagger_url}", output_dir, default_payments_spec
     end
   end
 

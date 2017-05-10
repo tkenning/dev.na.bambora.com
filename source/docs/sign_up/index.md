@@ -25,13 +25,13 @@ cards:
         description: >
             Choose from Pay as You Go or Enterprise pricing.
         icon: checkmark
-        link: http://www.beanstream.com/pricing/
+        link: http://www.bambora.com/en/ca/pricing
     -
-        title: Partner with Beanstream
+        title: Partner with Us
         description: >
             Join our community of 500+ partners
         icon: checkmark
-        link: http://www.beanstream.com/partners/
+        link: http://www.bambora.com/en/ca/partners/overview
 ---
 
 # Sign Up

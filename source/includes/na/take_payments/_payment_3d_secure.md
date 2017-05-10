@@ -5,7 +5,7 @@ Definition
 POST /v1/payments HTTP/1.1
 
 Request
-curl https://www.beanstream.com/api/v1/payments \
+curl https://api.na.bambora.com/v1/payments \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 -H "Content-Type: application/json" \
 -d '{
@@ -55,4 +55,4 @@ Verified by Visa (VbV), MasterCard SecureCode, and AMEX SafeKey are security fea
 [//]: # (* Use our API based 2-Step process.)
 [//]: # (* Or use your own authentication process and pass the secure token data to our API.)
 
-See [here](/docs/guides/3D_Secure) for more information on how to implement 3D Secure.
+See [here](/docs/guides/3D_secure) for more information on how to implement 3D Secure.
