@@ -78,6 +78,6 @@ Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI com
 | -------- | ------------------------- |
 | JS (ES5) | [Source][browser-source]  |
 
-[browser-source]: https://github.com/bambora/na-checkoutfields
+[browser-source]: https://github.com/bambora-na/checkoutfields
 [browser-docs]: #
 [browser-pm]: #
