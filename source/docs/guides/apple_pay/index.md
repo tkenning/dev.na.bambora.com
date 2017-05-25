@@ -14,7 +14,7 @@ navigation:
 
 # Apple Pay
 
-**Our Apple Pay is currently in a close Beta trial period. 
+**Our Apple Pay is currently in a closed Beta trial period. 
 Contact your account manager if you would like early access.**
 
 Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a Base64 encoded Apple Pay Payment Token.
