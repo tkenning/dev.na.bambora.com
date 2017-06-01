@@ -60,7 +60,7 @@ The following workflows are currently supported:
     * terminal.td_terminal.discover_merchant_number
 * New desjardins_terminal for GW-CDN
     * terminal.desjardins_terminal.terminal_id
-    * terminal.desjardins_terminal.visa_mc_number
+    * terminal.desjardins_terminal.visa_merchant_number
     * terminal.desjardins_terminal.mc_merchant_number
     * terminal.desjardins_terminal.amex_merchant_number
     * terminal.desjardins_terminal.visa_debit_merchant_number
