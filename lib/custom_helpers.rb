@@ -1,4 +1,8 @@
 module CustomHelpers
+  require 'logger'
+
+  logger = Logger.new(STDOUT)
+  logger.level = Logger::WARN
 
   # Display svg images inline
   # optionally pass a string to use as the html class(es)
@@ -92,6 +96,9 @@ module CustomHelpers
   def get_swagger_spec(url, output_dir, file_name)
     require 'open-uri'
     require 'fileutils'
+
+    logger.info("get_swagger_spec: " + url)
+
     root = Middleman::Application.root
     download = open(url)
     FileUtils.mkdir_p("#{root}/#{output_dir}")

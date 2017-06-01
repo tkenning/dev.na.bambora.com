@@ -85,7 +85,10 @@ set :relative_links, true
 MERCHANT_HOST = ENV['MERCHANT_HOST'] || 'api.na.bambora.com'
 
 # Download merchant swagger specs:
-get_all_swagger_specs "https://" + MERCHANT_HOST + "/v1/swagger", "/data/autodownload/na/API_spec/merchant"
+#get_all_swagger_specs "https://" + MERCHANT_HOST + "/v1/swagger", "/data/autodownload/na/API_spec/merchant"
+
+# TEMPORARY until we fix the swagger endpoint WEB-770
+get_swagger_spec "https://" + MERCHANT_HOST + "/v1/swagger/1-0-3", "/data/autodownload/na/API_spec/merchant", "1-0-3.yaml"
 
 
 ONBOARDING_HOST = ENV['ONBOARDING_HOST'] || 'onboardingapi'
