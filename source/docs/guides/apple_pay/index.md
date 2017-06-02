@@ -16,13 +16,13 @@ navigation:
 
 ## About Apple Pay
 
-Our API now allows for Apple Pay through your mobile app and online store for purchases made on Apple Watch, iPhone, iPad, or the Safari Web Browser.
+Our Apple Pay API allows your mobile app and online store to accept payment using Apple Watch, iPhone, iPad, or Safari.
 
 > Apple Pay is currently in Beta. Contact your account manager to apply for early access.
 
 ## Getting Started
 
-While we've provided many pieces of sample code for [Mobile Payments on Github](https://github.com/bambora/na-mobilepayments-demo), if this is your first time implementing our Payment API we recommend reviewing our [Payment API reference guides](https://dev.na.bambora.com/docs/references/merchant_API/v1-0-3/), and [server and mobile SDK guides](https://dev.na.bambora.com/docs/references/merchant_SDKs/).
+If this is your first time implementing our Payment API we recommend reviewing our [Payment API reference guides](https://dev.na.bambora.com/docs/references/merchant_API/v1-0-3/), to get familiar with Bambora's Payments API.
 
 ## Requirements
 
@@ -79,10 +79,10 @@ When you make an `apple_pay` request to our RESTful API, it'll be formatted in J
 | Variable | Description |
 | -------- | ----------- |
 | amount | The amount of the transaction. |
-| payment_method | Selects Apple Pay for the transaction. |
+| payment_method | The method of payment for the transaction. For Apple Pay, this will always be `apple_pay` |
 | apple_pay | The object needed to pass an Apple Pay token including the Apple Pay Merchant ID, and the base64 payment token. |
-| apple_pay_merchant_id | Your Apple Merchant ID provided in your Apple Developer Account
-| payment_token | The encrypted Apple Pay token containing card holder details, generated from within the iOS app.
+| apple_pay_merchant_id | Your Apple Merchant ID provided in your Apple Developer Account. |
+| payment_token | The encrypted Apple Pay token containing card holder details, generated from within the iOS app. |
 | complete | The type of transaction being performed. True indicates a Purchase, and false is a Pre-Authorisation. |
 
 ## Additional Examples
