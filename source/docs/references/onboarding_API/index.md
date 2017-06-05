@@ -84,6 +84,10 @@ The following workflows are currently supported:
 
 [Specification](./v2016-06-11)
 
+#### June 5th, 2017
+* Added optional Address to Bank flows for BACS-GBP
+* Change label for "annual sales" to "annual online processing volume" for PSP flows
+
 #### June 11th, 2016
 * Changes to all workflows:
     *  **API version is now required in the header attributes X-API-Version: 2016-06-11**
