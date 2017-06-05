@@ -84,7 +84,7 @@ The following workflows are currently supported:
 
 [Specification](./v2016-06-11)
 
-#### June 5th, 2017
+#### June 8th, 2017
 * Added optional Address to Bank flows for BACS-GBP
 
 #### June 11th, 2016
