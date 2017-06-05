@@ -39,6 +39,9 @@ The following workflows are currently supported:
 
 [Terms API Spec](./tac_v2016-08-18)
 
+#### June 5th, 2017
+* Change label for "annual sales" to "annual online processing volume" for PSP flows
+
 #### May 9th, 2017
 * Update and rewrite [Onboarding API Guide](../../guides/onboarding)
 * Updated all Onboarding documentation to now use the 'Bambora' name
@@ -86,7 +89,6 @@ The following workflows are currently supported:
 
 #### June 5th, 2017
 * Added optional Address to Bank flows for BACS-GBP
-* Change label for "annual sales" to "annual online processing volume" for PSP flows
 
 #### June 11th, 2016
 * Changes to all workflows:
