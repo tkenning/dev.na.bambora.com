@@ -84,6 +84,9 @@ The following workflows are currently supported:
 
 [Specification](./v2016-06-11)
 
+#### June 8th, 2017
+* Added optional Address to Bank flows for BACS-GBP
+
 #### June 11th, 2016
 * Changes to all workflows:
     *  **API version is now required in the header attributes X-API-Version: 2016-06-11**
