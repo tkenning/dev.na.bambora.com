@@ -18,21 +18,21 @@ navigation:
 
 Our Apple Pay API allows your mobile app and online store to accept payment using Apple Watch, iPhone, iPad, or Safari.
 
-> Apple Pay is currently in Beta. Contact your account manager to apply for early access.
-
 ## Getting Started
 
 If this is your first time implementing our Payment API we recommend reviewing our [Payment API reference guides](https://dev.na.bambora.com/docs/references/merchant_API/v1-0-3/), to get familiar with Bambora's Payments API.
+
+You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-merchant-api-demo)
 
 ## Requirements
 
 ### Registering Your Apple Pay Merchant ID
 
-Before you accept Apple Pay, you'll need to [register a Merchant ID and download a Merchant Certificate (P12)](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html) with Apple.
+Before you accept Apple Pay with Bambora, you need to [register a Merchant ID and download a Merchant Certificate (P12)](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html) with Apple.
 
 ### Configure Your P12
 
-To enable Apple Pay on your account, you'll set a password for your P12 using Keychain Access.
+To enable Apple Pay on your Merchant Account, you'll set a password for your P12 using Keychain Access.
 
 1. Under the Category menu, select **Certificates**.
 2. Find and right-click your *Merchant ID* certificate. Select **Export**.
@@ -123,7 +123,7 @@ func paymentButtonAction() {
 
 ### Issue Payment Token
 
-This sample outlines how to handle the payment token once the payment request has been successfully authorised. to send the generated token to the server.
+This sample outlines how to handle the payment token once the payment request has been successfully authorised. To send the generated token to the server, execute the following request.
 
 ```swift
 // Executes a process payment request on the Mobile Payments Demo Server
@@ -161,4 +161,4 @@ func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationView
 }
 ```
 
-> Note: This iOS client is sending the payment token to our Mobile Payments Demo Server, as outlined on [Github](https://github.com/bambora/na-mobilepayments-demo).
+> Note: This iOS client is sending the payment token to our Mobile Payments Demo Server, as outlined on [Github](https://github.com/bambora/na-merchant-api-demo).
