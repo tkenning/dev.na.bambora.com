@@ -16,11 +16,11 @@ navigation:
 
 ## About Apple Pay
 
-Our Apple Pay API allows your mobile app and online store to accept payment using Apple Watch, iPhone, iPad, or Safari.
+Our Apple Pay API allows your mobile app and online store to accept payments using Apple Watch, iPhone, iPad, or Safari.
 
 ## Getting Started
 
-If this is your first time implementing our Payment API we recommend reviewing our [Payment API reference guides](https://dev.na.bambora.com/docs/references/merchant_API/v1-0-3/), to get familiar with Bambora's Payments API.
+If this is your first time implementing our Payments API we recommend reviewing our [Payments API reference guides](https://dev.na.bambora.com/docs/references/merchant_API/v1-0-3/), to get familiar with Bambora's Payments API.
 
 You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-merchant-api-demo)
 
@@ -41,25 +41,25 @@ To enable Apple Pay on your Merchant Account, you'll set a password for your P12
 
 ### Enable Apple Pay
 
-To turn on Apple Pay for your account, log into the [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Apple Pay, and add your Apple Pay signing certification.
+To turn on Apple Pay for your account, log into the [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Apple Pay by adding your Apple Pay signing certificate.
 
 <img src="/docs/guides/apple_pay/mobile-payments-screenshot.png" alt="mobile-payments-screenshot">
 
-Click **ADD NEW MERCHANT ID**, and you'll be able to add your *Apple Merchant ID*, your *P12 File Password*, and upload your P12 certification file. 
+Click **ADD NEW MERCHANT ID**, and you'll be able to add your *Apple Merchant ID*, your *P12 File Password*, and upload your P12 certificate file. 
 
 <img src="/docs/guides/apple_pay/apple-credentials.png" alt="apple-credentials">
 
-After you've added Apple Pay credentials to your account, you can start integrating to your app.
+After you've added your Apple Pay certificate to your account, you can start integrating to your app.
 
 ## Accepting Apple Pay on iOS
 
-All of the directions and code samples to enable Apple Pay on your iOS app are available through Apple's documentation. 
+All of the directions and code samples to enable Apple Pay in your iOS app are available through Apple's documentation. 
 
 [Getting Started with Apple Pay](https://developer.apple.com/apple-pay/get-started/) will cover how to use Apple Pay and best practices, [Apple Pay Guide](https://developer.apple.com/library/content/ApplePay_Guide/) has explanations of the user flow and working with Apple Pay, and [Apple Pay Sandbox Testing](https://developer.apple.com/support/apple-pay-sandbox/) will show you how to test Apple Pay transactions.
 
 ## API Requests
 
-When you make an `apple_pay` request to our RESTful API, it'll be formatted in JSON, passing to https://api.na.bambora.com/v1/payments/.
+When you make an `apple_pay` request to our Payments API, it'll be formatted in JSON, calling to https://api.na.bambora.com/v1/payments/.
 
 ```shell
   curl https://api.na.bambora.com/v1/payments \
