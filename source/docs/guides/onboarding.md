@@ -17,13 +17,15 @@ navigation:
 
 This guide is for Partners building an onboarding integration with custom user interface (UI) to upload merchant applications and manage documentation.
 
+If you're interested in a hosted solution for onboarding, contact your Account Manager.
+
 ## Getting started
 
-To get a custom UI using our Onboarding API, you'll need to construct an environment that integrates our test sandbox, and have it approved by our Onboarding Team.
+To get a custom UI using our Onboarding API, you'll need to construct an environment that integrates our sandbox, and have it approved by our Onboarding Team.
 
 To begin, make sure you're [signed up for a partner account](https://dev.na.bambora.com/docs/forms/request_partner_account/). After you're accepted, we'll email you an API access token for our sandbox environment along with a Pricing Package ID.
 
-> Your Pricing Package ID will set the rates for customers that begin processing.
+> Your test Pricing Package ID will set the rates for customers that begin processing.
 
 Once you have your account and pricing ID, you'll be ready to start building your environments. To help with your integration you can review our [Onboarding API References](https://dev.na.bambora.com/docs/references/onboarding_API).
 
@@ -41,7 +43,7 @@ All API calls to the sandbox are made through the following URL:
 
 `https://sandbox-api.na.bambora.com/`
 
-If an application is created using the [PSP-CAD flow](https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/%7BapplicationId%7D), a request to **GET** it would look like:
+If an application is created using the [PSP-CAD flow](#flow), a request to **GET** it would look like:
 
 `https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId}`
 
@@ -56,10 +58,10 @@ As an application moves through the Onboarding process, it will be in multiple s
  
  > An application that is `rejected` cannot be reviewed further, and must be re-submitted as a new application.
 
-To  test the transition between states in the sandbox environment, you can enter a POST or PUT request in the `company_name` field as a magic string.
+To test the transition between states in the sandbox environment, you can enter a magic string in the `company_name` field on a POST or PUT request.
 
- - TEST_APPROVED - Move the application from `in_review` to `approved`.
- - TEST_REJECTED -  Move the application from `in_review` to `rejected`.
+ - TEST_APPROVED - Move the application from `in_progress` to `approved`.
+ - TEST_REJECTED -  Move the application from `in_progress` to `rejected`.
 
 #### Integration review
 
@@ -91,7 +93,7 @@ When you make an HTTP request to the API, headers are required for both authenti
 
 #### Authentication
 
-Every request that is made to the Onboarding and Payments API requires an API access token, and can be included in the authorisation header:
+Every request that is made to the Onboarding and Payments API requires an API access token, and can be included in the header:
 
 `Authorization: Bearer YOUR_TOKEN_HERE`
 
@@ -141,8 +143,8 @@ A flow for any Merchant Account held with another acquirer, the gateway flow all
 
 | Flow | Description |
 | ---- | ----------- |
-| GW-CDN | Gateway Services in Canada.
-| GW-USA | Gateway Services in the United States of America.
+| GW-CDN | Gateway Services in Canada. |
+| GW-USA | Gateway Services in the United States of America. |
 
 You can find a complete list of flows in our [Onboarding API References](https://dev.na.bambora.com/docs/references/onboarding_API), with the most recent version of the API specs [here](https://dev.na.bambora.com/docs/references/onboarding_API/v2016-08-18), and Terms and Conditions [here](https://dev.na.bambora.com/docs/references/onboarding_API/tac_v2016-08-18).
 
@@ -152,15 +154,15 @@ As we run through all of the parts of an integration call, we'll be referring to
 
 ### Terms and Conditions
 
-In your UI, Bambora's Terms and Conditions must be linked to or displayed. Our API requires that you clearly specify the version of the terms, the pricing or rate, as well as the date and time when they are agreed to. This ensures that the merchant is aware of processing fees and their cost.
+In your UI, Bambora's Terms and Conditions must be linked to or displayed. Our API requires that you clearly specify the version of the terms, the pricing or rate, as well as the date and time when they are agreed to. This ensures that the merchant is aware of processing fees and their cost. If you require custom Terms and Conditions, you can reach out to your Account Manager to learn more.
 
-The Terms and Conditions are acquired through a **GET**, and can be requested as PDF or the default HTML.
+Standard Terms and Conditions are acquired through a **GET**, and can be requested as either a PDF or HTML.
 
 `/v1/boarding/workflows/psp-cad/terms/{partner}/{file_type}/version`
 
 In the example below, the call is being made for the Terms as HTML. For default Terms, set the `partner` value to `default`.
 
-> With Terms and Conditions calls, the version and authorization header are optional
+> With Terms and Conditions calls, the version and authorisation header are optional
 
 To begin the two-step call, execute the following cURL command.
 
@@ -180,7 +182,7 @@ A JSON object will be returned.
 }
 ```
 
-Next, extract the the `version` for your second call.
+Next, extract the `version` for your second call.
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/terms/default/html/version/o5xq2r8JtnqYUWr1mURrOEZVXyx_fihe \
@@ -191,12 +193,11 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/terms/defa
 
 This second API call will return a raw HTML or PDF of the Terms and Conditions.
 
-> During the review process of your interface and integration, the Onboarding Team will ensure you're displaying the Terms and Pricing correctly. 
-> You can arrange for custom Terms and Conditions through your Account Manager.
+> During the review process of your interface and integration, the Onboarding Team will ensure you're displaying the Terms and Pricing correctly.
 
 ### Creating an application
 
-When you create an application, you'll need to include the first JSON `version`, and `name` call references for the Terms, not the name from the header of the second call.
+When you create an application, you'll need to include the first JSON `version`, and `name` call references from the Terms, not the name from the header of the second call.
 
 To create a new applicaton, you'll **POST** using
 `/v1/boarding/workflows/psp-cad/applications`
@@ -249,8 +250,8 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
     }
 }'
 ```
-> The `agreement` variables include all of the Terms and Conditions data.
-> All date and time variables are IS-8601 format `YYYY-MM-DDThh:mm:ssTZD`
+> The `agreement` variables require the Terms and Conditions `version` and `name` from the first API call.
+> All date and time variables are IS-8601 format `YYYY-MM-DDThh:mm:ssTZD`. For full dates that have no specific time, set the time to zeros.
 
 ### Reading an application
 
@@ -266,7 +267,10 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
 -H "Content-Type: application/json" \
 -H "X-API-Version : SELECTED_VERSION_HERE" \
 ```
+
 After an application has reached the `approved` state, the Merchant ID in the response will be used to process payments through your account.
+
+> To find out if an application has been approved, use an HTTP GET with the application ID to request the application state.
 
 ### Updating an application
 
