@@ -4,7 +4,7 @@ layout: tutorial
 
 summary: >
     This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
-    
+
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
@@ -23,7 +23,7 @@ We use the command-line tool cURL for all HTTP request examples in this guide. c
 
 ### Optional: Postman
 
-For fans of of the Chrome app [Postman](https://ww.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes. 
+For fans of of the Chrome app [Postman](https://ww.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
 
 > Note: Most of your Postman queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
 
@@ -119,13 +119,13 @@ If you're searching for a transaction through the API, you can search by using t
 curl https://api.na.bambora.com/v1/reports \
 -H "Authorization: Passcode your_encoded_reporting_passcode"  \
 -H "Content-Type: application/json" \
--d "{
+-d '{
      "name": "Search",
      "start_date": "2017-01-01T01:01:03",
      "end_date": "2018-06-05T16:05:00",   
      "start_row": "1",
      "end_row": "2"
-   }"
+   }'
 ```
 
 Now that you're ready to accept payments, the final step is to access a full gateway and [Go Live](https://dev.na.bambora.com/docs/guides/merchant_quickstart/Boarding/).
