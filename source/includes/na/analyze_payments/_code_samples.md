@@ -66,7 +66,7 @@ POST /v1/reports HTTP/1.1
 Request
 curl https://api.na.bambora.com/v1/reports \
 -u "284000000:30c9dbd6505a4c8e960451feba6f036a" \
--d "{
+-d '{
      "name": "Search",
      "start_date": "2012-01-01T01:01:03",
      "end_date": "2014-06-05T16:05:00",   
@@ -79,7 +79,7 @@ curl https://api.na.bambora.com/v1/reports \
          "value": "10000001"
        }
      ]
-   }"
+   }'
 ```
 
 ```javascript
