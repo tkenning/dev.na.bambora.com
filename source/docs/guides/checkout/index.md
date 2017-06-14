@@ -8,7 +8,7 @@ summary: The Checkout Form provides you with an easy-to-use way to process payme
 navigation: 
     header: na.tocs.na_nav_header
     footer: na.tocs.na_nav_footer
-    toc: in-page
+    toc: na.tocs.checkout
     header_active: guides 
 ---
 
