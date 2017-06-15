@@ -1,9 +1,8 @@
 ---
-title: Checkout Form
+title: Checkout
 layout: tutorial
 
-summary: The Checkout Form provides you with an easy-to-use way to process payments on your site.
-
+summary: The Checkout form provides you with an easy-to-use way to process payments on your site.
 
 navigation: 
     header: na.tocs.na_nav_header

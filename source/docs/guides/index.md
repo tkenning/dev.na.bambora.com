@@ -38,9 +38,15 @@ cards:
     -
         title: Checkout
         description: >
-            Create a customizable Checkout for your website
+            Use our Checkout form for your website
         icon: creditcard-outline
         link: /docs/guides/checkout/
+    -
+        title: Custom Checkout
+        description: >
+            Create a custom Checkout experience for your website
+        icon: creditcard-outline
+        link: /docs/guides/custom_checkout/
 ---
 
 # Guides
