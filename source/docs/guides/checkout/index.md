@@ -235,11 +235,11 @@ Feel free to add any additional styling information within the style tags.
 
 ## Custom header and footer
 
-You can customize header and footer of your form to display your own logo, company name, custom links etc.
+You can customize the header and footer of your form to display your own logo, company name, custom links etc.
 
 From the **payment form** page under **configuration**, you can use our custom HTML fields **Page Header** and **Page Footer** to generate a UI that works with mobile screens.
 
-Simply copy the code as it appears below into the **Page Header** field and update Merchant name to your own business. As well, update image tag and text accordingly and change example ".custom-header-footer" style to fit your web site design.
+Simply copy the code as it appears below into the **Page Header** field and update 'Merchant Name' to your own business. As well, update the image tag and text accordingly and change the example '.custom-header-footer' style to fit your web site design.
 
 ```html
 <!DOCTYPE html>
