@@ -232,3 +232,62 @@ Changing any of the hex colours will alter the primary colours of your form, jus
 Your preferred colour should replace the first six listings, with a darker shade for when users are hovering for the final entry.
 
 Feel free to add any additional styling information within the style tags.
+
+## Custom header and footer
+
+You can customize the header and footer of your form to display your own logo, company name, custom links etc.
+
+From the **payment form** page under **configuration**, you can use our custom HTML fields **Page Header** and **Page Footer** to generate a UI that works with mobile screens.
+
+Simply copy the code as it appears below into the **Page Header** field and update 'Merchant Name' to your own business. As well, update the image tag and text accordingly and change the example '.custom-header-footer' style to fit your web site design.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title> { Merchant Name } - Payment Form </title> 
+
+<link rel="stylesheet" type="text/css" href="https://libs.na.bambora.com/checkouttheme/0.1.0/ui.bambora/ui.bambora.1.1.0.css">
+<link rel="stylesheet" type="text/css" href="https://libs.na.bambora.com/checkouttheme/0.1.0/style.css">
+
+<style>
+.custom-header-footer {
+    background: #cddeef;
+    box-shadow: 0 0 0px 2px rgba(3, 24, 199, 0.1);
+    padding: 10px 15px;
+    line-height: 2;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    text-align: center;
+}
+.custom-header-footer p {
+    font-size: 25px;
+    font-weight: 400;
+}
+</style>
+
+</head>
+
+<body>
+<script src="https://libs.na.bambora.com/checkouttheme/0.1.0/checkouttheme.min.js"></script>  	
+<script> CheckoutTheme.init(); </script>
+<div class="custom-header-footer">
+   <img src="https://cdn.na.bambora.com/resources/logos/bambora-logo180x92.png" alt="Your logo here">
+   <p>Your company logo and name here</p>
+</div>
+
+```
+
+Add this code to your **Page Footer** and you'll have a custom footer for your responsive pay form. 
+
+```html
+<div class="custom-header-footer">
+   <p>Your footer message</p>
+</div>
+
+</body>
+</html>
+```
