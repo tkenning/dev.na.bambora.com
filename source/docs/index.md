@@ -39,6 +39,18 @@ card_sets:
                     Get up and running fast by opening a test account and hitting a few of our API endpoints.
                 icon: flag
                 link: /docs/guides/partner_quickstart/
+            -
+                title: Checkout
+                description: >
+                    Use our Checkout form for your website
+                icon: comment
+                link: /docs/guides/checkout/
+            -
+                title: Checkout
+                description: >
+                    Create a custom Checkout experience for your website
+                icon: comment
+                link: /docs/guides/checkout/
     -
         title: References
         description: >
