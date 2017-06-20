@@ -2,7 +2,7 @@
 title: Custom Checkout
 layout: tutorial
 
-summary: The Checkout form provides you with an easy-to-use way to process payments on your site.
+summary: Our solution limits the scope of your PCI compliance by removing the need for you to pass credit card information through your servers.
 
 navigation: 
     header: na.tocs.na_nav_header
@@ -40,10 +40,10 @@ You can use CSS to customize the look and feel of the input elements and their v
 
 ## Try it!
 
-### Using Bootstrap CSS
-<p data-height="291" data-theme-id="light" data-slug-hash="OgbOKP" data-default-tab="result" data-user="na-bambora" data-embed-version="2" data-pen-title="CustomCheckout-Bootstrap" class="codepen">See the Pen <a href="https://codepen.io/na-bambora/pen/OgbOKP/">CustomCheckout-Bootstrap</a> by na-bambora (<a href="https://codepen.io/na-bambora">@na-bambora</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
 ### Using Basic Styling
 <p data-height="395" data-theme-id="light" data-slug-hash="LLRMRo" data-default-tab="result" data-user="na-bambora" data-embed-version="2" data-pen-title="CustomCheckout" class="codepen">See the Pen <a href="https://codepen.io/na-bambora/pen/LLRMRo/">CustomCheckout</a> by na-bambora (<a href="https://codepen.io/na-bambora">@na-bambora</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+### Using Bootstrap Styling
+<p data-height="395" data-theme-id="light" data-slug-hash="OgbOKP" data-default-tab="result" data-user="na-bambora" data-embed-version="2" data-pen-title="CustomCheckout-Bootstrap" class="codepen">See the Pen <a href="https://codepen.io/na-bambora/pen/OgbOKP/">CustomCheckout-Bootstrap</a> by na-bambora (<a href="https://codepen.io/na-bambora">@na-bambora</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
