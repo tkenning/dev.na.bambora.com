@@ -2,7 +2,7 @@
 title: Custom Checkout
 layout: tutorial
 
-summary: The Checkout form provides you with an easy-to-use way to process payments on your site.
+summary: Our solution limits the scope of your PCI compliance by removing the need for you to pass credit card information through your servers.
 
 navigation: 
     header: na.tocs.na_nav_header
