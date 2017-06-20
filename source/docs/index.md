@@ -46,11 +46,11 @@ card_sets:
                 icon: comment
                 link: /docs/guides/checkout/
             -
-                title: Checkout
+                title: Custom Checkout
                 description: >
                     Create a custom Checkout experience for your website
                 icon: comment
-                link: /docs/guides/checkout/
+                link: /docs/guides/custom_checkout/
     -
         title: References
         description: >
