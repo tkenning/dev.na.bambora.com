@@ -18,7 +18,7 @@ Our solution limits the scope of your PCI compliance by removing the need for yo
 ## GitHub
 Full documentation and source code is available on our GitHub repository: 
 
-<https://github.com/bambora/na-checkoutfields>
+<https://github.com/bambora/na-customcheckout>
 
 ## How it works
 #### Step 1: Setup Card Inputs

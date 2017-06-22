@@ -65,7 +65,7 @@ card_sets:
             -
                 title: Merchant SDKs
                 description: >
-                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, CheckoutFields.
+                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, Custom Checkout.
                 icon: more
                 link: /docs/references/merchant_SDKs/
             -
