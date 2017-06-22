@@ -13,7 +13,7 @@ navigation:
 ---
 
 # Overview
-Our SDKs wrap our RESTful APIs. Our server and mobile SDKs make it easy for you to use our RESTful APIs in a range of languages: C#, Go, Java, Javascript (Node), PHP, Python, and Ruby. Our browser SDK, CheckoutFields, limits the scope of your PCI compliance to PCI SAQ-A.
+Our SDKs wrap our RESTful APIs. Our server and mobile SDKs make it easy for you to use our RESTful APIs in a range of languages: C#, Go, Java, Javascript (Node), PHP, Python, and Ruby. Our browser SDK, Custom Checkout, limits the scope of your PCI compliance to PCI SAQ-A.
 
 
 ## Server SDK
@@ -78,6 +78,6 @@ Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI com
 | -------- | ------------------------- |
 | JS (ES5) | [Source][browser-source]  |
 
-[browser-source]: https://github.com/bambora-na/checkoutfields
+[browser-source]: https://github.com/bambora-na/customcheckout
 [browser-docs]: #
 [browser-pm]: #
