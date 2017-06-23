@@ -1,5 +1,5 @@
 ---
-title: Boarding
+title: Go live
 layout: tutorial
 
 summary: >
