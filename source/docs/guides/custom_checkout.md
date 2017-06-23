@@ -45,5 +45,5 @@ You can use CSS to customize the look and feel of the input elements and their v
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### Using Bootstrap Styling
-<p data-height="395" data-theme-id="light" data-slug-hash="OgbOKP" data-default-tab="result" data-user="na-bambora" data-embed-version="2" data-pen-title="CustomCheckout-Bootstrap" class="codepen">See the Pen <a href="https://codepen.io/na-bambora/pen/OgbOKP/">CustomCheckout-Bootstrap</a> by na-bambora (<a href="https://codepen.io/na-bambora">@na-bambora</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="192" data-theme-id="light" data-slug-hash="OgbOKP" data-default-tab="result" data-user="na-bambora" data-embed-version="2" data-pen-title="CustomCheckout-Bootstrap" class="codepen">See the Pen <a href="https://codepen.io/na-bambora/pen/OgbOKP/">CustomCheckout-Bootstrap</a> by na-bambora (<a href="https://codepen.io/na-bambora">@na-bambora</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
