@@ -14,7 +14,7 @@ cards:
     -                
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our our Merchant APIs
+            Create a test account and test our Merchant APIs
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -
@@ -35,7 +35,18 @@ cards:
             Learn about implementing 3D Secure based payments
         icon: list
         link: /docs/guides/3D_secure
-
+    -
+        title: Checkout
+        description: >
+            Use our Checkout form for your website
+        icon: creditcard-outline
+        link: /docs/guides/checkout/
+    -
+        title: Custom Checkout
+        description: >
+            Create a custom Checkout experience for your website
+        icon: creditcard-outline
+        link: /docs/guides/custom_checkout/
 ---
 
 # Guides

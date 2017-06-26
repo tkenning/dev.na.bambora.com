@@ -39,6 +39,18 @@ card_sets:
                     Get up and running fast by opening a test account and hitting a few of our API endpoints.
                 icon: flag
                 link: /docs/guides/partner_quickstart/
+            -
+                title: Checkout
+                description: >
+                    Use our Checkout form for your website
+                icon: comment
+                link: /docs/guides/checkout/
+            -
+                title: Custom Checkout
+                description: >
+                    Create a custom Checkout experience for your website
+                icon: comment
+                link: /docs/guides/custom_checkout/
     -
         title: References
         description: >
@@ -53,7 +65,7 @@ card_sets:
             -
                 title: Merchant SDKs
                 description: >
-                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, CheckoutFields.
+                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, Custom Checkout.
                 icon: more
                 link: /docs/references/merchant_SDKs/
             -
