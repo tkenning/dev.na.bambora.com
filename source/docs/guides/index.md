@@ -36,6 +36,12 @@ cards:
         icon: list
         link: /docs/guides/3D_secure
     -
+        title: Apple Pay
+        description: >
+            Work with Apple Pay based payments from mobile devices and the Web
+        icon: list
+        link: /docs/guides/apple_pay
+    -
         title: Android Pay
         description: >
             Start accepting Android Pay based payments
