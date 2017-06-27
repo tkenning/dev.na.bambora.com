@@ -35,6 +35,12 @@ cards:
             Learn about implementing 3D Secure based payments
         icon: list
         link: /docs/guides/3D_secure
+    -
+        title: Android Pay
+        description: >
+            Start accepting Android Pay based payments
+        icon: list
+        link: /docs/guides/android_pay
 
 ---
 

@@ -20,9 +20,9 @@ You can either interact with the API directly or through a SDK (a library of hel
 
 Note: this doc is limited to the Payment, Reporting, Payment Profile, and Tokenization APIs. You may also be interested in the Onboarding API.
 
-## v1.0.3
+## v1.0.4
 
-* [Merchant API Spec](/docs/references/merchant_API/v1-0-3)
+* [Merchant API Spec](/docs/references/merchant_API/v1-0-4)
 
 ### Change logs
 No change log available.
