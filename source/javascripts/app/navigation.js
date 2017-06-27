@@ -44,15 +44,15 @@ $(document).ready(function () {
     var $tableOfContents = $('nav.nav-left');
     var $tableOfContentsWrap = $('.nav-wrapper');
     var $headerSideNav = $('.header-contents>span');
-    var headerBreakWidth = 875;
+    var headerBreakWidth = 985;
     var combined = false;
     function checkWidth() {
         var windowsize = $window.width();
-        if (windowsize < 875 && combined === false) {
+        if (windowsize < headerBreakWidth && combined === false) {
             combined = true;
             $headerSideNav.append($tableOfContents);
         
-        } else if (windowsize >= 875 && combined === true) {
+        } else if (windowsize >= headerBreakWidth && combined === true) {
             combined = false;
             $tableOfContentsWrap.append($tableOfContents);
         }
