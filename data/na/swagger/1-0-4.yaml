@@ -349,7 +349,7 @@ paths:
   /profiles:
     post:
       summary: Create Profile
-      description: Create a new Payment Profile using either a card or a Legato token. You must supply one of them.
+      description: Create a new Payment Profile using either a card or a single-use token. You must supply one of them.
       tags:
         - Profiles
       operationId: createProfile
@@ -432,7 +432,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
     put:
       summary: Update Profile
-      description: Create a new Payment Profile using either a card or a Legato token. You must supply one of them.
+      description: Create a new Payment Profile using either a card or a single-use token. You must supply one of them.
       tags:
         - Profiles
       operationId: updateProfile
@@ -863,6 +863,8 @@ definitions:
         maxLength: 4
         default: '123'
         description: Security code on the back of the credit card. This can be set to mandatory in the back office.
+      3d_secure:
+         $ref: '#/definitions/3DSecure'
       complete:
         type: boolean
         default: true
@@ -952,7 +954,7 @@ definitions:
         maxLength: 1
         description: Which credit card to use. Starts at 1 for the first card. You must configure how many cards can be stored by visiting the profile options in the back office.
   TokenPurchase:
-    description: "Payment with a Legato token. The payment_method must be 'token'"
+    description: "Payment with a single-use token. The payment_method must be 'token'"
     required:
       - code
       - name
@@ -969,6 +971,8 @@ definitions:
         minLength: 4
         maxLength: 64
         description: Card holder name.
+      3d_secure:
+         $ref: '#/definitions/3DSecure'
   RequestBillingAddress:
     properties:
       name:
@@ -1139,6 +1143,9 @@ definitions:
         description: 'The last 4 digits of the credit card used in the transaction'
       cvd_result:
         $ref: '#/definitions/CvdResult'
+      eci:
+        type: integer
+        description: 'The electronic commerce indicator (ECI) returned back in the transaction response.'
       address_match:
         type: integer
         description: 'Result of Address verification. 0 if Adddress Verification Service(AVS) is disabled or AVS fails. 1 if AVS is enabled and address and postal/zip code match'
@@ -1844,3 +1851,24 @@ definitions:
       pa_res:
         type: string
         description: 'For a 3D Secure payment process this stores the Authentication Code (PaRes).'
+  3DSecure:
+    description: |
+      Payment with 3D Secure (Verified by Visa, Mastercard SecureCode, American Express SafeKey).
+      Note that 3D Secure must be enabled on the merchant account in order to process transactions with 3D Secure.
+    required:
+      - 3d_secure_enabled
+    properties:
+      3d_secure_enabled:
+        type: boolean
+        default: true
+        description: 'If 3D Secure is enabled on the merchant account, set to false to process transactions without 3D Secure.  Otherwise, set to true to process transactions with 3D Secure.'
+      xid:
+        type: string
+        description: 'The transaction ID (XID) used for processing transactions with 3D Secure.'
+      cavv:
+        type: string
+        description: 'The cardholder authentication verification value (CAVV/UCAF/AEVV) used for processing transactions with 3D Secure.'
+      eci:
+        type: integer
+        default: 7
+        description: 'The electronic commerce indicator (ECI) used for processing transactions with 3D Secure.'
