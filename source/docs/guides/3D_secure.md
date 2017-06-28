@@ -37,7 +37,7 @@ integration, the VbV, SecureCode, and SafeKey process requires two transaction r
 
 In addition to this guide feel free to check out our Payment API Demo implementation on GitHub here:
 
-https://github.com/bambora/na-payment-api-demo
+https://github.com/bambora/na-payment-apis-demo
 
 **Step 1:** Submit a payment request and process the first result.
 
