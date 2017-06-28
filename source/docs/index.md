@@ -40,38 +40,32 @@ card_sets:
                 icon: flag
                 link: /docs/guides/partner_quickstart/
             -
-                title: Checkout
+                title: More...
                 description: >
-                    Use our Checkout form for your website
-                icon: comment
-                link: /docs/guides/checkout/
-            -
-                title: Custom Checkout
-                description: >
-                    Create a custom Checkout experience for your website
-                icon: comment
-                link: /docs/guides/custom_checkout/
+                    Learn how to get things done. See all the guides.
+                icon: more
+                link: /docs/guides/
     -
         title: References
         description: >
             Get an in-depth knowledge of our payment gateway. See all the references <a href="/docs/references">here.</a>
         cards:
             -
-                title: Merchant API
+                title: Payment API's
                 description: >
-                    Our Merchant API supports online payments, card tokenization, payment profiles and reporting.
+                    Our Payment API's supports online payments, card tokenization, payment profiles and reporting.
                 icon: flag
-                link: /docs/references/merchant_API/
-            -
-                title: Merchant SDKs
-                description: >
-                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, Custom Checkout.
-                icon: more
-                link: /docs/references/merchant_SDKs/
+                link: /docs/references/payment_apis/
             -
                 title: Onboarding API
                 description: >
                     Our Onboarding API allows partners to submit applications on behalf of new sub-merchants.
                 icon: comment
-                link: /docs/references/onboarding_API/
+                link: /docs/references/onboarding_api/
+            -
+                title: More...
+                description: >
+                    Get an in-depth knowledge of our payment gateway. See all the references.
+                icon: more
+                link: /docs/references/
 ---

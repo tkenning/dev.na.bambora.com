@@ -12,23 +12,23 @@ navigation:
 
 cards:
     -                
-        title: Merchant API
+        title: Payment API's
         description: >
-            The Merchant API allows you to tokenize cards, take payments, store customer data and query transactions.
+            The Payment API's allows you to tokenize cards, take payments, store customer data and query transactions.
         icon: notification-active
-        link: /docs/references/merchant_API/
+        link: /docs/references/payment_apis/
     -
         title: Onboarding API
         description: >
             The Onboarding API allows you to submit applications on behalf of sub-merchants.
         icon: checkmark
-        link: /docs/references/onboarding_API/
+        link: /docs/references/onboarding_api/
     -
-        title: Merchant SDKs
+        title: Payment SDKs
         description: >
-            The Payments SDKs wrap the Merchant API. They include server, mobile and browser SDKs.
+            The Payments SDKs wrap the Payment APIs. They include server, mobile and browser SDKs.
         icon: list
-        link: /docs/references/merchant_SDKs/
+        link: /docs/references/payment_sdks/
     -
         title: Address Verification System (AVS)
         description: >

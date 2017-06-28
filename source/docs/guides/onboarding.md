@@ -13,7 +13,7 @@ navigation:
   header_active: Guides
 ---
 
-# Ouickstart - Onboarding API
+# Quickstart - Onboarding API
 
 This guide is for partners who want to use their own customized user interface instead of using the pre-built Bambora 
 hosted screen or a branded hosted screen for onboarding merchants.

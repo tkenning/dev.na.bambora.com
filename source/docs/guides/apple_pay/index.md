@@ -16,11 +16,11 @@ navigation:
 
 ## About Apple Pay
 
-Our Apple Pay API allows your mobile app and online store to accept payments using Apple Watch, iPhone, iPad, or Safari.
+Our Payments API allows your mobile app and online store to accept payments using Apple Watch, iPhone, iPad, or Safari.
 
 ## Getting Started
 
-If this is your first time implementing our Payments API we recommend reviewing our [Payments API reference guides](https://dev.na.bambora.com/docs/references/merchant_API/v1-0-3/), to get familiar with Bambora's Payments API.
+If this is your first time implementing our Payment API's we recommend reviewing our [Payment API's reference guide](/docs/references/payment_apis/), to get familiar with Bambora's Payments API's.
 
 You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-merchant-api-demo)
 
