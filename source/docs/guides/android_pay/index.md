@@ -3,7 +3,7 @@ title: Android Pay
 layout: tutorial
 
 summary: >
-    Our Payments API now exposes a new 'android_pay' payment method and associated parameters to accept a base 64 encoded Android Pay Payment Token.
+    Our Payments API now exposes a new 'android_pay' payment method and associated parameters to accept a base 64 encoded Android Pay payment token.
 
 navigation:
   header: na.tocs.na_nav_header
