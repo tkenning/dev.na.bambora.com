@@ -161,4 +161,4 @@ func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationView
 }
 ```
 
-> Note: This iOS client is sending the payment token to our Mobile Payments Demo Server, as outlined on [Github](https://github.com/bambora/na-merchant-api-demo).
+> Note: This iOS client is sending the payment token to our Payment APIs Demo Server, as outlined on [Github](https://github.com/bambora/na-payment-apis-demo).
