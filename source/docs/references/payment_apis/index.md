@@ -22,7 +22,7 @@ Note: this doc is limited to the Payments, Reporting, Payment Profile, and Token
 
 ## v1.0.4
 
-* [Payment API's Spec](/docs/references/payment_apis/v1-0-4)
+* [Payment API's Spec](/docs/references/payment_APIs/v1-0-4)
 
 ### Change logs
 No change log available.

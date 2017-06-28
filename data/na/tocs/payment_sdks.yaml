@@ -1,10 +1,10 @@
-- file: /docs/references/payment_sdks/
+- file: /docs/references/payment_SDKs/
   title: Overview
-- file: /docs/references/payment_sdks/collect_card_data/
+- file: /docs/references/payment_SDKs/collect_card_data/
   title: Collect Card Data
-- file: /docs/references/payment_sdks/take_payments/
+- file: /docs/references/payment_SDKs/take_payments/
   title: Take Payments
-- file: /docs/references/payment_sdks/save_customer_data/
+- file: /docs/references/payment_SDKs/save_customer_data/
   title: Save Customer Data
-- file: /docs/references/payment_sdks/analyze_payments/
+- file: /docs/references/payment_SDKs/analyze_payments/
   title: Analyze Payments

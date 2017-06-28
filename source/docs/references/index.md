@@ -16,19 +16,19 @@ cards:
         description: >
             The Payment API's allows you to tokenize cards, take payments, store customer data and query transactions.
         icon: notification-active
-        link: /docs/references/payment_apis/
+        link: /docs/references/payment_APIs/
     -
         title: Onboarding API
         description: >
             The Onboarding API allows you to submit applications on behalf of sub-merchants.
         icon: checkmark
-        link: /docs/references/onboarding_api/
+        link: /docs/references/onboarding_API/
     -
         title: Payment SDKs
         description: >
-            The Payments SDKs wrap the Payment APIs. They include server, mobile and browser SDKs.
+            The Payment SDKs wrap the Payment APIs. They include server, mobile and browser SDKs.
         icon: list
-        link: /docs/references/payment_sdks/
+        link: /docs/references/payment_SDKs/
     -
         title: Address Verification System (AVS)
         description: >

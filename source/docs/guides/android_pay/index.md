@@ -24,7 +24,7 @@ All of the directions and code samples to enable Android Pay in your app are ava
 
 ## Getting Started
 
-If this is your first time implementing our Payment API's we recommend reviewing our [Payment API's reference guide](/docs/references/payment_apis/), to get familiar with Bambora's Payment API's.
+If this is your first time implementing our Payment API's we recommend reviewing our [Payment API's reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment API's.
 
 You can find more about Bambora and Android Pay through our [Demo App on Github](https://github.com/bambora/na-merchant-api-demo).
 
