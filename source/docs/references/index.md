@@ -12,9 +12,9 @@ navigation:
 
 cards:
     -                
-        title: Payment API's
+        title: Payment APIs
         description: >
-            The Payment API's allows you to tokenize cards, take payments, store customer data and query transactions.
+            The Payment APIs allows you to tokenize cards, take payments, store customer data and query transactions.
         icon: notification-active
         link: /docs/references/payment_APIs/
     -

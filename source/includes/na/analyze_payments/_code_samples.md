@@ -55,7 +55,7 @@ transaction, err := gateway.Payments().GetTransaction(transactionId)
 
 You can retrieve a previous transaction using this method. All you need the the transaction ID.
 
-You must use the correct Merchant API key for this method.
+You must use the correct API key for this method.
 
 ## Search by Specific Criteria
 

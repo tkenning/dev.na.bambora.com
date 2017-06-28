@@ -1,9 +1,9 @@
 ---
-title: Payment API's Overview
+title: Payment APIs Overview
 layout: tutorial
 
 summary: >
-    Our Payment API's are the RESTful interface to our payment gateway.
+    Our Payment APIs are the RESTful interface to our payment gateway.
     
 navigation:
   header: na.tocs.na_nav_header
@@ -13,8 +13,8 @@ navigation:
 
 ---
 
-# Payment API's
-Our Payment API's are the RESTful interface to our payment gateway. It allows you to accept and analyze payments, create a payment profile to record customer details for future transactions, and create credit card tokens to reduce the scope of your PCI compliance.
+# Payment APIs
+Our Payment APIs are the RESTful interface to our payment gateway. It allows you to accept and analyze payments, create a payment profile to record customer details for future transactions, and create credit card tokens to reduce the scope of your PCI compliance.
 
 You can either interact with the API directly or through a SDK (a library of helper functions to simplify your integration with the SDK).
 
@@ -22,7 +22,7 @@ Note: this doc is limited to the Payments, Reporting, Payment Profile, and Token
 
 ## v1.0.4
 
-* [Payment API's Spec](/docs/references/payment_APIs/v1-0-4)
+* [Payment APIs Spec](/docs/references/payment_APIs/v1-0-4)
 
 ### Change logs
 No change log available.

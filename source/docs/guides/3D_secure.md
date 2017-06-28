@@ -32,12 +32,12 @@ our API for a transaction to complete.
 
 ## 1. Use our 2-Step process
 
-Use our RESTful Merchant API to initiate the Payment and to complete the transaction request. In this standard 
+Use our RESTful Payment APIs to initiate the Payment and to complete the transaction request. In this standard 
 integration, the VbV, SecureCode, and SafeKey process requires two transaction requests.
 
-In addition to this guide feel free to check out our Merchant API Demo implementation on GitHub here:
+In addition to this guide feel free to check out our Payment API Demo implementation on GitHub here:
 
-https://github.com/bambora/na-merchant-api-demo
+https://github.com/bambora/na-payment-api-demo
 
 **Step 1:** Submit a payment request and process the first result.
 
@@ -90,7 +90,7 @@ The bank forwards a response to the merchant’s TERM URL including the followin
 
 **Step 2:**  Process Transaction Auth Request
 
-The merchant takes the data posted to the TERM URL and posts the PaRes and MD (merchant_data) values to our RESTful Merchant API on its 'continue' endpoint.
+The merchant takes the data posted to the TERM URL and posts the PaRes and MD (merchant_data) values to our RESTful Payments API on its 'continue' endpoint.
 
 If the transaction fails VbV or SC, or SafeKey it is declined immediately with messageId=311 (3D Secure Failed). If the 
 transaction passes, it is forwarded to the banks for processing. On completion, an approved or declined message is sent 

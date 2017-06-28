@@ -1,5 +1,5 @@
 ---
-title: Merchant SDKs Overview
+title: Payment SDKs Overview
 layout: tutorial
 
 summary: >

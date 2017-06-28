@@ -3,7 +3,7 @@ title: Apple Pay
 layout: tutorial
 
 summary: >
-    Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
+    Our Payments API now exposes a new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -20,9 +20,9 @@ Our Payments API allows your mobile app and online store to accept payments usin
 
 ## Getting Started
 
-If this is your first time implementing our Payment API's we recommend reviewing our [Payment API's reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payments API's.
+If this is your first time implementing our Payment APIs we recommend reviewing our [Payment APIs reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payments API's.
 
-You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-merchant-api-demo)
+You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-payments-api-demo)
 
 ## Requirements
 

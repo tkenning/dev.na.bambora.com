@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: Bambora Payment API's
+  title: Bambora Payment APIs
   description: 'https://api.na.bambora.com/v1'
   version: 1.0.4
 host: api.na.bambora.com

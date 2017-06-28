@@ -51,9 +51,9 @@ card_sets:
             Get an in-depth knowledge of our payment gateway. See all the references <a href="/docs/references">here.</a>
         cards:
             -
-                title: Payment API's
+                title: Payment APIs
                 description: >
-                    Our Payment API's supports online payments, card tokenization, payment profiles and reporting.
+                    Our Payment APIs supports online payments, card tokenization, payment profiles and reporting.
                 icon: flag
                 link: /docs/references/payment_APIs/
             -

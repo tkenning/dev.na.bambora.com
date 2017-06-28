@@ -266,9 +266,9 @@ card_sets:                                  # Groups of cards that link to other
             Get an in-depth knowledge of our payment gateway.
         cards:
             -
-                title: Merchant API
+                title: Payment APIs
                 description: >
-                    Our Merchant API supports online payments,
+                    Our Payment APIs support online payments,
                     card tokenization, payment profiles and reporting.
                 icon: flag
                 link: /docs/references/merchant_API/overview/
@@ -290,7 +290,7 @@ cards:
     -
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our Merchant APIs
+            Create a test account and test our Payment APIs
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -

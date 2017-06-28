@@ -3,7 +3,7 @@ title: Android Pay
 layout: tutorial
 
 summary: >
-    Our Merchant API now exposes a new 'android_pay' payment method and associated parameters to accept a base 64 encoded Android Pay Payment Token.
+    Our Payments API now exposes a new 'android_pay' payment method and associated parameters to accept a base 64 encoded Android Pay Payment Token.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -24,9 +24,9 @@ All of the directions and code samples to enable Android Pay in your app are ava
 
 ## Getting Started
 
-If this is your first time implementing our Payment API's we recommend reviewing our [Payment API's reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment API's.
+If this is your first time implementing our APIs we recommend reviewing our [Reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment APIs.
 
-You can find more about Bambora and Android Pay through our [Demo App on Github](https://github.com/bambora/na-merchant-api-demo).
+You can find more about Bambora and Android Pay on [Github](https://github.com/bambora/na-payments-api-demo)
 
 ## Requirements
 
@@ -102,4 +102,4 @@ getSupportFragmentManager().beginTransaction()
 
 Your app will receive a payment token once the payment request has been successfully authorised. You then need to send the payment token to your server, and then from there send it to the Bambora Payments API.
 
-**Note:** You can view additional source code examples for a demo Android client & payment server that implements sending a payment token to the Bambora Payments API here: [Merchant API Demo on Github](https://github.com/bambora/na-merchant-api-demo).
+**Note:** You can view additional source code examples for a demo Android client & payment server that implements sending a payment token to the Bambora Payments API here: [Payments API Demo on Github](https://github.com/bambora/na-payments-api-demo).

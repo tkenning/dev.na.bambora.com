@@ -3,7 +3,7 @@ title: Merchant Quickstart
 layout: tutorial
 
 summary: >
-    This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
+    This will guide you through quickly hitting each of our Payment APIs and verifying the success of the operation in the Back Office.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -12,8 +12,8 @@ navigation:
   header_active: Guides
 ---
 
-# Calling Payment API's
-We'll now go through the process of performing and validating a transaction using our Payment API's.
+# Calling Payment APIs
+We'll now go through the process of performing and validating a transaction using our Payment APIs.
 
 ## Requirements
 
