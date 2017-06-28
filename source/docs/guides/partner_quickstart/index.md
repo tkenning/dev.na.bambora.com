@@ -25,7 +25,7 @@ This guide builds on the [Merchant Quickstart Guide](/docs/guides/merchant_quick
 You can request a partner account [here](/docs/forms/request_partner_account). You will be emailed an API key for our sandbox environment.
 
 ## 2. Authentication for Sub-Merchant
-Partners can make Merchant API calls on behalf of their sub-merchants if they are configured to do so. You can request this to be enabled.
+Partners can make calls to our Payment APIs on behalf of their sub-merchants if they are configured to do so. You can request this to be enabled.
 
 You will need an Authorization header as described in the [Merchant Quickstart Guide](/docs/guides/merchant_quickstart/):
 
