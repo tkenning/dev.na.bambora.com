@@ -49,4 +49,4 @@ AVS response codes are returned by the Payments API for purchases and pre-author
 
 [wikipedia-avs]: https://en.wikipedia.org/wiki/Address_Verification_System
 [back-office]: https://web.na.bambora.com
-[bambora-swagger]: /docs/references/merchant_API/
+[bambora-swagger]: /docs/references/payment_APIs/

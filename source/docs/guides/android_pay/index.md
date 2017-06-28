@@ -16,17 +16,17 @@ navigation:
 
 ## About Android Pay
 
-Our Payments API allows your mobile apps and online stores to accept payments using an Android device or, from a desktop, with the Google Chome web browser.
+Our Payments API allows your mobile apps and online stores to accept payments using an Android device or from a desktop with the Google Chome web browser.
 
 When your customers use Android Pay, actual credit or debit card numbers are not sent with the payment. Instead a virtual account number is used to represent account info – so customer card details stay safe and secure.
 
-All of the directions and code samples to enable Android Pay in your app are available through Google documentation. Visit [Android Pay](https://www.android.com/pay/) to goes over the basics of Android Pay. [Android Pay for Developers](https://developers.google.com/android-pay/) has instructions on how to enable Android Pay and on how to create Android Pay payment tokens.
+All of the directions and code samples to enable Android Pay in your app are available through Google documentation. Visit [Android Pay](https://www.android.com/pay/) to go over the basics of Android Pay. [Android Pay for Developers](https://developers.google.com/android-pay/) has instructions on how to enable Android Pay and on how to create Android Pay payment tokens.
 
 ## Getting Started
 
 If this is your first time implementing our APIs we recommend reviewing our [Reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment APIs.
 
-You can find more about Bambora and Android Pay on [Github](https://github.com/bambora/na-payments-api-demo)
+You can find more about Bambora and Android Pay on [Github](https://github.com/bambora/na-payments-api-demo).
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Before you accept Android Pay with Bambora, you need to register an Android Pay 
 
 ### Enable Android Pay
 
-To turn on Android Pay for your account, log into the [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Android Pay by creating a Android Pay Merchant ID for your mobile app.
+To turn on Android Pay for your account, log into the [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Android Pay by creating an Android Pay Merchant ID for your mobile app.
 
 <img src="/docs/guides/android_pay/android-mobile-payments-screenshot.png" alt="mobile-payments-screenshot">
 

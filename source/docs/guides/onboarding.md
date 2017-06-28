@@ -419,7 +419,7 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-usd/applicatio
 ## Next Steps: Processing payments
 Currently payment processing is only available in the Production environment and cannot be tested with the Onboarding Sandbox environment.
 
-In order to process payments, you will also need to integrate with the [Payments API](/docs/references/merchant_API). To build that integration and gain access to the Back Office, please refer to the [Merchant Quickstart Guide](/docs/guides/merchant_quickstart).
+In order to process payments, you will also need to integrate with the [Payments API](/docs/references/payment_APIs). To build that integration and gain access to the Back Office, please refer to the [Merchant Quickstart Guide](/docs/guides/merchant_quickstart).
 
 When an application is approved your sub account will be activated, which will allow you to process payments and send money on behalf of a sub-merchant.
 

@@ -271,7 +271,7 @@ card_sets:                                  # Groups of cards that link to other
                     Our Payment APIs support online payments,
                     card tokenization, payment profiles and reporting.
                 icon: flag
-                link: /docs/references/merchant_API/overview/
+                link: /docs/references/payment_APIs/overview/
 ---
 ```
 

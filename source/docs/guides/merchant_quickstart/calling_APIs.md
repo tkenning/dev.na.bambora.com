@@ -113,7 +113,7 @@ curl -X GET https://api.na.bambora.com/v1/payments/{your_transaction_id} \
   -H "Accept: application/json"
 ```
 
-If you're searching for a transaction through the API, you can search by using the date and [up to 24 fields](https://dev.na.bambora.com/docs/references/merchant_SDKs/analyze_payments/?shell#search-criteria-bbeb017c6f808baf89a073ba2ef7af68) from a transaction record.
+If you're searching for a transaction through the API, you can search by using the date and [up to 24 fields](https://dev.na.bambora.com/docs/references/payment_SDKs/analyze_payments/?shell#search-criteria-bbeb017c6f808baf89a073ba2ef7af68) from a transaction record.
 
 ```shell
 curl https://api.na.bambora.com/v1/reports \
