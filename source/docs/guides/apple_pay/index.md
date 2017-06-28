@@ -22,7 +22,7 @@ Our Payments API allows your mobile app and online store to accept payments usin
 
 If this is your first time implementing our APIs we recommend reviewing our [Reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment APIs.
 
-You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-payments-api-demo).
+You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-payment-apis-demo).
 
 ## Requirements
 

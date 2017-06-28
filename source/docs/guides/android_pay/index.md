@@ -26,7 +26,7 @@ All of the directions and code samples to enable Android Pay in your app are ava
 
 If this is your first time implementing our APIs we recommend reviewing our [Reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment APIs.
 
-You can find more about Bambora and Android Pay on [Github](https://github.com/bambora/na-payments-api-demo).
+You can find more about Bambora and Android Pay on [Github](https://github.com/bambora/na-payment-apis-demo).
 
 ## Requirements
 
@@ -102,4 +102,4 @@ getSupportFragmentManager().beginTransaction()
 
 Your app will receive a payment token once the payment request has been successfully authorised. You then need to send the payment token to your server, and then from there send it to the Bambora Payments API.
 
-**Note:** You can view additional source code examples for a demo Android client & payment server that implements sending a payment token to the Bambora Payments API here: [Payments API Demo on Github](https://github.com/bambora/na-payments-api-demo).
+**Note:** You can view additional source code examples for a demo Android client & payment server that implements sending a payment token to the Bambora Payments API here: [Payments API Demo on Github](https://github.com/bambora/na-payment-apis-demo).
