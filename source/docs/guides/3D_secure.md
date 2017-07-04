@@ -61,7 +61,7 @@ curl https://api.na.bambora.com/v1/payments \
         "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
         "name":"John Doe",
 		"3d_secure":{
-			"3d_secure_enabled":"true"
+			"enabled":"true"
 		}
     },
     "term_url": "https://my.merchantserver.com/redirect/3d-secure"
@@ -197,7 +197,7 @@ curl https://api.na.bambora.com/v1/payments \
         "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
         "name":"John Doe",
 		"3d_secure":{
-			"3d_secure_enabled":"true",
+			"enabled":"true",
 			"xid":"1368023",
 			"cavv":"AAABAXlHEQAAAAGXAEcRAAAAAAA=",
 			"eci":5

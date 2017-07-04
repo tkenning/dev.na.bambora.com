@@ -1856,9 +1856,9 @@ definitions:
       Payment with 3D Secure (Verified by Visa, Mastercard SecureCode, American Express SafeKey).
       Note that 3D Secure must be enabled on the merchant account in order to process transactions with 3D Secure.
     required:
-      - 3d_secure_enabled
+      - enabled
     properties:
-      3d_secure_enabled:
+      enabled:
         type: boolean
         default: true
         description: 'If 3D Secure is enabled on the merchant account, set to false to process transactions without 3D Secure.  Otherwise, set to true to process transactions with 3D Secure.'
