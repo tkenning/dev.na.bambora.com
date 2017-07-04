@@ -16,6 +16,8 @@ navigation:
 
 **Our Android Pay is currently in a close Beta trial period. Contact your account manager if you would like early access.**
 
+[https://grow.na.bambora.com/android-pay-beta](https://grow.na.bambora.com/android-pay-beta)
+
 ## About Android Pay
 
 Our Payments API allows your mobile apps and online stores to accept payments using an Android device or from a desktop with the Google Chome web browser.
