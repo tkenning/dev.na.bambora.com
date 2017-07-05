@@ -1870,5 +1870,4 @@ definitions:
         description: 'The cardholder authentication verification value (CAVV/UCAF/AEVV) used for processing transactions with 3D Secure.'
       eci:
         type: integer
-        default: 7
         description: 'The electronic commerce indicator (ECI) used for processing transactions with 3D Secure.'
