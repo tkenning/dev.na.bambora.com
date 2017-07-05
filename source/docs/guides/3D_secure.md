@@ -61,7 +61,7 @@ curl https://api.na.bambora.com/v1/payments \
         "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
         "name":"John Doe",
 		"3d_secure":{
-			"enabled":"true"
+			"enabled":true
 		}
     },
     "term_url": "https://my.merchantserver.com/redirect/3d-secure"
@@ -177,7 +177,7 @@ system variables:
 
 | Attribute | Description |
 | --- | --- |
-| xid | Include the 20-digit 3D Secure transaction identifier. |
+| xid | Include the 3D Secure transaction identifier (up to 20-digits). |
 | eci | SecureECI is a 1-digit status code: 5 – authenticated; 6 – attempted, not completed. |
 | cavv | Include the 40-character Cardholder Authentication Verification Value. |
 
@@ -197,7 +197,7 @@ curl https://api.na.bambora.com/v1/payments \
         "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
         "name":"John Doe",
 		"3d_secure":{
-			"enabled":"true",
+			"enabled":true,
 			"xid":"1368023",
 			"cavv":"AAABAXlHEQAAAAGXAEcRAAAAAAA=",
 			"eci":5
