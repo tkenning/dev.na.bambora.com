@@ -44,34 +44,22 @@ paths:
           schema:
             $ref: '#/definitions/PaymentRequest'
       responses:
-        '200':
+        200:
           description: Payment response containing the payment details as well as if the payment was approved or declined.
           schema:
             $ref: '#/definitions/PaymentResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/payments/{transId}/returns':
     post:
       summary: Return payment
@@ -92,34 +80,22 @@ paths:
           schema:
             $ref: '#/definitions/Return'
       responses:
-        '200':
+        200:
           description: Payment response containing the payment details as well as if the transaction was approved or declined.
           schema:
             $ref: '#/definitions/PaymentResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/payments/{transId}/void':
     post:
       summary: Void Transaction
@@ -140,34 +116,22 @@ paths:
           schema:
             $ref: '#/definitions/Void'
       responses:
-        '200':
+        200:
           description: Payment response containing the payment details as well as if the transaction was approved or declined.
           schema:
             $ref: '#/definitions/PaymentResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/payments/{transId}/completions':
     post:
       summary: Complete pre-auth
@@ -187,34 +151,22 @@ paths:
           schema:
             $ref: '#/definitions/PaymentRequest'
       responses:
-        '200':
+        200:
           description: Payment response containing the payment details as well as if the transaction was approved or declined.
           schema:
             $ref: '#/definitions/PaymentResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/payments/{transId}':
     get:
       summary: Get payment
@@ -230,34 +182,22 @@ paths:
           type: number
           format: integer
       responses:
-        '200':
+        200:
           description: A transaction object.
           schema:
             $ref: '#/definitions/Transaction'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/payments/{merchant_data}/continue':
     post:
       summary: Continue 3D Secure Payment Processing
@@ -277,34 +217,22 @@ paths:
           schema:
             $ref: '#/definitions/ContinueRequest'
       responses:
-        '200':
+        200:
           description: Payment response containing the payment details as well as if the transaction was approved or declined.
           schema:
             $ref: '#/definitions/PaymentResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'            
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   /reports:
     post:
       summary: Search Query
@@ -318,34 +246,22 @@ paths:
           schema:
             $ref: '#/definitions/SearchQuery'
       responses:
-        '200':
+        200:
           description: A transaction object.
           schema:
             $ref: '#/definitions/SearchResult'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   /profiles:
     post:
       summary: Create Profile
@@ -360,34 +276,22 @@ paths:
           schema:
             $ref: '#/definitions/CreateProfileBody'
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/profiles/{profileId}':
     get:
       summary: Get profile
@@ -402,34 +306,22 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/PaymentProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
     put:
       summary: Update Profile
       description: Create a new Payment Profile using either a card or a single-use token. You must supply one of them.
@@ -448,34 +340,22 @@ paths:
           schema:
             $ref: '#/definitions/UpdateProfileBody'
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
     delete:
       summary: Delete profile
       description: 'Delete a Payment Profile using the profile ID, also known as the Customer Code.'
@@ -489,34 +369,22 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/profiles/{profileId}/cards':
     get:
       summary: Get cards
@@ -531,34 +399,22 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileGetCards'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
     post:
       summary: Add card
       description: Add a card to the profile. Note that there is a default limit of 1 card per profile. You can change this in your Profiles settings in the back office.
@@ -578,34 +434,22 @@ paths:
           schema:
             $ref: '#/definitions/ProfileCard'
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   '/profiles/{profileId}/cards/{cardId}':
     get:
       summary: Get card
@@ -626,34 +470,22 @@ paths:
           type: number
           format: integer
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileCardResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
     put:
       summary: Update card
       description: Update the details of a card on the profile.
@@ -679,34 +511,22 @@ paths:
           schema:
             $ref: '#/definitions/ProfileCard'
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
     delete:
       summary: Delete card
       description: Delete a card on the profile.
@@ -726,34 +546,22 @@ paths:
           type: number
           format: integer
       responses:
-        '200':
+        200:
           description: The Profile.
           schema:
             $ref: '#/definitions/ProfileResponse'
-        '400':
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '401':
-          description: Authentication Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '402':
-          description: Business Rule Violation or Decline
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '403':
-          description: Authorization Failure
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '405':
-          description: Invalid Request Method
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
   /scripts/tokenization/tokens:
     post:
       summary: Tokenize credit card
@@ -767,10 +575,35 @@ paths:
           schema:
             $ref: '#/definitions/TokenRequest'
       responses:
-        '200':
-          description: Token response object. One will always be returned even if the data or card was invalid. The validity of the card is not checked with this API call.
+        200:
+          description: Token response object. One will always be returned even if the data or card is invalid. The validity of the card is not checked with this API call.
           schema:
             $ref: '#/definitions/TokenResponse'
+responses:
+  BadRequest:
+    description: Bad Request
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+  Unauthorized:
+    description: Authentication Failure
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+  PaymentRequired:
+    description: Business Rule Violation or Decline
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+  Forbidden:
+    description: Authorization Failure
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+  MethodNotAllowed:
+    description: Invalid Request Method
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+  InternalServerError:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/ErrorResponse'
 definitions:
   PaymentRequest:
     required:
@@ -1126,6 +959,8 @@ definitions:
         $ref: '#/definitions/Custom'
       card:
         $ref: '#/definitions/CardPurchaseResponse'
+      interac_online:
+        $ref: '#/definitions/InteracOnlineResponse'
       links:
         type: array
         items:
@@ -1166,6 +1001,14 @@ definitions:
       processed:
         type: boolean
         description: 'Is true if the issuing bank has successfully processed an AVS check on the transaction. Is false if no AVS check was performed.'
+  InteracOnlineResponse:
+    properties: 
+      idebit_issconf:
+        type: string
+        description: 'A numeric confirmation code of the payment'
+      idebit_issname: 
+        type: string
+        description: 'Name of the account holder\'s financial institution' 
   CardGetTransactionResponse:
     properties:
       card_type:
