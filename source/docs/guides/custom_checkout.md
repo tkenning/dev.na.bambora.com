@@ -17,7 +17,7 @@ navigation:
 Our solution limits the scope of your PCI compliance by removing the need for you to pass credit card information through your servers.
 
 ### Step 1: Setup Card Inputs
-Custom Checkout library is used to securely inject the following input elements into your page:
+The Custom Checkout library is used to securely inject the following input elements into your page:
 
 * Card Number
 * CVV
@@ -29,13 +29,13 @@ You can use CSS to customize the look and feel of user input while complying wit
 The library validates and formats the input elements by card brand (Mastercard, Visa, etc.).
 
 ### Step 3: Create a Token
-When card data is complete your page can call the library to get a payment token that can then be used to process a payment with our payments api. 
+When card data is complete your page can call the library to get a payment token that can then be used to process a payment with our Payments API. 
 
 ## Try it!
 Below are examples of how you can add input fields, respond to events, and customize the look and feel to match the rest of your page.
 
 ### Basic Styling
-An example using basic styling fully customized within the included CSS.
+An example using some basic custom styling.
 
 <p data-height="395" data-theme-id="light" data-slug-hash="LLRMRo" data-default-tab="result" data-user="na-bambora" data-embed-version="2" data-pen-title="CustomCheckout" class="codepen">See the Pen <a href="https://codepen.io/na-bambora/pen/LLRMRo/">CustomCheckout</a> by na-bambora (<a href="https://codepen.io/na-bambora">@na-bambora</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -48,7 +48,7 @@ An example using the Bootstrap framework for styling.
 
 ## Basic Usage
 
-This is a basic example of html and javascript that adds CustomCheckout to your payment page: 
+This is a basic example of HTML and JavaScript that adds CustomCheckout to your payment page: 
 
 ***HTML***
 
@@ -66,7 +66,7 @@ This is a basic example of html and javascript that adds CustomCheckout to your 
 ***JavaScript***
 
 ```javascript
-// initialize the library
+// Initialize the library
 var customCheckout = customcheckout();
 
 // Create and mount the inputs with the library
@@ -74,7 +74,7 @@ customCheckout.create('card-number').mount('#card-number');
 customCheckout.create('cvv').mount('#card-cvv');
 customCheckout.create('expiry').mount('#card-expiry');
 
-// listen for submit button
+// Listen for submit button
 document.getElementById('submit').onclick = function () {
   customCheckout.createToken(function (result) {
     if (result.error) {
@@ -82,7 +82,7 @@ document.getElementById('submit').onclick = function () {
       // display error message
     } else {
       console.log(result.token);
-      // process token using our payments api
+      // process token using our Payments API
     }
   });
 };
@@ -111,6 +111,8 @@ customCheckout.on('error', function(event) {
 ```
 
 ## CustomCheckout
+
+This section describes how to fully customize the style and events to create a PCI compliant form 
 
 ### Include CustomCheckout
 
@@ -328,16 +330,17 @@ var cardNumber = customCheckout.create('card-number', options);
 
 ## Migration
 
-### Custom Checkout v1
+### Checkout Fields v1
 To upgrade from our v1 version of Custom Checkout, do the following:
 
 * Remove the old `<div data-bambora-target...>` elements
-* Add a new `<div>` for each new Checkout input (as described above)
-* Update the existing checkout script to: `<script src='https://libs.na.bambora.com/customcheckout/0.1.0/customcheckout.js'></script>`
+* Remove the old `checkoutfields.js` script
+* Add a new `<div>` for each new Custom Checkout input (as described above)
+* Add the new Custom Checkout script: `<script src='https://libs.na.bambora.com/customcheckout/0.1.0/customcheckout.js'></script>`
 
 ### Checkout form
 To migrate from our hosted Checkout form, do the following:
 
 * Remove the existing link to the old form `payment.asp`
-* Add a new form that uses the new Checkout inputs (as described above)
-* Add the new checkout script: `<script src='https://libs.na.bambora.com/customcheckout/0.1.0/customcheckout.js'></script>`
+* Add a new form that uses the new Custom Checkout inputs (as described above)
+* Add the new Custom Checkout script: `<script src='https://libs.na.bambora.com/customcheckout/0.1.0/customcheckout.js'></script>`
