@@ -14,7 +14,7 @@ navigation:
 
 # Android Pay
 
-**Our Android Pay is currently in a close Beta trial period. Contact your account manager if you would like early access.**
+**Our Android Pay is currently in a closed Beta trial period. Contact your account manager if you would like early access.**
 
 [https://grow.na.bambora.com/android-pay-beta](https://grow.na.bambora.com/android-pay-beta)
 
