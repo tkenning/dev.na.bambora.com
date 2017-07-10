@@ -698,6 +698,10 @@ definitions:
         description: Security code on the back of the credit card. This can be set to mandatory in the back office.
       3d_secure:
          $ref: '#/definitions/3DSecure'
+      visa_checkout_call_id:
+        type: string
+        maxLength: 20
+        description: 'The Visa Checkout payment request ID.'
       complete:
         type: boolean
         default: true
@@ -806,6 +810,10 @@ definitions:
         description: Card holder name.
       3d_secure:
          $ref: '#/definitions/3DSecure'
+      visa_checkout_call_id:
+        type: string
+        maxLength: 20
+        description: 'The Visa Checkout payment request ID.'
   RequestBillingAddress:
     properties:
       name:
