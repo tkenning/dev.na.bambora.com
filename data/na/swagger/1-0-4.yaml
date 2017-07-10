@@ -1008,7 +1008,7 @@ definitions:
         description: 'A numeric confirmation code of the payment'
       idebit_issname: 
         type: string
-        description: 'Name of the account holder\'s financial institution' 
+        description: 'Name of the account holder''s financial institution' 
   CardGetTransactionResponse:
     properties:
       card_type:
