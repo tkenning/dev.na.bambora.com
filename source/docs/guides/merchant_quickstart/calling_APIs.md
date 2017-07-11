@@ -1,5 +1,5 @@
 ---
-title: Merchant Quickstart
+title: Calling API's
 layout: tutorial
 
 summary: >
@@ -23,7 +23,7 @@ We use the command-line tool cURL for all HTTP request examples in this guide. c
 
 ### Optional: Postman
 
-For fans of of the Chrome app [Postman](https://ww.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
+For fans of of the Chrome app [Postman](https://www.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
 
 > Note: Most of your Postman queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
 
