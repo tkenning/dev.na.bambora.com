@@ -32,12 +32,12 @@ our API for a transaction to complete.
 
 ## 1. Use our 2-Step process
 
-Use our RESTful Merchant API to initiate the Payment and to complete the transaction request. In this standard 
+Use our RESTful Payment APIs to initiate the Payment and to complete the transaction request. In this standard 
 integration, the VbV, SecureCode, and SafeKey process requires two transaction requests.
 
-In addition to this guide feel free to check out our Merchant API Demo implementation on GitHub here:
+In addition to this guide feel free to check out our Payment API Demo implementation on GitHub here:
 
-https://github.com/bambora/na-merchant-api-demo
+https://github.com/bambora/na-payment-apis-demo
 
 **Step 1:** Submit a payment request and process the first result.
 
@@ -59,7 +59,10 @@ curl https://api.na.bambora.com/v1/payments \
     "amount":15.99,
     "token":{
         "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
-        "name":"John Doe"
+        "name":"John Doe",
+		"3d_secure":{
+			"enabled":true
+		}
     },
     "term_url": "https://my.merchantserver.com/redirect/3d-secure"
 }'
@@ -90,7 +93,7 @@ The bank forwards a response to the merchant’s TERM URL including the followin
 
 **Step 2:**  Process Transaction Auth Request
 
-The merchant takes the data posted to the TERM URL and posts the PaRes and MD (merchant_data) values to our RESTful Merchant API on its 'continue' endpoint.
+The merchant takes the data posted to the TERM URL and posts the PaRes and MD (merchant_data) values to our RESTful Payments API on its 'continue' endpoint.
 
 If the transaction fails VbV or SC, or SafeKey it is declined immediately with messageId=311 (3D Secure Failed). If the 
 transaction passes, it is forwarded to the banks for processing. On completion, an approved or declined message is sent 
@@ -147,8 +150,8 @@ Response
     "last_four": "3312",
     "address_match": 0,
     "postal_result": 0,
-    "avs_result": "0",
-    "cvd_result": "1"
+    "cvd_result": 1,
+	"eci": 5
   },
   "links": [
     {
@@ -159,7 +162,7 @@ Response
   ]
 }
 ```
-<!--
+
 ## 2. Use your own process
 
 Some large merchants complete the Verified by Visa (VbV), MasterCard SecureCode, or AMEX SafeKey certification to handle 
@@ -174,7 +177,69 @@ system variables:
 
 | Attribute | Description |
 | --- | --- |
-| secure_xid | Include the 20-digit 3D Secure transaction identifier. |
-| secure_eci | SecureECI is a 1-digit status code: 5 – authenticated; 6 – attempted, not completed. |
-| secure_cavv | Include the 40-character Cardholder Authentication Verification Value. |
--->
+| xid | Include the 3D Secure transaction identifier (up to 20-digits). |
+| eci | SecureECI is a 1-digit status code: 5 – authenticated; 6 – attempted, not completed. |
+| cavv | Include the 40-character Cardholder Authentication Verification Value. |
+
+```shell
+Definition
+POST /v1/payments HTTP/1.1
+
+Request
+curl https://api.na.bambora.com/v1/payments \
+-H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
+-H "Content-Type: application/json" \
+-d '{
+    "payment_method":"token",
+    "order_number":"MyOrderId000011223344",
+    "amount":15.99,
+    "token":{
+        "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
+        "name":"John Doe",
+		"3d_secure":{
+			"enabled":true,
+			"xid":"1368023",
+			"cavv":"AAABAXlHEQAAAAGXAEcRAAAAAAA=",
+			"eci":5
+		}
+    },
+    "term_url": "https://my.merchantserver.com/redirect/3d-secure"
+}'
+
+Response
+
+{
+  "id": "10000026",
+  "approved": "1",
+  "message_id": "1",
+  "message": "Approved",
+  "auth_code": "TEST",
+  "created": "2017-02-23T17:26:26",
+  "order_number": "MyOrderId000011223344",
+  "type": "PA",
+  "payment_method": "CC",
+  "amount": 15.99,
+  "custom": {
+    "ref1": "",
+    "ref2": "",
+    "ref3": "",
+    "ref4": "",
+    "ref5": ""
+  },
+  "card": {
+    "card_type": "VI",
+    "last_four": "3312",
+    "address_match": 0,
+    "postal_result": 0,
+    "cvd_result": 1,
+	"eci": 5
+  },
+  "links": [
+    {
+      "rel": "complete",
+      "href": "https://api.na.bambora.com/v1/payments/10000026/completions",
+      "method": "POST"
+    }
+  ]
+}
+```

@@ -55,7 +55,7 @@ transaction, err := gateway.Payments().GetTransaction(transactionId)
 
 You can retrieve a previous transaction using this method. All you need the the transaction ID.
 
-You must use the correct Merchant API key for this method.
+You must use the correct API key for this method.
 
 ## Search by Specific Criteria
 
@@ -267,4 +267,4 @@ There are 6 operators available. They must be encoded:
 This is the value you want to match against.
 
 ## Analyze Payment Errors
-You can read the errors returned by the API [here](/docs/references/merchant_API).
+You can read the errors returned by the API [here](/docs/references/payment_APIs).

@@ -3,7 +3,7 @@ title: Merchant Quickstart
 layout: tutorial
 
 summary: >
-  Learn how to create, configure, and test your merchant account with our Merchant APIs. 
+  Learn how to create, configure, and test your merchant account with our Payment APIs. 
 
 navigation:
   header: na.tocs.na_nav_header
@@ -15,7 +15,7 @@ navigation:
 
 # Merchant Quickstart
 
-This guide is here to get your Merchant Account up and running quickly. You'll learn to create, configure, and test your account using our Payment API's.
+This guide is here to get your Merchant Account up and running quickly. You'll learn to create, configure, and test your account using our Payment APIs.
 
 ## Requirements
 

@@ -1,9 +1,9 @@
 ---
-title: Merchant Quickstart
+title: Calling API's
 layout: tutorial
 
 summary: >
-    This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
+    This will guide you through quickly hitting each of our Payment APIs and verifying the success of the operation in the Back Office.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -12,8 +12,8 @@ navigation:
   header_active: Guides
 ---
 
-# Calling Payment API's
-We'll now go through the process of performing and validating a transaction using our Payment API's.
+# Calling Payment APIs
+We'll now go through the process of performing and validating a transaction using our Payment APIs.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ We use the command-line tool cURL for all HTTP request examples in this guide. c
 
 ### Optional: Postman
 
-For fans of of the Chrome app [Postman](https://ww.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
+For fans of of the Chrome app [Postman](https://www.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
 
 > Note: Most of your Postman queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
 
@@ -113,7 +113,7 @@ curl -X GET https://api.na.bambora.com/v1/payments/{your_transaction_id} \
   -H "Accept: application/json"
 ```
 
-If you're searching for a transaction through the API, you can search by using the date and [up to 24 fields](https://dev.na.bambora.com/docs/references/merchant_SDKs/analyze_payments/?shell#search-criteria-bbeb017c6f808baf89a073ba2ef7af68) from a transaction record.
+If you're searching for a transaction through the API, you can search by using the date and [up to 24 fields](https://dev.na.bambora.com/docs/references/payment_SDKs/analyze_payments/?shell#search-criteria-bbeb017c6f808baf89a073ba2ef7af68) from a transaction record.
 
 ```shell
 curl https://api.na.bambora.com/v1/reports \

@@ -1,5 +1,5 @@
 ---
-title: Merchant SDKs Overview
+title: Payment SDKs Overview
 layout: tutorial
 
 summary: >
@@ -8,7 +8,7 @@ summary: >
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
-  toc: na.tocs.merchant_SDKs
+  toc: na.tocs.payment_sdks
   header_active: References
 ---
 
