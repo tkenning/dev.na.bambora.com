@@ -33,25 +33,31 @@ cards:
         title: 3D Secure
         description: >
             Learn about implementing 3D Secure based payments.
-        icon: list
+        icon: creditcard-outline
         link: /docs/guides/3D_secure
     -
         title: Visa Checkout
         description: >
             Process payments with Visa Checkout.
-        icon: list
+        icon: creditcard-outline
         link: /docs/guides/visa_checkout
+    -
+        title: Interac Online
+        description: >
+            Process payments with Interac Online.
+        icon: creditcard-outline
+        link: /docs/guides/interac_online
     -
         title: Apple Pay
         description: >
             Work with Apple Pay based payments from mobile devices and the Web.
-        icon: list
+        icon: creditcard-outline
         link: /docs/guides/apple_pay
     -
         title: Android Pay
         description: >
             Start accepting Android Pay based payments.
-        icon: list
+        icon: creditcard-outline
         link: /docs/guides/android_pay
     -
         title: Checkout

@@ -55,7 +55,7 @@ curl https://api.na.bambora.com/v1/payments \
 -H "Content-Type: application/json" \
 -d '{
     "payment_method":"token",
-    "order_number":"MyOrderId000011223344",
+    "order_number":"MyOrderId-01234",
     "amount":15.99,
     "token":{
         "code":"gt7-0f2f20dd-777e-487e-b688-940b526172cd",
