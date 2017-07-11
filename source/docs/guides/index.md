@@ -36,12 +36,6 @@ cards:
         icon: list
         link: /docs/guides/3D_secure
     -
-        title: Visa Checkout
-        description: >
-            Process payments with Visa Checkout.
-        icon: list
-        link: /docs/guides/visa_checkout
-    -
         title: Apple Pay
         description: >
             Work with Apple Pay based payments from mobile devices and the Web.
