@@ -48,6 +48,7 @@ If an application is created using the [PSP-CAD flow](#flow), a request to **GET
 `https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId}`
 
 As an application moves through the Onboarding process, it will be in multiple states:
+
  | State | Description | 
  | ----- | ----------- |
  | `in_progress` | Any application created, but missing information in required fields. |
