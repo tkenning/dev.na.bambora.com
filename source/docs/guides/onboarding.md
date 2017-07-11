@@ -48,13 +48,14 @@ If an application is created using the [PSP-CAD flow](#flow), a request to **GET
 `https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId}`
 
 As an application moves through the Onboarding process, it will be in multiple states:
- | State | Description | 
- | ----- | ----------- |
- | `in_progress` | Any application created, but missing information in required fields. |
- | `in_review` | Any application that is complete, but has not been approved or rejected. Applications in review cannot be updated or changed. |
- | `on_hold` | Any application that is held from approval or rejection by a member of the Bambora Onboarding Team. |
- | `approved` | Any complete application that is approved to begin processing.
- | `rejected` | Any complete application that fails to meet approval criteria. |
+
+| State | Description |
+| ------ | ----------- |
+| `in_progress` | Any application created, but missing information in required fields. |
+| `in_review` | Any application that is complete, but has not been approved or rejected. Applications in review cannot be updated or changed. |
+| `on_hold` | Any application that is held from approval or rejection by a member of the Bambora Onboarding Team. |
+| `approved` | Any complete application that is approved to begin processing.
+| `rejected` | Any complete application that fails to meet approval criteria. |
  
  > An application that is `rejected` cannot be reviewed further, and must be re-submitted as a new application.
 
