@@ -3,7 +3,7 @@ title: Quickstart Onboarding
 layout: tutorial
 
 summary: >
-    A guide for partners to integrate directly to the Onboarding API so that they can build their own user interface as
+    A guide for Partners to integrate directly to the Onboarding API so they can build their own user interface as
     an alternative to using the Bambora hosted screens, a user interface for onboarding merchants.
 
 navigation:
@@ -13,213 +13,158 @@ navigation:
   header_active: Guides
 ---
 
-# Ouickstart - Onboarding API
+# Onboarding
 
-This guide is for partners who want to use their own customized user interface instead of using the pre-built Bambora 
-hosted screen or a branded hosted screen for onboarding merchants.
+This guide is for Partners building an onboarding integration with custom user interface (UI) to upload merchant applications and manage documentation.
 
-If you are interested in using a branded hosted screen, please contact your Account Manager.
+If you're interested in a hosted solution for onboarding, contact your Account Manager.
 
-This guide contains instructions and examples for integrating with the Onboarding API so that you can:
+## Getting started
 
-* Create, update, and manage Merchant Applications programmatically
-* Create, update, and manage Documents attached to Merchant Applications
-* Request the appropriate Terms and Conditions for your flow
-* Have applicants accept the Terms and Conditions when submitting the Merchant Application
+To get a custom UI using our Onboarding API, you'll need to construct an environment that integrates our sandbox, and have it approved by our Onboarding Team.
 
+To begin, make sure you're [signed up for a partner account](/docs/forms/request_partner_account/). After you're accepted, we'll email you an API access token for our sandbox environment along with a Pricing Package ID.
 
-## Building your Integration
+> Your test Pricing Package ID will set the rates for customers that begin processing.
 
-To make use of the Onboarding API with a custom interface, an integration to our Sandbox environment must be built and
-then approved by our Onboarding team.
+Once you have your account and pricing ID, you'll be ready to start building your environments. To help with your integration you can review our [Onboarding API References](/docs/references/onboarding_API).
 
-**Step 1:** Request a [partner account](/docs/forms/request_partner_account).
-   Once accepted into our partner program, you will be emailed an API access token for testing in our Sandbox
-   environment. You will also be provided with a Pricing Package id that will set the rate that the customers are charged
-   for processing.   
+### Testing environments
 
-**Step 2:** Build an API Integration using the Sandbox environment.
-   Using the API access token issued to you by your Account Manager you can build an integration with the Sandbox. Please
-    see the most recent [Onboarding API Reference](/docs/references/onboarding_API) and the sections below for documentation
-    and examples to help you build your integration.   
+Using the API access token provided by your Account Manager, you can start building your integration.
 
-**Step 3:** Review and Approval.
-   Once an integration has been built against the Sandbox environment, you can request a review. Contact your Account
-   Manager to start the review and please submit to them a link to your interface and any information they need in order to
-   test the integration. Review usually can be completed within a single business day.   
+#### Sandbox
 
-The reviewer will be checking for the following:
+The sandbox you have access to will be a direct clone of the Production environment, and allows you to test the workflow of Onboarding.
 
-* The integration submits complete and correct applications.
-* The integration displays or links to the Terms and Conditions.
-* The integration displays or links to the prices for card processing.
+> This sandbox is currently limited to Onboarding and does not include test payments.
 
-Once an integration is approved, you will be emailed an API key for the Production environment.
-
-**Step 4:** Update to Production.
-   Update your integration for Production using your Production API key. Once your credentials are updated, the integration is ready for live data!
-
-## Environments
-
-### Sandbox
-
-You will have access to a Sandbox environment for testing and building your Onboarding integration. The Sandbox 
-environment is a clone of the Production environment and allows for testing of the Onboarding Flow. _At this time, the 
-Sandbox environment is limited to Onboarding and does not have the ability to test payments._
-
-API calls to the Sandbox environment can be made with this base URL:
+All API calls to the sandbox are made through the following URL:
 
 `https://sandbox-api.na.bambora.com/`
 
-For example, a request to GET an application created in the PSP-CAD flow would look like:
+If an application is created using the [PSP-CAD flow](#flow), a request to **GET** it would look like:
 
 `https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId}`
 
-While developing in the Sandbox, you will probably want to test different application states. The possible application 
-states are:
-
-* `in_progress` - An application has been created but is not complete. Applications stay in this state until all of 
-their required fields are populated.
-* `in_review` - An application has been created and is complete. Applications with all of their required fields 
-are automatically moved into the `in_review` state. Once an application is `in_review` data cannot be changed.
-* `on_hold` - An application that was previously `in_review` has been set to on hold by an Onboarding reviewer.
-* `approved` - An application that was previously `in_review` has been approved. The application is now complete.
-* `rejected` - An application that was previously `in_review` has been rejected. To re-submit you will need to create a 
-whole new application with the incorrect data fixed.
-
+As an application moves through the Onboarding process, it will be in multiple states:
+ | State | Description | 
+ | ----- | ----------- |
+ | `in_progress` | Any application created, but missing information in required fields. |
+ | `in_review` | Any application that is complete, but has not been approved or rejected. Applications in review cannot be updated or changed. |
+ | `on_hold` | Any application that is held from approval or rejection by a member of the Bambora Onboarding Team. |
+ | `approved` | Any complete application that is approved to begin processing.
+ | `rejected` | Any complete application that fails to meet approval criteria. |
  
-You can force an application to transition to either the `approved` or `rejected` state by submitting a complete set 
-of application data (such that it would be `in_review`) and setting a magic string in the `company_name` field on 
-a  POST or PUT request:
+ > An application that is `rejected` cannot be reviewed further, and must be re-submitted as a new application.
 
-* **TEST_APPROVED** - will set the application to the 'approved' state
-* **TEST_REJECTED** - will set the application to the 'rejected' state
+To test the transition between states in the sandbox environment, you can enter a magic string in the `company_name` field on a POST or PUT request.
 
-These 'magic strings' will only work in the Sandbox environment and can't be used in the Production environment.
-        
-### Production
+ - TEST_APPROVED - Move the application from `in_progress` to `approved`.
+ - TEST_REJECTED -  Move the application from `in_progress` to `rejected`.
 
-Once your integration has been approved and you have been given a Production API key, you can access the Production 
-environment. The Sandbox and Production environments are identical in functionality, except you can't use the 'magic string' 
-to force a specific application state. At this time, any accounts created in the Sandbox environment can't be 
-automatically transferred to the Production environment and would have to be recreated in Production.
+#### Integration review
 
-API calls to the Production environment can be made with this base URL:
+Once you've completed all of your integration testing, contact your Account Manager to begin the review.
+
+Most reviews take no longer than a single business day, and ensure that your integration is:
+
+ - Submitting complete and correct forms.
+ - Correctly displaying or linking to Terms and Conditions.
+ - Correctly displaying or linking to card processing prices.
+
+#### Production
+
+After your integration is approved, you'll be provided with a Production API key for your Production environment. Other than your magic string no longer working, the two environments will be identical.
+
+All API calls to the sandbox are made through the following URL:
 
 `https://api.na.bambora.com/`
 
-For example, a request to GET an application created in the PSP-CAD flow would look like:
+If an application is created using the [PSP-CAD flow](#flow), a request to **GET** it would look like:
 
 `https://api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId}`
 
+## API requests
 
-## Request Headers
+### Request headers
 
-When making an HTTP request to the Onboarding API, headers are required for Authentication and the API Version.
+When you make an HTTP request to the API, headers are required for both authentication, and the API version.
 
-### Authentication
-An Authorization Header with an API access token is required for every request to the API.
+#### Authentication
 
-Your token can be included in the Authorization Header:
+Every request that is made to the Onboarding and Payments API requires an API access token, and can be included in the header:
 
-```
-Authorization: Bearer YOUR_TOKEN_HERE
-```
+`Authorization: Bearer YOUR_TOKEN_HERE`
 
-### API Version
-All supported versions of the API are listed on the [Onboarding API Reference](/docs/references/onboarding_API). 
-New integrations are required to use the most recent version.
+#### API version
 
-To use a specific API version, add the version number to the Header of your API request. For example, to make requests 
-using the most recent version of the API, the headers would include:
+You can find a list of our Onboarding API versions [here](/docs/references/onboarding_API/). Any new integrations require the most recent version.
 
-```
-X-API-Version: 2016-08-18
-```
+Add the version number to the Header of your API request:
 
-In the event that either an existing API is updated or a new API is introduced, it will be documented in the Changelog 
-section of the [Onboarding API Reference](/docs/references/onboarding_API). If a currently supported API version becomes 
-deprecated, we will notify all affected partners via email and provide assistance in updating to the most recent version.
+`X-API-Version: 2016-08-18`
 
-   
-## Making Requests
+If the API is updated, or a new one is introduced, it will appear in the [Changelog](/docs/references/onboarding_API/). If an API is ever deprecated, you'll be notified via email well in advance with assistance in updating.
 
-The API endpoints are organised according to the functionality being requested, called a 'workflow' or 'flow'.
+<a name="flow"></a>
 
-You can create, read, and update applications for all flows. Some flows support creating and reading documents attached 
-to the application. All flows support requesting Terms and Conditions. The API does not support application deletion. 
+### Select a flow
 
-Each application created is associated with and restricted to a single flow. If the same merchant wants to be able to work 
-with two different flows then you will need to create two applications, one for each flow. 
+All endpoints in the Onboarding API are organised based on the functionality being requested. We call these, 'flows'.
 
-For example, lets say a merchant wants to process both card payments and funds transfers in Canada. Using the API you 
-will need to create an application through the `/v1/boarding/workflows/psp-cad/applications` endpoint and the 
-`/v1/boarding/workflows/eft-cad/applications` endpoint.
+All flows support the creation, reading, and updating of applications, as well as requesting Terms and Conditions. Some flows also support creating and reading of documents attached to applications.
 
-Currently the Onboarding API supports the following types of flows:
+Each application can only be associated with a single flow. If a Merchant wants to work through multiple flows to accept multiple currencies, for example, they'll need to submit an application for each flow.
 
-### Funds transfer
+#### Fund transfer
 
-Funds transfer flows are used for financial transactions between banks such as for direct deposit, payroll, and batch 
-transactions. Accounts created with these flows will have the ability to perform funds transfers for the region specified.
+Fund transfer flow is used for financial transactions between institutions such as banks completing direct deposit, payroll, and batched transactions. Accounts using a fund transfer flow are locked to the specified region.
 
-Some of the fund transfer flows we support are:
+| Flow | Description |
+| ---- | ----------- |
+| SEPA-EUR | Single Euro Payments in Europe. |
+| BACS-GBP | Bankers Automated Clearing Service and Payment Schemes Limited in the United Kingdom. |
+| ACH-USD | Automated Clearing House in the United States of America. |
+| EFT-CAD | Electronic Funds Transfer in Canada. |
 
-* **SEPA-EUR** 'Single Euro Payments Area' for bank transfers in Euros.
-* **BACS-GBP** Bacs Payment Schemes Limited/Bankers Automated Clearing Service in the United Kingdom
-* **ACH-USD** Automated Clearing House in the United States
-* **EFT-CAD** Electronic Funds Transfer in Canada
+#### Card payments
 
-### Card payments
+Used for processing payment transactions including credit cards. Accounts using a card payments flow are locked to the specified region.
 
-Card payment flows are used for processing payments transactions such as credit cards. Accounts created with these flows 
-will have the ability to perform payment transactions for the region specified.
+| Flow | Description |
+| ---- | ----------- |
+| PSP-CAD | Payment Service Providers in Canada. |
+| PSP-USD | Payment Service Providers in the United States of America. |
 
-Some of the card payment flows we support are:
+#### Gateway
 
-* **PSP-CAD** for Payment Service Providers in Canada
-* **PSP-USD** for Payment Service Providers in the United States
+A flow for any Merchant Account held with another acquirer, the gateway flow allows transactions like the card payments flow.
 
-### Gateway
+| Flow | Description |
+| ---- | ----------- |
+| GW-CDN | Gateway Services in Canada. |
+| GW-USA | Gateway Services in the United States of America. |
 
-Gateway flows are similar to card payments but the merchant account is held with another acquiror. Accounts created with these 
-flows will have the ability to perform gateway transactions for the region specified.
+You can find a complete list of flows in our [Onboarding API References](/docs/references/onboarding_API), with the most recent version of the API specs [here](/docs/references/onboarding_API/v2016-08-18), and Terms and Conditions [here](/docs/references/onboarding_API/tac_v2016-08-18).
 
-Some of the gateway flows we support are:
+## Sample integration calls
 
-* **GW-CDN** for Gateway Services in Canada
-* **GW-USA** for Gateway Services in the United States
+As we run through all of the parts of an integration call, we'll be referring to the [PSP-CAD Card payments flow](#flow).
 
-For a complete list of all supported flows and their specific requirements, please see the [Onboarding API Reference](/docs/references/onboarding_API). 
-The most recent version of the API Specifications for each flow for Applications and Documents can be found [here](/docs/references/onboarding_API/v2016-08-18) 
-and the most recent version of the Terms and Conditions specification can be found [here](/docs/references/onboarding_API/tac_v2016-08-18).
+### Terms and Conditions
 
+In your UI, Bambora's Terms and Conditions must be linked to or displayed. Our API requires that you clearly specify the version of the terms, the pricing or rate, as well as the date and time when they are agreed to. This ensures that the merchant is aware of processing fees and their cost. If you require custom Terms and Conditions, you can reach out to your Account Manager to learn more.
 
-## Sample Integration Calls
+Standard Terms and Conditions are acquired through a **GET**, and can be requested as either a PDF or HTML.
 
-Let’s look at a flow of API for an application for a merchant account provisioned to accept card payments in 
-Canadian dollars (PSP-CAD). 
+`/v1/boarding/workflows/psp-cad/terms/{partner}/{file_type}/version`
 
-### 1. Terms and Conditions
-**GET** `/v1/boarding/workflows/psp-cad/terms/{partner}/{file_type}/version`
+In the example below, the call is being made for the Terms as HTML. For default Terms, set the `partner` value to `default`.
 
-You need to either display or link to the Terms and Conditions in your user interface. The API requires that you specify 
-the exact version of the Terms and Conditions that your sub-merchant has agreed to, as well as the date and time at 
-which they agreed. On the same page that you display the Terms you must also either display or link to the pricing. 
-You must clearly tell the customer what rate they are paying. This can just be your regular pricing page, but it must 
-state that there are processing fees and what the fees are.
+> With Terms and Conditions calls, the version and authorisation header are optional
 
-There is an API endpoint for requesting the id of the most recent version of the Terms and Conditions and an API endpoint 
-for requesting the Terms and Conditions by that version id. You will need to make two API calls to fetch the Terms and 
-Conditions page. You can request the Terms and Conditions in either HTML or PDF format.
-
-This example requests the default Bambora Terms and Conditions as HTML. For the default Terms and Conditions, set the 
-value of `partner` to `default`. 
-
-If you would like to arrange for a custom Terms and Conditions page, please contact your Account Manager.
-
-You can execute the following cURL command. _With Terms and Conditions calls only, the version and authorization header 
-are optional._
+To begin the two-step call, execute the following cURL command.
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/terms/default/html/version \
@@ -228,7 +173,7 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/terms/defa
 -H "X-API-Version : SELECTED_VERSION_HERE"
 ```
 
-A JSON object will be returned from this call, for example:
+A JSON object will be returned.
 
 ```json
 { 
@@ -237,8 +182,7 @@ A JSON object will be returned from this call, for example:
 }
 ```
 
-From the response to the first call you will need to extract the `version`. With that information you can make the 
-second API call to fetch the content of the Terms and Conditions:
+Next, extract the `version` for your second call.
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/terms/default/html/version/o5xq2r8JtnqYUWr1mURrOEZVXyx_fihe \
@@ -247,45 +191,20 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/terms/defa
 -H "X-API-Version : SELECTED_VERSION_HERE"
 ```
 
-This second API Call will return to you the raw HTML or PDF of the Terms and Conditions for the version requested.
+This second API call will return a raw HTML or PDF of the Terms and Conditions.
 
-When you next **_Create an application_**, you will need to include the JSON data referencing the `version` and `name` of the 
-Terms and Conditions that was provided to the applicant. Make sure that you use the `name` from the JSON returned in the 
-first API call, and _not_ the name returned in the header data from the second call.
+> During the review process of your interface and integration, the Onboarding Team will ensure you're displaying the Terms and Pricing correctly.
 
-**_When the Onboarding team reviews your user interface and integration, they will ensure that your integration displays 
-the Terms and Pricing correctly. This must be completed before you are given an API key for the Production environment._**
+### Creating an application
 
+When you create an application, you'll need to include the first JSON `version`, and `name` call references from the Terms, not the name from the header of the second call.
 
-### 2. Create an application
-**POST** `/v1/boarding/workflows/psp-cad/applications`
+To create a new applicaton, you'll **POST** using
+`/v1/boarding/workflows/psp-cad/applications`
 
-There are no 'required' fields in order to make an HTTP request, however when looking at the [Onboarding API Reference](/docs/references/onboarding_API) 
-page, fields marked with a red asterix are required in order to get an application to the `in_review` state. Applications 
-can't transition to `approved` without first being in the `in_review` state.
+While there are no required fields to make an HTTP request, [fields highlighted by a red asterisk](/docs/references/onboarding_API) are required to move an application to the `in_review` state. The sample below has all of the required fields for a PSP-CAD application. In the testing sandbox, this application would be moved to `approved`.
 
-You can execute the following cURL request by filling in your version, authorization header, and pricing package id. 
-This example does not include all of the fields required to submit a PSP-CAD application, and would result in an 
-`in_progress` application:
-
-```curl
-curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications \
--H "Authorization: Bearer YOUR_TOKEN_HERE" \
--H "Content-Type: application/json" \
--H "X-API-Version : SELECTED_VERSION_HERE" \
--d '{
-    "pricing_id": "123_YOUR_ID_123",
-    "applicant": {
-      "first_name": "John",
-      "last_name": "Doe",
-      "phone_number": "222-222-2222"
-    }
-}'
-```
-
-This example includes all of the fields required to submit a PSP-CAD application. In the Sandbox environment, it would 
-force an application to the `approved` state. Take special note of the `agreement` attributes, which will be set from 
-data gathered in the first step, **_Terms and Conditions_**:
+Execute the following cURL request by adding your version, authorisation header, and pricing package ID, and the [required application fields](/docs/references/onboarding_API).
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications \
@@ -331,14 +250,16 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
     }
 }'
 ```
+> The `agreement` variables require the Terms and Conditions `version` and `name` from the first API call.
+> All date and time variables are IS-8601 format `YYYY-MM-DDThh:mm:ssTZD`. For full dates that have no specific time, set the time to zeros.
 
-### 3. Read an application
-**GET** `/v1/boarding/workflows/psp-cad/applications`
+### Reading an application
 
-Each workflow provides GET endpoints to fetch an application by its id. You can get the application id from the data 
-returned in the POST request.
- 
-You can execute the following cURL command by filling in your version, authorization header, and application id:
+All submitted applications can be fetched through a **GET**. 
+
+`/v1/boarding/workflows/psp-cad/applications`
+
+The application ID is returned in the initial POST request, and used to retrieve the application. Using the cURL below, you'll add your authorisation header, version, and application ID.
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId} \
@@ -347,19 +268,19 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
 -H "X-API-Version : SELECTED_VERSION_HERE" \
 ```
 
-When an application is `approved`, you will get back in the response a merchant id for the sub merchant. This merchant 
-id will be needed when you start processing payments for that sub merchant.
+After an application has reached the `approved` state, the Merchant ID in the response will be used to process payments through your account.
 
-### 4. Update an application
-**PUT** `/v1/boarding/workflows/psp-cad/applications/{applicationId}`
+> To find out if an application has been approved, use an HTTP GET with the application ID to request the application state.
 
-Each workflow provides a PUT endpoint to update application data by its id. You can get the application id from the 
-data returned in the POST request. Only applications that are `in_progress` can be updated.
+### Updating an application
 
-You can update just the applicant `phone_number` for an application by passing only data for the `phone_number` field. 
-If you want to leave data as it was first submitted, then do not include those fields in the PUT request.
+Any application currently in the `in_progress` state can be modified and updated using a **PUT**.
 
-You can execute the following cURL command by filling in your version, authorization header, and application id:
+`/v1/boarding/workflows/psp-cad/applications/{applicationId}`
+
+Using the application ID from the POST return, you'll be able to update information on an application.
+
+If your update to an application is a single variable such as `phone_number`, like in the cURL below, you can add just that data. Any fields not passed will remain the way they were on creation.
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId} \
@@ -373,12 +294,7 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
       }
     }'
 ```
-
-If there are fields that you previously passed, but now want removed, then you can set their value to empty string or zero.
- 
-This example removes the applicants first and last name. You can execute the following cURL command by filling in your 
-version, authorization header, and application id:
-
+To remove a field from a previously submitted application, set the value of the field to an empty string or zero.
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications/{applicationId} \
@@ -394,16 +310,16 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
     }'
 ```
 
-### 5. Upload supporting documents to an application
-**POST** `/v1/boarding/workflows/psp-usd/applications/{applicationId}/documents`
+### Uploading documentation
 
-Some workflows provide endpoints to POST, GET, and DELETE documents. The PSP-CAD flow does not currently 
-support documents, but the PSP-USD flow does. These examples will use the PSP-USD flow. Only applications `in_progress` 
-can have documents added to them. 
- 
-This example adds a document to an existing in progress application. You can execute the following cURL command by 
-filling in your version, authorization header, and an in progress application id.
- 
+If you're using the SEPA-EUR, BACS-GBP, ACH-USD, EFT-CAD, or PSP-USD flows, you can attach a document to an `in_progress` application. For this example, we'll use the PSP-USD flow.
+
+To upload documents, use **POST**.
+
+`/v1/boarding/workflows/psp-usd/applications/{applicationId}/documents`
+
+You'll use POST, GET, and DELETE for documents associated with an application. Execute the following cURL with your version, authorisation header, and application ID to add a document.
+
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-usd/applications/{applicationId}/documents \
 -H "Authorization: Bearer YOUR_TOKEN_HERE" \
@@ -416,22 +332,6 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-usd/applicatio
     }'
 ```
 
-## Next Steps: Processing payments
-Currently payment processing is only available in the Production environment and cannot be tested with the Onboarding Sandbox environment.
+## Processing payments
 
-In order to process payments, you will also need to integrate with the [Payments API](/docs/references/merchant_API). To build that integration and gain access to the Back Office, please refer to the [Merchant Quickstart Guide](/docs/guides/merchant_quickstart).
-
-When an application is approved your sub account will be activated, which will allow you to process payments and send money on behalf of a sub-merchant.
-
-## Frequently Asked Questions
-
-* **What date format do I use?**
-  * All dates must be in ISO-8601 format with a time: `YYYY-MM-DDThh:mm:ssTZD`. For example a valid time would be `1994-11-05T08:15:30-05:00` For birthdays or dates that you don’t know the exact time you can set the time to zeros.
-* **How do I get my integration up and running?**
-  * When you have finished testing your integration, contact your Bambora account manager to arrange for a review of your onboarding pages. We need to ensure you have the right Terms and Conditions listed and have the price for any fees listed. Once approved, you will receive a production API key and can begin using the API to onboard customers.
-* **How long does it take to approve a merchant once their application goes into the in_review status?**
-  * This usually occurs within the day. If there are missing files, such as photo ID, then our team will reach out to the customer and ensure all the information needed is collected.
-* **Can I re-use data from one application type to another for the same customer?**
-  * Yes! It is common to enable several payment options for a single customer. You can re-use the information from one application for another. Many of the fields are the same, but there are different Terms and Conditions, so you will need to make sure that the user is able to see and agree to all Terms and Conditions.
-* **How do I know if an application has been approved?**
-  * Currently you must query the API using an HTTP GET request and the application id in order to get the application state.
+Now that you're ready to begin processing payments, you can learn about [integrating with our API](/docs/references/merchant_API). You can also use our [Merchant Quickstart Guide](/docs/guides/merchant_quickstart) to get up and running fast.
