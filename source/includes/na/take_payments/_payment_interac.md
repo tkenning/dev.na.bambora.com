@@ -11,7 +11,7 @@ Interac Online is a transaction method available to Canadian merchants only. It 
 * Final request: POST https://api.na.bambora.com/v1/payments/{id}/continue
 
 ### Step 1: Submit initial payment request
-Send a request to our Payment API to initiate the Interac process. The response from this request will provide you with the redirect HTML code that you render to the customer in order to redirect them to the banking portal.
+Send a request to our Payments API to initiate the Interac process. The response from this request will provide you with the redirect HTML code that you render to the customer in order to redirect them to the banking portal.
 
 ```
 // Request object (JSON)
