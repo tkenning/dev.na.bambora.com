@@ -23,11 +23,11 @@ If you're interested in a hosted solution for onboarding, contact your Account M
 
 To get a custom UI using our Onboarding API, you'll need to construct an environment that integrates our sandbox, and have it approved by our Onboarding Team.
 
-To begin, make sure you're [signed up for a partner account](https://dev.na.bambora.com/docs/forms/request_partner_account/). After you're accepted, we'll email you an API access token for our sandbox environment along with a Pricing Package ID.
+To begin, make sure you're [signed up for a partner account](/docs/forms/request_partner_account/). After you're accepted, we'll email you an API access token for our sandbox environment along with a Pricing Package ID.
 
 > Your test Pricing Package ID will set the rates for customers that begin processing.
 
-Once you have your account and pricing ID, you'll be ready to start building your environments. To help with your integration you can review our [Onboarding API References](https://dev.na.bambora.com/docs/references/onboarding_API).
+Once you have your account and pricing ID, you'll be ready to start building your environments. To help with your integration you can review our [Onboarding API References](/docs/references/onboarding_API).
 
 ### Testing environments
 
@@ -99,13 +99,13 @@ Every request that is made to the Onboarding and Payments API requires an API ac
 
 #### API version
 
-You can find a list of our Onboarding API versions [here](https://dev.na.bambora.com/docs/references/onboarding_API/). Any new integrations require the most recent version.
+You can find a list of our Onboarding API versions [here](/docs/references/onboarding_API/). Any new integrations require the most recent version.
 
 Add the version number to the Header of your API request:
 
 `X-API-Version: 2016-08-18`
 
-If the API is updated, or a new one is introduced, it will appear in the [Changelog](https://dev.na.bambora.com/docs/references/onboarding_API/). If an API is ever deprecated, you'll be notified via email well in advance with assistance in updating.
+If the API is updated, or a new one is introduced, it will appear in the [Changelog](/docs/references/onboarding_API/). If an API is ever deprecated, you'll be notified via email well in advance with assistance in updating.
 
 <a name="flow"></a>
 
@@ -146,7 +146,7 @@ A flow for any Merchant Account held with another acquirer, the gateway flow all
 | GW-CDN | Gateway Services in Canada. |
 | GW-USA | Gateway Services in the United States of America. |
 
-You can find a complete list of flows in our [Onboarding API References](https://dev.na.bambora.com/docs/references/onboarding_API), with the most recent version of the API specs [here](https://dev.na.bambora.com/docs/references/onboarding_API/v2016-08-18), and Terms and Conditions [here](https://dev.na.bambora.com/docs/references/onboarding_API/tac_v2016-08-18).
+You can find a complete list of flows in our [Onboarding API References](/docs/references/onboarding_API), with the most recent version of the API specs [here](/docs/references/onboarding_API/v2016-08-18), and Terms and Conditions [here](/docs/references/onboarding_API/tac_v2016-08-18).
 
 ## Sample integration calls
 
@@ -202,9 +202,9 @@ When you create an application, you'll need to include the first JSON `version`,
 To create a new applicaton, you'll **POST** using
 `/v1/boarding/workflows/psp-cad/applications`
 
-While there are no required fields to make an HTTP request, [fields highlighted by a red asterisk](https://dev.na.bambora.com/docs/references/onboarding_API) are required to move an application to the `in_review` state. The sample below has all of the required fields for a PSP-CAD application. In the testing sandbox, this application would be moved to `approved`.
+While there are no required fields to make an HTTP request, [fields highlighted by a red asterisk](/docs/references/onboarding_API) are required to move an application to the `in_review` state. The sample below has all of the required fields for a PSP-CAD application. In the testing sandbox, this application would be moved to `approved`.
 
-Execute the following cURL request by adding your version, authorisation header, and pricing package ID, and the [required application fields](https://dev.na.bambora.com/docs/references/onboarding_API).
+Execute the following cURL request by adding your version, authorisation header, and pricing package ID, and the [required application fields](/docs/references/onboarding_API).
 
 ```curl
 curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applications \
@@ -334,4 +334,4 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-usd/applicatio
 
 ## Processing payments
 
-Now that you're ready to begin processing payments, you can learn about [integrating with our API](https://dev.na.bambora.com/docs/references/merchant_API). You can also use our [Merchant Quickstart Guide](https://dev.na.bambora.com/docs/guides/merchant_quickstart) to get up and running fast.
+Now that you're ready to begin processing payments, you can learn about [integrating with our API](/docs/references/merchant_API). You can also use our [Merchant Quickstart Guide](/docs/guides/merchant_quickstart) to get up and running fast.
