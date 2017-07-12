@@ -1687,13 +1687,14 @@ definitions:
   ContinueRequest:
     required:
       - payment_method
-      - card_response
     properties:
       payment_method:
         type: string
         description: 'For a 3D Secure payment process the value for this property will always be "credit_card".'
       card_response:
         $ref: '#/definitions/CardResponse'
+      interac_response:
+        $ref: '#/definitions/InteracResponse'
   CardResponse:
     description: 'For a 3D Secure payment process.'
     required:
@@ -1722,3 +1723,42 @@ definitions:
       eci:
         type: integer
         description: 'The electronic commerce indicator (ECI) used for processing transactions with 3D Secure.'
+  InteracResponse:
+    description: 'For an Interac Online payment process.'
+    required:
+      - idebit_track2
+      - idebit_isslang
+      - idebit_version
+      - idebit_issconf
+      - idebit_issname
+      - idebit_amount
+      - idebit_invoice
+    properties:
+      idebit_track2:
+        type: string
+        maxLength: 256
+        description: 'Assigned by financial institution. Contains PAN, Expiry Date, and Transaction ID.'
+      idebit_isslang:
+        type: string
+        maxLength: 2
+        description: 'The payments language code that is en or fr.'
+      idebit_version:
+        type: number
+        format: integer
+        description: 'Always 1. This value is in the redirect Bambora initially sends.'
+      idebit_issconf:
+        type: string
+        maxLength: 32
+        description: 'Issuer Confirmation Number from online banking to be displayed on the merchant''s confirmation page. Must be URL decoded.'
+      idebit_issname:
+        type: string
+        maxLength: 32
+        description: 'Financial institution''s name to be displayed on the merchant''s confirmation page. Must be URL decoded.'
+      idebit_amount:
+        type: number
+        format: integer
+        description: 'This is the amount of the transaction, in cents. For example, $13.25 would be represented by 1325.'
+      idebit_invoice:
+        type: string
+        maxLength: 32
+        description: 'The original trnOrderNumber you submitted to Bambora.'
