@@ -19,6 +19,8 @@ Interac Online is a transaction method available to Canadian merchants only. It 
 2. Redirect the customer to the bank portal using redirect code received from initial request. The customer logs in to approve the payment and the bank redirects the customer back to your site with success/failure information.
 3. Submit final payment request to us.
 
+In addition to this guide feel free to check out our [Payment APIs Demo implementation](https://github.com/bambora/na-payment-apis-demo) on GitHub.
+
 #### APIs
 
 * Initial request: POST `https://api.na.bambora.com/v1/payments`
@@ -52,7 +54,34 @@ curl https://api.na.bambora.com/v1/payments
 
 Before returning the response to your users HTML client, you will need to save the `merchant_data` string in the users session. This value can be used as the `{id}` value when creating your 'continue' endpoint URL for the final request in step 3.
 
-In the user's browser client, the response will have a chunk of HTML. Display this to the customer to redirect them to the Interac login page. Here the customer will log onto their bank account and approve the payment. An approved or declined payment will forward the customer back to the Funded or Non-funded URLs (respectively) on your website.
+The response will have HTML in the `contents`. This should be embedded in the user's browser client and this needs to be displayed to the customer to redirect them to the Interac login page. Here the customer will log onto their bank account and approve the payment. An approved or declined payment will forward the customer back to the Funded or Non-funded URLs (respectively) on your website.
+
+```html
+<!-- Sample URL Decoded Response -->
+
+<HTML>
+<HEAD></HEAD>
+<BODY>
+<FORM action="https://iOnlinegateway.asp" method=POST id=frmIOnline name=frmIOnline>
+<input type="hidden" name="IDEBIT_MERCHNUM" value="12345678911">
+<input type="hidden" name="IDEBIT_AMOUNT" value="10000">
+<input type="hidden" name="IDEBIT_TERMID" value="12345678">
+<input type="hidden" name="IDEBIT_CURRENCY" value="CAD">
+<input type="hidden" name="IDEBIT_INVOICE" value="">
+<input type="hidden" name="IDEBIT_MERCHDATA" value="2F86D946-5531-4495-9D82D7E6D83BA93">
+<input type="hidden" name="IDEBIT_FUNDEDURL" value="http://www.myCompany.asp?funded=1">
+<input type="hidden" name="IDEBIT_NOTFUNDEDURL" value="http.www.myCompany.asp?funded=0">
+<input type="hidden" name="merchant_name" value="Test Company">
+<input type="hidden" name="referHost" value="http://www.myCompany.asp">
+<input type="hidden" name="referHost2" value="">
+<input type="hidden" name="referHost3" value="www.myCompany.asp">
+<input type="hidden" name="IDEBIT_MERCHLANG" value="en">
+<input type="hidden" name="IDEBIT_VERSION" value="1">
+</FORM>
+<SCRIPT language="JavaScript">document.frmIOnline.submit();</SCRIPT>
+</BODY>
+</HTML>
+```
 
 ### Step 2: Redirect request
 
