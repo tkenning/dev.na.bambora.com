@@ -1,2 +1,6 @@
 - file: /docs/guides/custom_checkout/
-  title: Custom Checkout
+  title: Overview
+- file: /docs/guides/custom_checkout/setup/
+  title: Setup
+- file: /docs/guides/custom_checkout/references/
+  title: References
