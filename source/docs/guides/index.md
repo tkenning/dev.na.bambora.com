@@ -24,6 +24,30 @@ cards:
         icon: checkmark
         link: /docs/guides/partner_quickstart/
     -
+        title: Checkout
+        description: >
+            Add Checkout to your emails or site for a turnkey mobile-ready payment flow.
+        icon: creditcard-outline
+        link: /docs/guides/checkout/
+    -
+        title: Custom Checkout
+        description: >
+            Create a fully customizable payment form while minimizing the scope of your PCI compliance.
+        icon: creditcard-outline
+        link: /docs/guides/custom_checkout/
+    -
+        title: Apple Pay
+        description: >
+            Work with Apple Pay based payments from mobile devices and the Web.
+        icon: list
+        link: /docs/guides/apple_pay
+    -
+        title: Android Pay
+        description: >
+            Start accepting Android Pay based payments.
+        icon: list
+        link: /docs/guides/android_pay      
+    -
         title: Onboarding
         description: >
             Get up to speed on our Onboarding API in minutes.
@@ -36,30 +60,6 @@ cards:
         icon: list
         link: /docs/guides/3D_secure
     -
-        title: Apple Pay
-        description: >
-            Work with Apple Pay based payments from mobile devices and the Web.
-        icon: list
-        link: /docs/guides/apple_pay
-    -
-        title: Android Pay
-        description: >
-            Start accepting Android Pay based payments.
-        icon: list
-        link: /docs/guides/android_pay
-    -
-        title: Checkout
-        description: >
-            Use our Checkout form for your website.
-        icon: creditcard-outline
-        link: /docs/guides/checkout/
-    -
-        title: Custom Checkout
-        description: >
-            Create a custom Checkout experience for your website.
-        icon: creditcard-outline
-        link: /docs/guides/custom_checkout/
-    -
         title: SSL
         description: >
             Encrypt information and provide computer to computer authentication.
@@ -71,4 +71,4 @@ cards:
 
 ### Functional descriptions of getting things done with our payment gateway.
 
-See a selection of popular guides below. The full list of guides is on the right. 
+See a selection of popular guides below. The full list of guides is on the right.
