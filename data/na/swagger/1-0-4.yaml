@@ -28,7 +28,7 @@ security:
 paths:
   /payments:
     post:
-      summary: Make Payment
+      summary: Make payment
       description: |
         Make a payment using credit card, cash, cheque, profile, token, Apple Pay or Android Pay. Each payment type has its own json definition passed in the 
         body. For all payments you have the standard Billing, Shipping, Comments, etc. fields that are optional. Only the amount is required along with the 
@@ -98,7 +98,7 @@ paths:
           $ref: '#/responses/InternalServerError'
   '/payments/{transId}/void':
     post:
-      summary: Void Transaction
+      summary: Void transaction
       description: 'Void a transaction. You can void payments, returns, pre-auths, and completions. It will cancel that transaction.'
       tags:
         - Payments
@@ -200,8 +200,8 @@ paths:
           $ref: '#/responses/InternalServerError'
   '/payments/{merchant_data}/continue':
     post:
-      summary: Continue 3D Secure Payment Processing
-      description: Complete a 3D Secure payment.
+      summary: 3D Secure or Interac Online payments
+      description: Continues 3D Secure or Interac Online payment processing.
       tags:
         - Payments
       operationId: continuePayment
@@ -621,7 +621,7 @@ definitions:
       payment_method:
         type: string
         description: 'The desired method of payment.'
-        enum: ['card', 'token', 'payment_profile', 'cash', 'cheque','apple_pay','android_pay']
+        enum: ['card', 'token', 'payment_profile', 'cash', 'cheque', 'interac', 'apple_pay', 'android_pay']
       language:
         type: string
         maxLength: 3
