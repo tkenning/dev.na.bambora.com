@@ -1,10 +1,10 @@
 ---
-title: Merchant Quickstart
+title: Calling API's
 layout: tutorial
 
 summary: >
-    This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
-    
+    This will guide you through quickly hitting each of our Payment APIs and verifying the success of the operation in the Back Office.
+
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
@@ -12,26 +12,28 @@ navigation:
   header_active: Guides
 ---
 
-# Calling the Merchant APIs
+# Calling Payment APIs
+We'll now go through the process of performing and validating a transaction using our Payment APIs.
 
-This will guide you through quickly hitting each of our Merchant APIs and verifying the success of the operation in the Back Office.
+## Requirements
 
-Each of these API calls will require a distinct authentication passcode. We described how to generate these in the Merchant Setup section.
+### cURL
 
-## cURL
+We use the command-line tool cURL for all HTTP request examples in this guide. cURL allows you make API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. You can read more on cURL <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL">here</a>.
 
-All the examples in this guide use cURL, a lightweight, command-line tool for making HTTP requests. cURL lets you try out various API requests in a command-line interface such as the command prompt in Windows or Terminal on the Mac. You don't need to build a working web application just to try out the APIs. If you are unfamiliar with cURL you can read Zendesk's excellent guide <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL">here</a>.
+### Optional: Postman
 
-## Postman
+For fans of of the Chrome app [Postman](https://www.getpostman.com), we offer a Collection of our requests and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
 
-We also provide a Postman collection for those who prefer the readability of a user friendly interface. Postman is a popular HTTP client that runs as a Chrome app. You can download Postman <a href="https://www.getpostman.com/">here</a>.
+> Note: Most of your Postman queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
 
-You can download our collection and an environment <a href="/resources/postman-collection.zip">here</a>. You will need to update the environment with your merchant ID and passcodes before you can run any queries. Most queries contain variables that are set from the response of a related (e.g. 'Get Token' sets the returned token in the environment, 'Make Token Payment' sets the token from the environment in its request body).
+## Create a transaction
 
-## 1. Tokenize a credit card
-If you accept credit cards, you must be in compliance with PCI Security Council standards. You can reduce the scope of your compliance by minimizing your application's contact with the card data. You can remove the need to pass credit card details to your server by tokenization the card data in the browser. You can create a single use token from the browser/mobile app through our Tokenization API.
+### Tokenize a card
 
-You can further reduce the scope of your compliance by removing the need for your code to interact with card data by using our hosted CheckoutFields library validate and tokenize all card data.
+To process credit card transactions online, you must be in compliance with standards set out by the Payment Card Industry (PCI). Tokenizing credit card details is the most effective way to reduce the scope of your PCI compliance by removing the interaction between your server and your customer's card details.
+
+You can also use our hosted [Custom Checkout](https://github.com/bambora/na-customcheckout) library to validate and tokenize all card data to further reduce scope.
 
 ```shell
 curl https://api.na.bambora.com/scripts/tokenization/tokens  \
@@ -44,8 +46,16 @@ curl https://api.na.bambora.com/scripts/tokenization/tokens  \
   }'
 ```
 
-## 2. Create a Payment Profile
-Now that you have a single use token you can either take a one-off payment or create a multi-use token to store the card data for future payments.
+| Variable | Description |
+| -------- | ----------- |
+| number | The 16-digit credit card number. |
+| expiry_month | The 2-digit month the card expires, as it appears on the card.
+| expiry_year | The 2-digit year the card expires, as it appears on the card. |
+| cvd | The 3 or 4-digit security code that appears on the back of Visa and MasterCard cards, and the front of American Express. |
+
+### Create a Payment Profile
+
+Once you have a single-use token with payment details, you can use it to store the credit card details as a Payment Profile (multi-use token) for future payments.
 
 ```shell
 curl https://api.na.bambora.com/v1/profiles  \
@@ -59,14 +69,14 @@ curl https://api.na.bambora.com/v1/profiles  \
   }'
 ```
 
-## 3. Take a payment
-You now have a multi-use token, it's time to charge the card.
+| Variable | Description |
+| -------- | ----------- |
+| name | The cardholder's first and last name as they appear on the card. |
+| code | The single-use token ID. |
 
-You should recieve a HTTP response with a status code 200 and a payment response object with code:1, message:approved.
+### Take a payment
 
-If your transaction was not approved you can easily isolate the problem by cheking the HTTP response code and the message in the payment response object. Our payment gateway emulator only returns two codes, 1:success and 7:declined.
-
-HTTP status codes 200 and 402 indicate your request reached the emulator. All other HTTP status codes indicate that your request did not reach the emulator. You can read a full list of response codes here.
+With a single-use or multi-use token, you can charge the card.  The sample below displays a transaction for $100 using a Payment Profile.
 
 ```shell
 curl https://api.na.bambora.com/v1/payments  \
@@ -83,8 +93,19 @@ curl https://api.na.bambora.com/v1/payments  \
   }'
 ```
 
-## 4. Query the transaction
-The response body of a transaction request contains a transaction id. You can request a transaction at a later date using the same Merchant API.
+| Variable | Description |
+| -------- | ----------- |
+| amount | The total amount of the transaction in local currency. |
+| payment_method | The method for the payment, either `card`, `token`, or `payment_profile`. |
+| payment_profile | The stored information of the multi-use token. |
+
+After your payment is sent, you can expect an HTTP response with a status code 200, and a payment response object with `code:1, message:approved`. This is your confirmation the payment was approved.
+
+If your transaction was not approved, check the the HTTP response code along with the message in the object. You'll only receive one of two codes from our payment gateway emulator: 1 for approved, 7 for declined.
+ >Note: HTTP status codes 200 and 402 mean your transaction reached the gateway. Any other response means your payment did not reach the emulator.
+
+## Searching the transaction
+Within the response body , you'll find a Transaction ID. You can perform a transaction request using the Transaction ID at any future date through the Payments API.
 
 ```shell
 curl -X GET https://api.na.bambora.com/v1/payments/{your_transaction_id} \
@@ -92,17 +113,19 @@ curl -X GET https://api.na.bambora.com/v1/payments/{your_transaction_id} \
   -H "Accept: application/json"
 ```
 
-You can also query transactions by date and any combination of the 24 other fields of a transaction record.
+If you're searching for a transaction through the API, you can search by using the date and [up to 24 fields](https://dev.na.bambora.com/docs/references/payment_SDKs/analyze_payments/?shell#search-criteria-bbeb017c6f808baf89a073ba2ef7af68) from a transaction record.
 
 ```shell
 curl https://api.na.bambora.com/v1/reports \
 -H "Authorization: Passcode your_encoded_reporting_passcode"  \
 -H "Content-Type: application/json" \
--d "{
+-d '{
      "name": "Search",
      "start_date": "2017-01-01T01:01:03",
      "end_date": "2018-06-05T16:05:00",   
      "start_row": "1",
      "end_row": "2"
-   }"
+   }'
 ```
+
+Now that you're ready to accept payments, the final step is to access a full gateway and [Go Live](https://dev.na.bambora.com/docs/guides/merchant_quickstart/Boarding/).

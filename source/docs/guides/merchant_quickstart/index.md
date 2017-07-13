@@ -3,7 +3,7 @@ title: Merchant Quickstart
 layout: tutorial
 
 summary: >
-  Learn how to create, configure, and test your merchant account with our Merchant APIs. 
+  Learn how to create, configure, and test your merchant account with our Payment APIs. 
 
 navigation:
   header: na.tocs.na_nav_header
@@ -15,34 +15,35 @@ navigation:
 
 # Merchant Quickstart
 
-Welcome to our setup and configuration guide. Here you will learn how to  create, configure, and test your merchant account with our Merchant APIs. 
+This guide is here to get your Merchant Account up and running quickly. You'll learn to create, configure, and test your account using our Payment APIs.
 
+## Requirements
 
-## 1. Create a test account
+### Creating A Test Account
 
-You can create a test merchant account [here](/docs/forms/create_test_merchant_account).
+Fill out our [sign up form](https://dev.na.bambora.com/docs/forms/create_test_merchant_account) to instantly get a developer account with access to a sandbox.
 
-## 2. Generate Passcodes
+### Merchant ID
 
-You will need a Merchant ID (MID) and a passcode per API that you wish to test. Your MID can be found in the top-right corner of the screen after logging in to the <a href="https://web.na.bambora.com" target="_blank">Back Office</a>.
+All transactions through the API require your Merchant ID. It is permanently displayed at the top right corner of your [Member Area](https://web.na.bambora.com).
 
-There are different passcodes for each of our five APIs found in our Back Office. 
+You can also find your Merchant ID by clicking on **administration** and then **Company Info**.
 
-If the 'API Access Passcode' field is empty, you can generate a new passcode by clicking the 'Generate New Code' button beneath the passcode, and then scrolling to the bottom of the screen and clicking the 'Update' button.
+### Setting Passcodes
 
-| Passcode                              | Navigate To |
-| ------------------------------------- | ------------- |
-| Payments                              | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Payment Gateway > Security/Authentication` |
-| Recurring Billing                     | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Recurring Billing` |
-| Reporting                             | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Reporting` |
-| Batch File Upload (ACH/EFT Payments)  | `Administration > Account Settings > Order Settings` in the sidebar, then scroll to `Batch File Upload` |
-| Payment Profile                       | `Configuration > Payment Profile Configuration` in the sidebar, then scroll to `Security Settings` |
+Depending on which API you intend to use for your business, you'll need a passcode to complete the call. 
 
-## 3. Authentication
-Now that you have your Merchant ID and passcodes, you can combine them to create your required Authorization header. The format for a passcode Authorization header is as follows:
+After logging into the [Member Area](https://web.na.bambora.com/), select **administration**,  then **account settings**, and finally **order settings**. 
 
-```
-Authorization: Passcode Base64Encoded(merchant_id:passcode)
-```
+On the Order Settings page, you'll find the **Payment Gateway** section with the sub-header **Security/Authentication**. Here you can set an API access code by clicking the **Generate New Code** button. Once you have a new code, click **Update** at the bottom of the page.
 
-You can combine and encode the passcodes in the form [here](/docs/forms/encode_api_passcode).
+You can set passcodes for **Recurring Billing**, **Reporting**, **Batch File Upload** the same way in each category on the Order Settings page.
+
+To set a **Payment Profile** passcode, you'll need to navigate to **configuration**, then **payment profile configuration** from the left. Under **Security Settings**, you can click **Generate New Code**.
+
+## Authentication
+With your Merchant ID in hand and your passcodes set, you're ready to combine them into the required Authorization header. You can use our encoder to create an authorisation header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/).
+
+`Authorization: Passcode Base64Encoded(merchant_id:passcode)`
+
+The next step is to accept a payment by [calling our API's](https://dev.na.bambora.com/docs/guides/merchant_quickstart/calling_APIs/).

@@ -3,7 +3,7 @@ title: Apple Pay
 layout: tutorial
 
 summary: >
-    Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
+    Our Payments API now exposes a new 'apple_pay' payment method and associated parameters to accept a base 64 encoded Apple Pay Payment Token.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -14,18 +14,52 @@ navigation:
 
 # Apple Pay
 
-**Our Apple Pay is currently in a closed Beta trial period. 
-Contact your account manager if you would like early access.**
+## About Apple Pay
 
-Our Merchant API now exposes a new 'apple_pay' payment method and associated parameters to accept a Base64 encoded Apple Pay Payment Token.
+Our Payments API allows your mobile app and online store to accept payments using Apple Watch, iPhone, iPad, or Safari.
 
-Various resources exist to let you find out more about the Merchant API in general. Learn how to [Take Payments](/docs/references/payments_SDKs/take_payments/) and for our Merchant API refer to the [Swagger doc](/docs/references/merchant_API/v1-0-3). Also, we highly recommend you understand how to deal with our [API Passcode Authentication protocol](/docs/guides/merchant_quickstart/) as it is used in the demo server app that is mentioned later in this document.
+## Getting Started
 
+If this is your first time implementing our APIs we recommend reviewing our [Reference guide](/docs/references/payment_APIs/), to get familiar with Bambora's Payment APIs.
 
-## Example Request
+You can find more about Bambora and Apple Pay on [Github](https://github.com/bambora/na-payment-apis-demo).
 
-An example Merchant API request is shown below with a JSON formatted parameter to pass to the https://api.na.bambora.com/v1/payments RESTful interface.
+## Requirements
 
+### Registering Your Apple Pay Merchant ID
+
+Before you accept Apple Pay with Bambora, you need to [register a Merchant ID and download a Merchant Certificate (P12)](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html) with Apple.
+
+### Configure Your P12
+
+To enable Apple Pay on your Merchant Account, you'll set a password for your P12 using Keychain Access.
+
+1. Under the Category menu, select **Certificates**.
+2. Find and right-click your *Merchant ID* certificate. Select **Export**.
+3. Ensure your File Format is set to **.Personal Information Exchange (.p12)** before clicking **Save**.
+4. Enter the password you'll use when uploading your .p12 to the Member Area and click **OK**.
+
+### Enable Apple Pay
+
+To turn on Apple Pay for your account, log into the [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Apple Pay by adding your Apple Pay signing certificate.
+
+<img src="/docs/guides/apple_pay/mobile-payments-screenshot.png" alt="mobile-payments-screenshot">
+
+Click **ADD NEW MERCHANT ID**, and you'll be able to add your *Apple Merchant ID*, your *P12 File Password*, and upload your P12 certificate file. 
+
+<img src="/docs/guides/apple_pay/apple-credentials.png" alt="apple-credentials">
+
+After you've added your Apple Pay certificate to your account, you can start integrating to your app.
+
+## Accepting Apple Pay on iOS
+
+All of the directions and code samples to enable Apple Pay in your iOS app are available through Apple's documentation. 
+
+[Getting Started with Apple Pay](https://developer.apple.com/apple-pay/get-started/) will cover how to use Apple Pay and best practices, [Apple Pay Guide](https://developer.apple.com/library/content/ApplePay_Guide/) has explanations of the user flow and working with Apple Pay, and [Apple Pay Sandbox Testing](https://developer.apple.com/support/apple-pay-sandbox/) will show you how to test Apple Pay transactions.
+
+## API Requests
+
+When you make an `apple_pay` request to our Payments API, it'll be formatted in JSON, calling to https://api.na.bambora.com/v1/payments/.
 
 ```shell
   curl https://api.na.bambora.com/v1/payments \
@@ -42,31 +76,20 @@ An example Merchant API request is shown below with a JSON formatted parameter t
         }'
 ```
 
-*The ‘complete’ property defaults to true if omitted. True indicates a Purchase or when set to false indicates a Pre-Auth.*
+| Variable | Description |
+| -------- | ----------- |
+| amount | The amount of the transaction. |
+| payment_method | The method of payment for the transaction. For Apple Pay, this will always be `apple_pay` |
+| apple_pay | The object needed to pass an Apple Pay token including the Apple Pay Merchant ID, and the base64 payment token. |
+| apple_pay_merchant_id | Your Apple Merchant ID provided in your Apple Developer Account. |
+| payment_token | The encrypted Apple Pay token containing card holder details, generated from within the iOS app. |
+| complete | The type of transaction being performed. True indicates a Purchase, and false is a Pre-Authorisation. |
 
-## Getting Started
+## Additional Examples
 
-Sample code on Github has been provided to help mobile app and backend server-side developers with your production level apps. We have simple demo client & server apps for you to inspect and follow (as a starting example), with the hope that these samples help bootstrap your implementations.
+### Payment Button
 
-Click to view code samples on the [Mobile Payments Demo Github](https://github.com/bambora/na-mobilepayments-demo) repository.
-
-To enable Apple Pay on your Merchant account you need to know your Merchant ID and use, or create, a Passcode for your account. When you log in to your account, you will know if you can enable Apple Pay transactions if you see a mobile payments menu item, as shown below. If the mobile payments menu item does not appear, your account is not enabled for Apple Pay.
-
-<img src="/docs/guides/apple_pay/mobile-payments-screenshot.png" alt="mobile-payments-screenshot">
-
-In your account, click **configuration**, then **mobile payments**. This is where you can tell us about your app’s Apple Pay Merchant Id, and also upload your Apple Pay signing certificate from the **.p12** formatted file.
-
-You also need to enable Apple Pay in your iOS apps. To do that you can follow Apple’s superb documentation!
-
-* [Getting Started with Apple Pay](https://developer.apple.com/apple-pay/get-started/)
-* [Apple Pay Programming Guide](https://developer.apple.com/library/content/ApplePay_Guide/)
-* [Apple Pay Sandbox Testing](https://developer.apple.com/support/apple-pay-sandbox/)
-
-## More Examples
-
-### Payment Button Action
-
-This is an example payment button action for iOS in Swift. Note that we allow payments that use **.capability3DS** (3D Secure), with Visa, MasterCard, and American Express as the currently supported card types.
+The sample below shows the action taken by a payment button using Swift, generating a payment request.
 
 ```swift
 func paymentButtonAction() {
@@ -96,9 +119,11 @@ func paymentButtonAction() {
 }
 ```
 
+> Note: We not only support, but recommend the use of 3D Secure with Visa, MasterCard, and America Express using `.capability3DS`.
+
 ### Issue Payment Token
 
-After a user successfully authorizes the above payment request, you then handle the issuing of a payment token as follows. Note that the iOS client below is sending the payment token to our Mobile Payments Demo Server, mentioned previously in this post.
+This sample outlines how to handle the payment token once the payment request has been successfully authorised. To send the generated token to the server, execute the following request.
 
 ```swift
 // Executes a process payment request on the Mobile Payments Demo Server
@@ -136,3 +161,4 @@ func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationView
 }
 ```
 
+> Note: This iOS client is sending the payment token to our Payment APIs Demo Server, as outlined on [Github](https://github.com/bambora/na-payment-apis-demo).

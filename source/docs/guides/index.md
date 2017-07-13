@@ -14,28 +14,57 @@ cards:
     -                
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our our Merchant APIs
+            Create a test account and test our Payment APIs.
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -
         title: Quickstart - Partner
         description: >
-            Get a Partner API key and try our Onboarding API
+            Get a Partner API key and try our Onboarding API.
         icon: checkmark
         link: /docs/guides/partner_quickstart/
     -
-        title: Quickstart - Onboarding API
+        title: Onboarding
         description: >
-            Get up to speed on our Onboarding API in minutes
+            Get up to speed on our Onboarding API in minutes.
         icon: list
         link: /docs/guides/onboarding/
     -
         title: 3D Secure
         description: >
-            Learn about implementing 3D Secure based payments
+            Learn about implementing 3D Secure based payments.
         icon: list
         link: /docs/guides/3D_secure
-
+    -
+        title: Apple Pay
+        description: >
+            Work with Apple Pay based payments from mobile devices and the Web.
+        icon: list
+        link: /docs/guides/apple_pay
+    -
+        title: Android Pay
+        description: >
+            Start accepting Android Pay based payments.
+        icon: list
+        link: /docs/guides/android_pay
+    -
+        title: Checkout
+        description: >
+            Use our Checkout form for your website.
+        icon: creditcard-outline
+        link: /docs/guides/checkout/
+    -
+        title: Custom Checkout
+        description: >
+            Create a custom Checkout experience for your website.
+        icon: creditcard-outline
+        link: /docs/guides/custom_checkout/
+    -
+        title: SSL
+        description: >
+            Encrypt information and provide computer to computer authentication.
+        icon: checkmark
+        link: /docs/guides/SSL
 ---
 
 # Guides

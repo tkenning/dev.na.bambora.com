@@ -55,7 +55,7 @@ transaction, err := gateway.Payments().GetTransaction(transactionId)
 
 You can retrieve a previous transaction using this method. All you need the the transaction ID.
 
-You must use the correct Merchant API key for this method.
+You must use the correct API key for this method.
 
 ## Search by Specific Criteria
 
@@ -66,7 +66,7 @@ POST /v1/reports HTTP/1.1
 Request
 curl https://api.na.bambora.com/v1/reports \
 -u "284000000:30c9dbd6505a4c8e960451feba6f036a" \
--d "{
+-d '{
      "name": "Search",
      "start_date": "2012-01-01T01:01:03",
      "end_date": "2014-06-05T16:05:00",   
@@ -79,7 +79,7 @@ curl https://api.na.bambora.com/v1/reports \
          "value": "10000001"
        }
      ]
-   }"
+   }'
 ```
 
 ```javascript
@@ -267,4 +267,4 @@ There are 6 operators available. They must be encoded:
 This is the value you want to match against.
 
 ## Analyze Payment Errors
-You can read the errors returned by the API [here](/docs/references/merchant_API).
+You can read the errors returned by the API [here](/docs/references/payment_APIs).

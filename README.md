@@ -32,38 +32,49 @@
 
 The simplest way to get set up is to use the included Dockerfile (must install docker first).
 
+#### Build
+
 ```shell
-git clone https://github.com/bambora/dev.na.bambora.com.git
-cd dev.na.bambora.com
 docker build -t devbamboracom .
+```
 
-# For Windows:
-docker run -v $pwd/:/usr/src/app/ -p 4567:4567 devbamboracom development_server_windows
+#### Run
 
-# For Mac and Linux:
+*Mac and Linux*
+
+```shell
 docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 devbamboracom development_server
 ```
 
-**Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to Docker Settings > Network and change the DNS server to fixed.
-
-You can now see the docs at <http://localhost:4567>. The site will update with changes you make when a page is reloaded.
-
-### Run locally
-
-Alternatively, you can build and run the site locally. You're going to need:
-
-* **Linux , OS X, windows**.
-* **Ruby, version 1.9.3 or newer**
-* **Node.js**
-* **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
-
+*Windows*
 
 ```shell
-git clone https://github.com/bambora/dev.na.bambora.com.git
-cd dev.na.bambora.com
+docker run -v $pwd/:/usr/src/app/ -p 4567:4567 devbamboracom development_server_windows
+```
+
+**Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to `Docker Settings > Network` and change the DNS server to fixed.
+
+#### Test Local
+[http://localhost:4567/]
+ 
+**Note**: The site will update with changes you make when a page is reloaded.
+
+### Bundler
+
+Alternatively, you can build and run the site locally. You're going to need:
+* **Ruby, version 1.9.3 or newer**
+* **Node.js**
+* **Bundler**
+    *  If Ruby is already installed, but the `bundle` command doesn't work run:
+    
+    ```gem install bundler```
+
+#### Build
+```shell
 bundle install
 ```
 
+#### Run
 To start the preview web server:
 
 ```shell
@@ -255,12 +266,12 @@ card_sets:                                  # Groups of cards that link to other
             Get an in-depth knowledge of our payment gateway.
         cards:
             -
-                title: Merchant API
+                title: Payment APIs
                 description: >
-                    Our Merchant API supports online payments,
+                    Our Payment APIs support online payments,
                     card tokenization, payment profiles and reporting.
                 icon: flag
-                link: /docs/references/merchant_API/overview/
+                link: /docs/references/payment_APIs/overview/
 ---
 ```
 
@@ -279,7 +290,7 @@ cards:
     -
         title: Quickstart - Merchant
         description: >
-            Create a test account and test our Merchant APIs
+            Create a test account and test our Payment APIs
         icon: notification-active
         link: /docs/guides/merchant_quickstart/
     -

@@ -39,27 +39,33 @@ card_sets:
                     Get up and running fast by opening a test account and hitting a few of our API endpoints.
                 icon: flag
                 link: /docs/guides/partner_quickstart/
+            -
+                title: More...
+                description: >
+                    Learn how to get things done. See all the guides.
+                icon: more
+                link: /docs/guides/
     -
         title: References
         description: >
             Get an in-depth knowledge of our payment gateway. See all the references <a href="/docs/references">here.</a>
         cards:
             -
-                title: Merchant API
+                title: Payment APIs
                 description: >
-                    Our Merchant API supports online payments, card tokenization, payment profiles and reporting.
+                    Our Payment APIs supports online payments, card tokenization, payment profiles and reporting.
                 icon: flag
-                link: /docs/references/merchant_API/
-            -
-                title: Merchant SDKs
-                description: >
-                    Our Merchant SDKs include a range of server-side SDKs, mobile SDKs for Android and iOS, and a browser SDK, CheckoutFields.
-                icon: more
-                link: /docs/references/merchant_SDKs/
+                link: /docs/references/payment_APIs/
             -
                 title: Onboarding API
                 description: >
                     Our Onboarding API allows partners to submit applications on behalf of new sub-merchants.
                 icon: comment
                 link: /docs/references/onboarding_API/
+            -
+                title: More...
+                description: >
+                    Get an in-depth knowledge of our payment gateway. See all the references.
+                icon: more
+                link: /docs/references/
 ---
