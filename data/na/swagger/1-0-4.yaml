@@ -698,6 +698,10 @@ definitions:
         description: Security code on the back of the credit card. This can be set to mandatory in the back office.
       3d_secure:
          $ref: '#/definitions/3DSecure'
+      masterpass_wallet_id:
+        type: string
+        maxLength: 3
+        description: 'The Masterpass code related to the wallet that the card information was sent from.'
       visa_checkout_call_id:
         type: string
         maxLength: 20
@@ -810,6 +814,10 @@ definitions:
         description: Card holder name.
       3d_secure:
          $ref: '#/definitions/3DSecure'
+      masterpass_wallet_id:
+        type: string
+        maxLength: 3
+        description: 'The Masterpass code related to the wallet that the card information was sent from.'
       visa_checkout_call_id:
         type: string
         maxLength: 20

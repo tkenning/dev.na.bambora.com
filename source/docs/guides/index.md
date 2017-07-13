@@ -36,6 +36,12 @@ cards:
         icon: creditcard-outline
         link: /docs/guides/3D_secure
     -
+        title: Masterpass
+        description: >
+            Process payments with Masterpass.
+        icon: creditcard-outline
+        link: /docs/guides/masterpass
+    -
         title: Visa Checkout
         description: >
             Process payments with Visa Checkout.
