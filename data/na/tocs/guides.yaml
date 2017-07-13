@@ -6,6 +6,8 @@
   title: 'Onboarding'
 - file: '/docs/guides/3D_secure'
   title: '3D Secure'
+- file: '/docs/guides/masterpass'
+  title: 'Masterpass'
 - file: '/docs/guides/visa_checkout'
   title: 'Visa Checkout'
 - file: '/docs/guides/interac_online'
