@@ -1,9 +1,9 @@
 ---
-title: Custom Checkout
+title: Custom Checkout Setup
 layout: tutorial
 
 summary: >
-  Create a fully customizable payment form while minimizing the scope of your PCI compliance.
+  Get up and running with Custom Checkout in three steps.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -13,7 +13,7 @@ navigation:
 
 ---
 
-## Setup
+# Setup
 
 A payment with Custom Checkout involves 3 steps:
 
@@ -21,7 +21,7 @@ A payment with Custom Checkout involves 3 steps:
 2. Create a token through Custom Checkout
 3. Create a payment by passing the token to our Payment API via your server
 
-### Step 1: Configure Custom Checkout
+## Step 1: Configure Custom Checkout
 
 **First**, include and initialize Custom Checkout.
 
@@ -105,7 +105,7 @@ customCheckout.on('complete', function(event) {
 });
 ```
 
-### Create a token
+## Step 2: Create a token
 
 You request a token for the card data in the Custom Checkout text inputs at any time using `customCheckout.createToken`. It will only return a token if the card data is valid, otherwise it will return an error.
 
@@ -123,8 +123,8 @@ customCheckout.createToken(function (result) {
 });
 ```
 
-### Create a payment
+## Step 3: Create a payment
 
 Once you have a token representing credit card data, the next step is to pass to one of our APIs via your server. You can either pass it to the [Payment API](/docs/references/payment_APIs/) to create a payment immediately, or pass it to the [Payment Profile API](/docs/references/payment_APIs/) to save the card data for future payments.
 
-You can find out more about getting up-and-running with our [APIs here](/docs/guides/merchant_quickstart/).
+You can find out more about getting up-and-running with our APIs [here](/docs/guides/merchant_quickstart/).

@@ -1,9 +1,9 @@
 ---
-title: Custom Checkout
+title: Custom Checkout Reference
 layout: tutorial
 
 summary: >
-  Create a fully customizable payment form while minimizing the scope of your PCI compliance.
+  A full API reference for Custom Checkout.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -13,7 +13,7 @@ navigation:
 
 ---
 
-## Setup
+# Custom Checkout Reference
 
 ### customcheckout.create
 
