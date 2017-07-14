@@ -22,80 +22,44 @@ Payment Profiles can be created with a plain credit card number, however we reco
 
 Creating and modifying Secure Payment Profiles requires you use your Profiles API Key. If you get an authentication error you might be using your Payments API Key, so double check!
 
-### Create Profile (Card)
-
-```shell
-curl -X POST https://api.na.bambora.com/v1/profiles
--H "Content-Type: application/json"
--H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
--d '{
-   "language":"en",
-   "comments":"hello",
-   "card":{  
-      "name":"John Doe",
-      "number":"4030000010001234",
-      "expiry_month":"12",
-      "expiry_year":"23",
-      "cvd":"123"
-  },
-  "billing": {
-    "name": "joh doe",
-    "address_line1": "123 main st",
-    "address_line2": "111",
-    "city": "victoria",
-    "province": "bc",
-    "country": "ca",
-    "postal_code": "V9A3Z4",
-    "phone_number": "25012312345",
-    "email_address": "dngache@beanstream.com"
-  },
-  "custom": {
-    "ref1": "test1",
-    "ref2": "test2",
-    "ref3": "test3",
-    "ref4": "test4",
-    "ref5": "test5"
-  }
-}'
-```
-
-With this action, you can create a new payment profile tied to one individual, assigning, and validating one or more credit cards.
-
 ### Create Profile (Single-Use Token)
 
+You should create a profile with a single-use token instead of a credit card. This is the suggested method of creating profiles since the card number never has to touch your servers, thus lowering your PCI scope.
+
 ```shell
 curl -X POST https://api.na.bambora.com/v1/profiles
 -H "Content-Type: application/json"
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
 -d '{
-   "language":"en",
-   "comments":"hello",
-   "token":{  
-      "name":"John Doe",
-      "code":"1eCe9480a7D94919997071a483505D17",
-  },
-  "billing": {
-    "name": "joh doe",
-    "address_line1": "123 main st",
-    "address_line2": "111",
-    "city": "victoria",
-    "province": "bc",
-    "country": "ca",
-    "postal_code": "V9A3Z4",
-    "phone_number": "25012312345",
-    "email_address": "example@example.com"
-  },
-  "custom": {
-    "ref1": "test1",
-    "ref2": "test2",
-    "ref3": "test3",
-    "ref4": "test4",
-    "ref5": "test5"
-  }
-}'
+      "language":"en",
+      "comments":"hello",
+      "token": {  
+        "name":"Bill Smith",
+        "code":"1eCe9480a7D94919997071a483505D17"
+      }
+    }'
 ```
 
-You can also create a profile with a single-use token instead of a credit card. This is the suggested method of creating profiles since the card number never has to touch your servers, thus lowering your PCI scope.
+### Create Profile (Card)
+
+With this action, you can create a new payment profile tied to one individual, assigning, and validating a credit card.
+
+```shell
+curl -X POST https://api.na.bambora.com/v1/profiles
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "language":"en",
+      "comments":"hello",
+      "card":{  
+        "name":"Bill Smith",
+        "number":"4030000010001234",
+        "expiry_month":"12",
+        "expiry_year":"23",
+        "cvd":"123"
+      }
+    }'
+```
 
 ### Retrieve Profile
 
@@ -111,20 +75,19 @@ curl -X PUT https://api.na.bambora.com/v1/profiles/{id}
 -H "Content-Type: application/json"
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
 -d '{
-   "billing": {
-    "name": "joh doe",
-    "address_line1": "123 main st",
-    "address_line2": "111",
-    "city": "victoria",
-    "province": "bc",
-    "country": "ca",
-    "postal_code": "V8T4M3",
-    "phone_number": "25012312345",
-    "email_address": "dngache@beanstream.com"
-  },
-  "language": "en",
-  "comment": "updated account"
-}'
+      "billing": {
+        "name": "joh doe",
+        "address_line1": "123 main st",
+        "address_line2": "111",
+        "city": "victoria",
+        "province": "bc",
+        "country": "ca",
+        "postal_code": "V8T4M3",
+        "phone_number": "25012312345",
+        "email_address": "bill@smith.com"
+      },
+      "comment": "updated account"
+    }'
 ```
 
 ### Delete a Profile
@@ -136,18 +99,36 @@ curl -X DELETE https://api.na.bambora.com/v1/profiles/{id}
 
 ### Add a Card
 
+You can add a Card with a single-use token instead of a credit card. This is the suggested method of creating profiles since the card number never has to touch your servers, thus lowering your PCI scope.
+
+We recommended that you add cards with a Single Use Token.
+
 ```shell
 curl -X POST https://api.na.bambora.com/v1/profiles/{id}/cards
 -H "Content-Type: application/json"
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
 -d '{
-   "card":{
-      "name":"John Doe",
-      "number":"5100000010001004",
-      "expiry_month":"02",
-      "expiry_year":"14"    
-   }
-}'
+      "token": {  
+        "name":"John Doe",
+        "code":"1eCe9480a7D94919997071a483505D17"
+      }
+  }'
+```
+
+Add with card details.
+
+```shell
+curl -X POST https://api.na.bambora.com/v1/profiles/{id}/cards
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "card":{
+        "name":"Bill Smith",
+        "number":"5100000010001004",
+        "expiry_month":"02",
+        "expiry_year":"14"    
+      }
+    }'
 ```
 
 ### Retrieve Cards
@@ -159,17 +140,18 @@ curl -X GET https://api.na.bambora.com/v1/profiles/{id}/cards
 
 ### Update a Card
 
+Only the card expiry fields can be updated.
+
 ```shell
 curl -X PUT https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id}
 -H "Content-Type: application/json"
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
 -d '{
-   "card":{
-      "name":"John Doe",
-      "expiry_month":"02",
-      "expiry_year":"14"    
-   }
-}'
+      "card":{
+        "expiry_month":"02",
+        "expiry_year":"14"    
+      }
+    }'
 ```
 ### Delete a Card
 
@@ -179,4 +161,5 @@ curl -X DELETE https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id}
 ```
 
 ### Errors
+
 You can read the errors returned by the API [here](/docs/references/payment_APIs).

@@ -274,7 +274,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/CreateProfileBody'
+            $ref: '#/definitions/ProfileBody'
       responses:
         200:
           description: The Profile.
@@ -324,7 +324,10 @@ paths:
           $ref: '#/responses/InternalServerError'
     put:
       summary: Update Profile
-      description: Create a new Payment Profile using either a card or a single-use token. You must supply one of them.
+      description: |
+        Update an existing Payment Profile. For a single card profile supplying token or 
+        card data will work. For multi-card profiles you have to update the card data with 
+        the update and delete card endpoints.
       tags:
         - Profiles
       operationId: updateProfile
@@ -338,7 +341,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/UpdateProfileBody'
+            $ref: '#/definitions/ProfileBody'
       responses:
         200:
           description: The Profile.
@@ -427,12 +430,12 @@ paths:
           description: The profile id. (aka CustomerCode)
           required: true
           type: string
-        - name: card
+        - name: 
           in: body
-          description: The card that will be added to the profile.
+          description: The card information that will be added to the profile.
           required: true
           schema:
-            $ref: '#/definitions/ProfileCard'
+            $ref: '#/definitions/ProfileBodyCard'
       responses:
         200:
           description: The Profile.
@@ -504,12 +507,12 @@ paths:
           required: true
           type: number
           format: integer
-        - name: card
+        - name: 
           in: body
-          description: The card that will be updated on the profile.
+          description: The card information that will be updated on the profile.
           required: true
           schema:
-            $ref: '#/definitions/ProfileCard'
+            $ref: '#/definitions/ProfileBodyCard'
       responses:
         200:
           description: The Profile.
@@ -1418,26 +1421,6 @@ definitions:
         maxLength: 2
         description: 'The type of card associated with the profile. AM = American Express, DI = Diners, JB = JCB, MC = MasterCard, NN = Discover, VI = Visa'
         enum: ['AM','DI','JB','MC','NN''VI']
-  ProfileCard:
-    properties:
-      name:
-        type: string
-        maxLength: 64
-        description: cardholder name.
-      number:
-        type: string
-        maxLength: 20
-        description: Credit card number.
-      expiry_month:
-        type: string
-        maxLength: 2
-        default: '02'
-        description: eg. 02 for February.
-      expiry_year:
-        type: string
-        maxLength: 2
-        default: '17'
-        description: eg. 17 for 2017.
   ProfileGetCards:
     properties:
       code:
@@ -1485,7 +1468,7 @@ definitions:
         maxLength: 2
         description: 'The type of card associated with the profile. AM: American Express, DI: Diners, JB: JCB, MC: MasterCard, NN: Discover, VI = Visa'
         enum: ['AM','DI','JB','MC','NN''VI']
-  CreateProfileBody:
+  ProfileBody:
     properties:
       card:
         $ref: '#/definitions/ProfileFromCard'
@@ -1502,33 +1485,17 @@ definitions:
       comment:
         type: string
         maxLength: 256
-        description: 'Any comments that a user would like to attach to the creation of a Payment Profile'
-  UpdateProfileBody:
+        description: 'Any comments that a user would like to attach to the Payment Profile'
+  ProfileBodyCard:
     properties:
       card:
-        $ref: '#/definitions/ProfileToken'
-      billing:
-        $ref: '#/definitions/Address'
-      custom:
-        $ref: '#/definitions/Custom'
-      language:
-        type: string
-        maxLength: 3
-        description: characters
+        $ref: '#/definitions/ProfileFromCard'
+      token:
+        $ref: '#/definitions/ProfileFromToken'
       comment:
         type: string
         maxLength: 256
-        description: 'Any comments that a user would like to attach to the updating of a Payment Profile'
-  ProfileToken:
-    properties:
-      name:
-        type: string
-        maxLength: 64
-        description: Name of cardholder.
-      code:
-        type: string
-        maxLength: 36
-        description: single use token associated with this account.
+        description: 'Any comments that a user would like to attach to the Payment Profile'
   ProfileFromCard:
     required:
       - name
@@ -1568,7 +1535,7 @@ definitions:
       name:
         type: string
         maxLength: 64
-        description: 'Name of profile'
+        description: Card holder name.
       code:
         type: string
         maxLength: 64
