@@ -72,6 +72,12 @@ cards:
         icon: creditcard-outline
         link: /docs/guides/visa_checkout
     -
+        title: Interac Online
+        description: >
+            Process payments with Interac Online.
+        icon: creditcard-outline
+        link: /docs/guides/interac_online
+    -
         title: SSL
         description: >
             Encrypt information and provide computer to computer authentication.
