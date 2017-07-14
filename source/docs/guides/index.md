@@ -60,6 +60,18 @@ cards:
         icon: list
         link: /docs/guides/3D_secure
     -
+        title: Masterpass
+        description: >
+            Process payments with Masterpass.
+        icon: creditcard-outline
+        link: /docs/guides/masterpass
+    -
+        title: Visa Checkout
+        description: >
+            Process payments with Visa Checkout.
+        icon: creditcard-outline
+        link: /docs/guides/visa_checkout
+    -
         title: SSL
         description: >
             Encrypt information and provide computer to computer authentication.
