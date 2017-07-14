@@ -17,4 +17,4 @@ curl https://api.na.bambora.com/v1/payments
 
 Interac Online is a transaction method available to Canadian merchants only. It allows customers to authenticate direct debits without sharing their debit card details with the merchant.
 
-See [here](/docs/guides/interac_online) for more information on how to implement 3D Secure.
+See [here](/docs/guides/interac_online) for more information on how to implement Interac Online.
