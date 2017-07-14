@@ -54,6 +54,12 @@ cards:
         icon: list
         link: /docs/guides/onboarding/
     -
+        title: Payment Profiles
+        description: >
+            Lean about managing secure payment profiles.
+        icon: checkmark
+        link: /docs/guides/payment_profiles
+    -
         title: 3D Secure
         description: >
             Learn about implementing 3D Secure based payments.
