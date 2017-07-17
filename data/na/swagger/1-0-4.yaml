@@ -973,11 +973,18 @@ definitions:
       payment_method:
         type: string
         description: 'Payment method'
-        enum: ['card', 'token', 'payment_profile', 'cash', 'cheque','apple_pay','android_pay']
+        enum: ['card', 'token', 'payment_profile', 'cash', 'cheque', 'interac', 'apple_pay', 'android_pay']
       custom:
         $ref: '#/definitions/Custom'
       card:
         $ref: '#/definitions/CardPurchaseResponse'
+      merchant_data:
+        type: string
+        maxLength: 32
+        description: 'Returned only for ''interac'' or 3D Secure payment requests. This value can be used as the {id} value when creating your ''continue'' endpoint URL.'
+      contents: 
+        type: string
+        description: 'Returned only for ''interac'' or 3D Secure payment requests. This should be embedded in the user''s browser client and this needs to be displayed to the customer to redirect them to the Interac login or 3D Secure processing page.'
       interac_online:
         $ref: '#/definitions/InteracOnlineResponse'
       links:
@@ -1021,6 +1028,7 @@ definitions:
         type: boolean
         description: 'Is true if the issuing bank has successfully processed an AVS check on the transaction. Is false if no AVS check was performed.'
   InteracOnlineResponse:
+    description: 'Returned only in the final response from the ''continue'' endpoint.'
     properties: 
       idebit_issconf:
         type: string
@@ -1665,7 +1673,7 @@ definitions:
     properties:
       payment_method:
         type: string
-        description: 'For a 3D Secure payment process the value for this property will always be "credit_card".'
+        description: 'For a 3D Secure payment process the value for this property will always be ''card''. For an Interac Online process the value for this property will always be ''interac''.'
       card_response:
         $ref: '#/definitions/CardResponse'
       interac_response:
