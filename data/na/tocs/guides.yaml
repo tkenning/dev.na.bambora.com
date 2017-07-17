@@ -12,6 +12,8 @@
   title: 'Android Pay'
 - file: '/docs/guides/onboarding'
   title: 'Onboarding'
+- file: '/docs/guides/payment_profiles'
+  title: 'Payment Profiles'
 - file: '/docs/guides/3D_secure'
   title: '3D Secure'
 - file: '/docs/guides/masterpass'
