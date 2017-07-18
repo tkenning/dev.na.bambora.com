@@ -32,13 +32,13 @@ You can find more about Bambora and Android Pay on [Github](https://github.com/b
 
 ## Requirements
 
-### Registering your Android Pay merchant ID
+### Registering your Android Pay Merchant ID
 
-Before you accept Android Pay, you'll need to turn on and register an Android merchant ID with Bambora. Start by logging into your [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Android Pay and add an Android Pay merchant ID.
+Before you accept Android Pay, you'll need to turn on and register an Android Merchant ID with Bambora. Start by logging into your [Member Area](https://web.na.bambora.com). Under **configuration**, click on **mobile payments**. From the Mobile Payments screen, you can enable Android Pay and add an Android Pay Merchant ID.
 
 <img src="/docs/guides/android_pay/android-mobile-payments-screenshot.png" alt="mobile-payments-screenshot">
 
-Enter a unique string and click **ADD ANDROID MERCHANT ID** to create your Android Pay merchant ID. The ID comes with a newly created Public Key will be used as the `publicKey` parameter in your Android app.
+Enter a unique string and click **ADD ANDROID MERCHANT ID** to create your Android Pay Merchant ID. The ID comes with a newly created Public Key will be used as the `publicKey` parameter in your Android app.
 
 <img src="/docs/guides/android_pay/android-input.png" alt="apple-credentials">
 
