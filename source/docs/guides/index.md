@@ -54,11 +54,35 @@ cards:
         icon: list
         link: /docs/guides/onboarding/
     -
+        title: Payment Profiles
+        description: >
+            Lean about managing secure payment profiles.
+        icon: checkmark
+        link: /docs/guides/payment_profiles
+    -
         title: 3D Secure
         description: >
             Learn about implementing 3D Secure based payments.
         icon: list
         link: /docs/guides/3D_secure
+    -
+        title: Masterpass
+        description: >
+            Process payments with Masterpass.
+        icon: creditcard-outline
+        link: /docs/guides/masterpass
+    -
+        title: Visa Checkout
+        description: >
+            Process payments with Visa Checkout.
+        icon: creditcard-outline
+        link: /docs/guides/visa_checkout
+    -
+        title: Interac Online
+        description: >
+            Process payments with Interac Online.
+        icon: creditcard-outline
+        link: /docs/guides/interac_online
     -
         title: SSL
         description: >
