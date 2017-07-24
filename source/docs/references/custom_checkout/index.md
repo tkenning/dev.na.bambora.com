@@ -59,6 +59,7 @@ The following CSS properties can be set on the objects set on the style object:
 * `fontStyle`
 * `fontWeight`
 * `textDecoration`
+* `padding`, `paddingLeft`, `paddingTop`, `paddingRight`, and `paddingBottom`
 
 As well as these pseudo-classes:
 
