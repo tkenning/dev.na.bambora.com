@@ -2,7 +2,7 @@
   title: Merchant Quickstart
 - file: /docs/guides/merchant_quickstart/calling_APIs/
   title: Calling APIs
-- file: /docs/guides/merchant_quickstart/test_cards/
+- file: /docs/references/testing/test_cards/
   title: Test Cards
 - file: /docs/guides/merchant_quickstart/Boarding/
   title: Boarding
