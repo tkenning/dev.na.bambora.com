@@ -24,6 +24,13 @@ cards:
         icon: checkmark
         link: /docs/references/onboarding_API/
     -
+        title: Custom Checkout Reference
+        description: > 
+            Custom Checkout allows you to create a fully customizable payment
+            form while minimizing the scope of your PCI compliance. 
+        icon: list
+        link: /docs/references/custom_checkout/
+    -
         title: Payment SDKs
         description: >
             The Payment SDKs wrap the Payment APIs. They include server, mobile and browser SDKs.
