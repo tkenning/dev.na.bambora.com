@@ -171,16 +171,9 @@ customCheckout.on('blur', function(event) {
 
 ***Input Validation***
 
-* `CardBrandInvalid`
-* `CardBrandNotAccepted`
 * `CardNumberNotSet`
-* `CardNumberInvalidLength`
 * `CardNumberInvalid`
-* `CardNumberLuhnIsInvalid`
 * `CvvNotSet`
-* `CvvIsNotANumber`
-* `CvvInvalidLength`
-* `MonthIsNotValid`
 * `ExpiryIsInThePast`
 * `ExpiryIsNotSet`
 
@@ -189,7 +182,6 @@ customCheckout.on('blur', function(event) {
 * `TokenizationValidationFailed`
 * `TokenizationFailed`
 * `TokenizationNoResponse`
-* `TokenizationTimeout`
 
 
 ### customcheckout.createToken
