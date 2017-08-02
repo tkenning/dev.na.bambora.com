@@ -2,6 +2,8 @@
   title: 'Payment APIs'
 - file: '/docs/references/onboarding_API/'
   title: 'Onboarding API'
+- file: '/docs/references/custom_checkout/'
+  title: 'Custom Checkout'
 - file: '/docs/references/payment_SDKs/'
   title: 'Payment SDKs'
 - file: '/docs/references/AVS/'
