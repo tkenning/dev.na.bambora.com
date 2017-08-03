@@ -8,7 +8,7 @@ summary: >
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
-  toc: na.tocs.batch_upload
+  toc: na.tocs.batch_payment
   header_active: References
 
 ---
