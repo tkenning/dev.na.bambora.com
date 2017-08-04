@@ -49,7 +49,7 @@
 | 538 | RE Enter | RE Enter |
 | 539 | Sec Violation | Sec Violation |
 | 540 | Serv Not Allowed | Serv Not Allowed |
-| 541 | Serv NOt Allowed | Serv NOt Allowed |
+| 541 | Serv Not Allowed | Serv Not Allowed |
 | 542 | Stop Recurring | Stop Recurring |
 | 543 | Stop Recurring | Stop Recurring |
 | 544 | System Error | System Error |
