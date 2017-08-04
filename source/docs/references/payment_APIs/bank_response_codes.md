@@ -1,9 +1,9 @@
 ---
-title: Payment APIs Overview
+title: Payment API response codes
 layout: tutorial
 
 summary: >
-    Our Payment APIs are the RESTful interface to our payment gateway.
+    Bank related response codes for our Payment API.
 
 navigation:
   header: na.tocs.na_nav_header
