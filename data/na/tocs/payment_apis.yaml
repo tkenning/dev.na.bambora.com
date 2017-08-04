@@ -4,3 +4,5 @@
   title: 'Spec'
 - file: '/docs/references/payment_APIs/bank_response_codes/'
   title: 'Bank response codes'
+- file: /docs/references/testing/test_cards/		
+  title: 'Test cards'
