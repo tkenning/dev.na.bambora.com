@@ -119,3 +119,5 @@
 | 941 | DECLINE | oauth_verifier is required |
 | 942 | DECLINE | checkout_resource_url is required |
 | 944 | Card entry method not accepted | Card entry method not accepted |
+| 1134 | Transaction cannot be voided | Transaction cannot be voided |
+| 1135 | Amount in the request does not match the amount in the payment token. | Declined |
