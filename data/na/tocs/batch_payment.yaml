@@ -4,8 +4,6 @@
   title: Batch
 - file: /docs/guides/batch_payment/report/
   title: Report
-- file: /docs/guides/batch_payment/example_workflow/
-  title: Example workflow
 - file: /docs/references/batch_payment/
   title: Batch References
 - file: /docs/references/batch_payment_report/
