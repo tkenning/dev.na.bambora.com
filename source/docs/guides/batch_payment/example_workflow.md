@@ -1,5 +1,5 @@
 ---
-title: Batch Upload
+title: Batch Payment
 layout: tutorial
 
 summary: >
@@ -15,7 +15,7 @@ navigation:
 
 # Example workflow
 
-The Batch Upload API allows you to batch transactions together into a single a API call. This reduces the number of HTTP connections your client has to make.
+The Batch Payment API allows you to batch transactions together into a single a API call. This reduces the number of HTTP connections your client has to make.
 
 You can batch credit card transactions and funds transfer (ACH/EFT) transactions. You can use funds transfer transactions to push funds to a creditor, or pull funds from a debtor. The most common use cases for this is payroll or Accounts Payable, and synchronised subscription models where multiple people are charged on a certain day each month, or each year.
 

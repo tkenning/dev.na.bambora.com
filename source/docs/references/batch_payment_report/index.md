@@ -1,9 +1,9 @@
 ---
-title: Batch Upload Reference
+title: Batch Payment Reference
 layout: tutorial
 
 summary: >
-  A full API reference for Batch Upload.
+  A full API reference for Batch Payment.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -13,12 +13,12 @@ navigation:
 
 ---
 
-# Reporting on API
+# Batch Payment Report API
 
 This document lists and describes the properties expected in the request and response objects.
 
-- **URL:** https://na.bambora.com/scripts/reporting/report.aspx
-- **Method:** POST
+- **URL** - https://na.bambora.com/scripts/reporting/report.aspx
+- **Method** - POST
 
 ## Request
 

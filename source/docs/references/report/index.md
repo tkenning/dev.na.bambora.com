@@ -1,9 +1,9 @@
 ---
-title: Batch Upload Reference
+title: Batch Payment Reference
 layout: tutorial
 
 summary: >
-  A full API reference for Batch Upload.
+  A full API reference for Batch Payment.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -14,6 +14,11 @@ navigation:
 ---
 
 # Report
+
+This document lists and describes the properties expected in the request and response objects.
+
+- **URL** - https://na.bambora.com/scripts/reporting/report.aspx
+- **Method** - POST
 
 ## Get Transactions
 
@@ -46,7 +51,7 @@ The search criteria require 3 parameters: field, operator, and value. You can su
 ##### 1. Field
 The criteria operate on over 20 different fields of a transaction record. Each field is specified by a numeric value, in order starting from 1. The SDKs will handle this mapping for you, but if you are using REST directly then you will want to take note of this table:
 
-| Index | Field Name        | Parameters        |
+| Index | Field Name        | Description        |
 | ----- | ----------------- | ----------------- |
 | 1     | TransactionId     | Unique transaction identifier |
 | 2     | Amount            | Amount in dollars to two decimal places. |

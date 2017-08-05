@@ -1,5 +1,5 @@
 ---
-title: Batch Upload
+title: Batch Payment
 layout: tutorial
 
 summary: >
@@ -15,17 +15,18 @@ navigation:
 
 # Reporting on batched transactions
 
-The Batch Report API allows you to query the status of your batches of funds transfer (EFT/ACH) transactions and the status of the individual transactions within those batches. It allows you to query a specific transaction or search for a range of transactions.
+The Batch Report API allows you to query the status of your batches of funds transfer (EFT/ACH) transactions and the status of the individual transactions within those batches.
 
-The API supports 4 types of report:
+The API supports batched funds transfers only. Batched credit card transactions are processed as individual transactions and are queried through our Report API (as distinct from our Batch Report API).
+
+[Question: How do you report on the status of a batch file? (for example, how do you get the processing date or if it has been canceled?)]
+
+There are two distinct report types:
 
 - BatchPaymentsEFT
 - BatchPaymentsACH
-- BatchSettlement
 
-Reports can include the processing dates, debit and credit dates, the number of transactions in each file, and the total amount for each batch file.
-
-Batched credit card transactions are processed as individual transactions and are queried through our core Report API. They cannot be queried through this API.
+The current version of the API is: 2.0
 
 ## Authorising requests
 
@@ -37,17 +38,13 @@ All requests to the Report API must be authorised. You can authorized a request 
 
 ### Authorising as an ISV
 
-If you have a partner account with us, you can specify the sub-merchant account on which to process the batched transactions. This is passed in the body of the request with the `rptMerchantId` parameter.
+If you have a partner account with us, you can authorise the request with the partner account's passcode and specify the sub-merchant account on which to report using the `rptMerchantId` parameter.
 
 ## Format
 
 ### Request
 
-A report request is a HTTP request using the `application/xml` content type. The transaction data is passed in CSV format. All parameters are passed in a XML document in the body of the request. The XML declaration should identify the version as "1.0" and the version as "UTF-8".
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-```
+A report request is a HTTP request using the `application/xml` content type. All parameters are passed in the body of the request.
 
 ### Response
 
@@ -57,7 +54,7 @@ JSON and XMl response object contains a "code" property" indicating the success 
 
 All successful response objects contain a list of objects containing information on the status of each transaction (or "record") in the batch.
 
-The record object contains information on:
+The most important columns in the report are record object contains information on:
 
 - **Status**: This refers to our validation of the format of the request. This should "Validated/Approved".
 - **State**: This refers to the progress of valid transactions through the settlement process. This should be somewhere on a spectrum between "Importing" and "Complete".
@@ -67,9 +64,7 @@ You can read a full list of properties in the API reference doc.
 
 ### Examples
 
-#### Example request
-
-#### Report on batch of ACH funds transfers
+#### EFT request
 ```bash
 curl -X POST \
   https://api.na.bambora.com/scripts/reporting/report.aspx \
@@ -90,28 +85,11 @@ curl -X POST \
 </request>'
 ```
 
-#### Report on batch of ACH funds transfers
-```bash
-curl -X POST \
-  https://api.na.bambora.com/scripts/reporting/report.aspx \
-  -H 'content-type: application/xml' \
-  -d '<?xml version="1.0" encoding="utf-8"?>
-<request>
-<rptVersion>2.0</rptVersion>
-<serviceName>BatchPaymentsACH</serviceName>
-<merchantId>300204337</merchantId>
-<sessionSource>external</sessionSource>
-<passCode>07bFc2e51a7F4620B4CbEede714279Ec</passCode>
-<rptFormat>CSV</rptFormat>
-<rptFromDateTime>2012-03-03 00:00:00</rptFromDateTime>
-<rptToDateTime>2019-03-03 23:59:59</rptToDateTime>
-<rptFilterBy1>batch_id</rptFilterBy1>
-<rptOperationType1>EQ</rptOperationType1>
-<rptFilterValue1>10000020</rptFilterValue1>
-</request>'
-```
+#### ACH request
 
-#### Example response
+TODO: Add ACH example request
+
+#### EFT response
 
 ```bash
 {
@@ -125,9 +103,9 @@ curl -X POST \
         "record": [
             {
                 "rowId": 1,
-                "merchantId": 300204337,
-                "batchId": 10000020,
-                "transId": 4,
+                "merchantId": 300202779,
+                "batchId": 10000000,
+                "transId": 1,
                 "itemNumber": 1,
                 "payeeName": "General Motors",
                 "reference": "1000070001",
@@ -135,21 +113,21 @@ curl -X POST \
                 "amount": 10000,
                 "stateId": 2,
                 "stateName": "Scheduled",
-                "statusId": 2,
-                "statusName": "Rejected/Declined",
+                "statusId": 1,
+                "statusName": "Validated/Approved",
                 "bankDescriptor": "",
-                "messageId": "3",
+                "messageId": "",
                 "customerCode": "",
-                "settlementDate": "2017-07-25",
+                "settlementDate": "2017-08-09",
                 "returnedDate": "",
                 "returnType": "",
                 "eftId": 0
             },
             {
                 "rowId": 2,
-                "merchantId": 300204337,
-                "batchId": 10000020,
-                "transId": 5,
+                "merchantId": 300202779,
+                "batchId": 10000000,
+                "transId": 2,
                 "itemNumber": 2,
                 "payeeName": "Paul Randall",
                 "reference": "1000070002",
@@ -162,7 +140,7 @@ curl -X POST \
                 "bankDescriptor": "",
                 "messageId": "",
                 "customerCode": "",
-                "settlementDate": "2017-07-25",
+                "settlementDate": "2017-08-09",
                 "returnedDate": "",
                 "returnType": "",
                 "eftId": 0
@@ -171,3 +149,7 @@ curl -X POST \
     }
 }
 ```
+
+#### ACH response
+
+TODO: Add ACH example response

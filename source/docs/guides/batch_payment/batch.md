@@ -1,5 +1,5 @@
 ---
-title: Batch Upload
+title: Batch Payment
 layout: tutorial
 
 summary: >
@@ -13,21 +13,23 @@ navigation:
 
 ---
 
-# Uploading batches of transactions
+# Batch payment
 
-A batch request consists of multiple transactions submitted in a single API call. This section describes the batch syntax in detail. The next section contains sample calls.
+A batch request is a single API call to upload a file containing a list of transactions. This section describes the batch syntax in detail. The next section contains sample calls.
 
 The number of transactions that you can include in a single batch is limited by the size of the file upload. The maximum file size is 40MB. You should limit the number of transactions in a single batch request to 10,000, as you will encounter longer upload times when uploading larger files. If you need to make more calls than that, use multiple batch requests.
 
+Transactions can reference raw bank or card data, or Payment Profile IDs.
+
 ### Test accounts
 
-Test accounts need to be configured to enable Funds Transfer functionality. If you want to run tests, you will need to email support.northamerica@bambora.com with your test account ID requesting that this functionality is enabled.
+[Test accounts](../../../forms/create_test_merchant_account) need to be configured to enable Batch Payment functionality. We enable the functionality on request. You just need to email [support.northamerica@bambora.com](mailto:support.northamerica@bambora.com) with your test account ID.
 
 ## Authorising requests
 
-All requests to the Batch Upload API must be authorised. You can authorized a request by passing your merchant ID and API passcode in the Authorization header.
+All requests to the Batch Payment API must be authorised. You can authorized a request by passing your merchant ID and API passcode in the Authorization header.
 
-> You can generate an API key for the Batch Upload API in the [Member Area](https://web.na.bambora.com/). After logging in, select **administration**,  then **account settings**, and finally **order settings**.
+> You can generate an API key for the Batch Payment API in the [Member Area](https://web.na.bambora.com/). After logging in, select **administration**,  then **account settings**, and finally **order settings**.
 
 > On the Order Settings page, you'll find the **Batch File Upload*** section. Here you can set an API access code by clicking the **Generate New Code** button. Once you have a new code, click **Update** at the bottom of the page.
 
@@ -45,9 +47,9 @@ If you have a partner account with us, you can specify the sub-merchant account 
 
 ## Request format
 
-A batch request is a single HTTP request containing data for multiple transaction, using the `multipart/form-data` content type. The transaction data is passed in .csv format.
+A batch request is a single HTTP request containing data for multiple transaction, using the `multipart/form-data` content type. The transaction data is passed in .csv format. You can read more about the `content-type` and `boundary` directives on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type).
 
-> Remember to specify the boundary parameter in the Content-Type header when using the `multipart/form-data` content type. This identifies where the message of the request is separated from the file content. You can read more about the `media-type` and `boundary` directives on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type).
+The JSON object and file data are passed on a Content-Disposition headers. You can read more about them on [MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Content-Disposition).
 
 In addition to the content type and authorisation headers, you will need to specify the filetype as 'STD'.
 
@@ -59,7 +61,7 @@ The API expects a single CSV file with one transaction per row. It does not expe
 
 The server's response is a single HTTP response using the text content type. The response body is formatted as JSON and refers to the success of the batch request itself, not the success of the individual transactions it contained.
 
-Though your upload was successful, individual transactions within the batch may have been rejected due to the format of the rows or the format of the content. You can query the status of these individual transactions submitted within the batch using the Batch Report API.
+You can query individual transactions from a batch through the Batch Payment Report API and the Report API.
 
 The response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to bank to begin processing.
 
@@ -69,11 +71,7 @@ This section includes a sample HTTP request that references a file to be uploade
 
 ### Example batch requests
 
-The following two examples show the use of the Batch Upload API. The first authorises and processes against the same account. The second authorises against one account and processes against a child of the authorising account.
-
-You can run these cURL examples in your Terminal. You can create your authorisation header encoder to create an authorisation header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/).
-
-You can also find these example batch requests in our Postman Collection.
+The following two examples show the use of the Batch Payment API. You can run these cURL examples in your Terminal. You can create your authorisation header encoder to create an authorisation header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/). You can also find these example batch requests in our Postman Collection.
 
 #### Vanilla file upload
 ```shell
@@ -88,7 +86,7 @@ curl -X POST \
 ```shell
 curl -X POST \
   https://api.na.bambora.com/v1/batchpayments \
-  -H 'authorization: Passcode {{passcode_encoded}}' \
+  -H 'authorization: Passcode your_encoded_passcode' \
   -H 'content-type: multipart/form-data; boundary=WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -H 'filetype: STD' \
   -d '--WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -113,7 +111,7 @@ E,C,003,99003,09400313373,30000,1000070003,Jane Doe
 ```shell
 curl -X POST \
   https://api.na.bambora.com/v1/batchpayments \
-  -H 'authorization: Passcode {{passcode_encoded}}' \
+  -H 'authorization: Passcode your_encoded_passcode' \
   -H 'content-type: multipart/form-data; boundary=WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -H 'filetype: STD' \
   -d '--WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -158,7 +156,7 @@ E,C,003,99003,09400313373,30000,1000070003,Jane Doe
 ### Example EFT file (Payment Profile)
 
 ```bash
-E,C,,,,10000,,,{{payment_passcode}},dynamic descriptor
+E,C,,,,10000,,,the_profile_id,dynamic descriptor
 ```
 
 ### Example ACH file

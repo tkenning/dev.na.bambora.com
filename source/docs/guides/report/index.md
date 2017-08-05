@@ -1,5 +1,5 @@
 ---
-title: Batch Upload
+title: Batch Payment
 layout: tutorial
 
 summary: >
