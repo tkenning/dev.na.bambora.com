@@ -171,7 +171,6 @@ customCheckout.on('blur', function(event) {
 
 ***Input Validation***
 
-* `CardNumberNotSet`
 * `CardNumberInvalid`
 * `CvvNotSet`
 * `ExpiryIsInThePast`
