@@ -8,7 +8,7 @@ summary: >
 navigation:
   header: na.tocs.na_nav_header
   footer: na.tocs.na_nav_footer
-  toc: na.tocs.merchant_quickstart
+  toc: na.tocs.payment_apis
   header_active: Guides
 
 ---
