@@ -23,13 +23,13 @@ navigation:
 - The injected inputs now have a transparent background. This allows for changing the color of the input by changing the background color of the div it is mounted to. 
 - The library now behaves correctly in IE 9, 10, and 11. 
 - The 404 page for library files no longer redirects to web.na.bambora.com after a timeout. 
-- Autofill of credit card information now behaves correctly in browsers that support it. 
+- Autofill of credit card information now behaves correctly in browsers that support it.
 - Validation error types have been simplified. See the [documentation](/docs/references/custom_checkout/#error-type) for the updated list.
-- Added the following new methods to input objects: 
+- Added the following new methods to input objects:
   - `input.unmount()`: remove an input from the DOM
-  - `input.update()`: update the options passed to an input 
+  - `input.update()`: update the options passed to an input
   - `input.focus()`: give focus to the input
-  - `input.blur()`: remove focus from the input 
+  - `input.blur()`: remove focus from the input
   - `input.clear()`: reset the value of the input
 
 ## v0.1.1
