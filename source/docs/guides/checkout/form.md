@@ -118,4 +118,4 @@ https://web.na.bambora.com/order/sample/declined.asp
 Don't forget to click **Update** button at the bottom of the page to save your changes.
 
 ### Testing redirects
-You may fine it helpful tools like [PutsReq](http://putsreq.com) helpful while testing.
+You may fined it helpful tools like [PutsReq](http://putsreq.com) helpful while testing.
