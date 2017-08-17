@@ -171,16 +171,8 @@ customCheckout.on('blur', function(event) {
 
 ***Input Validation***
 
-* `CardBrandInvalid`
-* `CardBrandNotAccepted`
-* `CardNumberNotSet`
-* `CardNumberInvalidLength`
 * `CardNumberInvalid`
-* `CardNumberLuhnIsInvalid`
 * `CvvNotSet`
-* `CvvIsNotANumber`
-* `CvvInvalidLength`
-* `MonthIsNotValid`
 * `ExpiryIsInThePast`
 * `ExpiryIsNotSet`
 
@@ -189,7 +181,6 @@ customCheckout.on('blur', function(event) {
 * `TokenizationValidationFailed`
 * `TokenizationFailed`
 * `TokenizationNoResponse`
-* `TokenizationTimeout`
 
 
 ### customcheckout.createToken
@@ -216,3 +207,61 @@ customCheckout.createToken(function(result) {
 | `last4`                 | String | Only present if no error. The last 4 digits of the card number. |
 | `expiryMonth`           | String | Only present if no error. The expiry month of the card.         |
 | `expiryYear`            | String | Only present if no error. The expiry year of the card.          |
+
+### input.update
+
+`input.update(options)`
+
+Updates an input instance with the specified *options*. Any previously set options will be lost.
+
+| Argument       | Type   | Description                                                         |
+|----------------|--------|---------------------------------------------------------------------|
+| *options*      | Object | Optional options object that can be specified for the field.             |
+
+```javascript
+var options = { ... };
+var cardNumber = customCheckout().create('card-number', options);
+
+options = { ... };
+cardNumber.update(options);
+```
+
+### input.focus
+
+`input.focus()`
+
+Requests to gain focus on a given input.
+
+```javascript
+cardNumber.focus();
+```
+
+### input.blur
+
+`input.blur()`
+
+Requests to lose focus from a given input.
+
+```javascript
+cardNumber.blur();
+```
+
+### input.clear
+
+`input.clear()`
+
+Removes any text entered from a given input.
+
+```javascript
+cardNumber.clear();
+```
+
+### input.unmount
+
+`input.unmount()`
+
+Removes a given input from the DOM.
+
+```javascript
+cardNumber.unmount();
+```
