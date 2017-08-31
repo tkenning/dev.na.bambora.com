@@ -23,6 +23,6 @@ Given a version number `MAJOR.MINOR.PATCH`:
 
 - `MAJOR`: incremented when changes break backwards compatibility, e.g. 2.0.0
 - `MINOR`: incremented when adding new features which don't break existing features, e.g. 1.1.0
-- `PATCH`: release: incremented when making bug fixes and other minor changes, e.g. 1.0.1
+- `PATCH`: incremented when making bug fixes and other minor changes, e.g. 1.0.1
 
 
