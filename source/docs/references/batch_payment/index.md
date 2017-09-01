@@ -37,6 +37,50 @@ The API expects a single CSV file with one transaction per row. It does not expe
 
 The expected format for the data varies according to the transaction type.
 
+#### Canadian funds transfer (EFT)
+
+For batches of EFT transactions, the API expects the following columns:
+
+- **Transaction type** - The type of transaction.
+  - E - EFT
+- **Transaction type**
+  - C – Credit recipient bank accounts
+  - D – Debit an outside bank account and depositing funds into your own
+- **Financial institution number** - The 3 digit financial institution number
+- **Bank transit number** - The 5 digit bank transit number
+- **Account number** - The 5-12 digit account number
+- **Amount** - Transaction amount in pennies
+- **Reference number** - An optional reference number of up to 19 digits. If you don't want a reference number, enter "0" (zero).
+- **Recipient name** - Full name of the bank account holder
+- **Customer code** - The 32-character customer code located in the Payment Profile. Do not populate bank account fields in the file when processing against a Payment Profile.
+- **Dynamic descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
+
+
+#### American finds transfer (ACH)
+
+For batches of ACH transactions, the API expects the following columns:
+
+- **Transaction type** - The type of transaction.
+  - A - ACH
+- **Transaction type**
+  - C – Credit recipient bank accounts
+  - D – Debit an outside bank account and depositing funds into your own
+- **Transit Routing Number** - The 9-digit transit number
+- **Account Number** - The 5-15 digit account number
+- **Account Code** - Designates the type of bank account
+  - PC – Personal Checking
+  - PS – Personal Savings
+  - CC – Corporate Checking
+  - CS – Corporate Savings
+- **Amount** - Transaction amount in pennies
+- **Reference number** - An optional reference number of up to 19 digits. If you don't want a reference number, enter "0" (zero).
+- **Recipient Name** - Full name of the bank account holder
+- **Customer Code** - The 32-character customer code located in the Payment Profile. Do not populate bank account fields in the file when processing against a Payment Profile.
+- **Dynamic Descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
+- **Standard Entry Code** - Leave black unless your account has SEC code permissions enabled.
+- **Entry Detail Addenda Record** - Leave black unless your account has SEC code permissions enabled.
+
+
 #### Credit card
 
 For batches of credit card transactions, the API expects the following columns:
@@ -63,47 +107,6 @@ For batches of credit card transactions, the API expects the following columns:
 - **Dynamic descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
 - **Customer code** - The 32-character customer code located in the Payment Profile. Do not populate bank account fields in the file when processing against a Payment Profile.
 
-#### Canadian funds transfer (EFT)
-
-For batches of EFT transactions, the API expects the following columns:
-
-- **Transaction type** - The type of transaction.
-  - E - EFT
-- **Transaction type**
-  - C – Credit recipient bank accounts
-  - D – Debit an outside bank account and depositing funds into your own
-- **Financial institution number** - The 3 digit financial institution number
-- **Bank transit number** - The 5 digit bank transit number
-- **Account number** - The 5-12 digit account number
-- **Amount** - Transaction amount in pennies
-- **Reference number** - An optional reference number of up to 19 digits. If you don't want a reference number, enter "0" (zero).
-- **Recipient name** - Full name of the bank account holder
-- **Customer code** - The 32-character customer code located in the Payment Profile. Do not populate bank account fields in the file when processing against a Payment Profile.
-- **Dynamic descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
-
-#### Canadian finds transfer (ACH)
-
-For batches of ACH transactions, the API expects the following columns:
-
-- **Transaction type** - The type of transaction.
-  - A - ACH
-- **Transaction type**
-  - C – Credit recipient bank accounts
-  - D – Debit an outside bank account and depositing funds into your own
-- **Transit Routing Number** - The 9-digit transit number
-- **Account Number** - The 5-15 digit account number
-- **Account Code** - Designates the type of bank account
-  - PC – Personal Checking
-  - PS – Personal Savings
-  - CC – Corporate Checking
-  - CS – Corporate Savings
-- **Amount** - Transaction amount in pennies
-- **Reference number** - An optional reference number of up to 19 digits. If you don't want a reference number, enter "0" (zero).
-- **Recipient Name** - Full name of the bank account holder
-- **Customer Code** - The 32-character customer code located in the Payment Profile. Do not populate bank account fields in the file when processing against a Payment Profile.
-- **Dynamic Descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
-- **Standard Entry Code** - Leave black unless your account has SEC code permissions enabled.
-- **Entry Detail Addenda Record** - Leave black unless your account has SEC code permissions enabled.
 
 ## Response object
 
@@ -122,7 +125,7 @@ HTTP Status: 200 OK
 HTTP Status: 400 Bad Request
 
 - **code** - See table below.
-- **category**
+- **category** - See table below.
 - **message** - See table below.
 - **reference** - Always NULL.
 

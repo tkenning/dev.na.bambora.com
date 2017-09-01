@@ -19,12 +19,13 @@ The Batch Report API allows you to query the status of your batches of funds tra
 
 The API supports batched funds transfers only. Batched credit card transactions are processed as individual transactions and are queried through our Report API (as distinct from our Batch Report API).
 
-[Question: How do you report on the status of a batch file? (for example, how do you get the processing date or if it has been canceled?)]
-
-There are two distinct report types:
+There are three distinct report types:
 
 - BatchPaymentsEFT
 - BatchPaymentsACH
+- BatchSettlement
+
+The settlement report will be empty until the batch is settled. You can query the date that a batch is due to settle using the BatchPaymentsEFT or BatchPaymentsACH report. You can then query the amount that was settled using the BatchSettlement report.
 
 The current version of the API is: 2.0
 
@@ -73,9 +74,9 @@ curl -X POST \
 <request>
 <rptVersion>2.0</rptVersion>
 <serviceName>BatchPaymentsEFT</serviceName>
-<merchantId>300204337</merchantId>
+<merchantId>your_merchant_id</merchantId>
+<passCode>your_report_api_passcode</passCode>
 <sessionSource>external</sessionSource>
-<passCode>07bFc2e51a7F4620B4CbEede714279Ec</passCode>
 <rptFormat>JSON</rptFormat>
 <rptFromDateTime>2012-03-03 00:00:00</rptFromDateTime>
 <rptToDateTime>2019-03-03 23:59:59</rptToDateTime>
@@ -84,10 +85,6 @@ curl -X POST \
 <rptFilterValue1>10000020</rptFilterValue1>
 </request>'
 ```
-
-#### ACH request
-
-TODO: Add ACH example request
 
 #### EFT response
 
@@ -150,6 +147,151 @@ TODO: Add ACH example request
 }
 ```
 
+#### ACH request
+```bash
+curl -X POST \
+  https://api.na.bambora.com/scripts/reporting/report.aspx \
+  -H 'content-type: application/xml' \
+  -d '<?xml version="1.0" encoding="utf-8"?>
+<request>
+<rptVersion>2.0</rptVersion>
+<serviceName>BatchPaymentsACH</serviceName>
+<merchantId>your_merchant_id</merchantId>
+<passCode>your_report_api_passcode</passCode>
+<sessionSource>external</sessionSource>
+<rptFormat>JSON</rptFormat>
+<rptFromDateTime>2012-03-03 00:00:00</rptFromDateTime>
+<rptToDateTime>2019-03-03 23:59:59</rptToDateTime>
+<rptFilterBy1>batch_id</rptFilterBy1>
+<rptOperationType1>EQ</rptOperationType1>
+<rptFilterValue1>10000020</rptFilterValue1>
+</request>'
+```
+
 #### ACH response
 
-TODO: Add ACH example response
+```bash
+{
+    "response": {
+        "version": "1.0",
+        "code": 1,
+        "message": "Report generated",
+        "records": {
+            "total": 3
+        },
+        "record": [
+            {
+                "rowId": 1,
+                "merchantId": 300210999,
+                "batchId": 10000000,
+                "transId": 1,
+                "itemNumber": 1,
+                "payeeName": "Patrick Star",
+                "reference": "0",
+                "operationType": "C",
+                "amount": 10000,
+                "bankAccountType": "PS",
+                "secCode": "   ",
+                "stateId": 2,
+                "stateName": "Scheduled",
+                "statusId": 2,
+                "statusName": "Rejected/Declined",
+                "bankDescriptor": "",
+                "messageId": "59",
+                "customerCode": "",
+                "settlementDate": "2017-09-05",
+                "returnedDate": "",
+                "eftId": 0,
+                "nocDate": "",
+                "nocAccountType": "",
+                "nocRoutingNumber": "",
+                "nocAccountNumber": ""
+            },
+            {
+                "rowId": 2,
+                "merchantId": 300210999,
+                "batchId": 10000000,
+                "transId": 2,
+                "itemNumber": 2,
+                "payeeName": "Spongebob Squarepants",
+                "reference": "0",
+                "operationType": "C",
+                "amount": 20000,
+                "bankAccountType": "PC",
+                "secCode": "   ",
+                "stateId": 2,
+                "stateName": "Scheduled",
+                "statusId": 2,
+                "statusName": "Rejected/Declined",
+                "bankDescriptor": "",
+                "messageId": "59",
+                "customerCode": "",
+                "settlementDate": "2017-09-05",
+                "returnedDate": "",
+                "eftId": 0,
+                "nocDate": "",
+                "nocAccountType": "",
+                "nocRoutingNumber": "",
+                "nocAccountNumber": ""
+            }
+        ]
+    }
+}
+```
+
+#### Settlement request
+```bash
+curl -X POST \
+  https://dbft.na.bambora.com/scripts/reporting/report.aspx \
+  -H 'content-type: application/xml' \
+  -d '<?xml version="1.0" encoding="utf-8"?>
+<request>
+<rptVersion>2.0</rptVersion>
+<serviceName>BatchSettlement</serviceName>
+<merchantId>your_merchant_id</merchantId>
+<passCode>your_report_api_passcode</passCode>
+<rptFormat>JSON</rptFormat>
+<rptFilterBy1>batch_id</rptFilterBy1>
+<rptOperationType1>EQ</rptOperationType1>
+<rptFilterValue1>1600</rptFilterValue1>
+</request>'
+```
+
+#### Settlement response
+```bash
+{
+    "response": {
+        "version": "1.0",
+        "code": 1,
+        "message": "Report generated",
+        "records": {
+            "total": 1
+        },
+        "record": [
+            {
+                "rowId": 1,
+                "merchantId": 300210999,
+                "batchId": 10000,
+                "settlementId": 1000000,
+                "operationType": "C",
+                "amount": 100,
+                "secCode": "",
+                "stateId": 4,
+                "stateName": "Complete",
+                "statusId": 1,
+                "statusName": "Approved",
+                "bankDescriptor": "Your descriptor",
+                "messageId": "",
+                "customerCode": "",
+                "settlementDate": "2017-08-30",
+                "returnedDate": "",
+                "eftId": 32000000,
+                "nocDate": "",
+                "nocAccountType": "",
+                "nocRoutingNumber": "",
+                "nocAccountNumber": ""
+            }
+        ]
+    }
+}
+```

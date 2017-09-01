@@ -39,16 +39,16 @@ Filters are assembled as in groups containing a column name (rptFilterBy*), an o
 - **rptVersion** - Numeric string. API version. Current version: "2.0".
 - **serviceName** - Type of report. Informed by the type of batch files that you want to report on. Enum.
   - **BatchPaymentsEFT** - EFT only
-  - **BatchPaymentsACH** - EFT only
+  - **BatchPaymentsACH** - ACH only
   - **BatchSettlement** - ACH or EFT
 - **rptFormat** - Format of the response
   - **JSON**, **XML**, **CSV**, **TSV**, or **XLS**
 - **rptFilterBy1**, **rptFilterBy2**, **rptFilterBy3**, **rptFilterBy4** - Enum
-  - **batch_id**
-  - **trans_id**
-  - **state_id**
-  - **status_id**
-  - **returned_date**
+  - **batch_id** - Batch identifier. This is a unique identifier per merchant account.
+  - **trans_id** - Batch transaction id. This is a unique identifier per transaction uploaded to a merchant account across all batch files. The unique transaction reference to a batch transaction is a combination of 'merchant_id', 'batch_id', and 'trans_id'.
+  - **state_id** - The progress of valid transactions through the settlement process.
+  - **status_id** - Our validation of the format of the request
+  - **returned_date** - Date the bank has applied a return or reject against the transaction. YYYY-MM-DD
   - **noc_date** - ACH only
 - **rptOperationType1**, **rptOperationType2**, **rptOperationType3**, **rptOperationType4** - Enum
   - **EQ** - Equal to
@@ -62,11 +62,11 @@ Filters are assembled as in groups containing a column name (rptFilterBy*), an o
   - **AND**
   - **OR**
 - **rptSortBy1**, **rptSortBy2** - Sort the results. Enum.
-  - **batch_id**
-  - **trans_id**
-  - **state_id**
-  - **status_id**
-  - **returned_date**
+  - **batch_id** - Batch identifier. This is a unique identifier per merchant account.
+  - **trans_id** - Batch transaction id. This is a unique identifier per transaction uploaded to a merchant account across all batch files. The unique transaction reference to a batch transaction is a combination of merchant_id, batch_id, and trans_id.
+  - **state_id** - The progress of valid transactions through the settlement process.
+  - **status_id** - Our validation of the format of the request
+  - **returned_date** - Date the bank has applied a return or reject against the transaction. YYYY-MM-DD
   - **noc_date** - ACH only
 - **rptFromDateTime** - Batch Processing Date and Time Start
 - **rptToDateTime** - Batch Processing Date and Time End
@@ -75,7 +75,7 @@ Filters are assembled as in groups containing a column name (rptFilterBy*), an o
 - **rptMerchantId** - Partners only. The sub-merchant ID to report against. Enum or number.
   - **All**
   - **AllLive**
-  - An merchant ID -
+  - A valid merchant ID
 
 ## Response
 
@@ -105,10 +105,10 @@ This section documents the fields returned for each of the 4 reports.
 - **reference** -
 - **operation_type** - Either 'C' to indicate a credit to the payee's account or 'D' to indicate a debit to the payee's account.
 - **amount** -
-- **state_id** -
-- **state_name** -
-- **status_id** -
-- **status_name** -
+- **state_id** - The progress of valid transactions through the settlement process.
+- **state_name** - An enum relative to the state_id.
+- **status_id** - Our validation of the format of the request
+- **status_name** - An enum relative to the status_id.
 - **bank_descriptor** - Text to display on the payee's bank statement associated with the debit/credit.
 - **message_id** - Comma separated listing of message IDs. (what are the message IDs?)
 - **customer_code** - Payee's Secure Payment Profile customer code.
@@ -136,10 +136,10 @@ This section documents the fields returned for each of the 4 reports.
   - **CC** - US Corporate Checking account
   - **CS** - US Corporate Savings account
 - **sec_code** - The transaction Standard Entry Code.
-- **state_id** -
-- **state_name** -
-- **status_id** -
-- **status_name** -
+- **state_id** - The progress of valid transactions through the settlement process.
+- **state_name** - An enum relative to the state_id.
+- **status_id** - Our validation of the format of the request
+- **status_name** - An enum relative to the status_id.
 - **bank_descriptor** - Text to display on the payee's bank statement associated with the debit/credit.
 - **message_id** - Comma separated listing of message IDs. (what are the message IDs?)
 - **customer_code** - The payee's Secure Payment Profile customer code.
