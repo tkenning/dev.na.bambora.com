@@ -26,7 +26,7 @@ A payment with Custom Checkout involves 3 steps:
 **First**, include and initialize Custom Checkout.
 
 ```html
-<script src='https://libs.na.bambora.com/customcheckout/1/customcheckout.js'></script>
+<script src='https://libs.na.bambora.com/customcheckout/0.1.1/customcheckout.js'></script>
 
 <script>
     var customCheckout = customcheckout();
