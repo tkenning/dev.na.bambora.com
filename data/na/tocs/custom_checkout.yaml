@@ -6,7 +6,5 @@
   title: Setup
 - file: /docs/references/custom_checkout/
   title: References
-- file: /docs/references/custom_checkout/versions/
-  title: Versions
 - file: /docs/references/custom_checkout/release_notes/
   title: Release Notes
