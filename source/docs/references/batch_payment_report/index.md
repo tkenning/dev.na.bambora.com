@@ -28,14 +28,14 @@ The API expects an XML document in the body of the request. The XML declaration 
 <?xml version="1.0" encoding="UTF-8"?>
 ```
 
-The API requires the XML document to include `merchantId` and `passCode` elements for authorisation, and, `serviceName` and `rptFormat` elements to identify the type and format of report to be returned. All other supported elements are filters to constrain the results in the report.
+The API requires the XML document to include `merchantId` and `passCode` elements for authorization, and, `serviceName` and `rptFormat` elements to identify the type and format of report to be returned. All other supported elements are filters to constrain the results in the report.
 
-Filters are assembled as in groups containing a column name (rptFilterBy*), an operation type (rptOperationType*) and a value (rptFilterValue*). The API requires the XML document to include all three, if any one is included.
+Filters are assembled as in groups containing a column name (`rptFilterBy*`), an operation type (`rptOperationType*`) and a value (`rptFilterValue*`). The API requires the XML document to include all three, if any one is included.
 
 ### Elements
 
-- **merchantId** - The authorising merchant ID. Numeric string. Length: 9 chars.
-- **passCode** - The reporting passcode for the authorising merchant. Alphanumeric string. Max length: 64 chars.
+- **merchantId** - The authorizing merchant ID. Numeric string. Length: 9 chars.
+- **passCode** - The reporting passcode for the authorizing merchant. Alphanumeric string. Max length: 64 chars.
 - **rptVersion** - Numeric string. API version. Current version: "2.0".
 - **serviceName** - Type of report. Informed by the type of batch files that you want to report on. Enum.
   - **BatchPaymentsEFT** - EFT only
@@ -97,7 +97,7 @@ JSON and XMl response object contains a "code" property" indicating the success 
 This section documents the fields returned for each of the 4 reports.
 
 ### BatchPaymentsEFT
-- **merchant_id** - Authorising merchant identifier. [Numeric. 9 digits.]
+- **merchant_id** - Authorizing merchant identifier. [Numeric. 9 digits.]
 - **batch_id** - Batch identifier. This is unique per merchant account. [Numeric.]
 - **trans_id** - Transaction identifier. This is unique per merchant account. [Numeric.]  
 - **item_number** - This is the transaction's line number within a batch file. [Numeric.]

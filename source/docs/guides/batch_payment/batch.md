@@ -25,33 +25,33 @@ Transactions can reference raw bank or card data, or Payment Profile IDs.
 
 [Test accounts](../../../forms/create_test_merchant_account) need to be configured to enable Batch Payment functionality. We enable the functionality on request. You just need to email [support.northamerica@bambora.com](mailto:support.northamerica@bambora.com) with your test account ID.
 
-## Authorising requests
+## Authorizing requests
 
-All requests to the Batch Payment API must be authorised. You can authorized a request by passing your merchant ID and API passcode in the Authorization header.
+All requests to the Batch Payment API must be authorized. You can authorized a request by passing your merchant ID and API passcode in the Authorization header.
 
 > You can generate an API key for the Batch Payment API in the [Member Area](https://web.na.bambora.com/). After logging in, select **administration**,  then **account settings**, and finally **order settings**.
 
 > On the Order Settings page, you'll find the **Batch File Upload*** section. Here you can set an API access code by clicking the **Generate New Code** button. Once you have a new code, click **Update** at the bottom of the page.
 
 
-The authorisation string is a base64 encoded concatenation of merchant_id, ":", and api_key. You Authorization header will be formatted like this.
+The authorization string is a base64 encoded concatenation of merchant_id, ":", and api_key. You Authorization header will be formatted like this.
 
 `Authorization: Passcode Base64Encoded(merchant_id:passcode)`
 
-### Authorising as an ISV
+### Authorizing as an Integrated Software Vendor (ISV)
 
 If you have a partner account with us, you can specify the sub-merchant account on which to process the batched transactions.
 
-- Authorise the API request as by passing your merchant ID and API passcode in the Authorization header.
-- Specify the he sub-merchant account id in the body.
+- Authorize the API request as by passing your merchant ID and API passcode in the Authorization header.
+- Specify the sub-merchant account id in the body.
 
 ## Request format
 
-A batch request is a single HTTP request containing data for multiple transaction, using the `multipart/form-data` content type. The transaction data is passed in .csv format. You can read more about the `content-type` and `boundary` directives on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type).
+A batch request is a single HTTP request containing data for multiple transactions, using the `multipart/form-data` content type. The transaction data is passed in .csv format. You can read more about the `content-type` and `boundary` directives on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type).
 
 The JSON object and file data are passed on a Content-Disposition headers. You can read more about them on [MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Content-Disposition).
 
-In addition to the content type and authorisation headers, you will need to specify the filetype as 'STD'.
+In addition to the content type and authorization headers, you will need to specify the filetype as 'STD'.
 
 ### Format of batched data
 
@@ -63,7 +63,7 @@ The server's response is a single HTTP response using the text content type. The
 
 You can query individual transactions from a batch through the Batch Payment Report API and the Report API.
 
-The response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to bank to begin processing.
+The response object contains a "code" property indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to the bank to begin processing.
 
 ## Examples
 
@@ -71,7 +71,7 @@ This section includes a sample HTTP request that references a file to be uploade
 
 ### Example batch requests
 
-The following two examples show the use of the Batch Payment API. You can run these cURL examples in your Terminal. You can create your authorisation header encoder to create an authorisation header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/). You can also find these example batch requests in our Postman Collection.
+The following two examples show the use of the Batch Payment API. You can run these cURL examples in your Terminal. You can create your authorization header encoder to create an authorization header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/). You can also find these example batch requests in our Postman Collection.
 
 #### Vanilla file upload
 ```shell
@@ -107,7 +107,7 @@ E,C,003,99003,09400313373,30000,1000070003,Jane Doe
 '
 ```
 
-#### Payment authorised by partner and processed on sub-merchant
+#### Payment authorized by partner and processed on sub-merchant
 ```shell
 curl -X POST \
   https://api.na.bambora.com/v1/batchpayments \

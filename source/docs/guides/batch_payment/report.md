@@ -1,5 +1,5 @@
 ---
-title: Batch Payment
+title: Batch Payment Report
 layout: tutorial
 
 summary: >
@@ -29,17 +29,17 @@ The settlement report will be empty until the batch is settled. You can query th
 
 The current version of the API is: 2.0
 
-## Authorising requests
+## Authorizing requests
 
-All requests to the Report API must be authorised. You can authorized a request by passing you merchant ID and API passcode in the body of the request with the `merchantId` and `passCode` parameters.
+All requests to the Report API must be authorized. You can authorized a request by passing your merchant ID and API passcode in the body of the request with the `merchantId` and `passCode` parameters.
 
 > You can generate an API key for the Report API in the [Member Area](https://web.na.bambora.com/). After logging in, select **administration**,  then **account settings**, and finally **order settings**.
 
 > On the Order Settings page, you'll find the **Report*** section. Here you can set an API access code by clicking the **Generate New Code** button. Once you have a new code, click **Update** at the bottom of the page.
 
-### Authorising as an ISV
+### Authorizing as an ISV
 
-If you have a partner account with us, you can authorise the request with the partner account's passcode and specify the sub-merchant account on which to report using the `rptMerchantId` parameter.
+If you have a partner account with us, you can authorize the request with the partner account's passcode and specify the sub-merchant account on which to report using the `rptMerchantId` parameter.
 
 ## Format
 
@@ -49,15 +49,11 @@ A report request is a HTTP request using the `application/xml` content type. All
 
 ### Response
 
-The response can be returned in either JSON, XMl, TSV, CSV, or XLS formats. The content type of the response is relative to the value of the `rptFormat` parameters in the request. The
+The response can be returned in either JSON, XMl, TSV, CSV, or XLS formats. The content type of the response is relative to the value of the `rptFormat` parameters in the request. The JSON and XMl response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
 
-JSON and XMl response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
+A successful request returns an array of transaction/record objects. The most important properties on these  objects are `status`, `state` and `returns`.
 
-All successful response objects contain a list of objects containing information on the status of each transaction (or "record") in the batch.
-
-The most important columns in the report are record object contains information on:
-
-- **Status**: This refers to our validation of the format of the request. This should "Validated/Approved".
+- **Status**: This refers to our validation of the format of the request. This should be "Validated/Approved".
 - **State**: This refers to the progress of valid transactions through the settlement process. This should be somewhere on a spectrum between "Importing" and "Complete".
 - **Returns**: This field identifies completed transactions that were subsequently returned.
 

@@ -30,11 +30,6 @@ Request objects must contain a "name",  "start_date" and "end_date", "start_row"
 
 The response body contains a JSON object. The structure of the object is dictated by the value passed for "name" property in the request ('Search' or 'TransHistoryMinimal').
 
-Note:
-1. Search and TransHistoryMinimal have a different default order.
-2. `trn_batch_no` will always be "209" for non batched transactions? Or is the batch for credit cards set according to the day? Will a credit card batch and individual credit card transactions share a batch id? What is the relation to batch file ids (10000028)?
-
-
 ## Examples
 
 ### Example batch requests
