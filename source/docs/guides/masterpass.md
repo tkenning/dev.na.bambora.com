@@ -23,7 +23,7 @@ It will completed soon.*
 Masterpass simplifies and secures online payments by storing payment information.
 It removes the need for a customer to re-enter and share card information.
 
-Masterpass is a digital wallet. Customers load their digital wallet with their credit, debit and prepaid cards once. They can then retrieve their payment information at any checkout supporting the wallet.
+Masterpass is a digital wallet. Customers load their digital wallet with their credit, debit and prepaid cards once. They can then retrieve their payment information at any checkout that supports Masterpass.
 
 Masterpass benefits users by securing their payment information and saving them
 time checking out. MasterPass benefits merchants by reducing checkout abandonment.
@@ -34,9 +34,9 @@ A Masterpass payment involves three steps for a merchant.
 
 1. Retrieve a redirect URL from our Payment API.
 2. Redirect the user to Masterpass and handle the return redirect from Masterpass.
-3. complete the payment on out Payment API.
+3. Complete the payment on out Payment API.
 
-### Cavets
+### Caveats
 
 Bambora's Masterpass integration does not support 3D Secure.
 
@@ -94,9 +94,7 @@ trnApproved=1&trnId=10000011&messageId=1&messageText=Approved&trnOrderNumber=100
 
 ## Advanced integration
 
-If you have integrated and certified to Mastercard’s Masterpass API and are handling the redirect to the Masterpass Portal
-independently of Bambora’s internal integration, you will need to pass the Masterpass Wallet ID with your Payment REST API
-request to Bambora. This ensures that your transaction is picked up by the Card Issuer as being a Masterpass transaction.
+If you have integrated and certified to Mastercard’s Masterpass API and are handling the redirect to the Masterpass Portal independently of Bambora’s internal integration, you will need to pass the Masterpass wallet ID with your Payment API request to Bambora. This ensures that your transaction is picked up by the Card Issuer as being a Masterpass transaction.
 
 The Masterpass Wallet ID must be sent with the transaction request using the following system variable:
 

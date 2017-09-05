@@ -37,12 +37,12 @@ It will always begin with a user clicking on a Visa Checkout button. Visa Checko
 SDK handles the event and pops a lightbox where the user can authenticate and select a payment card.
 Visa checkout then calls a callback function on the merchant's webpage.
 
-The one step process involves simple listening for a callback from Visa's SDK and calling our Payment API to complete the payment.
+The one step process involves simply listening for a callback from Visa's SDK and calling our Payment API to complete the payment.
 
 The two step process involves listening for a callback from Visa's SDK, calling
 our API to retrieve addresses, and then calling our Payment API to complete the payment.
 
-### Cavets
+### Caveats
 
 Bambora's Visa Checkout integration is not compatible with 3D Secure.
 
