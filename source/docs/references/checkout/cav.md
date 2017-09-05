@@ -14,7 +14,7 @@ Notes: CAV to be fully documented at later date.
 | -7 | Incorrectly formatted phone number (e.g. incorrect number of digits). Ensure that the phone number passed in the request XML message is correct. |
 | -8 | Internal application error |
 | -9 | Invalid merchant ID. Ensure that the merchant ID passed in the request XML message is correct. |
-| -10 | Request has reached the limit on the number of CAV attempts against the card number. This CAV transaction limit is set in the Beanstream membership area. See Configuration & Administration for details. |
+| -10 | Request has reached the limit on the number of CAV attempts against the card number. This CAV transaction limit is set in the membership area. See Configuration & Administration for details. |
 | -11 | The CAV service is unavailable due to a communication failure to Equifax or due to Equifax temporarily declining CAV requests. The user should be requested to try their request again later. |
 | -12 | Invalid passcode. Ensure that the passcode passed in the request XML message is correct. |
 | -13 | Incorrectly formatted last name. This error occurs if the last name passed in the request XML message is missing or is less than 2 characters. |

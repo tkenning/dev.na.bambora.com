@@ -31,13 +31,13 @@ See a [demo](https://demo.na.bambora.com/checkout.html) of a complete payment fl
 Checkout is an alternative to building your own payment form with Custom Checkout.
 
 * Both solutions are PCI SAQ A compliant.
-* Checkout is a payment form - it creates sale and pre-auth transactions. Custom Checkout is a tokenizaton library - it returns a token that you use when creating transactions via the Payment API.
+* Checkout is a payment form - it takes payments. Custom Checkout is a tokenizaton library - it returns a token that you can pass to the Payment API to take a payment.
 * Checkout involves redirecting the user to a payment form on bambora.com. Custom Checkout embeds Bambora hosted input fields in your webpage.
 * Checkout is brandable - you can set the primary color, a custom header and a custom footer. Custom Checkout allows you to build a fully customized payment form - you retain as much control over UI/UX as you do with native DOM elements.
 
 ## Migration
 
-Checkout enhances our legacy Hosted Payment Form. Accounts opened after 1 August 2017 come with Checkout. If your accounts predates this, you will need to enable Checkout styling on your account.
+Checkout enhances our legacy Hosted Payment Form. Accounts opened after 1 August 2017 come with Checkout. If your account predates this, you will need to enable Checkout styling on your account.
 
 You can enable Checkout styling on your legacy Hosted Payment Form in the [Member Area](https://web.na.bambora.com). Click on **configuration**, and select **payment form**. Simply copy and paste these two blocks of code into the corresponding text fields.
 
@@ -59,7 +59,7 @@ You can enable Checkout styling on your legacy Hosted Payment Form in the [Membe
 ```
 <div style="margin-bottom:24px;"></div>
 
-**Page Header**
+**Page Footer**
 
 ```html
   </body>

@@ -2,7 +2,7 @@
 
 | ID  | Description |
 | --- | ----------- |
-| P   | Return |
+| P   | Purchase |
 | VP  | Void Purchase |
 | PA  | Pre Authorization |
 | PAC | Pre Authorization Completion |
