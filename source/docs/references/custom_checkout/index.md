@@ -113,7 +113,7 @@ Mounts the custom input inside an element on the page identified by *cssSelector
 | *cssSelector* | *String* | CSS selector of your parent element. |
 
 ```html
-<script src='https://libs.na.bambora.com/customcheckout/0.1.0/customcheckout.js'></script>
+<script src='https://libs.na.bambora.com/customcheckout/1/customcheckout.js'></script>
 <form id="checkout-form">
     <div id="card-number"></div>
     <div id="card-cvv"></div>
