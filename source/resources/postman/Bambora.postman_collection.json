@@ -1,14 +1,14 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Beanstream",
+		"name": "Bambora",
 		"_postman_id": "9785ccf5-547f-216b-d8d9-27f5c4e4045b",
-		"description": "Postman collection for Beanstream.",
+		"description": "Postman collection for Bambora.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Batch",
+			"name": "Batch Payment",
 			"description": "",
 			"item": [
 				{
@@ -374,7 +374,7 @@
 			]
 		},
 		{
-			"name": "Batch Reporting",
+			"name": "Batch Payment Report",
 			"description": "",
 			"item": [
 				{
@@ -403,6 +403,37 @@
 						"body": {
 							"mode": "raw",
 							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<request>\r\n<rptVersion>2.0</rptVersion>\r\n<serviceName>BatchPaymentsEFT</serviceName>\r\n<merchantId>{{merchant_id}}</merchantId>\r\n<passCode>{{reporting_passcode}}</passCode>\r\n<rptFormat>JSON</rptFormat>\r\n<rptFilterBy1>batch_id</rptFilterBy1>\r\n<rptOperationType1>EQ</rptOperationType1>\r\n<rptFilterValue1>{{batchId}}</rptFilterValue1>\r\n</request>"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Report - BatchSettlement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{querystring_url}}/scripts/reporting/report.aspx",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<request>\r\n<rptVersion>2.0</rptVersion>\r\n<serviceName>BatchSettlement</serviceName>\r\n<merchantId>{{merchant_id}}</merchantId>\r\n<passCode>{{reporting_passcode}}</passCode>\r\n<rptFormat>JSON</rptFormat>\r\n<rptFilterBy1>batch_id</rptFilterBy1>\r\n<rptOperationType1>EQ</rptOperationType1>\r\n<rptFilterValue1>{{batchId}}</rptFilterValue1>\r\n</request>"
 						},
 						"description": ""
 					},
@@ -526,7 +557,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<request>\r\n<rptVersion>2.0</rptVersion>\r\n<serviceName>BatchPaymentsACH</serviceName>\r\n<merchantId>{{merchant_id}}</merchantId>\r\n<sessionSource>external</sessionSource>\r\n<passCode>{{reporting_passcode}}</passCode>\r\n<rptFormat>CSV</rptFormat>\r\n<rptFromDateTime>2012-03-03 00:00:00</rptFromDateTime>\r\n<rptToDateTime>2019-03-03 23:59:59</rptToDateTime>\r\n<rptFilterBy1>batch_id</rptFilterBy1>\r\n<rptOperationType1>EQ</rptOperationType1>\r\n<rptFilterValue1>{{batchId}}</rptFilterValue1>\r\n</request>"
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<request>\r\n<rptVersion>2.0</rptVersion>\r\n<serviceName>BatchPaymentsACH</serviceName>\r\n<merchantId>{{merchant_id}}</merchantId>\r\n<sessionSource>external</sessionSource>\r\n<passCode>{{reporting_passcode}}</passCode>\r\n<rptFormat>JSON</rptFormat>\r\n<rptFromDateTime>2012-03-03 00:00:00</rptFromDateTime>\r\n<rptToDateTime>2019-03-03 23:59:59</rptToDateTime>\r\n<rptFilterBy1>batch_id</rptFilterBy1>\r\n<rptOperationType1>EQ</rptOperationType1>\r\n<rptFilterValue1>{{batchId}}</rptFilterValue1>\r\n</request>"
 						},
 						"description": ""
 					},
@@ -535,7 +566,7 @@
 			]
 		},
 		{
-			"name": "Onboarding",
+			"name": "Boarding",
 			"description": "",
 			"item": [
 				{
@@ -619,7 +650,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"pricing_id\": \"ABC123\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"public_limited\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"legal_name\": \"Legal Name\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"registration_number\": \"123456789\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"bank_name\": \"The Bank\",\r\n      \"swift_code\": \"ACMTCAMM\",\r\n      \"iban\": \"GB29 RBOS 6016 1331 9268 19\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"pricing_id\": \"ABC123\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"public_limited\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"legal_name\": \"Legal Name\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"registration_number\": \"123456789\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"bank_name\": \"The Bank\",\r\n      \"swift_code\": \"ACMTCAMM\",\r\n      \"iban\": \"GB29 RBOS 6016 1331 9268 19\"\r\n    }\r\n  }\r\n}"
 						},
 						"description": ""
 					},
@@ -830,7 +861,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"pricing_id\": \"ABC123\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"public_limited\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"legal_name\": \"Legal Name\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"registration_number\": \"123456789\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"bank_name\": \"The Bank\",\r\n      \"sort_code\": \"90-00-17\",\r\n      \"account_number\": \"31926819\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"pricing_id\": \"ABC123\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"public_limited\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"legal_name\": \"Legal Name\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"registration_number\": \"123456789\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"bank_name\": \"The Bank\",\r\n      \"sort_code\": \"90-00-17\",\r\n      \"account_number\": \"31926819\"\r\n    }\r\n  }\r\n}"
 						},
 						"description": ""
 					},
@@ -1041,7 +1072,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"pricing_id\": \"ABC123\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"sole_proprietor\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"routing_number\": \"011103093\",\r\n      \"account_number\": \"0532013000\"\r\n    }\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"pricing_id\": \"ABC123\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"sole_proprietor\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"routing_number\": \"011103093\",\r\n      \"account_number\": \"0532013000\"\r\n    }\r\n  }\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -1252,7 +1283,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"pricing_id\": \"string\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"sole_proprietor\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"services_description\": \"services description...\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"currency\": \"CAD\",\r\n      \"owner_name\": \"John Doe\",\r\n      \"transit_number\": \"12345\",\r\n      \"institution_number\": \"567\",\r\n      \"account_number\": \"123456789123\"\r\n    }\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"pricing_id\": \"string\",\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"annual_sales\": 100000,\r\n    \"entity_type\": \"sole_proprietor\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"services_description\": \"services description...\",\r\n    \"dba_name\": \"string\",\r\n    \"batch_settings\": {\r\n      \"frequency\": \"daily\",\r\n      \"average_amount\": 0,\r\n      \"maximum_amount\": 0\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"directors\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main Street\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"currency\": \"CAD\",\r\n      \"owner_name\": \"John Doe\",\r\n      \"transit_number\": \"12345\",\r\n      \"institution_number\": \"567\",\r\n      \"account_number\": \"123456789123\"\r\n    }\r\n  }\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -1462,7 +1493,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"pricing_id\":\"ABC123\",\r\n  \"applicant\":{\r\n    \"phone_number\":\"222-222-2222\",\r\n    \"date_of_birth\":\"2013-03-25T22:04:10.04399Z\",\r\n    \"email\":\"buser2@beanstream.com\",\r\n    \"address\":{\r\n      \"address_line1\":\"123 Main Street\",\r\n      \"address_line2\":\"444\",\r\n      \"city\":\"Victoria\",\r\n      \"region\":\"BC\",\r\n      \"country\":\"CA\",\r\n      \"postal_code\":\"V1H W2Y\"\r\n    },\r\n    \"agreement\":{\r\n      \"name\":\"Terms and Conditions PSP.pdf\",\r\n      \"version\":\"1.0\",\r\n      \"timestamp\":\"2013-03-25T22:04:10.04399Z\"\r\n    }\r\n  },\r\n  \"business\":{\r\n    \"company_name\":\"Name\",\r\n    \"annual_sales\":100000,\r\n    \"merchant_category\":\"8641\",\r\n    \"entity_type\":\"partnership\",\r\n    \"website_url\":\"http://www.beanstream.com\",\r\n    \"start_date\":\"2013-03-25T22:04:10.04399Z\",\r\n    \"business_number\":\"2342342545345\",\r\n    \"services_description\":\"clothes, jewellery, shoes, accessories\",\r\n    \"bank_account\":{\r\n      \"owner_name\":\"John Doe\",\r\n      \"transit_number\":\"69877\",\r\n      \"institution_number\":\"345\",\r\n      \"account_number\":\"3453\"\r\n    },\r\n    \"address\":{\r\n      \"address_line1\":\"123 Main Street\",\r\n      \"address_line2\":\"444\",\r\n      \"city\":\"Victoria\",\r\n      \"region\":\"BC\",\r\n      \"country\":\"CA\",\r\n      \"postal_code\":\"V1H W2Y\"\r\n    },\"owners\":[\r\n      {\r\n        \"first_name\":\"John\",\r\n        \"last_name\":\"Doe\",\r\n        \"date_of_birth\":\"2013-03-25T22:04:10.04399Z\",\r\n        \"address\":{\r\n          \"address_line1\":\"123 Main Street\",\r\n          \"address_line2\":\"444\",\r\n          \"city\":\"Victoria\",\r\n          \"region\":\"BC\",\r\n          \"country\":\"CA\",\r\n          \"postal_code\":\"V1H W2Y\"\r\n        }\r\n      },\r\n      {\r\n        \"first_name\":\"Jane\",\r\n        \"last_name\":\"Doe\",\r\n        \"date_of_birth\":\"2013-03-25T22:04:10.04399Z\",\r\n        \"address\":{\r\n          \"address_line1\":\"123 Main Street\",\r\n          \"address_line2\":\"444\",\r\n          \"city\":\"Victoria\",\r\n          \"region\":\"BC\",\r\n          \"country\":\"CA\",\r\n          \"postal_code\":\"V1H W2Y\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"pricing_id\":\"ABC123\",\r\n  \"applicant\":{\r\n    \"phone_number\":\"222-222-2222\",\r\n    \"date_of_birth\":\"2013-03-25T22:04:10.04399Z\",\r\n    \"email\":\"user@example.com\",\r\n    \"address\":{\r\n      \"address_line1\":\"123 Main Street\",\r\n      \"address_line2\":\"444\",\r\n      \"city\":\"Victoria\",\r\n      \"region\":\"BC\",\r\n      \"country\":\"CA\",\r\n      \"postal_code\":\"V1H W2Y\"\r\n    },\r\n    \"agreement\":{\r\n      \"name\":\"Terms and Conditions PSP.pdf\",\r\n      \"version\":\"1.0\",\r\n      \"timestamp\":\"2013-03-25T22:04:10.04399Z\"\r\n    }\r\n  },\r\n  \"business\":{\r\n    \"company_name\":\"Name\",\r\n    \"annual_sales\":100000,\r\n    \"merchant_category\":\"8641\",\r\n    \"entity_type\":\"partnership\",\r\n    \"website_url\":\"http://example.com\",\r\n    \"start_date\":\"2013-03-25T22:04:10.04399Z\",\r\n    \"business_number\":\"2342342545345\",\r\n    \"services_description\":\"clothes, jewellery, shoes, accessories\",\r\n    \"bank_account\":{\r\n      \"owner_name\":\"John Doe\",\r\n      \"transit_number\":\"69877\",\r\n      \"institution_number\":\"345\",\r\n      \"account_number\":\"3453\"\r\n    },\r\n    \"address\":{\r\n      \"address_line1\":\"123 Main Street\",\r\n      \"address_line2\":\"444\",\r\n      \"city\":\"Victoria\",\r\n      \"region\":\"BC\",\r\n      \"country\":\"CA\",\r\n      \"postal_code\":\"V1H W2Y\"\r\n    },\"owners\":[\r\n      {\r\n        \"first_name\":\"John\",\r\n        \"last_name\":\"Doe\",\r\n        \"date_of_birth\":\"2013-03-25T22:04:10.04399Z\",\r\n        \"address\":{\r\n          \"address_line1\":\"123 Main Street\",\r\n          \"address_line2\":\"444\",\r\n          \"city\":\"Victoria\",\r\n          \"region\":\"BC\",\r\n          \"country\":\"CA\",\r\n          \"postal_code\":\"V1H W2Y\"\r\n        }\r\n      },\r\n      {\r\n        \"first_name\":\"Jane\",\r\n        \"last_name\":\"Doe\",\r\n        \"date_of_birth\":\"2013-03-25T22:04:10.04399Z\",\r\n        \"address\":{\r\n          \"address_line1\":\"123 Main Street\",\r\n          \"address_line2\":\"444\",\r\n          \"city\":\"Victoria\",\r\n          \"region\":\"BC\",\r\n          \"country\":\"CA\",\r\n          \"postal_code\":\"V1H W2Y\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -1631,7 +1662,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"pricing_id\": \"string\",\r\n  \"applicant\": {\r\n    \"social_security_number\": \"037-46-1234\",\r\n    \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"citizenship\": \"CA\",\r\n    \"phone_number\": \"2222222\",\r\n    \"position\": \"owner\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main St\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"legal_name\": \"Legal Name\",\r\n    \"annual_sales\": 10000,\r\n    \"merchant_category\": \"7997\",\r\n    \"services_description\": \"services description...\",\r\n    \"federal_tax_id\": \"123456789\",\r\n    \"tin_type\": \"social_security\",\r\n    \"entity_type\": \"sole_proprietor\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"average_amount\": 0,\r\n    \"average_delivery\": \"07\",\r\n    \"seasonal_sales\": \"1\",\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"owners\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"social_security_number\": \"037461234\",\r\n        \"phone_number\": \"2222222222\",\r\n        \"email\": \"jdoe@example.com\",\r\n        \"citizenship\": \"CA\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main St\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"routing_number\": \"123456789\",\r\n      \"account_number\": \"012345678901\"\r\n    }\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"pricing_id\": \"string\",\r\n  \"applicant\": {\r\n    \"social_security_number\": \"037-46-1234\",\r\n    \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"citizenship\": \"CA\",\r\n    \"phone_number\": \"2222222\",\r\n    \"position\": \"owner\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main St\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Name\",\r\n    \"legal_name\": \"Legal Name\",\r\n    \"annual_sales\": 10000,\r\n    \"merchant_category\": \"7997\",\r\n    \"services_description\": \"services description...\",\r\n    \"federal_tax_id\": \"123456789\",\r\n    \"tin_type\": \"social_security\",\r\n    \"entity_type\": \"sole_proprietor\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"start_date\": \"2013-03-25T22:04:10.04399Z\",\r\n    \"average_amount\": 0,\r\n    \"average_delivery\": \"07\",\r\n    \"seasonal_sales\": \"1\",\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"owners\": [\r\n      {\r\n        \"first_name\": \"John\",\r\n        \"last_name\": \"Doe\",\r\n        \"date_of_birth\": \"2013-03-25T22:04:10.04399Z\",\r\n        \"social_security_number\": \"037461234\",\r\n        \"phone_number\": \"2222222222\",\r\n        \"email\": \"jdoe@example.com\",\r\n        \"citizenship\": \"CA\",\r\n        \"percentage\": 100,\r\n        \"address\": {\r\n          \"address_line1\": \"123 Main St\",\r\n          \"address_line2\": \"444\",\r\n          \"city\": \"Victoria\",\r\n          \"region\": \"BC\",\r\n          \"country\": \"CA\",\r\n          \"postal_code\": \"V1H W2Y\"\r\n        }\r\n      }\r\n    ],\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"routing_number\": \"123456789\",\r\n      \"account_number\": \"012345678901\"\r\n    }\r\n  }\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -1841,7 +1872,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Company Name\",\r\n    \"merchant_category\": \"5813\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"bank_account\": {\r\n      \"currency\": \"CAD\",\r\n      \"owner_name\": \"John Doe\",\r\n      \"transit_number\": \"12345\",\r\n      \"institution_number\": \"567\",\r\n      \"account_number\": \"123456789123\"\r\n    }\r\n  },\r\n  \"pricing_id\": \"123456\"\r\n}\r\n"
+							"raw": "{\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Company Name\",\r\n    \"merchant_category\": \"5813\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"bank_account\": {\r\n      \"currency\": \"CAD\",\r\n      \"owner_name\": \"John Doe\",\r\n      \"transit_number\": \"12345\",\r\n      \"institution_number\": \"567\",\r\n      \"account_number\": \"123456789123\"\r\n    }\r\n  },\r\n  \"pricing_id\": \"123456\"\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -2010,7 +2041,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"buser2@beanstream.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Company Name\",\r\n    \"merchant_category\": \"5813\",\r\n    \"website_url\": \"http://www.beanstream.com\",\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"account_number\": \"123456789123\",\r\n      \"routing_number\": \"123456789\"\r\n    }\r\n  },\r\n  \"pricing_id\": \"123456\"\r\n}\r\n"
+							"raw": "{\r\n  \"applicant\": {\r\n    \"phone_number\": \"222-222-2222\",\r\n    \"agreement\": {\r\n      \"name\": \"Terms and Conditions PSP.pdf\",\r\n      \"version\": \"1.0\",\r\n      \"personal_guarantee_accepted\": true,\r\n      \"timestamp\": \"2013-03-25T22:04:10.04399Z\"\r\n    },\r\n    \"email\": \"user@example.com\"\r\n  },\r\n  \"business\": {\r\n    \"company_name\": \"Company Name\",\r\n    \"merchant_category\": \"5813\",\r\n    \"website_url\": \"http://example.com\",\r\n    \"address\": {\r\n      \"address_line1\": \"123 Main Street\",\r\n      \"address_line2\": \"444\",\r\n      \"city\": \"Victoria\",\r\n      \"region\": \"BC\",\r\n      \"country\": \"CA\",\r\n      \"postal_code\": \"V1H W2Y\"\r\n    },\r\n    \"bank_account\": {\r\n      \"owner_name\": \"John Doe\",\r\n      \"account_number\": \"123456789123\",\r\n      \"routing_number\": \"123456789\"\r\n    }\r\n  },\r\n  \"pricing_id\": \"123456\"\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -2101,7 +2132,7 @@
 			]
 		},
 		{
-			"name": "Payments",
+			"name": "Payment",
 			"description": "",
 			"item": [
 				{
@@ -2157,208 +2188,9 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"card\",\r\n  \"card\":{\r\n    \"name\":\"John Doe\",\r\n      \"number\":\"4030000010001234\",\r\n      \"expiry_month\":\"02\",\r\n      \"expiry_year\":\"14\",\r\n       \"cvd\":\"123\"\r\n  }\r\n}"
 						},
-						"description": "Make a payment.\n\n*https://api.na.bambora.com/v1/payments*"
+						"description": ""
 					},
-					"response": [
-						{
-							"id": "1c88b093-735d-4734-81af-c1b522a39cb2",
-							"name": "Approved Payment",
-							"originalRequest": {
-								"url": "{{url}}/v1/payments",
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Passcode {{passcode_encoded}}",
-										"description": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"card\",\r\n  \"card\":{\r\n    \"name\":\"John Doe\",\r\n      \"number\":\"4030000010001234\",\r\n      \"expiry_month\":\"02\",\r\n      \"expiry_year\":\"14\",\r\n       \"cvd\":\"123\"\r\n  }\r\n}"
-								},
-								"description": "Make a payment.\n\n*https://api.na.bambora.com/v1/payments*"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"name": "Access-Control-Allow-Headers",
-									"key": "Access-Control-Allow-Headers",
-									"value": "accept, origin, content-type",
-									"description": ""
-								},
-								{
-									"name": "Access-Control-Allow-Origin",
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"description": ""
-								},
-								{
-									"name": "Cache-Control",
-									"key": "Cache-Control",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Content-Length",
-									"key": "Content-Length",
-									"value": "504",
-									"description": ""
-								},
-								{
-									"name": "Content-Type",
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"description": ""
-								},
-								{
-									"name": "Date",
-									"key": "Date",
-									"value": "Wed, 04 Jan 2017 17:45:48 GMT",
-									"description": ""
-								},
-								{
-									"name": "Expires",
-									"key": "Expires",
-									"value": "-1",
-									"description": ""
-								},
-								{
-									"name": "Pragma",
-									"key": "Pragma",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Server",
-									"key": "Server",
-									"value": "Microsoft-IIS/8.5",
-									"description": ""
-								},
-								{
-									"name": "X-AspNet-Version",
-									"key": "X-AspNet-Version",
-									"value": "4.0.30319",
-									"description": ""
-								},
-								{
-									"name": "X-Powered-By",
-									"key": "X-Powered-By",
-									"value": "ASP.NET",
-									"description": ""
-								},
-								{
-									"name": "X-UA-Compatible",
-									"key": "X-UA-Compatible",
-									"value": "IE=edge,chrome=1",
-									"description": ""
-								}
-							],
-							"cookie": [],
-							"responseTime": "597",
-							"body": "{\"id\":\"10000001\",\"approved\":\"1\",\"message_id\":\"1\",\"message\":\"Approved\",\"auth_code\":\"TEST\",\"created\":\"2017-01-04T09:45:48\",\"order_number\":\"10000505\",\"type\":\"P\",\"payment_method\":\"CC\",\"card\":{\"card_type\":\"MC\",\"last_four\":\"1004\",\"address_match\":0,\"postal_result\":0,\"avs_result\":\"0\",\"cvd_result\":\"1\"},\"links\":[{\"rel\":\"void\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/void\",\"method\":\"POST\"},{\"rel\":\"return\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/returns\",\"method\":\"POST\"}]}"
-						},
-						{
-							"id": "fe859fa6-6793-40ed-96b5-099d36975983",
-							"name": "Approved Payment",
-							"originalRequest": {
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"name": "Access-Control-Allow-Headers",
-									"key": "Access-Control-Allow-Headers",
-									"value": "accept, origin, content-type",
-									"description": ""
-								},
-								{
-									"name": "Access-Control-Allow-Origin",
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"description": ""
-								},
-								{
-									"name": "Cache-Control",
-									"key": "Cache-Control",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Content-Length",
-									"key": "Content-Length",
-									"value": "504",
-									"description": ""
-								},
-								{
-									"name": "Content-Type",
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"description": ""
-								},
-								{
-									"name": "Date",
-									"key": "Date",
-									"value": "Wed, 04 Jan 2017 17:45:48 GMT",
-									"description": ""
-								},
-								{
-									"name": "Expires",
-									"key": "Expires",
-									"value": "-1",
-									"description": ""
-								},
-								{
-									"name": "Pragma",
-									"key": "Pragma",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Server",
-									"key": "Server",
-									"value": "Microsoft-IIS/8.5",
-									"description": ""
-								},
-								{
-									"name": "X-AspNet-Version",
-									"key": "X-AspNet-Version",
-									"value": "4.0.30319",
-									"description": ""
-								},
-								{
-									"name": "X-Powered-By",
-									"key": "X-Powered-By",
-									"value": "ASP.NET",
-									"description": ""
-								},
-								{
-									"name": "X-UA-Compatible",
-									"key": "X-UA-Compatible",
-									"value": "IE=edge,chrome=1",
-									"description": ""
-								}
-							],
-							"cookie": [],
-							"responseTime": "597",
-							"body": "{\"id\":\"10000001\",\"approved\":\"1\",\"message_id\":\"1\",\"message\":\"Approved\",\"auth_code\":\"TEST\",\"created\":\"2017-01-04T09:45:48\",\"order_number\":\"10000505\",\"type\":\"P\",\"payment_method\":\"CC\",\"card\":{\"card_type\":\"MC\",\"last_four\":\"1004\",\"address_match\":0,\"postal_result\":0,\"avs_result\":\"0\",\"cvd_result\":\"1\"},\"links\":[{\"rel\":\"void\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/void\",\"method\":\"POST\"},{\"rel\":\"return\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/returns\",\"method\":\"POST\"}]}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Return Payment",
@@ -2410,7 +2242,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"order_number\":{{currentOrderNumber}},\n  \"amount\": 0.01\n}"
 						},
-						"description": "Return a payment.\n\n*/payments/{transId}/returns*"
+						"description": ""
 					},
 					"response": []
 				},
@@ -2467,7 +2299,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"order_number\":\"{{currentOrderNumber}}\",\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"token\",\r\n  \"token\": {\r\n    \"name\":\"John Doe\", \r\n    \"code\":\"{{tokenizedCC}}\",\r\n    \"complete\": true\r\n  }\r\n}"
 						},
-						"description": "Make a payment with a tokenized credit card. "
+						"description": ""
 					},
 					"response": []
 				},
@@ -2572,7 +2404,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"order_number\":{{currentOrderNumber}},\r\n     \"amount\":100.00,\r\n     \"payment_method\":\"card\",\r\n     \"card\":{\r\n      \"name\":\"John Doe\",\r\n        \"number\":\"5100000010001004\",\r\n        \"expiry_month\":\"02\",\r\n        \"expiry_year\":\"24\",\r\n        \"cvd\":\"123\",\r\n        \"complete\":false\r\n  }\r\n}"
 						},
-						"description": "Checks to see if the customer has the funds available without actually charging them. "
+						"description": ""
 					},
 					"response": []
 				},
@@ -2628,7 +2460,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"amount\":59.33\r\n}"
 						},
-						"description": "Complete a pre-authorized payment. \n\n*/payments/{transId}/completions*"
+						"description": ""
 					},
 					"response": []
 				},
@@ -2676,7 +2508,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "Get a previous payment. \n\n*/payments/{transID}*"
+						"description": ""
 					},
 					"response": []
 				},
@@ -2796,232 +2628,9 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"order_number\":{{currentOrderNumber}},\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"card\",\r\n  \"card\":{\r\n    \"name\":\"John Doe\",\r\n      \"number\":\"5100000010001004\",\r\n      \"expiry_month\":\"02\",\r\n      \"expiry_year\":\"14\",\r\n       \"cvd\":\"123\"\r\n  },\r\n  \"billing\":{\r\n  \t\"postal_code\": \"v8r1a6\"\r\n  }\r\n  \r\n}"
 						},
-						"description": "Make a payment.\n\n*https://www.beanstream.com/api/v1/payments*"
+						"description": ""
 					},
-					"response": [
-						{
-							"id": "81b3ec77-4ac2-4be5-9378-5ff6bb740687",
-							"name": "Approved Payment",
-							"originalRequest": {
-								"url": "{{url}}/v1/payments",
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Passcode {{passcode_encoded}}",
-										"description": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									},
-									{
-										"key": "Sub-Merchant-Id",
-										"value": "{{merchant_id}}",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"order_number\":{{currentOrderNumber}},\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"card\",\r\n  \"card\":{\r\n    \"name\":\"John Doe\",\r\n      \"number\":\"5100000010001004\",\r\n      \"expiry_month\":\"02\",\r\n      \"expiry_year\":\"14\",\r\n       \"cvd\":\"123\"\r\n  },\r\n  \"billing\":{\r\n  \t\"postal_code\": \"v8r1a6\"\r\n  }\r\n  \r\n}"
-								},
-								"description": "Make a payment.\n\n*https://www.beanstream.com/api/v1/payments*"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"name": "Access-Control-Allow-Headers",
-									"key": "Access-Control-Allow-Headers",
-									"value": "accept, origin, content-type",
-									"description": ""
-								},
-								{
-									"name": "Access-Control-Allow-Origin",
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"description": ""
-								},
-								{
-									"name": "Cache-Control",
-									"key": "Cache-Control",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Content-Length",
-									"key": "Content-Length",
-									"value": "504",
-									"description": ""
-								},
-								{
-									"name": "Content-Type",
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"description": ""
-								},
-								{
-									"name": "Date",
-									"key": "Date",
-									"value": "Wed, 04 Jan 2017 17:45:48 GMT",
-									"description": ""
-								},
-								{
-									"name": "Expires",
-									"key": "Expires",
-									"value": "-1",
-									"description": ""
-								},
-								{
-									"name": "Pragma",
-									"key": "Pragma",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Server",
-									"key": "Server",
-									"value": "Microsoft-IIS/8.5",
-									"description": ""
-								},
-								{
-									"name": "X-AspNet-Version",
-									"key": "X-AspNet-Version",
-									"value": "4.0.30319",
-									"description": ""
-								},
-								{
-									"name": "X-Powered-By",
-									"key": "X-Powered-By",
-									"value": "ASP.NET",
-									"description": ""
-								},
-								{
-									"name": "X-UA-Compatible",
-									"key": "X-UA-Compatible",
-									"value": "IE=edge,chrome=1",
-									"description": ""
-								}
-							],
-							"cookie": [],
-							"responseTime": "597",
-							"body": "{\"id\":\"10000001\",\"approved\":\"1\",\"message_id\":\"1\",\"message\":\"Approved\",\"auth_code\":\"TEST\",\"created\":\"2017-01-04T09:45:48\",\"order_number\":\"10000505\",\"type\":\"P\",\"payment_method\":\"CC\",\"card\":{\"card_type\":\"MC\",\"last_four\":\"1004\",\"address_match\":0,\"postal_result\":0,\"avs_result\":\"0\",\"cvd_result\":\"1\"},\"links\":[{\"rel\":\"void\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/void\",\"method\":\"POST\"},{\"rel\":\"return\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/returns\",\"method\":\"POST\"}]}"
-						},
-						{
-							"id": "b1d9a8cf-dcbc-450d-9bc8-a4172f3acb36",
-							"name": "Approved Payment",
-							"originalRequest": {
-								"url": "{{url}}/v1/payments",
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Passcode {{passcode_encoded}}",
-										"description": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									},
-									{
-										"key": "Sub-Merchant-Id",
-										"value": "{{merchant_id}}",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"order_number\":{{currentOrderNumber}},\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"card\",\r\n  \"card\":{\r\n    \"name\":\"John Doe\",\r\n      \"number\":\"5100000010001004\",\r\n      \"expiry_month\":\"02\",\r\n      \"expiry_year\":\"14\",\r\n       \"cvd\":\"123\"\r\n  },\r\n  \"billing\":{\r\n  \t\"postal_code\": \"v8r1a6\"\r\n  }\r\n  \r\n}"
-								},
-								"description": "Make a payment.\n\n*https://www.beanstream.com/api/v1/payments*"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"name": "Access-Control-Allow-Headers",
-									"key": "Access-Control-Allow-Headers",
-									"value": "accept, origin, content-type",
-									"description": ""
-								},
-								{
-									"name": "Access-Control-Allow-Origin",
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"description": ""
-								},
-								{
-									"name": "Cache-Control",
-									"key": "Cache-Control",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Content-Length",
-									"key": "Content-Length",
-									"value": "504",
-									"description": ""
-								},
-								{
-									"name": "Content-Type",
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"description": ""
-								},
-								{
-									"name": "Date",
-									"key": "Date",
-									"value": "Wed, 04 Jan 2017 17:45:48 GMT",
-									"description": ""
-								},
-								{
-									"name": "Expires",
-									"key": "Expires",
-									"value": "-1",
-									"description": ""
-								},
-								{
-									"name": "Pragma",
-									"key": "Pragma",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Server",
-									"key": "Server",
-									"value": "Microsoft-IIS/8.5",
-									"description": ""
-								},
-								{
-									"name": "X-AspNet-Version",
-									"key": "X-AspNet-Version",
-									"value": "4.0.30319",
-									"description": ""
-								},
-								{
-									"name": "X-Powered-By",
-									"key": "X-Powered-By",
-									"value": "ASP.NET",
-									"description": ""
-								},
-								{
-									"name": "X-UA-Compatible",
-									"key": "X-UA-Compatible",
-									"value": "IE=edge,chrome=1",
-									"description": ""
-								}
-							],
-							"cookie": [],
-							"responseTime": "597",
-							"body": "{\"id\":\"10000001\",\"approved\":\"1\",\"message_id\":\"1\",\"message\":\"Approved\",\"auth_code\":\"TEST\",\"created\":\"2017-01-04T09:45:48\",\"order_number\":\"10000505\",\"type\":\"P\",\"payment_method\":\"CC\",\"card\":{\"card_type\":\"MC\",\"last_four\":\"1004\",\"address_match\":0,\"postal_result\":0,\"avs_result\":\"0\",\"cvd_result\":\"1\"},\"links\":[{\"rel\":\"void\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/void\",\"method\":\"POST\"},{\"rel\":\"return\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/returns\",\"method\":\"POST\"}]}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Make Payment (profile with partner auth)",
@@ -3081,194 +2690,9 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"order_number\":{{currentOrderNumber}},\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"card\",\r\n  \"card\":{\r\n    \"name\":\"John Doe\",\r\n      \"number\":\"5100000010001004\",\r\n      \"expiry_month\":\"02\",\r\n      \"expiry_year\":\"14\",\r\n       \"cvd\":\"123\"\r\n  },\r\n  \"billing\":{\r\n  \t\"postal_code\": \"v8r1a6\"\r\n  }\r\n  \r\n}"
 						},
-						"description": "Make a payment.\n\n*https://www.beanstream.com/api/v1/payments*"
+						"description": ""
 					},
-					"response": [
-						{
-							"id": "4a1c05b1-aa1e-4a61-97b5-cc6cf9e0c91b",
-							"name": "Approved Payment",
-							"originalRequest": {
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"name": "Access-Control-Allow-Headers",
-									"key": "Access-Control-Allow-Headers",
-									"value": "accept, origin, content-type",
-									"description": ""
-								},
-								{
-									"name": "Access-Control-Allow-Origin",
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"description": ""
-								},
-								{
-									"name": "Cache-Control",
-									"key": "Cache-Control",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Content-Length",
-									"key": "Content-Length",
-									"value": "504",
-									"description": ""
-								},
-								{
-									"name": "Content-Type",
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"description": ""
-								},
-								{
-									"name": "Date",
-									"key": "Date",
-									"value": "Wed, 04 Jan 2017 17:45:48 GMT",
-									"description": ""
-								},
-								{
-									"name": "Expires",
-									"key": "Expires",
-									"value": "-1",
-									"description": ""
-								},
-								{
-									"name": "Pragma",
-									"key": "Pragma",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Server",
-									"key": "Server",
-									"value": "Microsoft-IIS/8.5",
-									"description": ""
-								},
-								{
-									"name": "X-AspNet-Version",
-									"key": "X-AspNet-Version",
-									"value": "4.0.30319",
-									"description": ""
-								},
-								{
-									"name": "X-Powered-By",
-									"key": "X-Powered-By",
-									"value": "ASP.NET",
-									"description": ""
-								},
-								{
-									"name": "X-UA-Compatible",
-									"key": "X-UA-Compatible",
-									"value": "IE=edge,chrome=1",
-									"description": ""
-								}
-							],
-							"cookie": [],
-							"responseTime": "597",
-							"body": "{\"id\":\"10000001\",\"approved\":\"1\",\"message_id\":\"1\",\"message\":\"Approved\",\"auth_code\":\"TEST\",\"created\":\"2017-01-04T09:45:48\",\"order_number\":\"10000505\",\"type\":\"P\",\"payment_method\":\"CC\",\"card\":{\"card_type\":\"MC\",\"last_four\":\"1004\",\"address_match\":0,\"postal_result\":0,\"avs_result\":\"0\",\"cvd_result\":\"1\"},\"links\":[{\"rel\":\"void\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/void\",\"method\":\"POST\"},{\"rel\":\"return\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/returns\",\"method\":\"POST\"}]}"
-						},
-						{
-							"id": "d1f08ce8-153b-46c2-a4e5-7338d083dc13",
-							"name": "Approved Payment",
-							"originalRequest": {
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"name": "Access-Control-Allow-Headers",
-									"key": "Access-Control-Allow-Headers",
-									"value": "accept, origin, content-type",
-									"description": ""
-								},
-								{
-									"name": "Access-Control-Allow-Origin",
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"description": ""
-								},
-								{
-									"name": "Cache-Control",
-									"key": "Cache-Control",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Content-Length",
-									"key": "Content-Length",
-									"value": "504",
-									"description": ""
-								},
-								{
-									"name": "Content-Type",
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"description": ""
-								},
-								{
-									"name": "Date",
-									"key": "Date",
-									"value": "Wed, 04 Jan 2017 17:45:48 GMT",
-									"description": ""
-								},
-								{
-									"name": "Expires",
-									"key": "Expires",
-									"value": "-1",
-									"description": ""
-								},
-								{
-									"name": "Pragma",
-									"key": "Pragma",
-									"value": "no-cache",
-									"description": ""
-								},
-								{
-									"name": "Server",
-									"key": "Server",
-									"value": "Microsoft-IIS/8.5",
-									"description": ""
-								},
-								{
-									"name": "X-AspNet-Version",
-									"key": "X-AspNet-Version",
-									"value": "4.0.30319",
-									"description": ""
-								},
-								{
-									"name": "X-Powered-By",
-									"key": "X-Powered-By",
-									"value": "ASP.NET",
-									"description": ""
-								},
-								{
-									"name": "X-UA-Compatible",
-									"key": "X-UA-Compatible",
-									"value": "IE=edge,chrome=1",
-									"description": ""
-								}
-							],
-							"cookie": [],
-							"responseTime": "597",
-							"body": "{\"id\":\"10000001\",\"approved\":\"1\",\"message_id\":\"1\",\"message\":\"Approved\",\"auth_code\":\"TEST\",\"created\":\"2017-01-04T09:45:48\",\"order_number\":\"10000505\",\"type\":\"P\",\"payment_method\":\"CC\",\"card\":{\"card_type\":\"MC\",\"last_four\":\"1004\",\"address_match\":0,\"postal_result\":0,\"avs_result\":\"0\",\"cvd_result\":\"1\"},\"links\":[{\"rel\":\"void\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/void\",\"method\":\"POST\"},{\"rel\":\"return\",\"href\":\"https://www.beanstream.com/api/v1/payments/10000001/returns\",\"method\":\"POST\"}]}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Make Pre Auth (profile)",
@@ -3381,14 +2805,14 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"order_number\":\"{{currentOrderNumber}}\",\r\n  \"amount\": 100.00,\r\n  \"payment_method\":\"token\",\r\n  \"token\": {\r\n    \"name\":\"Jo\", \r\n    \"code\":\"{{tokenizedCC}}\",\r\n    \"complete\": false\r\n  }\r\n}"
 						},
-						"description": "Make a payment with a tokenized credit card. "
+						"description": ""
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Profiles",
+			"name": "Payment Profile",
 			"description": "",
 			"item": [
 				{
@@ -4394,7 +3818,7 @@
 			]
 		},
 		{
-			"name": "Recurring",
+			"name": "Recurring Payment",
 			"description": "",
 			"item": [
 				{
@@ -4995,7 +4419,7 @@
 			]
 		},
 		{
-			"name": "Reporting",
+			"name": "Report",
 			"description": "",
 			"item": [
 				{
@@ -5176,7 +4600,7 @@
 			]
 		},
 		{
-			"name": "Tokenization",
+			"name": "Token",
 			"description": "",
 			"item": [
 				{

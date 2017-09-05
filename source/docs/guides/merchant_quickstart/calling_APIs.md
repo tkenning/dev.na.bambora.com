@@ -23,7 +23,7 @@ We use the command-line tool cURL for all HTTP request examples in this guide. c
 
 ### Postman
 
-For fans of of the HTTP Client [Postman](https://www.getpostman.com), we offer a comprehensive <a href="../../../../resources/postman/Beanstream.postman_collection.json" download>collection</a> of requests and an <a href="../../../../resources/postman/Beanstream.postman_environment.json" download>environment</a>. The collection uses the pre and post request scripts to set authentication headers and record transaction IDs. Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
+For fans of of the HTTP Client [Postman](https://www.getpostman.com), we offer a comprehensive <a href="../../../../resources/postman/Bambora.postman_collection.json" download>collection</a> of requests and an <a href="../../../../resources/postman/Bambora.postman_environment.json" download>environment</a>. The collection uses the pre and post request scripts to set authentication headers and record transaction IDs. Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes.
 
 > Note: Most of your Postman queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
 
