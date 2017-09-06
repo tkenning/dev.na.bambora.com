@@ -1,5 +1,5 @@
 ---
-title: Checkout
+title: Linking to Checkout
 layout: tutorial
 
 summary: Checkout provides you with an easy-to-use way to process payments on your site.
