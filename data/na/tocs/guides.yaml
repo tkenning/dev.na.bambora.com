@@ -22,5 +22,7 @@
   title: 'Visa Checkout'
 - file: '/docs/guides/interac_online'
   title: 'Interac Online'
+- file: '/docs/guides/batch_payment'
+  title: 'Batch Payment'
 - file: '/docs/guides/SSL'
   title: 'SSL'
