@@ -34,7 +34,7 @@ A Masterpass payment involves three steps for a merchant.
 
 1. Retrieve a redirect URL from our Payment API.
 2. Redirect the user to Masterpass and handle the return redirect from Masterpass.
-3. Complete the payment on out Payment API.
+3. Complete the payment on our Payment API.
 
 ### Caveats
 
