@@ -1,5 +1,5 @@
 ---
-title: Batch Payment
+title: Batch Payment Report
 layout: tutorial
 
 summary: >
@@ -19,8 +19,7 @@ You can get individual transactions by ID using the `/payments/{transId}` endpoi
 
 You can report on batches of funds transfers using the `/scripts/reporting/report.aspx ` endpoint. This is covered in a separate document.
 
-## Authorising requests
-
+## Authorizing requests
 
 ## Request format
 
