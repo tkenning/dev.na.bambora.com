@@ -26,9 +26,9 @@ The Batch Report API allows you to query the status of batches and individual tr
 
 ## Settlement flow
 
-Batches of funds transfer transactions are processed at 1100 PST (AM) each day. Batches submitted after this time will be processed the following day.
+Batches of credit card transactions can be processed immediately, on upload, or they can be scheduled to be processed on a certain date. Scheduled batches of credit card transactions are processed at 0600 PST (AM) each day. 
 
-Batches of credit card transactions are processed at 0600 PST (AM) each day. You also have the option to have card transactions processed immediately, on upload.
+Batches of funds transfer transactions take multiple days to process. Batches submitted before 1100 PST (AM) can be scheduled to begin processing on the same day. Batches submitted after this time will be processed the following day. 
 
 ### Funds transfers
 
