@@ -25,9 +25,9 @@ Any parameters passed within the hashed string is secure and cannot be modified.
 
 You can quickly create links for testing or one-off payments using this [form](https://dev.na.bambora.com/docs/forms/link_builder/).
 
-## Authorisation
+## Authorization
 
-Checkout links are authorised by passing your Merchant ID and a string hashed with your Hash Key. You can find both in the [Member Area](https://web.na.bambora.com).
+Checkout links are authorized by passing your Merchant ID and a string hashed with your Hash Key. You can find both in the [Member Area](https://web.na.bambora.com).
 
 Your Merchant ID is permanently displayed at the top right corner of the screen. Your Hash Key is on the Order Settings panel. Click **administration** then **account settings**, and finally **order settings**.
 
