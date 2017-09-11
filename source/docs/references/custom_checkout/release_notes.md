@@ -14,6 +14,13 @@ navigation:
 
 # Custom Checkout Release Notes
 
+## 1.0.1
+
+**September 11, 2017**
+
+- Update the library url to support using only the MAJOR version to get the latest backwards compatible changes.
+- Properly load iFrames when non-Custom Checkout iFrames are included within the same page
+
 ## 1.0.0
 
 **August 15, 2017**
