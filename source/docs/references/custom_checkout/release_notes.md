@@ -14,11 +14,16 @@ navigation:
 
 # Custom Checkout Release Notes
 
-## v1.0.0
+## 1.0.1
+
+**September 11, 2017**
+
+- Update the library url to support using only the MAJOR version to get the latest backwards compatible changes.
+- Properly load iFrames when non-Custom Checkout iFrames are included within the same page
+
+## 1.0.0
 
 **August 15, 2017**
-
-`https://libs.na.bambora.com/customcheckout/1.0.0/customcheckout.js`
 
 - The injected inputs now have a transparent background. This allows for changing the color of the input by changing the background color of the div it is mounted to. 
 - The library now behaves correctly in IE 9, 10, and 11. 
@@ -32,11 +37,9 @@ navigation:
   - `input.blur()`: remove focus from the input
   - `input.clear()`: reset the value of the input
 
-## v0.1.1
+## 0.1.1
 
 **August 1, 2017** 
-
-`https://libs.na.bambora.com/customcheckout/0.1.1/customcheckout.js`
 
 - A hash in the URL of a page integrating custom checkout will no longer break integration.
 - Firefox and IE no longer require two tabs to switch between fields.
@@ -44,10 +47,8 @@ navigation:
 
 ---
 
-## v0.1.0
+## 0.1.0
 
 **June 26, 2017**
-
-`https://libs.na.bambora.com/customcheckout/0.1.0/customcheckout.js`
 
 - Alpha release of Custom Checkout.
