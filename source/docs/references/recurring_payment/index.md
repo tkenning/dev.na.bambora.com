@@ -18,7 +18,7 @@ navigation:
 **URL:** https://api.na.bambora.com/scripts/process_transaction.asp </br>
 **Method:** POST
 
-### Authorisation
+### Authorization
 | Parameter | Format | Description |
 |----------|--------|-------------|
 | requestType | BACKEND | Always pass "BACKEND" (case sensitive). |
@@ -63,7 +63,7 @@ navigation:
 | ordAddress1 | Max. 64 alphanumeric characters | Collect a unique street address for billing. |
 | ordAddress2 | Max. 64 alphanumeric characters | Optional variable for longer addresses. |
 | ordCity | Max. 32 alphanumeric characters | Customer's billing city. |
-| ordProvince | 2 characters | Must match a valid Province and State ID codes |
+| ordProvince | 2 characters | Must match a valid Province or State code. |
 | ordPostalCode | 16 alphanumeric characters | Customer’s postal code for billing. |
 | ordCountry | 2 characters | Must match a valid ISO Country Code |
 

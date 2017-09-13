@@ -45,9 +45,12 @@ trnApproved=1&trnId=10000677&messageId=1&messageText=Approved&trnOrderNumber=100
 
 ## Modify
 
-You can modify a recurring payment to change its amount or schedule. You can put a payment on hold or you can close it. (what's the difference?).
+You can modify a recurring payment to change its amount or schedule. You can put a payment on hold or you can close it.
 
 If a recurring payment is disabled and later reactivated back, payments will be charged unless the `processBackPayments` parameter is passed.
+
+You can only use actual card data when updating the payment card associated with a recurring payment account. Using either a single-use token, or a Payment Profile customer code will not work. We recommend that you create a new recurring payment if you need to change card data.
+
 
 You cannot update the payment card a recurring payment account using either a using a single-use token, or a Payment Profile. We recommend that you create a new recurring payment if you need to change card data.
 
@@ -75,4 +78,4 @@ The parameters posted to the webhook are the same as those returned by the API w
 **Caveat:** The callback is made over HTTPS using TLS 1.0 (rather than TLS 1.2).
 
 ### Testing redirects
-You may find it helpful to use tools that allow you to inspect and debug webhook requests like [PutsReq](http://putsreq.com) helpful while testing.
+You may find it helpful while testing to use tools that allow you to inspect and debug webhook requests like [PutsReq](http://putsreq.com).
