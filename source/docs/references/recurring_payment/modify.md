@@ -1,8 +1,8 @@
 ---
-title: Recurring Payment
+title: Recurring Payment API spec - Modify endpoint
 layout: tutorial
 
-summary: Recurring Payment.
+summary: API spec for Modify endpoint on Recurring Payment API.
 
 navigation:
     header: na.tocs.na_nav_header
@@ -28,23 +28,23 @@ navigation:
 
 | Parameter | Format | Description |
 |----------|--------|-------------|
+| serviceVersion | "1.0" | Always "1.0". |
+| operationType | "M" or "C" | "M" for modify or "C" for close |
 
-| serviceVersion |  | Always "1.0". |
-| operationType |  | "M" for modify or "C" for close |
-
-#### Transaction
+#### Schedule
 | Parameter | Format | Description |
 |----------|--------|-------------|
-| rbBillingPeriod | D, W, M, or Y | ...|
-| rbBillingIncrement | ... | ... |
-| rbBillingEndMonth | 1 or 0 | ... |
-| rbNeverExpires | 1 or 0 | ... |
-
-| processBackPayments | 1 or 0 | ... |
-
+| rbBillingPeriod | D, W, M, or Y | D for day, W for week, M for month, or Y for year. |
+| rbBillingIncrement | Numeric | Number of units in a billing period. Unit determined by rbBillingIncrement parameter. |
+| rbBillingEndMonth | 1 or 0 | Charge on last day in month. |
+| rbNeverExpires | 1 or 0 | Alternative to rbExpiry parameter. |
+| processBackPayments | 1 or 0 | Only relevant to transactions updating the billing state to Active. Controls whether missed payments are charged. |
 | rbAccountId | Up to 10 digits | The identifier of the recurring payment to be modified. |
 | Amount | Max. 9-digits | The new amount. |
 | rbBillingState | O, C, or A | "O" to pause payments by putting an account on hold. "C" to close the recurring account. "A" – to reactivate an account that was on hold or closed. |
+| rbFirstBilling | 8 digits | Date of the first charge against the customer’s recurring billing account. Passing a new value in this field overrides the data in the system even if the existing First Billing date has already passed. |
+| rbSecondBilling | 8 digits | Date of the second charge against the customer’s recurring billing account. The second billing date is updated to reflect one full billing period after the First Billing date. Use this variable to process the second charge at a date outside the regular schedule and prorate the first payment. After the second billing date, all payments are scheduled at regular increments |
+| rbExpiry | 8 digits | Expiry date for the recurring billing account. Format MMDDYYYY. |
 
 #### Billing address
 | Parameter | Format | Description |
@@ -66,13 +66,6 @@ navigation:
 | trnCardNumber | Max. 20 digits | Customer credit card number. |
 | trnExpMonth | 2 digits | Credit card expiry month. Format MM (January = 01). |
 | trnExpYear | 2 digits | Credit card expiry year. Format YY. (2008 = 08) |
-
-#### Schedule
-| Parameter | Format | Description |
-|----------|--------|-------------|
-| rbFirstBilling | 8 digits | Date of the first charge against the customer’s recurring billing account. Passing a new value in this field overrides the data in the system even if the existing First Billing date has already passed. |
-| rbSecondBilling | 8 digits | Date of the second charge against the customer’s recurring billing account. The second billing date is updated to reflect one full billing period after the First Billing date. Use this variable to process the second charge at a date outside the regular schedule and prorate the first payment. After the second billing date, all payments are scheduled at regular increments |
-| rbExpiry | 8 digits | Expiry date for the recurring billing account. Format MMDDYYYY. |
 
 
 ##  Response codes
