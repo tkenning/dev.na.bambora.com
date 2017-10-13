@@ -1,8 +1,8 @@
 ---
-title: Recurring Payment
+title: Recurring Payment API - Overview
 layout: tutorial
 
-summary: Recurring Payment.
+summary: The Recurring Payment API allows you to schedule series of payments to automatically charge your customers every day, week, month or year.
 
 navigation:
     header: na.tocs.na_nav_header

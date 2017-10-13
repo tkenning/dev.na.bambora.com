@@ -1,8 +1,8 @@
 ---
-title: Recurring Payment
+title: Recurring Payment API spec - Create endpoint
 layout: tutorial
 
-summary: Recurring Payment.
+summary: API spec for Create endpoint on Recurring Payment API.
 
 navigation:
     header: na.tocs.na_nav_header
