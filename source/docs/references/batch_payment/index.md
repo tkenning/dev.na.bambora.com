@@ -119,6 +119,9 @@ HTTP Status: 200 OK
 - **batch_id** - A unique identifier for the batch file.
 - **process_date** - The date the transactions will begin processing.
 - **process_time_zone** - Usually "GMT-08:00".
+- **batch_mode** - Indicates whether the batch will be processed.
+  - live - If there are no errors, then the batch will be sent to the bank for processing.
+  - test - The batch will not be processed.  The merchant account is not in a live state.
 
 ### Error
 
