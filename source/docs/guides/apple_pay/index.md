@@ -166,9 +166,10 @@ func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationView
 
 ## Test Cards
 
-You can add the sample credit cards below to your Apple Wallet and use them to trigger approved responses from our gateway. You can use them on test accounts, but not on your live account.
+You can add the sample credit cards below to your Apple Wallet and use them to trigger approved responses from our gateway. You can use them on you Bambora test accounts, but not on your live account. You can use them on supported devices to test within the [Apple Pay sandbox environment](https://developer.apple.com/support/apple-pay-sandbox/).
 
-| Brand                     | Card number         | CVV   |
-|:--------------------------|:--------------------|:------|
-| Mastercard                | 5204 2477 5000 1471 | 111   |
-| American Express          | 3499 569590 41362   | 1111  |
+
+| Brand                     | Card number         | CVV   | Expiry  |
+|:--------------------------|:--------------------|:------|:--------|
+| Mastercard                | 5204 2477 5000 1471 | 111   | 11/2022 |
+| American Express          | 3499 569590 41362   | 1111  | 12/2022 |
