@@ -162,3 +162,13 @@ func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationView
 ```
 
 > Note: This iOS client is sending the payment token to our Payment APIs Demo Server, as outlined on [Github](https://github.com/bambora/na-payment-apis-demo).
+
+
+## Test Cards
+
+You can add the sample credit cards below to your Apple Wallet and use them to trigger approved responses from our gateway. You can use them on test accounts, but not on your live account.
+
+| Brand                     | Card number         | CVV   |
+|:--------------------------|:--------------------|:------|
+| Mastercard                | 5204 2477 5000 1471 | 111   |
+| American Express          | 3499 569590 41362   | 1111  |
