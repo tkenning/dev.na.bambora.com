@@ -12,12 +12,6 @@ navigation:
   header_active: Guides
 ---
 
-# Android Pay
-
-**Android Pay for Bambora is currently in closed Beta. Contact your Account Manager for early access.**
-
-[https://grow.na.bambora.com/android-pay-beta](https://grow.na.bambora.com/android-pay-beta)
-
 ## About Android Pay
 
 Our Payments API allows your mobile app and online store to accept payments through Android devices or from a desktop using Google Chome.
